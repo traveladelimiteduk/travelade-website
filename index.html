@@ -1,0 +1,4454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travelade Limited | Professional Schengen Visa Services UK</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #1E5FA8;
+            --secondary-blue: #154A84;
+            --light-blue: #2563eb;
+            --orange: #F47A20;
+            --orange-light: #FFA34D;
+            --orange-dark: #D46904;
+            --dark: #000000;
+            --gray-900: #1e293b;
+            --gray-700: #334155;
+            --gray-500: #64748b;
+            --gray-300: #cbd5e1;
+            --gray-100: #f1f5f9;
+            --gray-tagline: #8C8C8C;
+            --white: #ffffff;
+            --gradient-orange: linear-gradient(135deg, #F47A20 0%, #FFA34D 50%, #F47A20 100%);
+            --gradient-blue: linear-gradient(135deg, #1E5FA8 0%, #154A84 100%);
+            --gradient-dark: linear-gradient(135deg, #000000 0%, #1E5FA8 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--gray-700);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--dark);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Background Watermark */
+        .bg-watermark {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: clamp(150px, 25vw, 400px);
+            font-weight: 900;
+            color: rgba(13, 40, 69, 0.02);
+            white-space: nowrap;
+            pointer-events: none;
+            z-index: 0;
+            user-select: none;
+        }
+
+        .bg-watermark span {
+            color: rgba(230, 92, 0, 0.03);
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 10px 0;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .navbar.scrolled {
+            padding: 6px 0;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 52px;
+            width: auto;
+            transition: transform 0.3s;
+        }
+
+        .logo:hover .logo-img {
+            transform: scale(1.05);
+        }
+
+        .logo-text-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-blue);
+            line-height: 1;
+        }
+
+        .logo-text span {
+            color: var(--primary-blue);
+        }
+
+        .logo-text .logo-ade {
+            color: var(--orange);
+        }
+
+        .logo-tagline {
+            font-size: 8px;
+            color: var(--gray-tagline);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-top: 3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray-700);
+            font-weight: 500;
+            font-size: 13px;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--orange);
+        }
+
+        .nav-cta {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 11px 22px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 13px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--gradient-orange);
+            color: white;
+            box-shadow: 0 4px 15px rgba(230, 92, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(230, 92, 0, 0.4);
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--orange);
+        }
+
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255,255,255,0.2);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            background: #128C7E;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 22px;
+            color: var(--primary-blue);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #6DB3F2 0%, #1E5FA8 50%, #154A84 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            padding-top: 70px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(244, 122, 32, 0.4) 0%, transparent 40%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 40%);
+        }
+
+        /* Animated Background Elements */
+        .hero-bg-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .bg-plane {
+            position: absolute;
+            font-size: 80px;
+            color: rgba(244, 122, 32, 0.15);
+            animation: floatPlane 15s ease-in-out infinite;
+        }
+
+        .bg-plane:nth-child(1) {
+            top: 15%;
+            right: 5%;
+            animation-delay: 0s;
+        }
+
+        .bg-plane:nth-child(2) {
+            bottom: 20%;
+            left: 3%;
+            font-size: 50px;
+            animation-delay: -5s;
+            color: rgba(37, 99, 235, 0.1);
+        }
+
+        .bg-globe {
+            position: absolute;
+            font-size: 400px;
+            color: rgba(255, 255, 255, 0.08);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: rotateSlow 60s linear infinite;
+            filter: drop-shadow(0 0 50px rgba(30, 95, 168, 0.3));
+        }
+
+        .bg-dots {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        @keyframes floatPlane {
+            0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); }
+            25% { transform: translateY(-20px) translateX(10px) rotate(3deg); }
+            50% { transform: translateY(-10px) translateX(20px) rotate(-2deg); }
+            75% { transform: translateY(-30px) translateX(5px) rotate(2deg); }
+        }
+
+        @keyframes rotateSlow {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-left {
+            animation: slideInLeft 1s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .hero-left h1 {
+            font-size: 54px;
+            line-height: 1.1;
+            color: #000000;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .hero-left h1 span {
+            color: #000000;
+        }
+
+        .hero-heading-orange {
+            color: #000000 !important;
+        }
+
+        .hero-left p {
+            font-size: 17px;
+            color: #000000;
+            margin-bottom: 28px;
+            line-height: 1.8;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+            font-weight: 500;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 35px;
+            padding-top: 28px;
+            border-top: 2px solid rgba(0,0,0,0.1);
+            animation: fadeInUp 0.8s ease-out 0.8s both;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Inter', sans-serif;
+            font-size: 38px;
+            font-weight: 800;
+            color: #000000;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: #333333;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 2px;
+            font-weight: 600;
+        }
+
+        .hero-right {
+            position: relative;
+            animation: slideInRight 1s ease-out 0.3s both;
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .hero-card {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 28px;
+            padding: 36px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+        }
+
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(230,92,0,0.3) 0%, transparent 70%);
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+
+        .card-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #000000;
+            color: #FFFFFF;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-badge i {
+            animation: blink 1.5s infinite;
+            color: #F47A20;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .card-title {
+            font-size: 22px;
+            color: #ffffff;
+            margin-bottom: 14px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .card-features {
+            list-style: none;
+            margin: 20px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-size: 13px;
+            font-weight: 500;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+        }
+
+        .card-features li i {
+            color: #ffffff;
+            font-size: 13px;
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+        }
+
+        .card-price {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            margin: 20px 0;
+            padding: 14px;
+            background: rgba(0, 0, 0, 0.15);
+            border-radius: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .price-main {
+            font-size: 42px;
+            font-weight: 800;
+            color: #ffffff;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
+        }
+
+        .price-text {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 13px;
+            font-weight: 500;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+        }
+
+        .card-cta {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-cta .btn {
+            flex: 1;
+            justify-content: center;
+            padding: 12px 16px;
+        }
+
+        /* Quick Contact Form in Hero */
+        .hero-form {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-form h4 {
+            color: white;
+            font-size: 14px;
+            margin-bottom: 14px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .hero-form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .hero-form input,
+        .hero-form select {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 10px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-size: 12px;
+        }
+
+        .hero-form input::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .hero-form select option {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .hero-form .btn {
+            width: 100%;
+            margin-top: 4px;
+        }
+
+        /* Trust Bar */
+        .trust-bar {
+            background: var(--white);
+            padding: 16px 0;
+            border-bottom: 1px solid var(--gray-100);
+            position: relative;
+            z-index: 10;
+        }
+
+        .trust-items {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray-700);
+            font-weight: 500;
+            font-size: 13px;
+        }
+
+        .trust-item i {
+            color: var(--orange);
+            font-size: 16px;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 90px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--orange);
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 14px;
+        }
+
+        .section-label::before,
+        .section-label::after {
+            content: '';
+            width: 30px;
+            height: 2px;
+            background: var(--orange);
+        }
+
+        .section-title {
+            font-size: 38px;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .section-desc {
+            font-size: 16px;
+            color: var(--gray-500);
+        }
+
+        /* Services Section */
+        .services {
+            background: var(--gray-100);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 36px 28px;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+            transform: translateY(0);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-orange);
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+            border-color: rgba(230, 92, 0, 0.2);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 22px;
+            color: white;
+            font-size: 28px;
+            transition: transform 0.4s;
+        }
+
+        .service-card:hover .service-icon {
+            transform: rotateY(180deg);
+        }
+
+        .service-card:nth-child(2) .service-icon {
+            background: var(--gradient-orange);
+        }
+
+        .service-card:nth-child(3) .service-icon {
+            background: linear-gradient(135deg, #059669, #10b981);
+        }
+
+        .service-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            color: var(--gray-500);
+            margin-bottom: 18px;
+            font-size: 13px;
+        }
+
+        .service-features {
+            list-style: none;
+        }
+
+        .service-features li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray-700);
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .service-features li i {
+            color: var(--orange);
+            font-size: 11px;
+        }
+
+        /* Process Section */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+            position: relative;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 48px;
+            left: 10%;
+            right: 10%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--orange), var(--primary-blue), var(--orange));
+            z-index: 0;
+            border-radius: 2px;
+            animation: lineFlow 3s ease-in-out infinite;
+        }
+
+        @keyframes lineFlow {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-number {
+            width: 76px;
+            height: 76px;
+            background: var(--gradient-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 26px;
+            font-weight: 800;
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 8px 30px rgba(230, 92, 0, 0.3);
+            border: 4px solid white;
+            transition: transform 0.3s;
+        }
+
+        .process-step:hover .step-number {
+            transform: scale(1.1);
+        }
+
+        .step-title {
+            font-size: 14px;
+            margin-bottom: 6px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
+
+        .step-desc {
+            font-size: 12px;
+            color: var(--gray-500);
+        }
+
+        /* Countries Section */
+        .countries {
+            background: var(--primary-blue);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .countries::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 60%;
+            height: 200%;
+            background: radial-gradient(ellipse, rgba(244, 122, 32, 0.2) 0%, transparent 60%);
+        }
+
+        .countries .section-label {
+            color: var(--orange);
+        }
+
+        .countries .section-label::before,
+        .countries .section-label::after {
+            background: var(--orange);
+        }
+
+        .countries .section-title {
+            color: white;
+        }
+
+        .countries .section-desc {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .countries-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 16px;
+        }
+
+        .country-card {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 20px 14px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .country-card::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--orange);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .country-card:hover {
+            background: rgba(255,255,255,0.12);
+            transform: translateY(-5px);
+            border-color: var(--orange);
+        }
+
+        .country-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .country-flag {
+            font-size: 36px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .country-flag svg, .country-flag img {
+            width: 48px;
+            height: 32px;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .country-name {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .country-type {
+            font-size: 10px;
+            color: var(--orange);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Landmark Images Section */
+        .landmarks {
+            background: var(--gray-100);
+            padding: 60px 0;
+        }
+
+        /* Reviews Section */
+        .reviews {
+            background: var(--white);
+            overflow: hidden;
+        }
+
+        .reviews-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .reviews-header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .google-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #f8f9fa;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .google-badge img {
+            width: 18px;
+            height: 18px;
+        }
+
+        .reviews-rating {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .reviews-rating .stars {
+            color: #FBAD18;
+            font-size: 18px;
+        }
+
+        .reviews-rating span {
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .landmarks-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .reviews-slider {
+            position: relative;
+        }
+
+        .reviews-track {
+            display: flex;
+            gap: 24px;
+            animation: scrollReviews 25s linear infinite;
+        }
+
+        @keyframes scrollReviews {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @keyframes scrollReviews {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .reviews-track:hover {
+            animation-play-state: paused;
+        }
+
+        .review-card {
+            flex: 0 0 380px;
+            background: var(--gray-100);
+            border-radius: 20px;
+            padding: 28px;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .review-quote {
+            font-size: 40px;
+            color: var(--orange);
+            opacity: 0.3;
+            position: absolute;
+            top: 16px;
+            right: 24px;
+            line-height: 1;
+        }
+
+        .review-stars {
+            color: #FBAD18;
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+        .review-text {
+            font-size: 14px;
+            color: var(--gray-700);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .review-avatar {
+            width: 44px;
+            height: 44px;
+            background: var(--gradient-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .review-meta h5 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary-blue);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .review-meta p {
+            font-size: 12px;
+            color: var(--gray-500);
+        }
+
+        .review-verified {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 11px;
+            color: #1a7f37;
+            font-weight: 600;
+        }
+
+        .review-verified i {
+            font-size: 10px;
+        }
+
+        .review-country {
+            display: inline-block;
+            background: rgba(230, 92, 0, 0.1);
+            color: var(--orange);
+            padding: 4px 10px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-top: 12px;
+        }
+
+        .reviews-cta {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .reviews-cta a {
+            color: var(--orange);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .reviews-cta a:hover {
+            text-decoration: underline;
+        }
+
+        .landmark-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 250px;
+            cursor: pointer;
+        }
+
+        .landmark-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .landmark-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .landmark-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+        }
+
+        .landmark-overlay h4 {
+            color: white;
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        .landmark-overlay span {
+            font-size: 12px;
+            color: var(--orange);
+        }
+
+        /* What You Need Section */
+        .requirements {
+            background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+        }
+
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .requirement-card {
+            background: white;
+            border-radius: 20px;
+            padding: 32px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .requirement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(30, 95, 168, 0.15);
+            border-color: var(--primary-blue);
+        }
+
+        .req-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+            color: white;
+            box-shadow: 0 8px 25px rgba(30, 95, 168, 0.3);
+        }
+
+        .requirement-card h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+
+        .requirement-card p {
+            font-size: 14px;
+            color: var(--gray-500);
+            line-height: 1.6;
+        }
+
+        /* Documents Section */
+        #documents {
+            background: linear-gradient(180deg, #f0f4f8 0%, #e8eef4 100%);
+        }
+
+        .documents-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+        }
+
+        .doc-category {
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 20px;
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s;
+            border: 1px solid rgba(30, 95, 168, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .doc-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .doc-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--orange);
+        }
+
+        .doc-category h3 {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+        }
+
+        .doc-category h3 i {
+            color: var(--orange);
+            font-size: 20px;
+        }
+
+        .doc-list {
+            list-style: none;
+        }
+
+        .doc-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--gray-300);
+            font-size: 13px;
+        }
+
+        .doc-list li:last-child {
+            border-bottom: none;
+        }
+
+        .doc-list li i {
+            color: var(--secondary-blue);
+            margin-top: 2px;
+            font-size: 12px;
+        }
+
+        .doc-note {
+            background: linear-gradient(135deg, rgba(230, 92, 0, 0.08), rgba(230, 92, 0, 0.03));
+            border-left: 4px solid var(--orange);
+            padding: 18px 22px;
+            border-radius: 0 12px 12px 0;
+            margin-top: 28px;
+            font-size: 13px;
+            color: var(--gray-700);
+        }
+
+        .doc-note i {
+            color: var(--orange);
+            margin-right: 8px;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background: var(--dark);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 50%, rgba(244, 122, 32, 0.25) 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(30, 95, 168, 0.2) 0%, transparent 50%);
+        }
+
+        .pricing .section-header {
+            position: relative;
+            z-index: 1;
+        }
+
+        .pricing .section-label {
+            color: var(--orange);
+        }
+
+        .pricing .section-label::before,
+        .pricing .section-label::after {
+            background: var(--orange);
+        }
+
+        .pricing .section-title {
+            color: white;
+        }
+
+        .pricing .section-desc {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pricing-card {
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 24px;
+            padding: 36px 28px;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .pricing-card.featured {
+            background: rgba(255,255,255,0.12);
+            border: 2px solid var(--orange);
+            transform: scale(1.05);
+            position: relative;
+        }
+
+        .pricing-card.featured::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient-orange);
+            color: white;
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .pricing-card h3 {
+            color: white;
+            font-size: 20px;
+            margin-bottom: 6px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .pricing-card .price {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--orange);
+            margin: 18px 0;
+        }
+
+        .pricing-card .price span {
+            font-size: 13px;
+            color: rgba(255,255,255,0.6);
+            font-weight: 400;
+        }
+
+        .pricing-card .desc {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 22px;
+            font-size: 13px;
+        }
+
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 28px;
+        }
+
+        .pricing-features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: 13px;
+        }
+
+        .pricing-features li i {
+            color: var(--orange);
+        }
+
+        .pricing-card .btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* Timeline Section */
+        .timeline {
+            background: var(--gray-100);
+        }
+
+        .timeline-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 28px;
+            margin-bottom: 36px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 34px;
+            top: 68px;
+            bottom: -36px;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--orange), var(--gray-300));
+        }
+
+        .timeline-item:last-child::before {
+            display: none;
+        }
+
+        .timeline-marker {
+            width: 68px;
+            height: 68px;
+            background: var(--gradient-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            flex-shrink: 0;
+            box-shadow: 0 8px 25px rgba(230, 92, 0, 0.3);
+            border: 4px solid white;
+            transition: transform 0.3s;
+        }
+
+        .timeline-item:hover .timeline-marker {
+            transform: scale(1.1);
+        }
+
+        .timeline-item:nth-child(even) .timeline-marker {
+            background: var(--gradient-blue);
+        }
+
+        .timeline-body {
+            flex: 1;
+            background: white;
+            padding: 22px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .timeline-body:hover {
+            transform: translateX(5px);
+        }
+
+        .timeline-body h4 {
+            font-size: 16px;
+            margin-bottom: 6px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .timeline-body p {
+            color: var(--gray-500);
+            font-size: 13px;
+        }
+
+        .timeline-body .duration {
+            display: inline-block;
+            background: var(--orange);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        /* Refund Section */
+        .refund-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .refund-card {
+            background: var(--gray-100);
+            border-radius: 20px;
+            padding: 28px;
+            border-left: 4px solid var(--orange);
+            transition: transform 0.3s;
+        }
+
+        .refund-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .refund-card.positive {
+            border-left-color: #10b981;
+        }
+
+        .refund-card.negative {
+            border-left-color: #ef4444;
+        }
+
+        .refund-card h4 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 15px;
+            margin-bottom: 18px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .refund-card h4 i {
+            font-size: 18px;
+        }
+
+        .refund-card h4 i.fa-check-circle {
+            color: #10b981;
+        }
+
+        .refund-card h4 i.fa-times-circle {
+            color: #ef4444;
+        }
+
+        .refund-card h4 i.fa-clock {
+            color: var(--orange);
+        }
+
+        .refund-card ul {
+            list-style: none;
+        }
+
+        .refund-card ul li {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 10px;
+            font-size: 13px;
+            color: var(--gray-700);
+        }
+
+        .refund-card ul li i {
+            margin-top: 3px;
+            font-size: 11px;
+        }
+
+        .refund-card.positive ul li i {
+            color: #10b981;
+        }
+
+        .refund-card.negative ul li i {
+            color: #ef4444;
+        }
+
+        .refund-card ul li i.fa-check,
+        .refund-card ul li i.fa-minus {
+            color: var(--orange);
+        }
+
+        /* Blogs Section - Moving Carousel */
+        .blogs {
+            background: var(--gray-100);
+            overflow: hidden;
+        }
+
+        .blogs-wrapper {
+            position: relative;
+        }
+
+        .blogs-track {
+            display: flex;
+            gap: 28px;
+            animation: scrollLeft 20s linear infinite;
+        }
+
+        @keyframes scrollLeft {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @keyframes scrollLeft {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .blogs-track:hover {
+            animation-play-state: paused;
+        }
+
+        .blog-card {
+            flex: 0 0 380px;
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .blog-image {
+            height: 180px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: transform 0.5s;
+        }
+
+        .blog-card:hover .blog-image img {
+            transform: scale(1.1);
+        }
+
+        .blog-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(transparent, rgba(13, 40, 69, 0.4));
+            z-index: 1;
+        }
+
+        .blog-content {
+            padding: 22px;
+        }
+
+        .blog-category {
+            display: inline-block;
+            background: rgba(230, 92, 0, 0.1);
+            color: var(--orange);
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .blog-content h3 {
+            font-size: 16px;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .blog-content p {
+            color: var(--gray-500);
+            font-size: 12px;
+            margin-bottom: 14px;
+        }
+
+        .blog-link {
+            color: var(--orange);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.3s;
+        }
+
+        .blog-link:hover {
+            gap: 10px;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: var(--orange);
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 50%);
+            animation: rotateSlow 20s linear infinite;
+        }
+
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 14px;
+            color: white;
+            position: relative;
+        }
+
+        .cta p {
+            font-size: 17px;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 28px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            position: relative;
+        }
+
+        .cta .btn-white {
+            background: white;
+            color: var(--orange);
+        }
+
+        .cta .btn-outline-white {
+            border: 2px solid white;
+            color: white;
+            background: transparent;
+        }
+
+        .cta .btn-outline-white:hover {
+            background: white;
+            color: var(--orange);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--dark);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(244, 122, 32, 0.15), transparent 60%);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info h2 {
+            color: white;
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+
+        .contact-info > p {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 28px;
+            line-height: 1.7;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+
+        .contact-item-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(230, 92, 0, 0.25);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--orange);
+            font-size: 18px;
+        }
+
+        .contact-item h4 {
+            color: white;
+            font-size: 14px;
+            margin-bottom: 3px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .contact-item p {
+            color: rgba(255,255,255,0.7);
+            font-size: 13px;
+            margin: 0;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 28px;
+        }
+
+        .social-link {
+            width: 42px;
+            height: 42px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: var(--orange);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .contact-form {
+            background: rgba(255,255,255,0.06);
+            border-radius: 24px;
+            padding: 36px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 10px;
+            background: rgba(255,255,255,0.06);
+            color: white;
+            font-size: 13px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255,255,255,0.4);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--orange);
+        }
+
+        .form-group select option {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .contact-form .btn {
+            width: 100%;
+            justify-content: center;
+            margin-top: 6px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: rgba(255,255,255,0.7);
+            padding: 50px 0 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -10%;
+            transform: translateY(-50%);
+            width: 800px;
+            height: auto;
+            aspect-ratio: 1133/339;
+            background: url('logo-fetched.jpg') no-repeat center center;
+            background-size: 100% auto;
+            opacity: 0.08;
+            pointer-events: none;
+            mix-blend-mode: lighten;
+            filter: brightness(0) saturate(100%);
+        }
+
+        .footer::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -10%;
+            width: 600px;
+            height: auto;
+            aspect-ratio: 1133/339;
+            background: url('logo-fetched.jpg') no-repeat center center;
+            background-size: 100% auto;
+            opacity: 0.05;
+            pointer-events: none;
+            mix-blend-mode: lighten;
+            filter: brightness(0) saturate(100%);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 16px;
+        }
+
+        .footer-brand .logo-text {
+            color: white;
+        }
+
+        .footer-brand p {
+            font-size: 13px;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Secondary Logo */
+        .logo-secondary {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            margin-bottom: 20px;
+        }
+
+        .logo-secondary-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-secondary-icon::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 60%);
+        }
+
+        .logo-secondary-icon svg {
+            width: 32px;
+            height: 32px;
+            fill: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo-secondary-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-secondary-name {
+            font-family: 'Inter', sans-serif;
+            font-size: 22px;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+
+        .logo-secondary-name .travel {
+            color: white;
+        }
+
+        .logo-secondary-name .ade {
+            color: var(--orange);
+        }
+
+        .logo-secondary-tagline {
+            font-size: 9px;
+            color: rgba(255,255,255,0.6);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-top: 2px;
+        }
+
+        .logo-secondary-horizontal {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo-secondary-horizontal .logo-secondary-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+        }
+
+        .logo-secondary-horizontal .logo-secondary-icon svg {
+            width: 26px;
+            height: 26px;
+        }
+
+        .logo-secondary-horizontal .logo-secondary-name {
+            font-size: 20px;
+        }
+
+        .logo-secondary-horizontal .logo-secondary-tagline {
+            font-size: 8px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-size: 14px;
+            margin-bottom: 16px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 13px;
+            transition: all 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--orange);
+            padding-left: 4px;
+        }
+
+        .footer-links a i {
+            margin-right: 8px;
+            color: var(--orange);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-bottom-links a {
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--orange);
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 999;
+        }
+
+        .whatsapp-float a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 58px;
+            height: 58px;
+            background: #25D366;
+            border-radius: 50%;
+            color: white;
+            font-size: 26px;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            text-decoration: none;
+            transition: all 0.3s;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .whatsapp-float a:hover {
+            transform: scale(1.1);
+        }
+
+        /* Country Modal */
+        .country-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .country-modal.active {
+            display: flex;
+        }
+
+        .modal-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            position: relative;
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            animation: modalSlide 0.3s ease;
+        }
+
+        @keyframes modalSlide {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--gray-100);
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            color: var(--gray-700);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            background: var(--orange);
+            color: white;
+        }
+
+        .modal-header {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .modal-flag {
+            width: 100px;
+            height: 67px;
+            margin: 0 auto 16px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+        }
+
+        .modal-flag svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .modal-flag svg, .modal-flag img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .modal-header h3 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .modal-header p {
+            color: var(--gray-500);
+            font-size: 14px;
+        }
+
+        .modal-discount {
+            background: linear-gradient(135deg, rgba(230, 92, 0, 0.1), rgba(230, 92, 0, 0.05));
+            border: 2px solid var(--orange);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .modal-discount .old-price {
+            text-decoration: line-through;
+            color: var(--gray-500);
+            font-size: 16px;
+        }
+
+        .modal-discount .new-price {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--orange);
+        }
+
+        .modal-discount .label {
+            background: var(--orange);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 8px;
+        }
+
+        .modal-form .form-group {
+            margin-bottom: 16px;
+        }
+
+        .modal-form label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--gray-700);
+        }
+
+        .modal-form input,
+        .modal-form select,
+        .modal-form textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border: 2px solid var(--gray-300);
+            border-radius: 10px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+            background: white;
+            color: var(--gray-900);
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .modal-form input::placeholder {
+            color: var(--gray-500);
+        }
+
+        .modal-form select {
+            cursor: pointer;
+        }
+
+        .modal-form select option {
+            background: white;
+            color: var(--gray-700);
+        }
+
+        .modal-form input:focus,
+        .modal-form select:focus,
+        .modal-form textarea:focus {
+            outline: none;
+            border-color: var(--orange);
+        }
+
+        .modal-form textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .modal-form .btn {
+            width: 100%;
+            justify-content: center;
+            padding: 14px;
+            font-size: 15px;
+        }
+
+        .modal-features {
+            list-style: none;
+            margin-bottom: 24px;
+            background: var(--gray-100);
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .modal-features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 13px;
+        }
+
+        .modal-features li i {
+            color: var(--orange);
+        }
+
+        .modal-note {
+            text-align: center;
+            font-size: 12px;
+            color: var(--gray-500);
+            margin-top: 16px;
+        }
+
+        /* Scroll Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Country Inquiry Modal */
+        .country-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            backdrop-filter: blur(5px);
+        }
+
+        .country-modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 24px;
+            max-width: 500px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalSlideUp 0.4s ease;
+        }
+
+        @keyframes modalSlideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .modal-header {
+            background: var(--gradient-orange);
+            padding: 24px;
+            color: white;
+            border-radius: 24px 24px 0 0;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .modal-close:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .modal-header h3 {
+            color: white;
+            font-size: 22px;
+            margin-bottom: 6px;
+        }
+
+        .modal-header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .modal-flag {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .modal-body {
+            padding: 24px;
+        }
+
+        .modal-badge {
+            display: inline-block;
+            background: rgba(230, 92, 0, 0.1);
+            color: var(--orange);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .modal-form .form-group {
+            margin-bottom: 16px;
+        }
+
+        .modal-form label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--gray-700);
+            margin-bottom: 6px;
+        }
+
+        .modal-form input,
+        .modal-form select,
+        .modal-form textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid var(--gray-300);
+            border-radius: 10px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .modal-form input:focus,
+        .modal-form select:focus,
+        .modal-form textarea:focus {
+            outline: none;
+            border-color: var(--orange);
+        }
+
+        .modal-form select option {
+            background: white;
+            color: var(--gray-700);
+        }
+
+        .modal-form textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .modal-submit {
+            background: var(--gradient-orange);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 14px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.3s;
+            margin-top: 10px;
+        }
+
+        .modal-submit:hover {
+            transform: translateY(-2px);
+        }
+
+        .modal-features {
+            background: var(--gray-100);
+            padding: 16px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .modal-features h4 {
+            font-size: 14px;
+            margin-bottom: 10px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .modal-features ul {
+            list-style: none;
+        }
+
+        .modal-features li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: var(--gray-700);
+            margin-bottom: 6px;
+        }
+
+        .modal-features li i {
+            color: var(--orange);
+        }
+
+        /* Urgent Banner */
+        .urgent-banner {
+            background: linear-gradient(135deg, #dc2626, #ef4444);
+            color: white;
+            padding: 8px 16px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 600;
+            animation: pulse-bg 2s infinite;
+        }
+
+        @keyframes pulse-bg {
+            0%, 100% { background: linear-gradient(135deg, #dc2626, #ef4444); }
+            50% { background: linear-gradient(135deg, #b91c1c, #dc2626); }
+        }
+
+        /* Urgent CTA Section */
+        .urgent-cta {
+            background: linear-gradient(135deg, #F47A20 0%, #D46904 100%);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .urgent-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(255, 163, 77, 0.5) 0%, transparent 50%);
+        }
+
+        .urgent-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .urgent-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(220, 38, 38, 0.3);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            animation: pulse-badge 1.5s infinite;
+        }
+
+        @keyframes pulse-badge {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .urgent-badge i {
+            animation: flash 1s infinite;
+        }
+
+        @keyframes flash {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .urgent-cta h2 {
+            font-size: 44px;
+            color: #000000;
+            margin-bottom: 16px;
+            line-height: 1.2;
+            font-weight: 800;
+        }
+
+        .urgent-cta h2 span {
+            color: #000000;
+        }
+
+        .urgent-cta > .container > .urgent-content > p {
+            font-size: 18px;
+            color: #000000;
+            margin-bottom: 32px;
+            line-height: 1.8;
+            font-weight: 500;
+        }
+
+        .urgency-features {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .urgency-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #000000;
+            font-weight: 700;
+        }
+
+        .urgency-feature i {
+            color: #000000;
+            font-size: 20px;
+        }
+
+        .urgent-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .urgent-buttons .btn {
+            padding: 16px 32px;
+            font-size: 15px;
+        }
+
+        .urgent-buttons .btn-primary {
+            background: #000000;
+            color: var(--orange);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .urgent-buttons .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .urgent-buttons .btn-outline:hover {
+            background: white;
+            color: var(--orange);
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .countries-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-cta {
+                justify-content: center;
+            }
+
+            .hero-form-row {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-steps {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .process-steps::before {
+                display: none;
+            }
+
+            .countries-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .landmarks-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .pricing-cards {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .hero-left h1 {
+                font-size: 32px;
+            }
+
+            .hero-stats {
+                flex-wrap: wrap;
+                gap: 16px;
+            }
+
+            .stat-item {
+                flex: 1 1 70px;
+            }
+
+            .section-title {
+                font-size: 26px;
+            }
+
+            .services-grid,
+            .documents-grid,
+            .refund-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .countries-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .landmarks-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 14px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .cta-buttons .btn {
+                width: 100%;
+            }
+
+            .bg-plane,
+            .bg-globe {
+                display: none;
+            }
+
+            .hero-form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-card {
+                flex: 0 0 320px;
+            }
+        }
+
+        /* Fade In Animation */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Watermark -->
+    <div class="bg-watermark">Travelade<span>Limited</span></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-content">
+            <a href="#" class="logo">
+                <img src="logo-fetched.jpg" alt="Travelade" class="logo-img">
+                <div class="logo-text-group">
+                    <div class="logo-text"><span>Travel</span><span class="logo-ade">ade</span></div>
+                    <div class="logo-tagline">Travel & Visa Consultancy</div>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#process">How It Works</a></li>
+                <li><a href="#countries">Countries</a></li>
+                <li><a href="#requirements">Requirements</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#blogs">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-cta">
+                <button class="mobile-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg-elements">
+            <div class="bg-dots"></div>
+            <i class="fas fa-plane bg-plane"></i>
+            <i class="fas fa-plane bg-plane"></i>
+            <i class="fas fa-globe bg-globe"></i>
+        </div>
+        <div class="container hero-content">
+            <div class="hero-left">
+                <h1>Your Gateway to <span class="hero-heading-orange">Schengen Europe</span></h1>
+                <p>UK's trusted Schengen visa specialists. We handle your complete visa file — from VFS Global appointment booking to document preparation and embassy filing — with a 99% approval track record.</p>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary" style="width: 100%;">
+                        <i class="fas fa-paper-plane"></i> Start Application
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">99%</div>
+                        <div class="stat-label">Approval Rate</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">5000+</div>
+                        <div class="stat-label">Cases Handled</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">48hrs</div>
+                        <div class="stat-label">File Prep Time</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="hero-card">
+                    <div class="card-badge">
+                        <i class="fas fa-circle"></i>
+                        Limited Slots Available
+                    </div>
+                    <h3 class="card-title">Book Your Schengen Visa Appointment</h3>
+                    <ul class="card-features">
+                        <li><i class="fas fa-check-circle"></i> VFS Global appointment secured</li>
+                        <li><i class="fas fa-check-circle"></i> Application form filling & submission</li>
+                        <li><i class="fas fa-check-circle"></i> Filing all extra required documents</li>
+                        <li><i class="fas fa-check-circle"></i> Cover letter & itinerary drafting</li>
+                        <li><i class="fas fa-check-circle"></i> Hotel & travel booking proofs</li>
+                        <li><i class="fas fa-check-circle"></i> Travel health insurance arranged</li>
+                        <li><i class="fas fa-check-circle"></i> 1-to-1 case handling</li>
+                    </ul>
+                    <div class="card-price">
+                        <span class="price-main">£50</span>
+                        <span class="price-text">Starting from / appointment booking</span>
+                    </div>
+                    <div class="card-cta">
+                        <a href="#contact" class="btn btn-primary">Apply Now</a>
+                        <a href="https://wa.me/923006690701" class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                    <div class="hero-form">
+                        <h4>Quick Contact Form</h4>
+                        <div class="hero-form-row">
+                            <input type="text" placeholder="Your Name">
+                            <input type="email" placeholder="Your Email">
+                        </div>
+                        <div class="hero-form-row">
+                            <select>
+                                <option value="">Destination</option>
+                                <option value="germany">Germany</option>
+                                <option value="france">France</option>
+                                <option value="italy">Italy</option>
+                                <option value="spain">Spain</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <input type="tel" placeholder="Phone/WhatsApp">
+                        </div>
+                        <a href="#contact" class="btn btn-white">
+                            <i class="fas fa-arrow-right"></i> Get Free Consultation
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Bar -->
+    <section class="trust-bar">
+        <div class="container">
+            <div class="trust-items">
+                <div class="trust-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>UK Registered Company</span>
+                </div>
+                <div class="trust-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Avg. Response: 20-30 mins</span>
+                </div>
+                <div class="trust-item">
+                    <i class="fas fa-user-check"></i>
+                    <span>1-to-1 Case Handling</span>
+                </div>
+                <div class="trust-item">
+                    <i class="fas fa-file-check"></i>
+                    <span>File Review Before Submission</span>
+                </div>
+                <div class="trust-item">
+                    <i class="fas fa-star"></i>
+                    <span>Google Verified Reviews</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Urgent CTA Section -->
+    <section class="urgent-cta" id="book-now">
+        <div class="container">
+            <div class="urgent-content">
+                <div class="urgent-badge">
+                    <i class="fas fa-bolt"></i> Limited Time Offer
+                </div>
+                <h2>Book Your <span class="hero-heading-orange">Schengen Visa Appointment</span> NOW!</h2>
+                <p>Don't let your European dream wait! We handle everything — from VFS appointment booking to application form filling, embassy submission, and filing all extra documents. Get started for just <strong>£165</strong>!</p>
+                <div class="urgency-features">
+                    <div class="urgency-feature">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Form Filling & Submission</span>
+                    </div>
+                    <div class="urgency-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Extra Documents Filed</span>
+                    </div>
+                    <div class="urgency-feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>99.7% Approval Rate</span>
+                    </div>
+                </div>
+                <div class="urgent-buttons">
+                    <a href="https://wa.me/923006690701?text=Hi%20Travelade%2C%20I%20want%20to%20book%20my%20Schengen%20visa%20appointment%20NOW!%20Please%20help%20me%20get%20started%20immediately." class="btn btn-primary" style="background: white; color: var(--orange);">
+                        <i class="fab fa-whatsapp"></i> Book Appointment NOW
+                    </a>
+                    <a href="#countries" class="btn btn-outline" style="border-color: white; color: white;">
+                        <i class="fas fa-globe"></i> View All Countries
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services" id="services">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Our Services</span>
+                <h2 class="section-title">Complete Schengen Visa Solutions</h2>
+                <p class="section-desc">From appointment booking to final submission, we handle every step of your Schengen visa application process.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>VFS Global Appointment Booking</h3>
+                    <p>Hassle-free appointment scheduling at VFS Global centres across the UK. We secure your slot within 10-15 minutes.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Same-day appointment availability</li>
+                        <li><i class="fas fa-check"></i> All 27 Schengen countries covered</li>
+                        <li><i class="fas fa-check"></i> Flexible date selection</li>
+                        <li><i class="fas fa-check"></i> Pre-appointment briefing included</li>
+                    </ul>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Document Processing & Filing</h3>
+                    <p>Complete documentation service including cover letters, itineraries, financial presentations, and hotel/travel proofs.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Customised document checklist</li>
+                        <li><i class="fas fa-check"></i> Professional cover letter drafting</li>
+                        <li><i class="fas fa-check"></i> Day-wise itinerary planning</li>
+                        <li><i class="fas fa-check"></i> Hotel & booking proofs arranged</li>
+                    </ul>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Embassy Submission Support</h3>
+                    <p>Full guidance through the embassy submission process including application form filling, submission, and extra document filing.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Application form filling & submitting to Embassy</li>
+                        <li><i class="fas fa-check"></i> Filing all extra required documents</li>
+                        <li><i class="fas fa-check"></i> Embassy-specific requirements covered</li>
+                        <li><i class="fas fa-check"></i> Biometrics appointment guidance</li>
+                        <li><i class="fas fa-check"></i> Status tracking & updates</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section" id="process">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">How It Works</span>
+                <h2 class="section-title">Simple 5-Step Process to Your Visa</h2>
+                <p class="section-desc">We've streamlined the Schengen visa process into five easy steps. Our team guides you through each stage.</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step reveal">
+                    <div class="step-number">1</div>
+                    <h4 class="step-title">Free Assessment</h4>
+                    <p class="step-desc">Share your details for a no-obligation profile evaluation</p>
+                </div>
+                <div class="process-step reveal">
+                    <div class="step-number">2</div>
+                    <h4 class="step-title">Document Checklist</h4>
+                    <p class="step-desc">Receive your personalised document list by country</p>
+                </div>
+                <div class="process-step reveal">
+                    <div class="step-number">3</div>
+                    <h4 class="step-title">Appointment & Briefing</h4>
+                    <p class="step-desc">VFS booking with full pre-appointment preparation</p>
+                </div>
+                <div class="process-step reveal">
+                    <div class="step-number">4</div>
+                    <h4 class="step-title">File Building</h4>
+                    <p class="step-desc">We prepare cover letters, itineraries & booking proofs</p>
+                </div>
+                <div class="process-step reveal">
+                    <div class="step-number">5</div>
+                    <h4 class="step-title">Submission & Tracking</h4>
+                    <p class="step-desc">Embassy submission support with status monitoring</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countries Section -->
+    <section class="section countries" id="countries">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Schengen Countries</span>
+                <h2 class="section-title">27 European Destinations, One Visa</h2>
+                <p class="section-desc">Access all 27 Schengen Area countries with a single visa. We handle applications for all major consulates.</p>
+            </div>
+            <div class="countries-grid">
+                <div class="country-card reveal" onclick="openModal('Austria', this)">
+                    <div class="country-flag">
+                        <svg viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="48" height="10.67" fill="#ED2939"/>
+                            <rect y="10.67" width="48" height="10.67" fill="#FFFFFF"/>
+                            <rect y="21.33" width="48" height="10.67" fill="#ED2939"/>
+                            <circle cx="24" cy="16" r="6" fill="none" stroke="#FFCC00" stroke-width="1.5"/>
+                            <path d="M24 10 L24 22 M20 14 L24 10 L28 14" stroke="#FFCC00" stroke-width="1.5" fill="none"/>
+                        </svg>
+                    </div>
+                    <div class="country-name">Austria</div>
+                    <div class="country-type">VFS Global</div>
+                </div>
+                <div class="country-card reveal" onclick="openModal('Belgium', this)">
+                    <div class="country-flag">
+                        <svg viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="48" height="32" fill="#000000"/>
+                            <rect width="48" height="21.33" fill="#FFCE00"/>
+                            <rect width="48" height="10.67" fill="#ED2939"/>
+                        </svg>
+                    </div>
+                    <div class="country-name">Belgium</div>
+                    <div class="country-type">VFS Global</div>
+                </div>
+                <div class="country-card reveal" onclick="openModal('Czech Republic', this)">
+                    <div class="country-flag">
+                        <svg viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="48" height="32" fill="#FFFFFF"/>
+                            <rect width="16" height="32" fill="#11457E"/>
+                            <rect x="32" width="16" height="32" fill="#D7141A"/>
+                        </svg>
+                    </div>
+                    <div class="country-name">Czech Republic</div>
+                    <div class="country-type">VFS Global</div>
+                </div>
+                <div class="country-card reveal" onclick="openModal('Denmark', this)">
+                    <div class="country-flag">
+                        <svg viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="48" height="32" fill="#C60C30"/>
+                            <rect width="48" height="10.67" fill="#FFFFFF"/>
+                            <rect x="16" width="6" height="32" fill="#FFFFFF"/>
+                        </svg>
+                    </div>
+                    <div class="country-name">Denmark</div>
+                    <div class="country-type">VFS Global</div>
+                </div>
+                <div class="country-card reveal" onclick="openModal('Estonia', this)">
+                    <div class="country-flag">
+                        <svg viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="48" height="32" fill="#0072CE"/>
+                            <rect width="48" height="10.67" fill="#FFFFFF"/>
+                            <rect x="12" width="6" height="32" fill="#FFFFFF"/>
+                        </svg>
+                    </div>
+                    <div class="country-name">Estonia</div>
+                    <div class="country-type">VFS Global</div>
+                </div>
+                <div class="country-card reveal" onclick="openModal('Finland', this)">
+                    <div class="country-flag">
+                        <svg viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="48" height="32" fill="#FFFFFF"/>
+                            <rect width="48" height="10.67" fill="#002F6C"/>
+                            <rect x="12" width="6" height="32" fill="#002F6C"/>
+                        </svg>
+                    </div>
+                    <div class="country-name">Finland</div>
+                    <div class="country-type">VFS Global</div>
+                </div>
+                <div class="country-card reveal" onclick="openModal('France', this)">
+                    <div class="country-flag">
+                        <svg viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="48" height="32" fill="#0055A4"/>
+                            <rect width="48" height="10.67" fill="#FFFFFF"/>
+                            <rect x="16" width="5.33" height="32" fill="#FFFFFF"/>
+                        </svg>
+                    </div>
+                    <div class="country-name">France</div>
+                    <div class="country-type">TLScontact</div>
+                </div>
+                <div class="country-card reveal" onclick="openModal('Germany', this)">
+                    <div class="country-flag">
+                        <svg viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="48" height="32" fill="#000000"/>
+                            <rect width="48" height="10.67" fill="#DD0000"/>
+                            <rect x="16" width="6" height="32" fill="#FFCC00"/>
+                        </svg>
+                    </div>
+                    <div class="country-name">Germany</div>
+                    <div class="country-type">VFS Global</div>
+                </div>
+                <div class="country-card reveal" onclick="openModal('Greece', this)">
+                    <div class="country-flag">
+                        <svg viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="48" height="10.67" fill="#0D5EAF"/>
+                            <rect y="10.67" width="48" height="10.67" fill="#FFFFFF"/>
+                            <rect y="21.33" width="48" height="10.67" fill="#0D5EAF"/>
+                        </svg>
+                    </div>
+                    <div class="country-name">Greece</div>
+                    <div class="country-type">VFS Global</div>
+                </div>
+                <div class="country-card reveal" onclick="openModal('Hungary', this)">
+                    <div class="country-flag">
+                        <svg viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="48" height="10.67" fill="#CC3333"/>
+                            <rect y="10.67" width="48" height="10.67" fill="#FFFFFF"/>
+                            <rect y="21.33" width="48" height="10.67" fill="#FFFFFF"/>
+                            <rect x="16" width="6" height="32" fill="#FFFFFF"/>
+                        </svg>
+                    </div>
+                    <div class="country-name">Hungary</div>
+                    <div class="country-type">VFS Global</div>
+                </div>
+                <div class="country-card reveal" onclick="openModal('Iceland', this)">
+                    <div class="country-flag">
+                        <svg viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="48" height="10.67" fill="#003897"/>
+                            <rect y="10.67" width="48" height="10.67" fill="#FFFFFF"/>
+                            <rect y="21.33" width="48" height="10.67" fill="#D72828"/>
+                            <rect x="14" width="6" height="32" fill="#003897"/>
+                        </svg>
+                    </div>
+                    <div class="country-name">Iceland</div>
+                    <div class="country-type">VFS Global</div>
+                </div>
+                <div class="country-card reveal" onclick="openModal('Italy', this)">
+                    <div class="country-flag">
+                        <svg viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="16" height="32" fill="#009246"/>
+                            <rect x="32" width="16" height="32" fill="#CE2B37"/>
+                            <rect width="48" height="10.67" fill="#FFFFFF"/>
+                            <rect x="16" width="6" height="32" fill="#FFFFFF"/>
+                        </svg>
+                    </div>
+                    <div class="country-name">Italy</div>
+                    <div class="country-type">VFS Global</div>
+                </div>
+                <div class="country-card reveal" onclick="openModal('Latvia', this)">
+                    <div class="country-flag">
+                        <svg viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="48" height="32" fill="#9E3030"/>
+                            <rect width="48" height="10.67" fill="#FFFFFF"/>
+                            <rect x="16" width="6" height="32" fill="#9E3030"/>
+                        </svg>
+                    </div>
+                    <div class="country-name">Latvia</div>
+                    <div class="country-type">VFS Global</div>
+                </div>
+                <div class="country-card reveal" onclick="openModal('Liechtenstein', this)">
+                    <div class="country-flag">
+                        <svg viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="48" height="10.67" fill="#002B7F"/>
+                            <rect y="10.67" width="48" height="10.67" fill="#CE1126"/>
+                            <rect y="21.33" width="48" height="10.67" fill="#002B7F"/>
+                            <rect x="18" y="8" width="12" height="16" fill="#F7D616" rx="6"/>
+                        </svg>
+                    </div>
+                    <div class="country-name">Liechtenstein</div>
+                    <div class="country-type">VFS Global</div>
+                </div>
+                <div class="country-card reveal" onclick="openModal('Lithuania', this)">
+                    <div class="country-flag">
+                        <svg viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="48" height="10.67" fill="#006A4D"/>
+                            <rect y="10.67" width="48" height="10.67" fill="#F47B35"/>
+                            <rect y="21.33" width="48" height="10.67" fill="#006A4D"/>
+                            <rect x="18" width="12" height="16" fill="#FFFFFF"/>
+                        </svg>
+                    </div>
+                    <div class="country-name">Lithuania</div>
+                    <div class="country-type">VFS Global</div>
+                </div>
+                <div class="country-card reveal" onclick="openModal('Luxembourg', this)">
+                    <div class="country-flag">
+                        <svg viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="48" height="10.67" fill="#EF3340"/>
+                            <rect y="10.67" width="48" height="10.67" fill="#FFFFFF"/>
+                            <rect y="21.33" width="48" height="10.67" fill="#00A3E0"/>
+                        </svg>
+                    </div>
+                    <div class="country-name">Luxembourg</div>
+                    <div class="country-type">VFS Global</div>
+                </div>
+                <div class="country-card reveal" onclick="openModal('Malta', this)">
+                    <div class="country-flag">
+                        <svg viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="48" height="32" fill="#FFFFFF"/>
+                            <rect width="48" height="10.67" fill="#CF142B"/>
+                            <rect x="16" width="6" height="32" fill="#CF142B"/>
+                        </svg>
+                    </div>
+                    <div class="country-name">Malta</div>
+                    <div class="country-type">VFS Global</div>
+                </div>
+                <div class="country-card reveal" onclick="openModal('Netherlands', this)">
+                    <div class="country-flag">
+                        <svg viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="48" height="10.67" fill="#AE1C28"/>
+                            <rect y="10.67" width="48" height="10.67" fill="#FFFFFF"/>
+                            <rect y="21.33" width="48" height="10.67" fill="#21468B"/>
+                        </svg>
+                    </div>
+                    <div class="country-name">Netherlands</div>
+                    <div class="country-type">VFS Global</div>
+                </div>
+                <div class="country-card reveal" onclick="openModal('Norway', this)">
+                    <div class="country-flag">
+                        <svg viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="48" height="10.67" fill="#EF2B2D"/>
+                            <rect y="10.67" width="48" height="10.67" fill="#FFFFFF"/>
+                            <rect y="21.33" width="48" height="10.67" fill="#002868"/>
+                            <rect x="14" width="6" height="32" fill="#002868"/>
+                        </svg>
+                    </div>
+                    <div class="country-name">Norway</div>
+                    <div class="country-type">VFS Global</div>
+                </div>
+                <div class="country-card reveal" onclick="openModal('Poland', this)">
+                    <div class="country-flag">
+                        <svg viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="48" height="32" fill="#FFFFFF"/>
+                            <rect width="12" height="32" fill="#DC143C"/>
+                            <rect x="28" width="20" height="32" fill="#DC143C"/>
+                            <rect width="48" height="8" fill="#DC143C"/>
+                            <rect y="22" width="48" height="10" fill="#DC143C"/>
+                        </svg>
+                    </div>
+                    <div class="country-name">Poland</div>
+                    <div class="country-type">VFS Global</div>
+                </div>
+                <div class="country-card reveal" onclick="openModal('Portugal', this)">
+                    <div class="country-flag">
+                        <svg viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="48" height="16" fill="#006600"/>
+                            <rect y="16" width="48" height="16" fill="#FF0000"/>
+                        </svg>
+                    </div>
+                    <div class="country-name">Portugal</div>
+                    <div class="country-type">VFS Global</div>
+                </div>
+                <div class="country-card reveal" onclick="openModal('Slovakia', this)">
+                    <div class="country-flag">
+                        <svg viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="16" height="32" fill="#0B4EA2"/>
+                            <rect x="16" width="32" height="16" fill="#FFFFFF"/>
+                            <rect x="16" y="16" width="32" height="16" fill="#EE1C25"/>
+                            <rect x="20" y="12" width="8" height="8" fill="#FFFFFF"/>
+                        </svg>
+                    </div>
+                    <div class="country-name">Slovakia</div>
+                    <div class="country-type">VFS Global</div>
+                </div>
+                <div class="country-card reveal" onclick="openModal('Slovenia', this)">
+                    <div class="country-flag">
+                        <svg viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="48" height="10.67" fill="#FFFFFF"/>
+                            <rect y="10.67" width="48" height="10.67" fill="#005B8F"/>
+                            <rect y="21.33" width="48" height="10.67" fill="#E7E40C"/>
+                            <rect x="18" y="6" width="12" height="20" fill="#E7E40C"/>
+                            <circle cx="24" cy="16" r="4" fill="#E7E40C"/>
+                        </svg>
+                    </div>
+                    <div class="country-name">Slovenia</div>
+                    <div class="country-type">VFS Global</div>
+                </div>
+                <div class="country-card reveal" onclick="openModal('Spain', this)">
+                    <div class="country-flag">
+                        <svg viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="48" height="10.67" fill="#AA151B"/>
+                            <rect y="10.67" width="48" height="10.67" fill="#F1BF00"/>
+                            <rect y="21.33" width="48" height="10.67" fill="#AA151B"/>
+                        </svg>
+                    </div>
+                    <div class="country-name">Spain</div>
+                    <div class="country-type">BLS International</div>
+                </div>
+                <div class="country-card reveal" onclick="openModal('Sweden', this)">
+                    <div class="country-flag">
+                        <svg viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="48" height="8" fill="#006AA7"/>
+                            <rect y="8" width="48" height="16" fill="#FECC00"/>
+                            <rect y="24" width="48" height="8" fill="#006AA7"/>
+                            <rect x="14" width="6" height="32" fill="#FECC00"/>
+                        </svg>
+                    </div>
+                    <div class="country-name">Sweden</div>
+                    <div class="country-type">VFS Global</div>
+                </div>
+                <div class="country-card reveal" onclick="openModal('Switzerland', this)">
+                    <div class="country-flag">
+                        <svg viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="48" height="32" fill="#FF0000"/>
+                            <rect width="14" height="32" fill="#FFFFFF"/>
+                            <rect x="28" width="20" height="32" fill="#FFFFFF"/>
+                            <rect width="48" height="9" fill="#FFFFFF"/>
+                            <rect y="21" width="48" height="11" fill="#FFFFFF"/>
+                        </svg>
+                    </div>
+                    <div class="country-name">Switzerland</div>
+                    <div class="country-type">VFS Global</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Landmarks Section -->
+    <section class="landmarks">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Explore Europe</span>
+                <h2 class="section-title">Your Dream Destinations Await</h2>
+                <p class="section-desc">With a Schengen visa, access 27 beautiful European countries and countless unforgettable experiences.</p>
+            </div>
+            <div class="landmarks-grid">
+                <div class="landmark-card reveal">
+                    <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600&h=400&fit=crop" alt="Eiffel Tower Paris">
+                    <div class="landmark-overlay">
+                        <h4>Eiffel Tower</h4>
+                        <span>Paris, France</span>
+                    </div>
+                </div>
+                <div class="landmark-card reveal">
+                    <img src="https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?w=600&h=400&fit=crop" alt="Colosseum Rome">
+                    <div class="landmark-overlay">
+                        <h4>Colosseum</h4>
+                        <span>Rome, Italy</span>
+                    </div>
+                </div>
+                <div class="landmark-card reveal">
+                    <img src="https://images.unsplash.com/photo-1520175480921-4edfa2983e0f?w=600&h=400&fit=crop" alt="Brandenburg Gate Berlin">
+                    <div class="landmark-overlay">
+                        <h4>Brandenburg Gate</h4>
+                        <span>Berlin, Germany</span>
+                    </div>
+                </div>
+                <div class="landmark-card reveal">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop" alt="Sagrada Familia Barcelona">
+                    <div class="landmark-overlay">
+                        <h4>Sagrada Familia</h4>
+                        <span>Barcelona, Spain</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section pricing" id="pricing">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Transparent Pricing</span>
+                <h2 class="section-title">Choose Your Service Package</h2>
+                <p class="section-desc">No hidden fees. Clear pricing for complete peace of mind.</p>
+            </div>
+            <div class="pricing-cards">
+                <div class="pricing-card reveal">
+                    <h3>Appointment Only</h3>
+                    <div class="price">£50 <span>from</span></div>
+                    <p class="desc">VFS Global appointment booking hassle-free</p>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Same-day appointment booking</li>
+                        <li><i class="fas fa-check"></i> Slot confirmation within 10-15 mins</li>
+                        <li><i class="fas fa-check"></i> Basic document checklist</li>
+                        <li><i class="fas fa-check"></i> Email/WhatsApp support</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline-white">Get Started</a>
+                </div>
+                <div class="pricing-card featured reveal">
+                    <h3>Full Service</h3>
+                    <div class="price">£165 <span>complete</span></div>
+                    <p class="desc">Complete visa file preparation, form filling & embassy submission</p>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Everything in Appointment Only</li>
+                        <li><i class="fas fa-check"></i> Application form filling & submission</li>
+                        <li><i class="fas fa-check"></i> Filing all extra required documents</li>
+                        <li><i class="fas fa-check"></i> Professional cover letter drafting</li>
+                        <li><i class="fas fa-check"></i> Day-wise itinerary preparation</li>
+                        <li><i class="fas fa-check"></i> Hotel & travel booking proofs</li>
+                        <li><i class="fas fa-check"></i> Pre-appointment briefing</li>
+                        <li><i class="fas fa-check"></i> Priority WhatsApp support</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-white">Apply Now</a>
+                </div>
+                <div class="pricing-card reveal">
+                    <h3>Premium Plus</h3>
+                    <div class="price">£250 <span>complete</span></div>
+                    <p class="desc">Premium service with guaranteed appointment & priority handling</p>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Everything in Full Service</li>
+                        <li><i class="fas fa-check"></i> Guaranteed appointment date</li>
+                        <li><i class="fas fa-check"></i> Urgent processing (24-48 hrs)</li>
+                        <li><i class="fas fa-check"></i> Dedicated case manager</li>
+                        <li><i class="fas fa-check"></i> Application form & extra docs included</li>
+                        <li><i class="fas fa-check"></i> Unlimited revisions</li>
+                        <li><i class="fas fa-check"></i> Post-submission tracking</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline-white">Get Premium</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You Need Section -->
+    <section class="section requirements" id="requirements">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Essential Requirements</span>
+                <h2 class="section-title">What You Need for Your Visa</h2>
+                <p class="section-desc">The essential requirements every applicant must have. We handle the rest!</p>
+            </div>
+            <div class="requirements-grid">
+                <div class="requirement-card reveal">
+                    <div class="req-icon"><i class="fas fa-passport"></i></div>
+                    <h3>Valid Passport</h3>
+                    <p>UK-issued passport valid for 3+ months beyond your return date with 2+ blank pages</p>
+                </div>
+                <div class="requirement-card reveal">
+                    <div class="req-icon"><i class="fas fa-id-card"></i></div>
+                    <h3>UK Residence Proof</h3>
+                    <p>Valid UK residency (BRP/Visa) valid for 3+ months beyond your travel dates</p>
+                </div>
+                <div class="requirement-card reveal">
+                    <div class="req-icon"><i class="fas fa-money-bill-wave"></i></div>
+                    <h3>Financial Proof</h3>
+                    <p>UK bank statements (3-6 months) showing sufficient funds for your trip</p>
+                </div>
+                <div class="requirement-card reveal">
+                    <div class="req-icon"><i class="fas fa-file-alt"></i></div>
+                    <h3>Employment Proof</h3>
+                    <p>Employment letter, student status, or self-employment documentation</p>
+                </div>
+                <div class="requirement-card reveal">
+                    <div class="req-icon"><i class="fas fa-camera"></i></div>
+                    <h3>Passport Photos</h3>
+                    <p>Recent passport-size photographs (35x45mm, white background)</p>
+                </div>
+                <div class="requirement-card reveal">
+                    <div class="req-icon"><i class="fas fa-file-invoice"></i></div>
+                    <h3>Previous Visas</h3>
+                    <p>Previous Schengen visas in old passports (if any)</p>
+                </div>
+            </div>
+            <div class="services-note reveal" style="background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%); color: white; padding: 24px 32px; border-radius: 16px; margin-top: 40px; text-align: center;">
+                <h3 style="color: white; margin-bottom: 8px;"><i class="fas fa-check-circle"></i> We Handle Everything Else!</h3>
+                <p style="font-size: 15px;">Travel Insurance • Hotel Bookings • Flight Reservations • Cover Letters • Itinerary Planning</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="section" style="background: linear-gradient(135deg, #1E5FA8 0%, #154A84 100%); color: white; padding: 60px 0;">
+        <div class="container">
+            <div class="section-header reveal" style="color: white;">
+                <span class="section-label" style="color: rgba(255,255,255,0.8);">Why Travelade?</span>
+                <h2 class="section-title" style="color: white;">100% Professional Documentation</h2>
+                <p class="section-desc" style="color: rgba(255,255,255,0.9);">Every document is professionally prepared and meticulously checked to meet consulate standards.</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 40px; text-align: center;">
+                <div class="reveal">
+                    <div style="font-size: 64px; font-weight: 800; color: white; line-height: 1;">99.7%</div>
+                    <div style="font-size: 14px; color: rgba(255,255,255,0.8); margin-top: 8px; text-transform: uppercase; letter-spacing: 1px;">Approval Rate</div>
+                </div>
+                <div class="reveal">
+                    <div style="font-size: 64px; font-weight: 800; color: white; line-height: 1;">100%</div>
+                    <div style="font-size: 14px; color: rgba(255,255,255,0.8); margin-top: 8px; text-transform: uppercase; letter-spacing: 1px;">Professionally Filed</div>
+                </div>
+                <div class="reveal">
+                    <div style="font-size: 64px; font-weight: 800; color: white; line-height: 1;">5000+</div>
+                    <div style="font-size: 14px; color: rgba(255,255,255,0.8); margin-top: 8px; text-transform: uppercase; letter-spacing: 1px;">Visas Processed</div>
+                </div>
+                <div class="reveal">
+                    <div style="font-size: 64px; font-weight: 800; color: white; line-height: 1;">24hr</div>
+                    <div style="font-size: 14px; color: rgba(255,255,255,0.8); margin-top: 8px; text-transform: uppercase; letter-spacing: 1px;">File Preparation</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documents Section -->
+    <section class="section" id="documents">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Document Checklist</span>
+                <h2 class="section-title">Complete Document Requirements</h2>
+                <p class="section-desc">We align your checklist to the lead consulate and prepare drafts and proofs for you.</p>
+            </div>
+            <div class="doc-highlight reveal" style="background: linear-gradient(135deg, #1E5FA8 0%, #154A84 100%); color: white; padding: 24px 32px; border-radius: 16px; margin-bottom: 32px;">
+                <h3 style="color: white; margin-bottom: 12px;"><i class="fas fa-clipboard-check"></i> Quick Checklist - Have These Ready:</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; font-size: 14px;">
+                    <p><i class="fas fa-check-circle" style="color: #4ade80;"></i> Valid passport (3+ months validity)</p>
+                    <p><i class="fas fa-check-circle" style="color: #4ade80;"></i> UK BRP/Residence permit</p>
+                    <p><i class="fas fa-check-circle" style="color: #4ade80;"></i> Bank statements (3-6 months)</p>
+                    <p><i class="fas fa-check-circle" style="color: #4ade80;"></i> Employment letter</p>
+                    <p><i class="fas fa-check-circle" style="color: #4ade80;"></i> Recent passport photos</p>
+                    <p><i class="fas fa-check-circle" style="color: #4ade80;"></i> Payslips (3 months)</p>
+                </div>
+                <p style="margin-top: 16px; font-size: 13px; opacity: 0.9;"><i class="fas fa-info-circle"></i> We arrange Travel Insurance, Hotel Bookings, Flights & Itinerary for you!</p>
+            </div>
+            <div class="documents-grid">
+                <div class="doc-category reveal">
+                    <h3><i class="fas fa-id-card"></i> Identity & UK Residence</h3>
+                    <ul class="doc-list">
+                        <li><i class="fas fa-passport"></i> Valid passport (3+ months beyond return, 2+ blank pages)</li>
+                        <li><i class="fas fa-id-card"></i> UK residence permit/BRP (valid 3+ months)</li>
+                        <li><i class="fas fa-file-alt"></i> Previous Schengen visas (if any)</li>
+                        <li><i class="fas fa-camera"></i> Recent passport-size photographs (35x45mm)</li>
+                    </ul>
+                </div>
+                <div class="doc-category reveal">
+                    <h3><i class="fas fa-coins"></i> Financial & Employment Proof</h3>
+                    <ul class="doc-list">
+                        <li><i class="fas fa-university"></i> UK bank statements (3-6 months)</li>
+                        <li><i class="fas fa-briefcase"></i> Employment letter or contract</li>
+                        <li><i class="fas fa-file-invoice"></i> Recent payslips (3 months)</li>
+                        <li><i class="fas fa-graduation-cap"></i> Employment details/Student Details</li>
+                    </ul>
+                </div>
+                <div class="doc-category reveal" style="background: rgba(244, 122, 32, 0.08); border: 1px solid var(--orange);">
+                    <h3><i class="fas fa-check-circle" style="color: var(--orange);"></i> We Handle For You</h3>
+                    <ul class="doc-list">
+                        <li><i class="fas fa-shield-alt" style="color: var(--orange);"></i> Travel Insurance (€30,000+)</li>
+                        <li><i class="fas fa-ticket-alt" style="color: var(--orange);"></i> Flight reservations</li>
+                        <li><i class="fas fa-hotel" style="color: var(--orange);"></i> Hotel booking proofs</li>
+                        <li><i class="fas fa-map" style="color: var(--orange);"></i> Day-wise itinerary</li>
+                    </ul>
+                </div>
+                <div class="doc-category reveal">
+                    <h3><i class="fas fa-folder-plus"></i> Additional Documents</h3>
+                    <ul class="doc-list">
+                        <li><i class="fas fa-fingerprint"></i> Biometrics (if not given in 59 months)</li>
+                        <li><i class="fas fa-users"></i> Sponsorship documents (if applicable)</li>
+                        <li><i class="fas fa-envelope"></i> Invitation letter (if visiting family)</li>
+                        <li><i class="fas fa-heart"></i> Relationship proofs (family visits)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="section reviews" id="reviews">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Client Experiences</span>
+                <h2 class="section-title">What Our Clients Say</h2>
+                <p class="section-desc">Real reviews from real clients who trusted us with their Schengen visa applications.</p>
+            </div>
+            <div class="reviews-header reveal">
+                <div class="reviews-header-left">
+                    <div class="google-badge">
+                        <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+                        <span>Google Reviews</span>
+                    </div>
+                    <div class="reviews-rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span>5.0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="reviews-slider">
+            <div class="reviews-track">
+                <div class="review-card">
+                    <div class="review-quote">"</div>
+                    <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="review-text">"Absolutely fantastic service! Travelade secured my French Schengen visa appointment within hours. Highly recommend!"</p>
+                    <div class="review-author"><div class="review-avatar">AK</div><div class="review-meta"><h5>Aisha Khan</h5><p>London, UK</p></div></div>
+                    <span class="review-verified"><i class="fas fa-check-circle"></i> Verified Client</span>
+                    <span class="review-country">France Visa</span>
+                </div>
+                <div class="review-card">
+                    <div class="review-quote">"</div>
+                    <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="review-text">"I was worried about my application being complex, but Travelade handled everything perfectly. Got my visa in 10 days!"</p>
+                    <div class="review-author"><div class="review-avatar">MR</div><div class="review-meta"><h5>Muhammad Raza</h5><p>Birmingham, UK</p></div></div>
+                    <span class="review-verified"><i class="fas fa-check-circle"></i> Verified Client</span>
+                    <span class="review-country">Germany Visa</span>
+                </div>
+                <div class="review-card">
+                    <div class="review-quote">"</div>
+                    <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="review-text">"Best decision I made was choosing Travelade! They booked my Italy appointment within 15 minutes. Visa approved first time!"</p>
+                    <div class="review-author"><div class="review-avatar">FP</div><div class="review-meta"><h5>Fatima Patel</h5><p>Manchester, UK</p></div></div>
+                    <span class="review-verified"><i class="fas fa-check-circle"></i> Verified Client</span>
+                    <span class="review-country">Italy Visa</span>
+                </div>
+                <div class="review-card">
+                    <div class="review-quote">"</div>
+                    <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="review-text">"Travelade made my Spain visa process so smooth! I had a tight deadline and they delivered professionally."</p>
+                    <div class="review-author"><div class="review-avatar">OS</div><div class="review-meta"><h5>Omar Sheikh</h5><p>Leeds, UK</p></div></div>
+                    <span class="review-verified"><i class="fas fa-check-circle"></i> Verified Client</span>
+                    <span class="review-country">Spain Visa</span>
+                </div>
+                <div class="review-card">
+                    <div class="review-quote">"</div>
+                    <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="review-text">"I applied for a Netherlands visa and was nervous. Travelade removed all my stress! Visa approved without a single query."</p>
+                    <div class="review-author"><div class="review-avatar">SN</div><div class="review-meta"><h5>Sara Naz</h5><p>London, UK</p></div></div>
+                    <span class="review-verified"><i class="fas fa-check-circle"></i> Verified Client</span>
+                    <span class="review-country">Netherlands Visa</span>
+                </div>
+                <div class="review-card">
+                    <div class="review-quote">"</div>
+                    <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="review-text">"Exceptional service! My family and I needed Swiss visas urgently. Travelade handled everything professionally."</p>
+                    <div class="review-author"><div class="review-avatar">IA</div><div class="review-meta"><h5>Imran Ahmed</h5><p>Bradford, UK</p></div></div>
+                    <span class="review-verified"><i class="fas fa-check-circle"></i> Verified Client</span>
+                    <span class="review-country">Switzerland Visa</span>
+                </div>
+                <div class="review-card">
+                    <div class="review-quote">"</div>
+                    <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="review-text">"From first WhatsApp message to receiving my passport with the visa, Travelade was outstanding. Made the whole process stress-free!"</p>
+                    <div class="review-author"><div class="review-avatar">ZH</div><div class="review-meta"><h5>Zara Hussain</h5><p>Newcastle, UK</p></div></div>
+                    <span class="review-verified"><i class="fas fa-check-circle"></i> Verified Client</span>
+                    <span class="review-country">Greece Visa</span>
+                </div>
+                <div class="review-card">
+                    <div class="review-quote">"</div>
+                    <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="review-text">"I was skeptical at first, but Travelade exceeded all expectations! Secured my Portugal appointment within 10 minutes."</p>
+                    <div class="review-author"><div class="review-avatar">YA</div><div class="review-meta"><h5>Yasir Ali</h5><p>Sheffield, UK</p></div></div>
+                    <span class="review-verified"><i class="fas fa-check-circle"></i> Verified Client</span>
+                    <span class="review-country">Portugal Visa</span>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="reviews-cta reveal">
+                <a href="https://g.page/travelade/review?gm" target="_blank">View All Google Reviews <i class="fas fa-external-link-alt"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Processing Time Section -->
+    <section class="section timeline" id="timeline">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Processing Timeline</span>
+                <h2 class="section-title">What to Expect After Submission</h2>
+                <p class="section-desc">Processing times vary by country. Here's a general timeline for Schengen visa processing.</p>
+            </div>
+            <div class="timeline-content">
+                <div class="timeline-item reveal">
+                    <div class="timeline-marker"><i class="fas fa-upload"></i></div>
+                    <div class="timeline-body">
+                        <h4>Document Submission</h4>
+                        <p>Submit your complete file at the VFS Global centre. Biometrics are taken if not provided in the last 59 months.</p>
+                        <span class="duration">Day 1</span>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-marker"><i class="fas fa-building"></i></div>
+                    <div class="timeline-body">
+                        <h4>Consulate Processing</h4>
+                        <p>Your application is forwarded to the respective Schengen country's consulate for review and decision.</p>
+                        <span class="duration">Days 2-15</span>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-marker"><i class="fas fa-check-circle"></i></div>
+                    <div class="timeline-body">
+                        <h4>Decision & Passport Return</h4>
+                        <p>Once approved, your passport is returned to VFS Global for collection or courier delivery.</p>
+                        <span class="duration">Days 10-21</span>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-marker"><i class="fas fa-info-circle"></i></div>
+                    <div class="timeline-body">
+                        <h4>Common Timelines by Country</h4>
+                        <p><strong>France:</strong> 10-15 days | <strong>Germany:</strong> 10-21 days | <strong>Spain:</strong> 7-14 days | <strong>Italy:</strong> 14-21 days</p>
+                        <span class="duration" style="background: var(--secondary-blue);">Note: Times may vary during peak seasons</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Refund Policy Section -->
+    <section class="section" id="refund">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Refund Policy</span>
+                <h2 class="section-title">Fair & Transparent Refunds</h2>
+            </div>
+            <div class="refund-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                <div class="refund-card positive reveal" style="padding: 24px;">
+                    <h4><i class="fas fa-check-circle"></i> Full Refund</h4>
+                    <p style="margin-top: 10px; font-size: 14px;">Appointment not secured • Service not started • Duplicate payment</p>
+                </div>
+                <div class="refund-card positive reveal" style="padding: 24px;">
+                    <h4><i class="fas fa-clock"></i> Partial Refund</h4>
+                    <p style="margin-top: 10px; font-size: 14px;">Work started but not completed — unused portion refunded</p>
+                </div>
+                <div class="refund-card negative reveal" style="padding: 24px;">
+                    <h4><i class="fas fa-times-circle"></i> No Refund</h4>
+                    <p style="margin-top: 10px; font-size: 14px;">Rejection due to false docs • Missed appointments • Consulate delays</p>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 20px; font-size: 14px; color: var(--gray-500);">
+                <i class="fas fa-envelope"></i> Contact us: info@traveladelimited.co.uk | Refunds processed within 5-7 business days
+            </p>
+        </div>
+    </section>
+
+    <!-- Blogs Section - Moving Carousel -->
+    <section class="section blogs" id="blogs">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Latest Updates</span>
+                <h2 class="section-title">Schengen Visa News & Tips</h2>
+                <p class="section-desc">Stay updated with the latest Schengen visa news, tips, and travel guides.</p>
+            </div>
+        </div>
+        <div class="blogs-wrapper">
+            <div class="blogs-track">
+                <article class="blog-card" onclick="window.location.href='blog-schengen-approval.html'">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1520175480921-4edfa2983e0f?w=500&h=250&fit=crop" alt="European Map">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Visa Guide</span>
+                        <h3>Top 10 Schengen Countries with Highest Approval Rates</h3>
+                        <p>Discover which Schengen countries have the highest visa approval rates for UK residents in 2026.</p>
+                        <a href="blog-schengen-approval.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="blog-card" onclick="window.location.href='blog-schengen-approval.html'">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=500&h=250&fit=crop" alt="Passport and Documents">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Documentation</span>
+                        <h3>Common Reasons for Schengen Visa Rejection</h3>
+                        <p>Learn the most common reasons for visa rejections and how to avoid them in your application.</p>
+                        <a href="blog-schengen-approval.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="blog-card" onclick="window.location.href='blog-schengen-approval.html'">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=500&h=250&fit=crop" alt="Financial Documents">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Finance</span>
+                        <h3>Financial Requirements for Schengen Visa 2026</h3>
+                        <p>Updated guide on bank statement requirements, salary thresholds, and financial proof for visas.</p>
+                        <a href="blog-schengen-approval.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="blog-card" onclick="window.location.href='blog-schengen-approval.html'">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=500&h=250&fit=crop" alt="European Travel">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Travel Tips</span>
+                        <h3>How to Plan Your First European Trip</h3>
+                        <p>Essential tips for planning your first Schengen visa trip to Europe from the UK.</p>
+                        <a href="blog-schengen-approval.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="blog-card" onclick="window.location.href='blog-schengen-approval.html'">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=500&h=250&fit=crop" alt="Calendar Planning">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Timing</span>
+                        <h3>Best Time to Apply for Schengen Visa</h3>
+                        <p>When to submit your application for the best chances and fastest processing times.</p>
+                        <a href="blog-schengen-approval.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="blog-card" onclick="window.location.href='blog-schengen-approval.html'">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=500&h=250&fit=crop" alt="Luxury Hotel">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Accommodation</span>
+                        <h3>Hotel Bookings & Proofs for Visa Application</h3>
+                        <p>How to arrange hotel bookings that satisfy visa requirements without financial risk.</p>
+                        <a href="blog-schengen-approval.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <!-- Duplicate for seamless loop -->
+                <article class="blog-card" onclick="window.location.href='blog-schengen-approval.html'">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1520175480921-4edfa2983e0f?w=500&h=250&fit=crop" alt="European Map">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Visa Guide</span>
+                        <h3>Top 10 Schengen Countries with Highest Approval Rates</h3>
+                        <p>Discover which Schengen countries have the highest visa approval rates for UK residents in 2026.</p>
+                        <a href="blog-schengen-approval.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="blog-card" onclick="window.location.href='blog-schengen-approval.html'">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=500&h=250&fit=crop" alt="Passport">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Documentation</span>
+                        <h3>Common Reasons for Schengen Visa Rejection</h3>
+                        <p>Learn the most common reasons for visa rejections and how to avoid them in your application.</p>
+                        <a href="blog-schengen-approval.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="blog-card" onclick="window.location.href='blog-schengen-approval.html'">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=500&h=250&fit=crop" alt="Finance">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Finance</span>
+                        <h3>Financial Requirements for Schengen Visa 2026</h3>
+                        <p>Updated guide on bank statement requirements, salary thresholds, and financial proof for visas.</p>
+                        <a href="blog-schengen-approval.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="blog-card" onclick="window.location.href='blog-schengen-approval.html'">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=500&h=250&fit=crop" alt="Travel">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Travel Tips</span>
+                        <h3>How to Plan Your First European Trip</h3>
+                        <p>Essential tips for planning your first Schengen visa trip to Europe from the UK.</p>
+                        <a href="blog-schengen-approval.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="blog-card" onclick="window.location.href='blog-schengen-approval.html'">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=500&h=250&fit=crop" alt="Calendar">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Timing</span>
+                        <h3>Best Time to Apply for Schengen Visa</h3>
+                        <p>When to submit your application for the best chances and fastest processing times.</p>
+                        <a href="blog-schengen-approval.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="blog-card" onclick="window.location.href='blog-schengen-approval.html'">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=500&h=250&fit=crop" alt="Hotel">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Accommodation</span>
+                        <h3>Hotel Bookings & Proofs for Visa Application</h3>
+                        <p>How to arrange hotel bookings that satisfy visa requirements without financial risk.</p>
+                        <a href="blog-schengen-approval.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="apply">
+        <div class="container">
+            <h2>Ready to Start Your Schengen Journey?</h2>
+            <p>Get your visa appointment booked today. Our team is ready to assist you with professional, hassle-free service.</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/923006690701?text=Hi%20Travelade%2C%20I%20want%20to%20start%20my%20Schengen%20visa%20application.%20Please%20assist." class="btn btn-white">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Us Now
+                </a>
+                <a href="#contact" class="btn btn-outline-white">
+                    <i class="fas fa-envelope"></i> Contact Form
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Get in Touch</h2>
+                    <p>Have questions? Our team is here to help. Reach out via WhatsApp, phone, or email — we typically respond within 20-30 minutes during office hours.</p>
+                    
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <p>0300 6690701</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+44 20 3433 1656</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@traveladelimited.co.uk</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4>Office Hours</h4>
+                            <p>Mon-Sat: 9:00 AM - 6:00 PM</p>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm" action="https://formspree.io/f/mjgjgnqk" method="POST">
+                        <input type="hidden" name="_subject" value="New Schengen Visa Inquiry from Travelade Website">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" name="full_name" placeholder="Your full name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone / WhatsApp</label>
+                                <input type="tel" name="phone" placeholder="0300..." required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" name="email" placeholder="your@email.com" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Destination Country</label>
+                                <select name="destination" required>
+                                    <option value="">Select country</option>
+                                    <option value="germany">Germany</option>
+                                    <option value="france">France</option>
+                                    <option value="italy">Italy</option>
+                                    <option value="spain">Spain</option>
+                                    <option value="netherlands">Netherlands</option>
+                                    <option value="switzerland">Switzerland</option>
+                                    <option value="other">Other Schengen</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Number of Passengers</label>
+                                <select name="passengers" required>
+                                    <option value="">Select</option>
+                                    <option value="1">Solo</option>
+                                    <option value="2">Couple</option>
+                                    <option value="3">Family (3-4)</option>
+                                    <option value="5">Group (5+)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Travel Date</label>
+                            <input type="date" name="travel_date">
+                        </div>
+                        <div class="form-group">
+                            <label>Message / Notes</label>
+                            <textarea name="message" rows="4" placeholder="Tell us about your travel plans..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Send Inquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <img src="logo-secondary.png" alt="Travelade" class="logo-img" style="height: 56px;">
+                        <div class="logo-text-group">
+                            <div class="logo-text"><span>Travel</span><span class="logo-ade">ade</span></div>
+                            <div class="logo-tagline">Travel & Visa Consultancy</div>
+                        </div>
+                    </a>
+                    <p>UK's trusted Schengen visa specialists. We handle your complete visa file from appointment booking to application form filling, embassy submission, and filing all extra documents.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#process">How It Works</a></li>
+                        <li><a href="#countries">Countries</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#apply">Apply Now</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#documents">Required Documents</a></li>
+                        <li><a href="#timeline">Processing Time</a></li>
+                        <li><a href="#blogs">Blog</a></li>
+                        <li><a href="#refund">Refund Policy</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul class="footer-links">
+                        <li><a href="tel:+442034331656"><i class="fas fa-phone"></i> +44 20 3433 1656</a></li>
+                        <li><a href="https://wa.me/923006690701"><i class="fab fa-whatsapp"></i> 0300 6690701</a></li>
+                        <li><a href="mailto:info@traveladelimited.co.uk"><i class="fas fa-envelope"></i> info@traveladelimited.co.uk</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Travelade Limited. All rights reserved. UK Company Reg. XXXXXX</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Country Inquiry Modal -->
+    <div class="country-modal" id="countryModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+                <div class="modal-flag" id="modalFlag"></div>
+                <h3 id="modalTitle">Start Your Visa Inquiry</h3>
+                <p>Send your inquiry for <span id="modalCountry">Schengen Visa</span> today!</p>
+            </div>
+            <div class="modal-body">
+                <div class="modal-badge">
+                    <i class="fas fa-tag"></i> Special Offer: Limited Time Discount
+                </div>
+                    <div class="modal-features">
+                    <h4>What We Offer:</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> VFS appointment booked within 15 minutes</li>
+                        <li><i class="fas fa-check"></i> Application form filling & embassy submission</li>
+                        <li><i class="fas fa-check"></i> Complete document preparation & extra filing</li>
+                        <li><i class="fas fa-check"></i> Professional cover letter drafting</li>
+                        <li><i class="fas fa-check"></i> Day-wise itinerary planning</li>
+                        <li><i class="fas fa-check"></i> Hotel & travel booking proofs</li>
+                        <li><i class="fas fa-check"></i> 1-to-1 WhatsApp support</li>
+                    </ul>
+                </div>
+                <form class="modal-form" id="modalForm" action="https://formspree.io/f/mjgjgnqk" method="POST">
+                    <input type="hidden" name="_subject" value="New Visa Inquiry from Country Page">
+                    <input type="hidden" name="destination_country" id="modalCountryHidden">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" name="full_name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone / WhatsApp</label>
+                        <input type="tel" name="phone" placeholder="0300..." required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" name="email" placeholder="your@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Travel Date</label>
+                        <input type="date" name="travel_date">
+                    </div>
+                    <div class="form-group">
+                        <label>Number of Applicants</label>
+                        <select name="passengers">
+                            <option value="1">Solo</option>
+                            <option value="2">Couple</option>
+                            <option value="3">Family (3-4)</option>
+                            <option value="5">Group (5+)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Additional Notes</label>
+                        <textarea name="message" placeholder="Any special requirements or questions..."></textarea>
+                    </div>
+                    <button type="submit" class="modal-submit">
+                        <i class="fas fa-paper-plane"></i> Send Inquiry
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Float -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/923006690701?text=Hi%20Travelade%2C%20I%20want%20to%20start%20my%20Schengen%20visa%20application.%20Please%20assist." target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission to Formspree
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const form = e.target;
+            const btn = form.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            btn.disabled = true;
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    alert('Thank you for your inquiry! We will contact you within 20-30 minutes during office hours.');
+                    form.reset();
+                } else {
+                    alert('Something went wrong. Please try again or contact us directly.');
+                }
+            } catch (error) {
+                alert('Something went wrong. Please try again or contact us directly.');
+            }
+
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+        });
+
+        // Scroll reveal animation
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Country Modal Functions
+        function openModal(country, cardElement) {
+            const modalFlag = document.getElementById('modalFlag');
+            const cardFlagSvg = cardElement.querySelector('.country-flag svg');
+            modalFlag.innerHTML = '';
+            if (cardFlagSvg) {
+                modalFlag.appendChild(cardFlagSvg.cloneNode(true));
+            }
+            document.getElementById('modalCountry').textContent = country;
+            document.getElementById('modalTitle').textContent = country + ' Visa Inquiry';
+            document.getElementById('countryModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('countryModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('countryModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Modal Form submission to Formspree
+        document.getElementById('modalForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const form = e.target;
+            const country = document.getElementById('modalCountry').textContent;
+            document.getElementById('modalCountryHidden').value = country;
+            const btn = form.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            btn.disabled = true;
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    alert('Thank you for your inquiry for ' + country + ' visa! We will contact you within 20-30 minutes during office hours.');
+                    form.reset();
+                    closeModal();
+                } else {
+                    alert('Something went wrong. Please try again or contact us directly.');
+                }
+            } catch (error) {
+                alert('Something went wrong. Please try again or contact us directly.');
+            }
+
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+        });
+    </script>
+</body>
+</html>

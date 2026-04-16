@@ -7,6 +7,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
         :root {
             --primary-blue: #1E5FA8;
             --secondary-blue: #154A84;
@@ -53,25 +63,6 @@
             max-width: 1280px;
             margin: 0 auto;
             padding: 0 24px;
-        }
-
-        /* Background Watermark */
-        .bg-watermark {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: clamp(150px, 25vw, 400px);
-            font-weight: 900;
-            color: rgba(13, 40, 69, 0.02);
-            white-space: nowrap;
-            pointer-events: none;
-            z-index: 0;
-            user-select: none;
-        }
-
-        .bg-watermark span {
-            color: rgba(230, 92, 0, 0.03);
         }
 
         /* Navigation */
@@ -2919,6 +2910,40 @@
             .blog-card {
                 flex: 0 0 320px;
             }
+
+            .requirements-grid,
+            .documents-grid,
+            .refund-grid,
+            .pricing-cards,
+            .countries-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-left {
+                order: 2;
+            }
+
+            .hero-right {
+                order: 1;
+                margin-bottom: 30px;
+            }
+
+            .hero-cta {
+                justify-content: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .timeline-content {
+                padding-left: 0;
+            }
         }
 
         /* Fade In Animation */
@@ -2929,8 +2954,6 @@
     </style>
 </head>
 <body>
-    <!-- Background Watermark -->
-    <div class="bg-watermark">Travelade<span>Limited</span></div>
 
     <!-- Navigation -->
     <nav class="navbar" id="navbar">

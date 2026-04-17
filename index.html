@@ -2835,6 +2835,20 @@
 
             .process-steps {
                 grid-template-columns: repeat(3, 1fr);
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                padding-bottom: 20px;
+                scrollbar-width: none;
+            }
+
+            .process-steps::-webkit-scrollbar {
+                display: none;
+            }
+
+            .process-step {
+                scroll-snap-align: center;
+                min-width: 200px;
             }
 
             .process-steps::before {
@@ -3013,6 +3027,10 @@
                 flex: 1 1 70px;
             }
 
+            .stat-number {
+                font-size: 28px;
+            }
+
             .section-title {
                 font-size: 26px;
             }
@@ -3029,6 +3047,33 @@
 
             .landmarks-grid {
                 grid-template-columns: 1fr;
+            }
+
+            /* Sliding sections for mobile */
+            .reviews-slider,
+            .blogs-wrapper {
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                padding-bottom: 15px;
+            }
+
+            .reviews-slider::-webkit-scrollbar,
+            .blogs-wrapper::-webkit-scrollbar {
+                display: none;
+            }
+
+            .reviews-track,
+            .blogs-track {
+                animation: none;
+                scroll-snap-align: start;
+            }
+
+            .review-card,
+            .blog-card {
+                min-width: 300px;
+                scroll-snap-align: center;
             }
 
             .contact-grid {

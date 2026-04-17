@@ -2850,8 +2850,12 @@
         }
 
         @media (max-width: 768px) {
+            .nav-content {
+                justify-content: flex-start !important;
+            }
+
             .navbar .logo {
-                margin-right: auto;
+                margin-left: 15px;
             }
 
             .mobile-toggle {
@@ -2860,7 +2864,6 @@
                 justify-content: center;
                 flex-direction: column;
                 padding: 8px;
-                margin-left: 15px;
                 z-index: 1001;
                 background: none;
                 border: none;
@@ -3099,6 +3102,11 @@
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="container nav-content">
+            <button class="mobile-toggle" onclick="openMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <a href="#" class="logo">
                 <img src="logo-fetched.jpg" alt="Travelade" class="logo-img">
                 <div class="logo-text-group">
@@ -3106,11 +3114,6 @@
                     <div class="logo-tagline">Travel & Visa Consultancy</div>
                 </div>
             </a>
-            <button class="mobile-toggle" onclick="openMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
             <div class="nav-overlay" id="navOverlay" onclick="closeMenu()"></div>
             <ul class="nav-links" id="navLinks">
                 <li class="nav-menu-header">

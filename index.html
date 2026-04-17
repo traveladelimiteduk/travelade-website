@@ -1319,12 +1319,24 @@
             letter-spacing: 1px;
         }
 
-        .pricing-card:hover {
-            transform: translateY(-10px);
+        .pricing-card:hover,
+        .pricing-card.featured {
+            transform: scale(1.05) translateY(-10px);
+            background: rgba(255,255,255,0.12);
+            border: 2px solid var(--orange);
         }
 
         .pricing-card.featured:hover {
             transform: scale(1.05) translateY(-10px);
+        }
+
+        .pricing-card .btn {
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card:hover .btn {
+            background: white;
+            color: var(--orange);
         }
 
         .pricing-card h3 {
@@ -1548,131 +1560,6 @@
         .refund-card ul li i.fa-check,
         .refund-card ul li i.fa-minus {
             color: var(--orange);
-        }
-
-        /* Blogs Section - Moving Carousel */
-        .blogs {
-            background: var(--gray-100);
-            overflow: hidden;
-        }
-
-        .blogs-wrapper {
-            position: relative;
-        }
-
-        .blogs-track {
-            display: flex;
-            gap: 28px;
-            animation: scrollLeft 20s linear infinite;
-        }
-
-        @keyframes scrollLeft {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        @keyframes scrollLeft {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        .blogs-track:hover {
-            animation-play-state: paused;
-        }
-
-        .blog-card {
-            flex: 0 0 380px;
-            background: var(--white);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .blog-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
-        }
-
-        .blog-image {
-            height: 180px;
-            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 48px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .blog-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
-            transition: transform 0.5s;
-        }
-
-        .blog-card:hover .blog-image img {
-            transform: scale(1.1);
-        }
-
-        .blog-image::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 50%;
-            background: linear-gradient(transparent, rgba(13, 40, 69, 0.4));
-            z-index: 1;
-        }
-
-        .blog-content {
-            padding: 22px;
-        }
-
-        .blog-category {
-            display: inline-block;
-            background: rgba(230, 92, 0, 0.1);
-            color: var(--orange);
-            padding: 4px 12px;
-            border-radius: 50px;
-            font-size: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-        }
-
-        .blog-content h3 {
-            font-size: 16px;
-            margin-bottom: 8px;
-            line-height: 1.4;
-        }
-
-        .blog-content p {
-            color: var(--gray-500);
-            font-size: 12px;
-            margin-bottom: 14px;
-        }
-
-        .blog-link {
-            color: var(--orange);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 12px;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            transition: gap 0.3s;
-        }
-
-        .blog-link:hover {
-            gap: 10px;
         }
 
         /* CTA Section */
@@ -3311,10 +3198,11 @@
                 <li><a href="#services" onclick="closeMenu()"><i class="fas fa-concierge-bell"></i> Services</a></li>
                 <li><a href="#process" onclick="closeMenu()"><i class="fas fa-list-ol"></i> How It Works</a></li>
                 <li><a href="countries.html" onclick="closeMenu()"><i class="fas fa-globe-europe"></i> Countries</a></li>
-                <li><a href="requirements.html" onclick="closeMenu()"><i class="fas fa-clipboard-list"></i> Requirements</a></li>
+                
                 <li><a href="#pricing" onclick="closeMenu()"><i class="fas fa-tag"></i> Pricing</a></li>
+                <li><a href="faq.html" onclick="closeMenu()"><i class="fas fa-question-circle"></i> FAQ</a></li>
                 <li><a href="#reviews" onclick="closeMenu()"><i class="fas fa-star"></i> Reviews</a></li>
-                <li><a href="#blogs" onclick="closeMenu()"><i class="fas fa-blog"></i> Blog</a></li>
+                
                 <li><a href="#contact" onclick="closeMenu()"><i class="fas fa-envelope"></i> Contact</a></li>
                 <li><a href="https://wa.me/923006690701" class="whatsapp-btn" onclick="closeMenu()">
                     <i class="fab fa-whatsapp"></i> WhatsApp Us
@@ -3322,45 +3210,6 @@
             </ul>
         </div>
     </nav>
-
-    <!-- Urgent CTA Section -->
-    <section class="urgent-cta" id="book-now">
-        <div class="urgent-cta-bg">
-            <i class="fas fa-globe urgent-globe"></i>
-            <i class="fas fa-plane urgent-plane"></i>
-        </div>
-        <div class="container">
-            <div class="urgent-content">
-                <div class="urgent-badge">
-                    <i class="fas fa-bolt"></i> Limited Time Offer
-                </div>
-                <h2>Book Your <span class="hero-heading-orange">Schengen Visa Appointment</span> NOW!</h2>
-                <p>Don't let your European dream wait! We handle everything — from VFS appointment booking to application form filling, embassy submission, and filing all extra documents. Get started for just <strong>£165</strong>!</p>
-                <div class="urgency-features">
-                    <div class="urgency-feature">
-                        <i class="fas fa-file-alt"></i>
-                        <span>Form Filling & Submission</span>
-                    </div>
-                    <div class="urgency-feature">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Extra Documents Filed</span>
-                    </div>
-                    <div class="urgency-feature">
-                        <i class="fas fa-shield-alt"></i>
-                        <span>99.7% Approval Rate</span>
-                    </div>
-                </div>
-                <div class="urgent-buttons">
-                    <a href="https://wa.me/923006690701?text=Hi%20Travelade%2C%20I%20want%20to%20book%20my%20Schengen%20visa%20appointment%20NOW!%20Please%20help%20me%20get%20started%20immediately." class="btn btn-primary" style="background: white; color: var(--orange);">
-                        <i class="fab fa-whatsapp"></i> Book Appointment NOW
-                    </a>
-                    <a href="#countries" class="btn btn-outline" style="border-color: white; color: white;">
-                        <i class="fas fa-globe"></i> View All Countries
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -3439,6 +3288,63 @@
                 <div class="trust-item">
                     <i class="fas fa-star"></i>
                     <span>Google Verified Reviews</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section pricing" id="pricing">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Transparent Pricing</span>
+                <h2 class="section-title">Choose Your Service Package</h2>
+                <p class="section-desc">No hidden fees. Clear pricing for complete peace of mind.</p>
+            </div>
+            <div class="pricing-cards">
+                <div class="pricing-card reveal">
+                    <h3>Appointment Only</h3>
+                    <div class="price">£50 <span>from</span></div>
+                    <p class="desc">VFS Global appointment booking hassle-free</p>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Same-day appointment booking</li>
+                        <li><i class="fas fa-check"></i> Slot confirmation within 10-15 mins</li>
+                        <li><i class="fas fa-check"></i> Basic document checklist</li>
+                        <li><i class="fas fa-check"></i> Email/WhatsApp support</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline-white">Apply Now</a>
+                </div>
+                <div class="pricing-card featured reveal">
+                    <h3>Full Service</h3>
+                    <div class="price">£165 <span>complete</span></div>
+                    <p class="desc">Complete visa file preparation, form filling & embassy submission</p>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Guaranteed Appointment Date</li>
+                        <li><i class="fas fa-check"></i> Application form filling & submission</li>
+                        <li><i class="fas fa-check"></i> Filing all extra required documents</li>
+                        <li><i class="fas fa-check"></i> Professional cover letter drafting</li>
+                        <li><i class="fas fa-check"></i> Day-wise itinerary preparation</li>
+                        <li><i class="fas fa-check"></i> Hotel & travel booking proofs</li>
+                        <li><i class="fas fa-check"></i> €30,000 Travel Health Insurance</li>
+                        <li><i class="fas fa-check"></i> Pre-Appointment Briefing</li>
+                        <li><i class="fas fa-check"></i> Priority WhatsApp support</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-white">Apply Now</a>
+                </div>
+                <div class="pricing-card reveal">
+                    <h3>Premium Plus</h3>
+                    <div class="price">£250 <span>complete</span></div>
+                    <p class="desc">Urgent visa service for emergency travel cases - Get your visa fast!</p>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Everything in Full Service</li>
+                        <li><i class="fas fa-bolt"></i> URGENT Processing (24-48 hrs)</li>
+                        <li><i class="fas fa-check"></i> Same-day Appointment</li>
+                        <li><i class="fas fa-check"></i> Dedicated case manager</li>
+                        <li><i class="fas fa-check"></i> Priority embassy submission</li>
+                        <li><i class="fas fa-check"></i> Unlimited revisions</li>
+                        <li><i class="fas fa-check"></i> 24/7 WhatsApp support</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline-white">Apply Now</a>
                 </div>
             </div>
         </div>
@@ -3592,73 +3498,17 @@
         </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section class="section pricing" id="pricing">
+    <!-- What You Need Section -->
+    <section class="section" id="whatyouneed">
         <div class="container">
             <div class="section-header reveal">
-                <span class="section-label">Transparent Pricing</span>
-                <h2 class="section-title">Choose Your Service Package</h2>
-                <p class="section-desc">No hidden fees. Clear pricing for complete peace of mind.</p>
-            </div>
-            <div class="pricing-cards">
-                <div class="pricing-card reveal">
-                    <h3>Appointment Only</h3>
-                    <div class="price">£50 <span>from</span></div>
-                    <p class="desc">VFS Global appointment booking hassle-free</p>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Same-day appointment booking</li>
-                        <li><i class="fas fa-check"></i> Slot confirmation within 10-15 mins</li>
-                        <li><i class="fas fa-check"></i> Basic document checklist</li>
-                        <li><i class="fas fa-check"></i> Email/WhatsApp support</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-outline-white">Get Started</a>
-                </div>
-                <div class="pricing-card featured reveal">
-                    <h3>Full Service</h3>
-                    <div class="price">£165 <span>complete</span></div>
-                    <p class="desc">Complete visa file preparation, form filling & embassy submission</p>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Everything in Appointment Only</li>
-                        <li><i class="fas fa-check"></i> Application form filling & submission</li>
-                        <li><i class="fas fa-check"></i> Filing all extra required documents</li>
-                        <li><i class="fas fa-check"></i> Professional cover letter drafting</li>
-                        <li><i class="fas fa-check"></i> Day-wise itinerary preparation</li>
-                        <li><i class="fas fa-check"></i> Hotel & travel booking proofs</li>
-                        <li><i class="fas fa-check"></i> Pre-appointment briefing</li>
-                        <li><i class="fas fa-check"></i> Priority WhatsApp support</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-white">Apply Now</a>
-                </div>
-                <div class="pricing-card reveal">
-                    <h3>Premium Plus</h3>
-                    <div class="price">£250 <span>complete</span></div>
-                    <p class="desc">Premium service with guaranteed appointment & priority handling</p>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Everything in Full Service</li>
-                        <li><i class="fas fa-check"></i> Guaranteed appointment date</li>
-                        <li><i class="fas fa-check"></i> Urgent processing (24-48 hrs)</li>
-                        <li><i class="fas fa-check"></i> Dedicated case manager</li>
-                        <li><i class="fas fa-check"></i> Application form & extra docs included</li>
-                        <li><i class="fas fa-check"></i> Unlimited revisions</li>
-                        <li><i class="fas fa-check"></i> Post-submission tracking</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-outline-white">Get Premium</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Requirements Section -->
-    <section class="section" id="requirements">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-label">Essential Requirements</span>
+                <span class="section-label">FAQ</span>
                 <h2 class="section-title">What You Need for Your Visa</h2>
-                <p class="section-desc">The essential requirements every applicant must have. We handle the rest!</p>
+                <p class="section-desc">Find answers to common visa questions. We handle the rest!</p>
             </div>
             <div style="display: flex; justify-content: center; margin: 40px 0;">
-                <a href="requirements.html" class="btn btn-primary" style="padding: 20px 50px; font-size: 18px;">
-                    <i class="fas fa-clipboard-list"></i> View Full Requirements
+                <a href="faq.html" class="btn btn-primary" style="padding: 20px 50px; font-size: 18px;">
+                    <i class="fas fa-question-circle"></i> View FAQ
                 </a>
             </div>
         </div>
@@ -3867,154 +3717,6 @@
         </div>
     </section>
 
-    <!-- Blogs Section - Moving Carousel -->
-    <section class="section blogs" id="blogs">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-label">Latest Updates</span>
-                <h2 class="section-title">Schengen Visa News & Tips</h2>
-                <p class="section-desc">Stay updated with the latest Schengen visa news, tips, and travel guides.</p>
-            </div>
-        </div>
-        <div class="blogs-wrapper">
-            <div class="blogs-track">
-                <article class="blog-card" onclick="window.location.href='blog-schengen-approval.html'">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1520175480921-4edfa2983e0f?w=500&h=250&fit=crop" alt="European Map">
-                    </div>
-                    <div class="blog-content">
-                        <span class="blog-category">Visa Guide</span>
-                        <h3>Top 10 Schengen Countries with Highest Approval Rates</h3>
-                        <p>Discover which Schengen countries have the highest visa approval rates for UK residents in 2026.</p>
-                        <a href="blog-schengen-approval.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-                <article class="blog-card" onclick="window.location.href='blog-schengen-approval.html'">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=500&h=250&fit=crop" alt="Passport and Documents">
-                    </div>
-                    <div class="blog-content">
-                        <span class="blog-category">Documentation</span>
-                        <h3>Common Reasons for Schengen Visa Rejection</h3>
-                        <p>Learn the most common reasons for visa rejections and how to avoid them in your application.</p>
-                        <a href="blog-schengen-approval.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-                <article class="blog-card" onclick="window.location.href='blog-schengen-approval.html'">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=500&h=250&fit=crop" alt="Financial Documents">
-                    </div>
-                    <div class="blog-content">
-                        <span class="blog-category">Finance</span>
-                        <h3>Financial Requirements for Schengen Visa 2026</h3>
-                        <p>Updated guide on bank statement requirements, salary thresholds, and financial proof for visas.</p>
-                        <a href="blog-schengen-approval.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-                <article class="blog-card" onclick="window.location.href='blog-schengen-approval.html'">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=500&h=250&fit=crop" alt="European Travel">
-                    </div>
-                    <div class="blog-content">
-                        <span class="blog-category">Travel Tips</span>
-                        <h3>How to Plan Your First European Trip</h3>
-                        <p>Essential tips for planning your first Schengen visa trip to Europe from the UK.</p>
-                        <a href="blog-schengen-approval.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-                <article class="blog-card" onclick="window.location.href='blog-schengen-approval.html'">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=500&h=250&fit=crop" alt="Calendar Planning">
-                    </div>
-                    <div class="blog-content">
-                        <span class="blog-category">Timing</span>
-                        <h3>Best Time to Apply for Schengen Visa</h3>
-                        <p>When to submit your application for the best chances and fastest processing times.</p>
-                        <a href="blog-schengen-approval.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-                <article class="blog-card" onclick="window.location.href='blog-schengen-approval.html'">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=500&h=250&fit=crop" alt="Luxury Hotel">
-                    </div>
-                    <div class="blog-content">
-                        <span class="blog-category">Accommodation</span>
-                        <h3>Hotel Bookings & Proofs for Visa Application</h3>
-                        <p>How to arrange hotel bookings that satisfy visa requirements without financial risk.</p>
-                        <a href="blog-schengen-approval.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-                <!-- Duplicate for seamless loop -->
-                <article class="blog-card" onclick="window.location.href='blog-schengen-approval.html'">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1520175480921-4edfa2983e0f?w=500&h=250&fit=crop" alt="European Map">
-                    </div>
-                    <div class="blog-content">
-                        <span class="blog-category">Visa Guide</span>
-                        <h3>Top 10 Schengen Countries with Highest Approval Rates</h3>
-                        <p>Discover which Schengen countries have the highest visa approval rates for UK residents in 2026.</p>
-                        <a href="blog-schengen-approval.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-                <article class="blog-card" onclick="window.location.href='blog-schengen-approval.html'">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=500&h=250&fit=crop" alt="Passport">
-                    </div>
-                    <div class="blog-content">
-                        <span class="blog-category">Documentation</span>
-                        <h3>Common Reasons for Schengen Visa Rejection</h3>
-                        <p>Learn the most common reasons for visa rejections and how to avoid them in your application.</p>
-                        <a href="blog-schengen-approval.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-                <article class="blog-card" onclick="window.location.href='blog-schengen-approval.html'">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=500&h=250&fit=crop" alt="Finance">
-                    </div>
-                    <div class="blog-content">
-                        <span class="blog-category">Finance</span>
-                        <h3>Financial Requirements for Schengen Visa 2026</h3>
-                        <p>Updated guide on bank statement requirements, salary thresholds, and financial proof for visas.</p>
-                        <a href="blog-schengen-approval.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-                <article class="blog-card" onclick="window.location.href='blog-schengen-approval.html'">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=500&h=250&fit=crop" alt="Travel">
-                    </div>
-                    <div class="blog-content">
-                        <span class="blog-category">Travel Tips</span>
-                        <h3>How to Plan Your First European Trip</h3>
-                        <p>Essential tips for planning your first Schengen visa trip to Europe from the UK.</p>
-                        <a href="blog-schengen-approval.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-                <article class="blog-card" onclick="window.location.href='blog-schengen-approval.html'">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=500&h=250&fit=crop" alt="Calendar">
-                    </div>
-                    <div class="blog-content">
-                        <span class="blog-category">Timing</span>
-                        <h3>Best Time to Apply for Schengen Visa</h3>
-                        <p>When to submit your application for the best chances and fastest processing times.</p>
-                        <a href="blog-schengen-approval.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-                <article class="blog-card" onclick="window.location.href='blog-schengen-approval.html'">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=500&h=250&fit=crop" alt="Hotel">
-                    </div>
-                    <div class="blog-content">
-                        <span class="blog-category">Accommodation</span>
-                        <h3>Hotel Bookings & Proofs for Visa Application</h3>
-                        <p>How to arrange hotel bookings that satisfy visa requirements without financial risk.</p>
-                        <a href="blog-schengen-approval.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
     <!-- CTA Section -->
     <section class="cta" id="apply">
         <div class="container">
@@ -4171,9 +3873,8 @@
                     <ul class="footer-links">
                         <li><a href="#documents">Required Documents</a></li>
                         <li><a href="#timeline">Processing Time</a></li>
-                        <li><a href="#blogs">Blog</a></li>
                         <li><a href="#refund">Refund Policy</a></li>
-                        <li><a href="#">FAQ</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">

@@ -765,12 +765,295 @@
             <div class="footer-cta">
                 <h3>Ready to Apply for Your Schengen Visa?</h3>
                 <p>Get started with our expert team today</p>
-                <a href="index.html#contact" class="btn">
-                    <i class="fas fa-paper-plane"></i> Contact Us Now
-                </a>
+                <button class="btn" onclick="openContactModal()" style="border: none; cursor: pointer;">
+                    <i class="fas fa-paper-plane"></i> Start Application
+                </button>
             </div>
         </div>
     </section>
+
+    <!-- Contact Form Modal -->
+    <div class="contact-modal" id="contactModal">
+        <div class="contact-modal-overlay" onclick="closeContactModal()"></div>
+        <div class="contact-modal-content">
+            <button class="contact-modal-close" onclick="closeContactModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="contact-modal-header">
+                <div class="contact-modal-icon">
+                    <i class="fas fa-paper-plane"></i>
+                </div>
+                <h2>Start Your Visa Application</h2>
+                <p>Fill in your details and our team will contact you within 20-30 minutes</p>
+            </div>
+            <form class="contact-modal-form" id="contactModalForm">
+                <input type="hidden" name="_subject" value="New Schengen Visa Inquiry from Requirements Page">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><i class="fas fa-user"></i> Full Name</label>
+                        <input type="text" name="full_name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-envelope"></i> Email Address</label>
+                        <input type="email" name="email" placeholder="your@email.com" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><i class="fas fa-phone"></i> Phone / WhatsApp</label>
+                        <input type="tel" name="phone" placeholder="0300..." required>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-globe-europe"></i> Destination Country</label>
+                        <select name="destination" required>
+                            <option value="">Select country</option>
+                            <option value="Austria">Austria</option>
+                            <option value="Belgium">Belgium</option>
+                            <option value="Czech Republic">Czech Republic</option>
+                            <option value="Denmark">Denmark</option>
+                            <option value="Estonia">Estonia</option>
+                            <option value="Finland">Finland</option>
+                            <option value="France">France</option>
+                            <option value="Germany">Germany</option>
+                            <option value="Greece">Greece</option>
+                            <option value="Hungary">Hungary</option>
+                            <option value="Iceland">Iceland</option>
+                            <option value="Italy">Italy</option>
+                            <option value="Latvia">Latvia</option>
+                            <option value="Liechtenstein">Liechtenstein</option>
+                            <option value="Lithuania">Lithuania</option>
+                            <option value="Luxembourg">Luxembourg</option>
+                            <option value="Malta">Malta</option>
+                            <option value="Netherlands">Netherlands</option>
+                            <option value="Norway">Norway</option>
+                            <option value="Poland">Poland</option>
+                            <option value="Portugal">Portugal</option>
+                            <option value="Slovakia">Slovakia</option>
+                            <option value="Slovenia">Slovenia</option>
+                            <option value="Spain">Spain</option>
+                            <option value="Sweden">Sweden</option>
+                            <option value="Switzerland">Switzerland</option>
+                            <option value="Vatican City">Vatican City</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><i class="fas fa-calendar"></i> Travel Date</label>
+                        <input type="date" name="travel_date">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-users"></i> Number of Applicants</label>
+                        <select name="passengers" required>
+                            <option value="">Select</option>
+                            <option value="1">Solo</option>
+                            <option value="2">Couple</option>
+                            <option value="3">Family (3-4)</option>
+                            <option value="5">Group (5+)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group full-width">
+                    <label><i class="fas fa-comment"></i> Additional Notes</label>
+                    <textarea name="message" rows="3" placeholder="Tell us about your travel plans or any questions..."></textarea>
+                </div>
+                <button type="submit" class="contact-modal-submit">
+                    <i class="fas fa-paper-plane"></i> Send Inquiry
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Styles -->
+    <style>
+        .contact-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            padding: 20px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .contact-modal.active {
+            display: flex;
+            background: rgba(0,0,0,0.6);
+        }
+
+        .contact-modal-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        .contact-modal-content {
+            background: white;
+            border-radius: 24px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: translateY(50px) scale(0.9);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .contact-modal.active .contact-modal-content {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+
+        .contact-modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+
+        .contact-modal-close:hover {
+            background: rgba(255,255,255,0.3);
+            transform: rotate(90deg);
+        }
+
+        .contact-modal-header {
+            background: linear-gradient(135deg, #1E5FA8 0%, #154A84 100%);
+            color: white;
+            padding: 40px 30px 30px;
+            text-align: center;
+            border-radius: 24px 24px 0 0;
+        }
+
+        .contact-modal-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+        }
+
+        .contact-modal-header h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .contact-modal-header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .contact-modal-form {
+            padding: 30px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 0;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+            margin-bottom: 20px;
+        }
+
+        .contact-modal-form label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 6px;
+        }
+
+        .contact-modal-form label i {
+            color: #1E5FA8;
+            margin-right: 6px;
+        }
+
+        .contact-modal-form input,
+        .contact-modal-form select,
+        .contact-modal-form textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 14px;
+            transition: all 0.3s;
+            background: #f8fafc;
+        }
+
+        .contact-modal-form input:focus,
+        .contact-modal-form select:focus,
+        .contact-modal-form textarea:focus {
+            outline: none;
+            border-color: #1E5FA8;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(30, 95, 168, 0.1);
+        }
+
+        .contact-modal-submit {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #F47A20 0%, #D46904 100%);
+            color: white;
+            border: none;
+            border-radius: 14px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .contact-modal-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(244, 122, 32, 0.4);
+        }
+
+        @media (max-width: 600px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-modal-content {
+                margin: 10px;
+            }
+            
+            .contact-modal-form {
+                padding: 20px;
+            }
+        }
+    </style>
 
     <!-- Footer -->
     <footer class="footer">
@@ -851,6 +1134,54 @@
                     closeMenu();
                 }
             }
+        });
+
+        // Contact Modal Functions
+        function openContactModal() {
+            document.getElementById('contactModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeContactModal() {
+            document.getElementById('contactModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.getElementById('contactModal').addEventListener('click', function(e) {
+            if (e.target === this || e.target.classList.contains('contact-modal-overlay')) {
+                closeContactModal();
+            }
+        });
+
+        // Contact Modal Form Submission
+        document.getElementById('contactModalForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const form = e.target;
+            const btn = form.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            btn.disabled = true;
+
+            try {
+                const response = await fetch('https://formspree.io/f/mjgjgnqk', {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    alert('Thank you for your inquiry! We will contact you within 20-30 minutes during office hours.');
+                    form.reset();
+                    closeContactModal();
+                } else {
+                    alert('Something went wrong. Please try again.');
+                }
+            } catch (error) {
+                alert('Something went wrong. Please try again.');
+            }
+
+            btn.innerHTML = originalText;
+            btn.disabled = false;
         });
     </script>
 

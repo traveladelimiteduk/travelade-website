@@ -3059,11 +3059,36 @@
 
             /* Urgent CTA Mobile */
             .urgent-cta {
-                padding: 50px 0;
+                padding: 60px 20px;
+                padding-top: 80px;
             }
 
             .urgent-cta h2 {
-                font-size: 26px;
+                font-size: 22px;
+            }
+
+            .urgent-content {
+                position: relative;
+                z-index: 999;
+            }
+
+            .urgent-badge {
+                font-size: 10px;
+                padding: 6px 12px;
+                margin-bottom: 12px;
+            }
+
+            .navbar {
+                z-index: 998;
+            }
+
+            .whatsapp-float,
+            .start-app-float {
+                z-index: 999;
+            }
+
+            .urgent-cta {
+                padding-top: 85px;
             }
 
             .urgent-cta > .container > .urgent-content > p {
@@ -3094,8 +3119,23 @@
                 text-shadow: 0 0 40px rgba(0, 0, 0, 0.15), 0 0 80px rgba(0, 0, 0, 0.1);
             }
 
-            .urgent-plane {
+.urgent-plane {
                 font-size: 30px;
+                z-index: 1;
+            }
+
+            .bg-plane {
+                display: none;
+            }
+
+            .urgent-badge {
+                font-size: 10px;
+                padding: 6px 14px;
+            }
+
+            .urgent-content {
+                position: relative;
+                z-index: 2;
             }
 
             .bg-plane {

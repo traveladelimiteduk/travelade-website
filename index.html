@@ -3199,23 +3199,23 @@
                     <div class="hero-form">
                         <h4>Quick Contact Form</h4>
                         <div class="hero-form-row">
-                            <input type="text" placeholder="Your Name">
-                            <input type="email" placeholder="Your Email">
+                            <input type="text" id="heroName" placeholder="Your Name">
+                            <input type="email" id="heroEmail" placeholder="Your Email">
                         </div>
                         <div class="hero-form-row">
-                            <select>
+                            <select id="heroCountry">
                                 <option value="">Destination</option>
-                                <option value="germany">Germany</option>
-                                <option value="france">France</option>
-                                <option value="italy">Italy</option>
-                                <option value="spain">Spain</option>
-                                <option value="other">Other</option>
+                                <option value="Germany">Germany</option>
+                                <option value="France">France</option>
+                                <option value="Italy">Italy</option>
+                                <option value="Spain">Spain</option>
+                                <option value="Other Schengen Country">Other</option>
                             </select>
-                            <input type="tel" placeholder="Phone/WhatsApp">
+                            <input type="tel" id="heroPhone" placeholder="Phone/WhatsApp">
                         </div>
-                        <a href="#contact" class="btn btn-white">
-                            <i class="fas fa-arrow-right"></i> Get Free Consultation
-                        </a>
+                        <button type="button" class="btn btn-white" onclick="sendToWhatsApp()">
+                            <i class="fab fa-whatsapp"></i> Get Free Consultation
+                        </button>
                     </div>
                 </div>
             </div>
@@ -4213,6 +4213,34 @@
             document.getElementById('navLinks').classList.remove('active');
             document.getElementById('navOverlay').classList.remove('active');
             document.body.style.overflow = 'auto';
+        }
+
+        // Hero Form - Send to WhatsApp
+        function sendToWhatsApp() {
+            const name = document.getElementById('heroName').value || 'Not provided';
+            const email = document.getElementById('heroEmail').value || 'Not provided';
+            const country = document.getElementById('heroCountry').value || 'Not specified';
+            const phone = document.getElementById('heroPhone').value || 'Not provided';
+
+            const message = `Hello Travelade,
+
+My name is ${name}.
+
+I am looking to apply for a Schengen Visa to ${country}.
+
+My Contact Details:
+• Email: ${email}
+• Phone/WhatsApp: ${phone}
+
+I found your service online and I'm interested in your visa processing service with 99.7% approval rate.
+
+Please assist me in getting started.
+
+Thank you!`;
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/923006690701?text=${encodedMessage}`;
+            window.open(whatsappUrl, '_blank');
         }
 
         // Close menu when clicking overlay (the darkened page area)

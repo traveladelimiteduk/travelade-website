@@ -141,6 +141,11 @@
             display: flex;
             gap: 24px;
             list-style: none;
+            align-items: center;
+        }
+
+        .nav-links li {
+            display: inline-block;
         }
 
         .nav-links a {
@@ -156,9 +161,21 @@
             color: var(--orange);
         }
 
-        .nav-cta {
+        .nav-links .nav-menu-header {
+            display: none;
+        }
+
+        .nav-links .whatsapp-btn {
+            display: none;
+        }
+
+        .nav-overlay {
+            display: none;
+        }
+
+        .nav-content {
             display: flex;
-            gap: 10px;
+            justify-content: space-between;
             align-items: center;
         }
 
@@ -2834,64 +2851,123 @@
 
         @media (max-width: 768px) {
             .mobile-toggle {
-                display: block;
-                padding: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                padding: 8px;
                 z-index: 1001;
+            }
+
+            .mobile-toggle span {
+                display: block;
+                width: 25px;
+                height: 3px;
+                background: var(--primary-blue);
+                margin: 3px 0;
+                border-radius: 2px;
+                transition: all 0.3s;
             }
 
             .nav-links {
                 position: fixed;
                 top: 0;
                 left: 0;
-                right: 0;
-                bottom: 0;
-                background: linear-gradient(135deg, #1E5FA8 0%, #154A84 100%);
+                width: 280px;
+                height: 100vh;
+                background: white;
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                gap: 30px;
+                padding: 0;
                 transform: translateX(-100%);
                 transition: transform 0.3s ease;
                 z-index: 1000;
+                box-shadow: 4px 0 20px rgba(0,0,0,0.1);
             }
 
             .nav-links.active {
                 transform: translateX(0);
             }
 
-            .nav-links a {
-                color: white;
-                font-size: 22px;
-                font-weight: 600;
-                padding: 15px 30px;
-                text-decoration: none;
-                transition: all 0.3s;
-                border-radius: 10px;
+            .nav-links .nav-menu-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px 20px;
+                background: linear-gradient(135deg, #1E5FA8 0%, #154A84 100%);
             }
 
-            .nav-links a:hover {
-                background: rgba(255,255,255,0.1);
-                transform: scale(1.05);
+            .nav-links .nav-menu-header img {
+                height: 40px;
             }
 
-            .nav-cta {
-                position: absolute;
-                right: 20px;
-                top: 20px;
-                z-index: 1001;
-            }
-
-            .mobile-close {
-                position: absolute;
-                top: 20px;
-                right: 20px;
+            .nav-links .mobile-close {
                 background: none;
                 border: none;
                 color: white;
-                font-size: 30px;
+                font-size: 24px;
                 cursor: pointer;
-                z-index: 1002;
+                padding: 5px;
+            }
+
+            .nav-links a:not(.whatsapp-btn) {
+                color: #333;
+                font-size: 14px;
+                font-weight: 500;
+                padding: 12px 20px;
+                text-decoration: none;
+                transition: all 0.2s;
+                border-bottom: 1px solid #f0f0f0;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+
+            .nav-links a i {
+                color: var(--primary-blue);
+                width: 20px;
+                text-align: center;
+                font-size: 16px;
+            }
+
+            .nav-links a:not(.whatsapp-btn):hover {
+                background: #f8f9fa;
+                color: var(--primary-blue);
+                padding-left: 25px;
+            }
+
+            .nav-links .whatsapp-btn {
+                margin: 15px 20px;
+                padding: 12px 20px;
+                background: #25D366;
+                color: white;
+                border-radius: 8px;
+                text-align: center;
+                font-weight: 600;
+                border: none;
+                display: block;
+            }
+
+            .nav-links .whatsapp-btn:hover {
+                background: #128C7E;
+            }
+
+            .nav-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0,0,0,0.5);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s;
+                z-index: 999;
+            }
+
+            .nav-overlay.active {
+                opacity: 1;
+                visibility: visible;
             }
 
             .hero-left h1 {
@@ -3018,27 +3094,31 @@
                     <div class="logo-tagline">Travel & Visa Consultancy</div>
                 </div>
             </a>
+            <button class="mobile-toggle" onclick="openMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-overlay" id="navOverlay" onclick="closeMenu()"></div>
             <ul class="nav-links" id="navLinks">
-                <button class="mobile-close" onclick="closeMenu()">
-                    <i class="fas fa-times"></i>
-                </button>
-                <li><a href="#services" onclick="closeMenu()">Services</a></li>
-                <li><a href="#process" onclick="closeMenu()">How It Works</a></li>
-                <li><a href="#countries" onclick="closeMenu()">Countries</a></li>
-                <li><a href="#requirements" onclick="closeMenu()">Requirements</a></li>
-                <li><a href="#pricing" onclick="closeMenu()">Pricing</a></li>
-                <li><a href="#reviews" onclick="closeMenu()">Reviews</a></li>
-                <li><a href="#blogs" onclick="closeMenu()">Blog</a></li>
-                <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
-                <li><a href="https://wa.me/923006690701" class="btn btn-whatsapp" onclick="closeMenu()">
+                <li class="nav-menu-header">
+                    <img src="logo-secondary.png" alt="Travelade">
+                    <button class="mobile-close" onclick="closeMenu()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </li>
+                <li><a href="#services" onclick="closeMenu()"><i class="fas fa-concierge-bell"></i> Services</a></li>
+                <li><a href="#process" onclick="closeMenu()"><i class="fas fa-list-ol"></i> How It Works</a></li>
+                <li><a href="#countries" onclick="closeMenu()"><i class="fas fa-globe-europe"></i> Countries</a></li>
+                <li><a href="#requirements" onclick="closeMenu()"><i class="fas fa-clipboard-list"></i> Requirements</a></li>
+                <li><a href="#pricing" onclick="closeMenu()"><i class="fas fa-tag"></i> Pricing</a></li>
+                <li><a href="#reviews" onclick="closeMenu()"><i class="fas fa-star"></i> Reviews</a></li>
+                <li><a href="#blogs" onclick="closeMenu()"><i class="fas fa-blog"></i> Blog</a></li>
+                <li><a href="#contact" onclick="closeMenu()"><i class="fas fa-envelope"></i> Contact</a></li>
+                <li><a href="https://wa.me/923006690701" class="whatsapp-btn" onclick="closeMenu()">
                     <i class="fab fa-whatsapp"></i> WhatsApp Us
                 </a></li>
             </ul>
-            <div class="nav-cta">
-                <button class="mobile-toggle" onclick="openMenu()">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
         </div>
     </nav>
 
@@ -4407,23 +4487,19 @@
         // Mobile Menu Functions
         function openMenu() {
             document.getElementById('navLinks').classList.add('active');
+            document.getElementById('navOverlay').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
 
         function closeMenu() {
             document.getElementById('navLinks').classList.remove('active');
+            document.getElementById('navOverlay').classList.remove('active');
             document.body.style.overflow = 'auto';
         }
 
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            const navLinks = document.getElementById('navLinks');
-            const mobileToggle = document.querySelector('.mobile-toggle');
-            if (navLinks && navLinks.classList.contains('active')) {
-                if (!navLinks.contains(e.target) && !mobileToggle.contains(e.target)) {
-                    closeMenu();
-                }
-            }
+        // Close menu when clicking overlay
+        document.getElementById('navOverlay').addEventListener('click', function() {
+            closeMenu();
         });
 
         // Navbar scroll effect

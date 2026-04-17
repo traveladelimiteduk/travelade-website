@@ -105,15 +105,11 @@
             align-items: center;
         }
 
-        .nav-links li {
-            display: inline-block;
-        }
-
         .nav-links a {
             text-decoration: none;
-            color: #333;
+            color: #334155;
             font-weight: 500;
-            font-size: 13px;
+            font-size: 14px;
             transition: color 0.3s;
         }
 
@@ -121,1069 +117,306 @@
             color: var(--orange);
         }
 
-        .nav-links a.active {
-            color: var(--primary-blue);
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 11px 22px;
+            border-radius: 50px;
             font-weight: 600;
+            font-size: 13px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
         }
 
-        .nav-links .nav-menu-header,
-        .nav-links .whatsapp-btn {
-            display: none;
+        .btn-primary {
+            background: var(--gradient-orange);
+            color: white;
         }
 
-        .nav-overlay {
-            display: none;
-        }
-
-        /* Mobile Toggle */
-        .mobile-toggle {
-            display: none;
-        }
-
-        /* Hero Section */
-        .page-hero {
-            background: linear-gradient(135deg, #6DB3F2 0%, #1E5FA8 50%, #154A84 100%);
+        /* Page Header */
+        .page-header {
+            background: var(--gradient-blue);
             padding: 140px 0 60px;
             text-align: center;
-            color: #000;
         }
 
-        .page-hero h1 {
-            font-size: 48px;
-            font-weight: 800;
-            margin-bottom: 16px;
+        .page-header h1 {
+            font-size: 42px;
+            color: white;
+            margin-bottom: 14px;
         }
 
-        .page-hero h1 span {
-            color: var(--orange);
-        }
-
-        .page-hero p {
-            font-size: 18px;
+        .page-header p {
+            font-size: 17px;
+            color: rgba(255,255,255,0.85);
             max-width: 600px;
             margin: 0 auto;
-            opacity: 0.9;
         }
 
         /* Requirements Section */
-        .requirements-section {
+        .requirements {
             padding: 80px 0;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-label {
-            display: inline-block;
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--primary-blue);
-            margin-bottom: 10px;
-        }
-
-        .section-title {
-            font-size: 36px;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 12px;
-        }
-
-        .section-desc {
-            font-size: 16px;
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto;
         }
 
         .requirements-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin-bottom: 60px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 50px;
         }
 
-        .requirement-card {
+        .req-card {
             background: white;
-            border-radius: 20px;
-            padding: 32px;
-            text-align: center;
-            border: 1px solid #e2e8f0;
-            transition: all 0.3s;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-        }
-
-        .requirement-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px rgba(30, 95, 168, 0.15);
-            border-color: var(--primary-blue);
+            padding: 28px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            display: flex;
+            gap: 20px;
         }
 
         .req-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--gradient-blue);
-            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            background: rgba(30, 95, 168, 0.1);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 28px;
-            color: white;
-            box-shadow: 0 8px 25px rgba(30, 95, 168, 0.3);
+            font-size: 24px;
+            color: var(--primary-blue);
+            flex-shrink: 0;
         }
 
-        .requirement-card h3 {
+        .req-content h3 {
             font-size: 18px;
-            margin-bottom: 12px;
-            color: #1a1a1a;
-        }
-
-        .requirement-card p {
-            font-size: 14px;
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* Services Note */
-        .services-note {
-            background: var(--gradient-orange);
-            color: white;
-            padding: 30px 40px;
-            border-radius: 16px;
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .services-note h3 {
-            font-size: 20px;
             margin-bottom: 8px;
-            color: white;
+            color: #1e293b;
         }
 
-        .services-note p {
-            font-size: 16px;
-            opacity: 0.95;
-        }
-
-        /* Documents Grid */
-        .documents-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-        }
-
-        .doc-category {
-            background: white;
-            border-radius: 20px;
-            padding: 28px;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-        }
-
-        .doc-category h3 {
-            font-size: 18px;
-            margin-bottom: 20px;
-            color: #1a1a1a;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .doc-category h3 i {
-            color: var(--primary-blue);
-        }
-
-        .doc-category.orange h3 i {
-            color: var(--orange);
-        }
-
-        .doc-category.orange {
-            background: rgba(244, 122, 32, 0.08);
-            border: 1px solid var(--orange);
-        }
-
-        .doc-list {
-            list-style: none;
-        }
-
-        .doc-list li {
-            padding: 10px 0;
-            border-bottom: 1px solid #f0f0f0;
-            display: flex;
-            align-items: center;
-            gap: 12px;
+        .req-content p {
             font-size: 14px;
-            color: #555;
+            color: #64748b;
         }
 
-        .doc-list li:last-child {
-            border-bottom: none;
+        .req-content ul {
+            margin-top: 12px;
+            padding-left: 18px;
         }
 
-        .doc-list li i {
-            color: var(--primary-blue);
-            width: 18px;
+        .req-content ul li {
+            font-size: 13px;
+            color: #64748b;
+            margin-bottom: 6px;
         }
 
-        .doc-category.orange .doc-list li i {
-            color: var(--orange);
+        /* CTA Section */
+        .cta-section {
+            background: var(--orange);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 32px;
+            color: white;
+            margin-bottom: 14px;
+        }
+
+        .cta-section p {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 24px;
         }
 
         /* Footer */
         .footer {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: white;
-            padding: 60px 0 30px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-brand p {
-            font-size: 14px;
+            background: #0f172a;
             color: rgba(255,255,255,0.7);
-            margin-top: 16px;
-            line-height: 1.8;
+            padding: 40px 0 20px;
         }
 
-        .footer h4 {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: white;
-        }
-
-        .footer ul {
-            list-style: none;
-        }
-
-        .footer ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer ul a {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.3s;
-        }
-
-        .footer ul a:hover {
-            color: var(--orange);
-        }
-
-        .footer-contact li {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: rgba(255,255,255,0.7);
-            font-size: 14px;
-            margin-bottom: 14px;
-        }
-
-        .footer-contact i {
-            color: var(--orange);
-            width: 16px;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 30px;
+        .footer-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 13px;
-            color: rgba(255,255,255,0.5);
         }
 
-        .footer-bottom a {
-            color: rgba(255,255,255,0.5);
-            text-decoration: none;
-            margin-left: 20px;
-        }
-
-        .footer-bottom a:hover {
-            color: var(--orange);
-        }
-
-        .social-links {
+        .footer-links {
             display: flex;
-            gap: 16px;
-            margin-top: 20px;
+            gap: 24px;
+            list-style: none;
         }
 
-        .social-link {
-            width: 40px;
-            height: 40px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            transition: all 0.3s;
-        }
-
-        .social-link:hover {
-            background: var(--orange);
-            transform: translateY(-3px);
-        }
-
-        /* CTA Section */
-        .footer-cta {
-            background: var(--gradient-orange);
-            padding: 40px;
-            border-radius: 20px;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .footer-cta h3 {
-            font-size: 24px;
-            color: white;
-            margin-bottom: 12px;
-        }
-
-        .footer-cta p {
-            color: rgba(255,255,255,0.9);
-            margin-bottom: 20px;
-        }
-
-        .footer-cta .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 14px 28px;
-            background: white;
-            color: var(--orange);
-            border-radius: 50px;
-            font-weight: 600;
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
             text-decoration: none;
-            transition: all 0.3s;
         }
 
-        .footer-cta .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-        }
-
-        /* Mobile Styles */
         @media (max-width: 768px) {
-            .mobile-toggle {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-                padding: 8px;
-                z-index: 1001;
-                background: none;
-                border: none;
-                cursor: pointer;
-            }
-
-            .mobile-toggle span {
-                display: block;
-                width: 25px;
-                height: 3px;
-                background: var(--primary-blue);
-                margin: 3px 0;
-                border-radius: 2px;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 280px;
-                height: 100vh;
-                background: white;
-                display: flex;
-                flex-direction: column;
-                padding: 0;
-                transform: translateX(-100%);
-                transition: transform 0.3s ease;
-                z-index: 1000;
-                box-shadow: 4px 0 20px rgba(0,0,0,0.1);
-            }
-
-            .nav-links.active {
-                transform: translateX(0);
-            }
-
-            .nav-links .nav-menu-header {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 15px 20px;
-                background: var(--gradient-blue);
-            }
-
-            .nav-links .nav-menu-header img {
-                height: 40px;
-            }
-
-            .nav-links .mobile-close {
-                background: none;
-                border: none;
-                color: white;
-                font-size: 24px;
-                cursor: pointer;
-            }
-
-            .nav-links a:not(.whatsapp-btn) {
-                color: #333;
-                font-size: 14px;
-                font-weight: 500;
-                padding: 12px 20px;
-                text-decoration: none;
-                border-bottom: 1px solid #f0f0f0;
-                display: flex;
-                align-items: center;
-                gap: 12px;
-            }
-
-            .nav-links a i {
-                color: var(--primary-blue);
-                width: 20px;
-            }
-
-            .nav-links .whatsapp-btn {
-                margin: 15px 20px;
-                padding: 12px 20px;
-                background: #25D366;
-                color: white;
-                border-radius: 8px;
-                text-align: center;
-                font-weight: 600;
-                display: block;
-            }
-
-            .nav-overlay {
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: rgba(0,0,0,0.5);
-                opacity: 0;
-                visibility: hidden;
-                transition: all 0.3s;
-                z-index: 998;
-            }
-
-            .nav-overlay.active {
-                opacity: 1;
-                visibility: visible;
-            }
-
-            .page-hero {
-                padding: 120px 0 40px;
-            }
-
-            .page-hero h1 {
-                font-size: 32px;
-            }
-
-            .page-hero p {
-                font-size: 16px;
-            }
-
-            .requirements-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .documents-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                gap: 16px;
-                text-align: center;
-            }
+            .page-header h1 { font-size: 32px; }
+            .requirements-grid { grid-template-columns: 1fr; }
+            .footer-content { flex-direction: column; gap: 20px; }
         }
     </style>
 </head>
 <body>
-
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
+    <nav class="navbar">
         <div class="container nav-content">
-            <button class="mobile-toggle" onclick="openMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
             <a href="index.html" class="logo">
-                <img src="logo-fetched.jpg" alt="Travelade" class="logo-img">
+                <img src="logo-secondary.png" alt="Travelade" class="logo-img">
                 <div class="logo-text-group">
-                    <div class="logo-text"><span>Travel</span><span class="logo-ade">ade</span></div>
-                    <div class="logo-tagline">Travel & Visa Consultancy</div>
+                    <div class="logo-text">
+                        <span>Travelade</span> <span class="logo-ade">Limited</span>
+                    </div>
+                    <div class="logo-tagline">Schengen Visa Specialists</div>
                 </div>
             </a>
-            <div class="nav-overlay" id="navOverlay" onclick="closeMenu()"></div>
-            <ul class="nav-links" id="navLinks">
-                <li class="nav-menu-header">
-                    <img src="logo-secondary.png" alt="Travelade">
-                    <button class="mobile-close" onclick="closeMenu()">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </li>
-                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="index.html#services"><i class="fas fa-concierge-bell"></i> Services</a></li>
-                <li><a href="countries.html"><i class="fas fa-globe-europe"></i> Countries</a></li>
-                <li><a href="requirements.html" class="active"><i class="fas fa-clipboard-list"></i> Requirements</a></li>
-                <li><a href="index.html#pricing"><i class="fas fa-tag"></i> Pricing</a></li>
-                <li><a href="index.html#contact"><i class="fas fa-envelope"></i> Contact</a></li>
-                <li><a href="https://wa.me/923006690701" class="whatsapp-btn" onclick="closeMenu()">
-                    <i class="fab fa-whatsapp"></i> WhatsApp Us
-                </a></li>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="countries.html">Countries</a></li>
+                <li><a href="requirements.html" style="color: var(--orange);">Requirements</a></li>
             </ul>
+            <a href="index.html#contact" class="btn btn-primary">
+                <i class="fab fa-whatsapp"></i> Contact Us
+            </a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="page-hero">
+    <section class="page-header">
         <div class="container">
-            <h1>Essential <span>Requirements</span></h1>
-            <p>Everything you need to prepare before applying for your Schengen visa. We handle the rest!</p>
+            <h1>Essential Requirements</h1>
+            <p>Everything you need to prepare for your Schengen visa application.</p>
         </div>
     </section>
 
-    <!-- Requirements Section -->
-    <section class="requirements-section">
+    <section class="requirements">
         <div class="container">
-            <div class="section-header">
-                <span class="section-label">Essential Requirements</span>
-                <h2 class="section-title">What You Need for Your Visa</h2>
-                <p class="section-desc">The essential requirements every applicant must have. We handle the rest!</p>
-            </div>
-
             <div class="requirements-grid">
-                <div class="requirement-card">
+                <div class="req-card">
                     <div class="req-icon"><i class="fas fa-passport"></i></div>
-                    <h3>Valid Passport</h3>
-                    <p>UK-issued passport valid for 3+ months beyond your return date with 2+ blank pages</p>
+                    <div class="req-content">
+                        <h3>Valid Passport</h3>
+                        <p>Your passport must meet these requirements:</p>
+                        <ul>
+                            <li>Minimum 6 months validity from intended return date</li>
+                            <li>At least 2 blank pages</li>
+                            <li>No damage or wear</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="requirement-card">
-                    <div class="req-icon"><i class="fas fa-id-card"></i></div>
-                    <h3>UK Residence Proof</h3>
-                    <p>Valid UK residency (BRP/Visa) valid for 3+ months beyond your travel dates</p>
-                </div>
-                <div class="requirement-card">
-                    <div class="req-icon"><i class="fas fa-money-bill-wave"></i></div>
-                    <h3>Financial Proof</h3>
-                    <p>UK bank statements (3-6 months) showing sufficient funds for your trip</p>
-                </div>
-                <div class="requirement-card">
+
+                <div class="req-card">
                     <div class="req-icon"><i class="fas fa-file-alt"></i></div>
-                    <h3>Employment Proof</h3>
-                    <p>Employment letter, student status, or self-employment documentation</p>
+                    <div class="req-content">
+                        <h3>Application Form</h3>
+                        <p>Complete visa application form:</p>
+                        <ul>
+                            <li>Accurate information</li>
+                            <li>Signed by applicant</li>
+                            <li>Date and sign within 15 days of appointment</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="requirement-card">
-                    <div class="req-icon"><i class="fas fa-camera"></i></div>
-                    <h3>Passport Photos</h3>
-                    <p>Recent passport-size photographs (35x45mm, white background)</p>
-                </div>
-                <div class="requirement-card">
-                    <div class="req-icon"><i class="fas fa-file-invoice"></i></div>
-                    <h3>Previous Visas</h3>
-                    <p>Previous Schengen visas in old passports (if any)</p>
-                </div>
-            </div>
 
-            <!-- We Handle For You -->
-            <div class="services-note">
-                <h3><i class="fas fa-check-circle"></i> We Handle Everything Else!</h3>
-                <p>Travel Insurance • Hotel Bookings • Flight Reservations • Cover Letters • Itinerary Planning</p>
-            </div>
+                <div class="req-card">
+                    <div class="req-icon"><i class="fas fa-image"></i></div>
+                    <div class="req-content">
+                        <h3>Photos</h3>
+                        <p>Passport photograph requirements:</p>
+                        <ul>
+                            <li>2 recent color photos</li>
+                            <li>White background</li>
+                            <li>35x45mm size</li>
+                        </ul>
+                    </div>
+                </div>
 
-            <!-- Document Categories -->
-            <div class="section-header">
-                <span class="section-label">Document Checklist</span>
-                <h2 class="section-title">Complete Document Requirements</h2>
-                <p class="section-desc">We align your checklist to the lead consulate and prepare drafts and proofs for you.</p>
-            </div>
+                <div class="req-card">
+                    <div class="req-icon"><i class="fas fa-plane"></i></div>
+                    <div class="req-content">
+                        <h3>Flight Itinerary</h3>
+                        <p>Travel booking proofs:</p>
+                        <ul>
+                            <li>Round-trip flight booking</li>
+                            <li>Can be provisional booking</li>
+                        </ul>
+                    </div>
+                </div>
 
-            <div class="documents-grid">
-                <div class="doc-category">
-                    <h3><i class="fas fa-id-card"></i> Identity & UK Residence</h3>
-                    <ul class="doc-list">
-                        <li><i class="fas fa-passport"></i> Valid passport (3+ months beyond return, 2+ blank pages)</li>
-                        <li><i class="fas fa-id-card"></i> UK residence permit/BRP (valid 3+ months)</li>
-                        <li><i class="fas fa-file-alt"></i> Previous Schengen visas (if any)</li>
-                        <li><i class="fas fa-camera"></i> Recent passport-size photographs (35x45mm)</li>
-                    </ul>
+                <div class="req-card">
+                    <div class="req-icon"><i class="fas fa-hotel"></i></div>
+                    <div class="req-content">
+                        <h3>Accommodation</h3>
+                        <p>Proof of lodging:</p>
+                        <ul>
+                            <li>Hotel booking confirmation</li>
+                            <li>Host invitation letter (if staying with someone)</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="doc-category">
-                    <h3><i class="fas fa-coins"></i> Financial & Employment Proof</h3>
-                    <ul class="doc-list">
-                        <li><i class="fas fa-university"></i> UK bank statements (3-6 months)</li>
-                        <li><i class="fas fa-briefcase"></i> Employment letter or contract</li>
-                        <li><i class="fas fa-file-invoice"></i> Recent payslips (3 months)</li>
-                        <li><i class="fas fa-graduation-cap"></i> Employment details/Student Details</li>
-                    </ul>
+
+                <div class="req-card">
+                    <div class="req-icon"><i class="fas fa-university"></i></div>
+                    <div class="req-content">
+                        <h3>Proof of Funds</h3>
+                        <p>Financial documents:</p>
+                        <ul>
+                            <li>3 months bank statements</li>
+                            <li>Original bank letter</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="doc-category orange">
-                    <h3><i class="fas fa-check-circle"></i> We Handle For You</h3>
-                    <ul class="doc-list">
-                        <li><i class="fas fa-shield-alt"></i> Travel Insurance (€30,000+)</li>
-                        <li><i class="fas fa-ticket-alt"></i> Flight reservations</li>
-                        <li><i class="fas fa-hotel"></i> Hotel booking proofs</li>
-                        <li><i class="fas fa-map"></i> Day-wise itinerary</li>
-                    </ul>
+
+                <div class="req-card">
+                    <div class="req-icon"><i class="fas fa-heart"></i></div>
+                    <div class="req-content">
+                        <h3>Travel Insurance</h3>
+                        <p>Required insurance:</p>
+                        <ul>
+                            <li>Minimum €30,000 coverage</li>
+                            <li>Valid for all Schengen countries</li>
+                            <li>Cover entire stay</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="doc-category">
-                    <h3><i class="fas fa-folder-plus"></i> Additional Documents</h3>
-                    <ul class="doc-list">
-                        <li><i class="fas fa-fingerprint"></i> Biometrics (if not given in 59 months)</li>
-                        <li><i class="fas fa-users"></i> Sponsorship documents (if applicable)</li>
-                        <li><i class="fas fa-envelope"></i> Invitation letter (if visiting family)</li>
-                        <li><i class="fas fa-heart"></i> Relationship proofs (family visits)</li>
-                    </ul>
+
+                <div class="req-card">
+                    <div class="req-icon"><i class="fas fa-envelope"></i></div>
+                    <div class="req-content">
+                        <h3>Cover Letter</h3>
+                        <p>Purpose of travel:</p>
+                        <ul>
+                            <li>Explain travel purpose</li>
+                            <li>Itinerary details</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="section" style="background: #f0f4f8; padding: 60px 0;">
+    <section class="cta-section">
         <div class="container">
-            <div class="footer-cta">
-                <h3>Ready to Apply for Your Schengen Visa?</h3>
-                <p>Get started with our expert team today</p>
-                <button class="btn" onclick="openContactModal()" style="border: none; cursor: pointer;">
-                    <i class="fas fa-paper-plane"></i> Start Application
-                </button>
-            </div>
+            <h2>Need Help With Your Documents?</h2>
+            <p>Our team can help prepare all your documents.</p>
+            <a href="index.html#contact" class="btn btn-primary" style="background: white; color: var(--orange);">
+                <i class="fab fa-whatsapp"></i> Contact Us
+            </a>
         </div>
     </section>
 
-    <!-- Contact Form Modal -->
-    <div class="contact-modal" id="contactModal">
-        <div class="contact-modal-overlay" onclick="closeContactModal()"></div>
-        <div class="contact-modal-content">
-            <button class="contact-modal-close" onclick="closeContactModal()">
-                <i class="fas fa-times"></i>
-            </button>
-            <div class="contact-modal-header">
-                <div class="contact-modal-icon">
-                    <i class="fas fa-paper-plane"></i>
-                </div>
-                <h2>Start Your Visa Application</h2>
-                <p>Fill in your details and our team will contact you within 20-30 minutes</p>
-            </div>
-            <form class="contact-modal-form" id="contactModalForm">
-                <input type="hidden" name="_subject" value="New Schengen Visa Inquiry from Requirements Page">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label><i class="fas fa-user"></i> Full Name</label>
-                        <input type="text" name="full_name" placeholder="Enter your full name" required>
-                    </div>
-                    <div class="form-group">
-                        <label><i class="fas fa-envelope"></i> Email Address</label>
-                        <input type="email" name="email" placeholder="your@email.com" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label><i class="fas fa-phone"></i> Phone / WhatsApp</label>
-                        <input type="tel" name="phone" placeholder="0300..." required>
-                    </div>
-                    <div class="form-group">
-                        <label><i class="fas fa-globe-europe"></i> Destination Country</label>
-                        <select name="destination" required>
-                            <option value="">Select country</option>
-                            <option value="Austria">Austria</option>
-                            <option value="Belgium">Belgium</option>
-                            <option value="Czech Republic">Czech Republic</option>
-                            <option value="Denmark">Denmark</option>
-                            <option value="Estonia">Estonia</option>
-                            <option value="Finland">Finland</option>
-                            <option value="France">France</option>
-                            <option value="Germany">Germany</option>
-                            <option value="Greece">Greece</option>
-                            <option value="Hungary">Hungary</option>
-                            <option value="Iceland">Iceland</option>
-                            <option value="Italy">Italy</option>
-                            <option value="Latvia">Latvia</option>
-                            <option value="Liechtenstein">Liechtenstein</option>
-                            <option value="Lithuania">Lithuania</option>
-                            <option value="Luxembourg">Luxembourg</option>
-                            <option value="Malta">Malta</option>
-                            <option value="Netherlands">Netherlands</option>
-                            <option value="Norway">Norway</option>
-                            <option value="Poland">Poland</option>
-                            <option value="Portugal">Portugal</option>
-                            <option value="Slovakia">Slovakia</option>
-                            <option value="Slovenia">Slovenia</option>
-                            <option value="Spain">Spain</option>
-                            <option value="Sweden">Sweden</option>
-                            <option value="Switzerland">Switzerland</option>
-                            <option value="Vatican City">Vatican City</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label><i class="fas fa-calendar"></i> Travel Date</label>
-                        <input type="date" name="travel_date">
-                    </div>
-                    <div class="form-group">
-                        <label><i class="fas fa-users"></i> Number of Applicants</label>
-                        <select name="passengers" required>
-                            <option value="">Select</option>
-                            <option value="1">Solo</option>
-                            <option value="2">Couple</option>
-                            <option value="3">Family (3-4)</option>
-                            <option value="5">Group (5+)</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group full-width">
-                    <label><i class="fas fa-comment"></i> Additional Notes</label>
-                    <textarea name="message" rows="3" placeholder="Tell us about your travel plans or any questions..."></textarea>
-                </div>
-                <button type="submit" class="contact-modal-submit">
-                    <i class="fas fa-paper-plane"></i> Send Inquiry
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Modal Styles -->
-    <style>
-        .contact-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            padding: 20px;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .contact-modal.active {
-            display: flex;
-            background: rgba(0,0,0,0.6);
-        }
-
-        .contact-modal-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-        }
-
-        .contact-modal-content {
-            background: white;
-            border-radius: 24px;
-            max-width: 600px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
-            transform: translateY(50px) scale(0.9);
-            opacity: 0;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .contact-modal.active .contact-modal-content {
-            transform: translateY(0) scale(1);
-            opacity: 1;
-        }
-
-        .contact-modal-close {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: rgba(255,255,255,0.2);
-            border: none;
-            color: white;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            font-size: 18px;
-            cursor: pointer;
-            transition: all 0.3s;
-            z-index: 10;
-        }
-
-        .contact-modal-close:hover {
-            background: rgba(255,255,255,0.3);
-            transform: rotate(90deg);
-        }
-
-        .contact-modal-header {
-            background: linear-gradient(135deg, #1E5FA8 0%, #154A84 100%);
-            color: white;
-            padding: 40px 30px 30px;
-            text-align: center;
-            border-radius: 24px 24px 0 0;
-        }
-
-        .contact-modal-icon {
-            width: 70px;
-            height: 70px;
-            background: rgba(255,255,255,0.15);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 28px;
-        }
-
-        .contact-modal-header h2 {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .contact-modal-header p {
-            font-size: 14px;
-            opacity: 0.9;
-        }
-
-        .contact-modal-form {
-            padding: 30px;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            margin-bottom: 16px;
-        }
-
-        .form-group {
-            margin-bottom: 0;
-        }
-
-        .form-group.full-width {
-            grid-column: 1 / -1;
-            margin-bottom: 20px;
-        }
-
-        .contact-modal-form label {
-            display: block;
-            font-size: 12px;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 6px;
-        }
-
-        .contact-modal-form label i {
-            color: #1E5FA8;
-            margin-right: 6px;
-        }
-
-        .contact-modal-form input,
-        .contact-modal-form select,
-        .contact-modal-form textarea {
-            width: 100%;
-            padding: 14px 16px;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            font-size: 14px;
-            transition: all 0.3s;
-            background: #f8fafc;
-        }
-
-        .contact-modal-form input:focus,
-        .contact-modal-form select:focus,
-        .contact-modal-form textarea:focus {
-            outline: none;
-            border-color: #1E5FA8;
-            background: white;
-            box-shadow: 0 0 0 4px rgba(30, 95, 168, 0.1);
-        }
-
-        .contact-modal-submit {
-            width: 100%;
-            padding: 18px;
-            background: linear-gradient(135deg, #F47A20 0%, #D46904 100%);
-            color: white;
-            border: none;
-            border-radius: 14px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .contact-modal-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(244, 122, 32, 0.4);
-        }
-
-        @media (max-width: 600px) {
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-modal-content {
-                margin: 10px;
-            }
-            
-            .contact-modal-form {
-                padding: 20px;
-            }
-        }
-    </style>
-
-    <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="index.html" class="logo">
-                        <img src="logo-secondary.png" alt="Travelade" style="height: 50px;">
-                    </a>
-                    <p>UK's trusted Schengen visa specialists. We handle your complete visa file from appointment booking to application form filling, embassy submission, and filing all extra documents.</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-                <div>
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="countries.html">Countries</a></li>
-                        <li><a href="requirements.html">Requirements</a></li>
-                        <li><a href="index.html#pricing">Pricing</a></li>
-                        <li><a href="index.html#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="index.html#services">Visa Application</a></li>
-                        <li><a href="index.html#services">Appointment Booking</a></li>
-                        <li><a href="index.html#services">Document Preparation</a></li>
-                        <li><a href="index.html#services">Embassy Filing</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Contact Us</h4>
-                    <ul class="footer-contact">
-                        <li><i class="fas fa-phone"></i> 0300 6690701</li>
-                        <li><i class="fab fa-whatsapp"></i> +92 300 6690701</li>
-                        <li><i class="fas fa-envelope"></i> info@traveladelimited.co.uk</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Travelade Limited. All rights reserved. UK Company Reg. XXXXXX</p>
-                <div>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                </div>
-            </div>
+        <div class="container footer-content">
+            <p>&copy; 2026 Travelade Limited. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="countries.html">Countries</a></li>
+                <li><a href="requirements.html">Requirements</a></li>
+                <li><a href="index.html#pricing">Pricing</a></li>
+            </ul>
         </div>
     </footer>
-
-    <script>
-        // Mobile Menu Functions
-        function openMenu() {
-            document.getElementById('navLinks').classList.add('active');
-            document.getElementById('navOverlay').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeMenu() {
-            document.getElementById('navLinks').classList.remove('active');
-            document.getElementById('navOverlay').classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-
-        document.getElementById('navOverlay').addEventListener('click', function() {
-            closeMenu();
-        });
-
-        document.addEventListener('click', function(e) {
-            const navLinks = document.getElementById('navLinks');
-            const mobileToggle = document.querySelector('.mobile-toggle');
-            if (navLinks && navLinks.classList.contains('active')) {
-                if (!navLinks.contains(e.target) && !mobileToggle.contains(e.target)) {
-                    closeMenu();
-                }
-            }
-        });
-
-        // Contact Modal Functions
-        function openContactModal() {
-            document.getElementById('contactModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeContactModal() {
-            document.getElementById('contactModal').classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-
-        document.getElementById('contactModal').addEventListener('click', function(e) {
-            if (e.target === this || e.target.classList.contains('contact-modal-overlay')) {
-                closeContactModal();
-            }
-        });
-
-        // Contact Modal Form Submission
-        document.getElementById('contactModalForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const form = e.target;
-            const btn = form.querySelector('button[type="submit"]');
-            const originalText = btn.innerHTML;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            btn.disabled = true;
-
-            try {
-                const response = await fetch('https://formspree.io/f/mjgjgnqk', {
-                    method: 'POST',
-                    body: new FormData(form),
-                    headers: { 'Accept': 'application/json' }
-                });
-
-                if (response.ok) {
-                    alert('Thank you for your inquiry! We will contact you within 20-30 minutes during office hours.');
-                    form.reset();
-                    closeContactModal();
-                } else {
-                    alert('Something went wrong. Please try again.');
-                }
-            } catch (error) {
-                alert('Something went wrong. Please try again.');
-            }
-
-            btn.innerHTML = originalText;
-            btn.disabled = false;
-        });
-    </script>
-
 </body>
 </html>

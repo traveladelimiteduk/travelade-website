@@ -246,7 +246,7 @@
         /* Hero Section */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(135deg, #6DB3F2 0%, #1E5FA8 50%, #154A84 100%);
+            background: linear-gradient(135deg, #F47A20 0%, #D46904 100%);
             position: relative;
             display: flex;
             align-items: center;
@@ -262,8 +262,8 @@
             right: 0;
             bottom: 0;
             background: 
-                radial-gradient(circle at 20% 80%, rgba(244, 122, 32, 0.4) 0%, transparent 40%),
-                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 40%);
+                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(255, 163, 77, 0.5) 0%, transparent 50%);
         }
 
         /* Animated Background Elements */
@@ -418,6 +418,27 @@
             to { opacity: 1; transform: translateX(0); }
         }
 
+        .hero-form {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(30px);
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 24px;
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+        }
+
+        .hero-form::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        }
+
         .hero-card {
             background: rgba(255,255,255,0.08);
             backdrop-filter: blur(30px);
@@ -429,170 +450,67 @@
             box-shadow: 0 25px 50px rgba(0,0,0,0.3);
         }
 
-        .hero-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -30%;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(230,92,0,0.3) 0%, transparent 70%);
-            animation: pulse-glow 3s ease-in-out infinite;
-        }
-
-        @keyframes pulse-glow {
-            0%, 100% { opacity: 0.5; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.1); }
-        }
-
-        .card-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: #000000;
-            color: #FFFFFF;
-            padding: 8px 16px;
-            border-radius: 50px;
-            font-size: 11px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .card-badge i {
-            animation: blink 1.5s infinite;
-            color: #F47A20;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
-        }
-
-        .card-title {
-            font-size: 22px;
-            color: #ffffff;
-            margin-bottom: 14px;
-            font-family: 'Inter', sans-serif;
-            font-weight: 700;
-            position: relative;
-            z-index: 1;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.3);
-        }
-
-        .card-features {
-            list-style: none;
-            margin: 20px 0;
-            position: relative;
-            z-index: 1;
-        }
-
-        .card-features li {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: #ffffff;
-            margin-bottom: 10px;
-            font-size: 13px;
-            font-weight: 500;
-            text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
-        }
-
-        .card-features li i {
-            color: #ffffff;
-            font-size: 13px;
-            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
-        }
-
-        .card-price {
-            display: flex;
-            align-items: baseline;
-            gap: 10px;
-            margin: 20px 0;
-            padding: 14px;
-            background: rgba(0, 0, 0, 0.15);
-            border-radius: 12px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .price-main {
-            font-size: 42px;
-            font-weight: 800;
-            color: #ffffff;
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
-        }
-
-        .price-text {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 13px;
-            font-weight: 500;
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
-        }
-
-        .card-cta {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .card-cta .btn {
-            flex: 1;
-            justify-content: center;
-            padding: 12px 16px;
-        }
-
         /* Quick Contact Form in Hero */
         .hero-form {
             margin-top: 20px;
             padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 2px solid rgba(255,255,255,0.2);
             position: relative;
             z-index: 1;
         }
 
         .hero-form h4 {
             color: white;
-            font-size: 14px;
-            margin-bottom: 14px;
+            font-size: 16px;
+            margin-bottom: 16px;
             font-family: 'Inter', sans-serif;
+            font-weight: 600;
         }
 
         .hero-form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-bottom: 10px;
+            gap: 12px;
+            margin-bottom: 12px;
         }
 
         .hero-form input,
         .hero-form select {
             width: 100%;
-            padding: 10px 14px;
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 10px;
-            background: rgba(255,255,255,0.1);
+            padding: 14px 16px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 12px;
+            background: rgba(255,255,255,0.15);
             color: white;
-            font-size: 12px;
+            font-size: 14px;
+            backdrop-filter: blur(10px);
         }
 
         .hero-form input::placeholder {
-            color: rgba(255,255,255,0.5);
+            color: rgba(255,255,255,0.6);
         }
 
         .hero-form select option {
-            background: var(--primary-blue);
+            background: var(--orange);
             color: white;
         }
 
         .hero-form .btn {
             width: 100%;
-            margin-top: 4px;
+            padding: 16px;
+            background: var(--primary-blue);
+            color: white;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 15px;
+            border: none;
+            margin-top: 10px;
+        }
+
+        .hero-form .btn:hover {
+            background: var(--secondary-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(30, 95, 168, 0.4);
         }
 
         /* Trust Bar */
@@ -2229,6 +2147,56 @@
             transform: scale(1.1);
         }
 
+        /* Start Application Float */
+        .start-app-float {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--gradient-blue);
+            padding: 14px 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            z-index: 998;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+        }
+
+        .start-app-float-text {
+            color: white;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .start-app-float .btn {
+            background: var(--orange);
+            color: white;
+            padding: 12px 28px;
+            font-size: 14px;
+        }
+
+        .start-app-float .btn:hover {
+            background: var(--orange-dark);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .start-app-float {
+                padding: 12px 16px;
+                gap: 12px;
+            }
+
+            .start-app-float-text {
+                font-size: 13px;
+            }
+
+            .start-app-float .btn {
+                padding: 10px 20px;
+                font-size: 13px;
+            }
+        }
+
         /* Country Modal */
         .country-modal {
             display: none;
@@ -3155,11 +3123,7 @@
             <div class="hero-left">
                 <h1>Your Gateway to <span class="hero-heading-orange">Schengen Europe</span></h1>
                 <p>UK's trusted Schengen visa specialists. We handle your complete visa file — from VFS Global appointment booking to document preparation and embassy filing — with a 99% approval track record.</p>
-                <div class="hero-cta">
-                    <a href="#contact" class="btn btn-primary" style="width: 100%;">
-                        <i class="fas fa-paper-plane"></i> Start Application
-                    </a>
-                </div>
+
                 <div class="hero-stats">
                     <div class="stat-item">
                         <div class="stat-number">99%</div>
@@ -3176,52 +3140,26 @@
                 </div>
             </div>
             <div class="hero-right">
-                <div class="hero-card">
-                    <div class="card-badge">
-                        <i class="fas fa-circle"></i>
-                        Limited Slots Available
+                <div class="hero-form">
+                    <h4>Quick Contact Form</h4>
+                    <div class="hero-form-row">
+                        <input type="text" id="heroName" placeholder="Your Name">
+                        <input type="email" id="heroEmail" placeholder="Your Email">
                     </div>
-                    <h3 class="card-title">Book Your Schengen Visa Appointment</h3>
-                    <ul class="card-features">
-                        <li><i class="fas fa-check-circle"></i> VFS Global appointment secured</li>
-                        <li><i class="fas fa-check-circle"></i> Application form filling & submission</li>
-                        <li><i class="fas fa-check-circle"></i> Filing all extra required documents</li>
-                        <li><i class="fas fa-check-circle"></i> Cover letter & itinerary drafting</li>
-                        <li><i class="fas fa-check-circle"></i> Hotel & travel booking proofs</li>
-                        <li><i class="fas fa-check-circle"></i> Travel health insurance arranged</li>
-                        <li><i class="fas fa-check-circle"></i> 1-to-1 case handling</li>
-                    </ul>
-                    <div class="card-price">
-                        <span class="price-main">£50</span>
-                        <span class="price-text">Starting from / appointment booking</span>
+                    <div class="hero-form-row">
+                        <select id="heroCountry">
+                            <option value="">Destination</option>
+                            <option value="Germany">Germany</option>
+                            <option value="France">France</option>
+                            <option value="Italy">Italy</option>
+                            <option value="Spain">Spain</option>
+                            <option value="Other Schengen Country">Other</option>
+                        </select>
+                        <input type="tel" id="heroPhone" placeholder="Phone/WhatsApp">
                     </div>
-                    <div class="card-cta">
-                        <a href="#contact" class="btn btn-primary">Apply Now</a>
-                        <a href="https://wa.me/923006690701" class="btn btn-whatsapp">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                    </div>
-                    <div class="hero-form">
-                        <h4>Quick Contact Form</h4>
-                        <div class="hero-form-row">
-                            <input type="text" id="heroName" placeholder="Your Name">
-                            <input type="email" id="heroEmail" placeholder="Your Email">
-                        </div>
-                        <div class="hero-form-row">
-                            <select id="heroCountry">
-                                <option value="">Destination</option>
-                                <option value="Germany">Germany</option>
-                                <option value="France">France</option>
-                                <option value="Italy">Italy</option>
-                                <option value="Spain">Spain</option>
-                                <option value="Other Schengen Country">Other</option>
-                            </select>
-                            <input type="tel" id="heroPhone" placeholder="Phone/WhatsApp">
-                        </div>
-                        <button type="button" class="btn btn-white" onclick="sendToWhatsApp()">
-                            <i class="fab fa-whatsapp"></i> Get Free Consultation
-                        </button>
-                    </div>
+                    <button type="button" class="btn btn-white" onclick="sendToWhatsApp()">
+                        <i class="fab fa-whatsapp"></i> Get Free Consultation
+                    </button>
                 </div>
             </div>
         </div>
@@ -4111,6 +4049,14 @@
     <div class="whatsapp-float">
         <a href="https://wa.me/923006690701?text=Hi%20Travelade%2C%20I%20want%20to%20start%20my%20Schengen%20visa%20application.%20Please%20assist." target="_blank">
             <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Start Application Float -->
+    <div class="start-app-float">
+        <span class="start-app-float-text">Ready to get your Schengen Visa? Start your application now!</span>
+        <a href="#contact" class="btn">
+            <i class="fas fa-paper-plane"></i> Start Application
         </a>
     </div>
 

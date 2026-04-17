@@ -2850,13 +2850,21 @@
         }
 
         @media (max-width: 768px) {
+            .navbar .logo {
+                margin-right: auto;
+            }
+
             .mobile-toggle {
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 flex-direction: column;
                 padding: 8px;
+                margin-left: 15px;
                 z-index: 1001;
+                background: none;
+                border: none;
+                cursor: pointer;
             }
 
             .mobile-toggle span {
@@ -2962,12 +2970,16 @@
                 opacity: 0;
                 visibility: hidden;
                 transition: all 0.3s;
-                z-index: 999;
+                z-index: 998;
             }
 
             .nav-overlay.active {
                 opacity: 1;
                 visibility: visible;
+            }
+
+            .navbar {
+                z-index: 999;
             }
 
             .hero-left h1 {
@@ -4497,9 +4509,20 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Close menu when clicking overlay
+        // Close menu when clicking overlay (the darkened page area)
         document.getElementById('navOverlay').addEventListener('click', function() {
             closeMenu();
+        });
+
+        // Close menu when clicking anywhere on the page (except sidebar)
+        document.addEventListener('click', function(e) {
+            const navLinks = document.getElementById('navLinks');
+            const mobileToggle = document.querySelector('.mobile-toggle');
+            if (navLinks && navLinks.classList.contains('active')) {
+                if (!navLinks.contains(e.target) && !mobileToggle.contains(e.target)) {
+                    closeMenu();
+                }
+            }
         });
 
         // Navbar scroll effect

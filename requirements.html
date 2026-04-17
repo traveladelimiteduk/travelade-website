@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Schengen Countries | Travelade Limited</title>
+    <title>Essential Requirements | Travelade Limited</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -92,7 +92,7 @@
 
         .logo-tagline {
             font-size: 8px;
-            color: var(--gray-tagline);
+            color: #8C8C8C;
             letter-spacing: 2px;
             text-transform: uppercase;
             font-weight: 600;
@@ -165,8 +165,8 @@
             opacity: 0.9;
         }
 
-        /* Countries Grid */
-        .countries-section {
+        /* Requirements Section */
+        .requirements-section {
             padding: 80px 0;
         }
 
@@ -199,56 +199,138 @@
             margin: 0 auto;
         }
 
-        .countries-grid {
+        .requirements-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            gap: 24px;
+            margin-bottom: 60px;
         }
 
-        .country-card {
+        .requirement-card {
             background: white;
-            border-radius: 16px;
-            padding: 24px;
+            border-radius: 20px;
+            padding: 32px;
             text-align: center;
-            cursor: pointer;
+            border: 1px solid #e2e8f0;
             transition: all 0.3s;
-            border: 2px solid transparent;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
         }
 
-        .country-card:hover {
+        .requirement-card:hover {
             transform: translateY(-5px);
-            border-color: var(--primary-blue);
             box-shadow: 0 12px 40px rgba(30, 95, 168, 0.15);
+            border-color: var(--primary-blue);
         }
 
-        .country-flag {
-            width: 80px;
-            height: 54px;
-            margin: 0 auto 16px;
-            border-radius: 6px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        .req-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-blue);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+            color: white;
+            box-shadow: 0 8px 25px rgba(30, 95, 168, 0.3);
         }
 
-        .country-flag svg {
-            width: 100%;
-            height: 100%;
-        }
-
-        .country-name {
-            font-size: 16px;
-            font-weight: 600;
+        .requirement-card h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
             color: #1a1a1a;
-            margin-bottom: 4px;
         }
 
-        .country-visa {
-            font-size: 12px;
+        .requirement-card p {
+            font-size: 14px;
             color: #666;
+            line-height: 1.6;
+        }
+
+        /* Services Note */
+        .services-note {
+            background: var(--gradient-orange);
+            color: white;
+            padding: 30px 40px;
+            border-radius: 16px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .services-note h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+            color: white;
+        }
+
+        .services-note p {
+            font-size: 16px;
+            opacity: 0.95;
+        }
+
+        /* Documents Grid */
+        .documents-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .doc-category {
+            background: white;
+            border-radius: 20px;
+            padding: 28px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .doc-category h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .doc-category h3 i {
+            color: var(--primary-blue);
+        }
+
+        .doc-category.orange h3 i {
+            color: var(--orange);
+        }
+
+        .doc-category.orange {
+            background: rgba(244, 122, 32, 0.08);
+            border: 1px solid var(--orange);
+        }
+
+        .doc-list {
+            list-style: none;
+        }
+
+        .doc-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .doc-list li:last-child {
+            border-bottom: none;
+        }
+
+        .doc-list li i {
+            color: var(--primary-blue);
+            width: 18px;
+        }
+
+        .doc-category.orange .doc-list li i {
+            color: var(--orange);
         }
 
         /* Footer */
@@ -441,7 +523,7 @@
                 justify-content: space-between;
                 align-items: center;
                 padding: 15px 20px;
-                background: linear-gradient(135deg, #1E5FA8 0%, #154A84 100%);
+                background: var(--gradient-blue);
             }
 
             .nav-links .nav-menu-header img {
@@ -514,8 +596,12 @@
                 font-size: 16px;
             }
 
-            .countries-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .requirements-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .documents-grid {
+                grid-template-columns: 1fr;
             }
 
             .footer-grid {
@@ -558,8 +644,8 @@
                 </li>
                 <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
                 <li><a href="index.html#services"><i class="fas fa-concierge-bell"></i> Services</a></li>
-                <li><a href="countries.html" class="active"><i class="fas fa-globe-europe"></i> Countries</a></li>
-                <li><a href="requirements.html"><i class="fas fa-clipboard-list"></i> Requirements</a></li>
+                <li><a href="countries.html"><i class="fas fa-globe-europe"></i> Countries</a></li>
+                <li><a href="requirements.html" class="active"><i class="fas fa-clipboard-list"></i> Requirements</a></li>
                 <li><a href="index.html#pricing"><i class="fas fa-tag"></i> Pricing</a></li>
                 <li><a href="index.html#contact"><i class="fas fa-envelope"></i> Contact</a></li>
                 <li><a href="https://wa.me/923006690701" class="whatsapp-btn" onclick="closeMenu()">
@@ -572,16 +658,103 @@
     <!-- Hero Section -->
     <section class="page-hero">
         <div class="container">
-            <h1>Schengen <span>Countries</span></h1>
-            <p>Choose your destination from the 27 Schengen Area countries. We provide visa services for all European destinations.</p>
+            <h1>Essential <span>Requirements</span></h1>
+            <p>Everything you need to prepare before applying for your Schengen visa. We handle the rest!</p>
         </div>
     </section>
 
-    <!-- Countries Section -->
-    <section class="countries-section">
+    <!-- Requirements Section -->
+    <section class="requirements-section">
         <div class="container">
-            <div class="countries-grid" id="countriesGrid">
-                <!-- Countries will be inserted here by JavaScript -->
+            <div class="section-header">
+                <span class="section-label">Essential Requirements</span>
+                <h2 class="section-title">What You Need for Your Visa</h2>
+                <p class="section-desc">The essential requirements every applicant must have. We handle the rest!</p>
+            </div>
+
+            <div class="requirements-grid">
+                <div class="requirement-card">
+                    <div class="req-icon"><i class="fas fa-passport"></i></div>
+                    <h3>Valid Passport</h3>
+                    <p>UK-issued passport valid for 3+ months beyond your return date with 2+ blank pages</p>
+                </div>
+                <div class="requirement-card">
+                    <div class="req-icon"><i class="fas fa-id-card"></i></div>
+                    <h3>UK Residence Proof</h3>
+                    <p>Valid UK residency (BRP/Visa) valid for 3+ months beyond your travel dates</p>
+                </div>
+                <div class="requirement-card">
+                    <div class="req-icon"><i class="fas fa-money-bill-wave"></i></div>
+                    <h3>Financial Proof</h3>
+                    <p>UK bank statements (3-6 months) showing sufficient funds for your trip</p>
+                </div>
+                <div class="requirement-card">
+                    <div class="req-icon"><i class="fas fa-file-alt"></i></div>
+                    <h3>Employment Proof</h3>
+                    <p>Employment letter, student status, or self-employment documentation</p>
+                </div>
+                <div class="requirement-card">
+                    <div class="req-icon"><i class="fas fa-camera"></i></div>
+                    <h3>Passport Photos</h3>
+                    <p>Recent passport-size photographs (35x45mm, white background)</p>
+                </div>
+                <div class="requirement-card">
+                    <div class="req-icon"><i class="fas fa-file-invoice"></i></div>
+                    <h3>Previous Visas</h3>
+                    <p>Previous Schengen visas in old passports (if any)</p>
+                </div>
+            </div>
+
+            <!-- We Handle For You -->
+            <div class="services-note">
+                <h3><i class="fas fa-check-circle"></i> We Handle Everything Else!</h3>
+                <p>Travel Insurance • Hotel Bookings • Flight Reservations • Cover Letters • Itinerary Planning</p>
+            </div>
+
+            <!-- Document Categories -->
+            <div class="section-header">
+                <span class="section-label">Document Checklist</span>
+                <h2 class="section-title">Complete Document Requirements</h2>
+                <p class="section-desc">We align your checklist to the lead consulate and prepare drafts and proofs for you.</p>
+            </div>
+
+            <div class="documents-grid">
+                <div class="doc-category">
+                    <h3><i class="fas fa-id-card"></i> Identity & UK Residence</h3>
+                    <ul class="doc-list">
+                        <li><i class="fas fa-passport"></i> Valid passport (3+ months beyond return, 2+ blank pages)</li>
+                        <li><i class="fas fa-id-card"></i> UK residence permit/BRP (valid 3+ months)</li>
+                        <li><i class="fas fa-file-alt"></i> Previous Schengen visas (if any)</li>
+                        <li><i class="fas fa-camera"></i> Recent passport-size photographs (35x45mm)</li>
+                    </ul>
+                </div>
+                <div class="doc-category">
+                    <h3><i class="fas fa-coins"></i> Financial & Employment Proof</h3>
+                    <ul class="doc-list">
+                        <li><i class="fas fa-university"></i> UK bank statements (3-6 months)</li>
+                        <li><i class="fas fa-briefcase"></i> Employment letter or contract</li>
+                        <li><i class="fas fa-file-invoice"></i> Recent payslips (3 months)</li>
+                        <li><i class="fas fa-graduation-cap"></i> Employment details/Student Details</li>
+                    </ul>
+                </div>
+                <div class="doc-category orange">
+                    <h3><i class="fas fa-check-circle"></i> We Handle For You</h3>
+                    <ul class="doc-list">
+                        <li><i class="fas fa-shield-alt"></i> Travel Insurance (€30,000+)</li>
+                        <li><i class="fas fa-ticket-alt"></i> Flight reservations</li>
+                        <li><i class="fas fa-hotel"></i> Hotel booking proofs</li>
+                        <li><i class="fas fa-map"></i> Day-wise itinerary</li>
+                    </ul>
+                </div>
+                <div class="doc-category">
+                    <h3><i class="fas fa-folder-plus"></i> Additional Documents</h3>
+                    <ul class="doc-list">
+                        <li><i class="fas fa-fingerprint"></i> Biometrics (if not given in 59 months)</li>
+                        <li><i class="fas fa-users"></i> Sponsorship documents (if applicable)</li>
+                        <li><i class="fas fa-envelope"></i> Invitation letter (if visiting family)</li>
+                        <li><i class="fas fa-heart"></i> Relationship proofs (family visits)</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
@@ -591,9 +764,9 @@
         <div class="container">
             <div class="footer-cta">
                 <h3>Ready to Apply for Your Schengen Visa?</h3>
-                <p>Get your visa application started today with our expert team</p>
+                <p>Get started with our expert team today</p>
                 <a href="index.html#contact" class="btn">
-                    <i class="fas fa-paper-plane"></i> Get Started Now
+                    <i class="fas fa-paper-plane"></i> Contact Us Now
                 </a>
             </div>
         </div>
@@ -618,8 +791,8 @@
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="index.html#services">Services</a></li>
                         <li><a href="countries.html">Countries</a></li>
+                        <li><a href="requirements.html">Requirements</a></li>
                         <li><a href="index.html#pricing">Pricing</a></li>
                         <li><a href="index.html#contact">Contact</a></li>
                     </ul>
@@ -652,228 +825,7 @@
         </div>
     </footer>
 
-    <!-- Country Inquiry Modal -->
-    <div class="country-modal" id="countryModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button class="modal-close" onclick="closeModal()">&times;</button>
-                <div class="modal-flag" id="modalFlag"></div>
-                <h3 id="modalTitle">Start Your Visa Inquiry</h3>
-                <p>Send your inquiry for <span id="modalCountry">Schengen Visa</span> today!</p>
-            </div>
-            <div class="modal-body">
-                <form class="modal-form" id="modalForm" action="https://formspree.io/f/mjgjgnqk" method="POST">
-                    <input type="hidden" name="_subject" value="New Visa Inquiry from Country Page">
-                    <input type="hidden" name="destination_country" id="modalCountryHidden">
-                    <div class="form-group">
-                        <label>Full Name</label>
-                        <input type="text" name="full_name" placeholder="Enter your full name" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Phone / WhatsApp</label>
-                        <input type="tel" name="phone" placeholder="0300..." required>
-                    </div>
-                    <div class="form-group">
-                        <label>Email Address</label>
-                        <input type="email" name="email" placeholder="your@email.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Travel Date</label>
-                        <input type="date" name="travel_date">
-                    </div>
-                    <div class="form-group">
-                        <label>Number of Applicants</label>
-                        <select name="passengers">
-                            <option value="1">Solo</option>
-                            <option value="2">Couple</option>
-                            <option value="3">Family (3-4)</option>
-                            <option value="5">Group (5+)</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Additional Notes</label>
-                        <textarea name="message" placeholder="Any special requirements or questions..."></textarea>
-                    </div>
-                    <button type="submit" class="modal-submit">
-                        <i class="fas fa-paper-plane"></i> Send Inquiry
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Styles -->
-    <style>
-        .country-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.7);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            padding: 20px;
-        }
-
-        .country-modal.active {
-            display: flex;
-        }
-
-        .modal-content {
-            background: white;
-            border-radius: 20px;
-            max-width: 500px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
-        }
-
-        .modal-header {
-            background: linear-gradient(135deg, #1E5FA8 0%, #154A84 100%);
-            color: white;
-            padding: 30px;
-            text-align: center;
-            border-radius: 20px 20px 0 0;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 28px;
-            cursor: pointer;
-        }
-
-        .modal-flag {
-            width: 80px;
-            height: 54px;
-            margin: 0 auto 16px;
-            border-radius: 8px;
-            overflow: hidden;
-            background: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-flag svg {
-            width: 100%;
-            height: 100%;
-        }
-
-        .modal-header h3 {
-            font-size: 22px;
-            margin-bottom: 8px;
-        }
-
-        .modal-header p {
-            font-size: 14px;
-            opacity: 0.9;
-        }
-
-        .modal-body {
-            padding: 30px;
-        }
-
-        .modal-form .form-group {
-            margin-bottom: 18px;
-        }
-
-        .modal-form label {
-            display: block;
-            font-size: 13px;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 6px;
-        }
-
-        .modal-form input,
-        .modal-form select,
-        .modal-form textarea {
-            width: 100%;
-            padding: 12px 16px;
-            border: 2px solid #e2e8f0;
-            border-radius: 10px;
-            font-size: 14px;
-            transition: border-color 0.3s;
-        }
-
-        .modal-form input:focus,
-        .modal-form select:focus,
-        .modal-form textarea:focus {
-            outline: none;
-            border-color: var(--primary-blue);
-        }
-
-        .modal-submit {
-            width: 100%;
-            padding: 16px;
-            background: var(--gradient-orange);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        .modal-submit:hover {
-            transform: translateY(-2px);
-        }
-    </style>
-
     <script>
-        // Countries Data with SVG Flags
-        const countries = [
-            { name: "Austria", code: "AT", svg: '<svg viewBox="0 0 640 480"><path d="M0 0h640v480H0z" fill="#ed2939"/><path d="M0 160h640v160H0z" fill="#fff"/><path d="M0 320h640v160H0z" fill="#ed2939"/></svg>' },
-            { name: "Belgium", code: "BE", svg: '<svg viewBox="0 0 600 600"><rect width="200" height="600" fill="black"/><rect x="200" width="200" height="600" fill="#FAE042"/><rect x="400" width="200" height="600" fill="#ED2939"/></svg>' },
-            { name: "Czech Republic", code: "CZ", svg: '<svg viewBox="0 0 900 600"><rect width="900" height="400" fill="#D7141A"/><path d="M0 400h900v200H0z" fill="#11457E"/></svg>' },
-            { name: "Denmark", code: "DK", svg: '<svg viewBox="0 0 740 740"><rect width="740" height="740" fill="#C60C30"/><path d="M0 300h260v140H0z" fill="#fff"/><path d="M0 270h240v200H0z" fill="#C60C30"/></svg>' },
-            { name: "Estonia", code: "EE", svg: '<svg viewBox="0 0 1000 700"><rect width="1000" height="233" fill="#0072CE"/><rect y="233" width="1000" height="234" fill="#fff"/><rect y="467" width="1000" height="233" fill="#000"/></svg>' },
-            { name: "Finland", code: "FI", svg: '<svg viewBox="0 0 1800 1100"><rect width="1800" height="1100" fill="#fff"/><rect x="400" width="200" height="1100" fill="#002F6C"/></svg>' },
-            { name: "France", code: "FR", svg: '<svg viewBox="0 0 900 600"><rect width="300" height="600" fill="#002395"/><rect x="300" width="300" height="600" fill="#fff"/><rect x="600" width="300" height="600" fill="#ED2939"/></svg>' },
-            { name: "Germany", code: "DE", svg: '<svg viewBox="0 0 500 300"><rect width="500" height="100" fill="#000"/><rect y="100" width="500" height="100" fill="#DD0000"/><rect y="200" width="500" height="100" fill="#FFCE00"/></svg>' },
-            { name: "Greece", code: "GR", svg: '<svg viewBox="0 0 640 480"><rect width="640" height="480" fill="#0D5EAF"/><path d="M0 0h640v60H0zM0 120h640v60H0zM0 240h640v60H0zM0 360h640v60H0zM0 480h640v60H0z" fill="#fff"/><rect width="240" height="240" fill="#0D5EAF"/><rect x="60" width="120" height="240" fill="#fff"/><rect x="120" width="60" height="240" fill="#0D5EAF"/></svg>' },
-            { name: "Hungary", code: "HU", svg: '<svg viewBox="0 0 600 300"><rect width="600" height="100" fill="#CD2A3E"/><rect y="100" width="600" height="100" fill="#fff"/><rect y="200" width="600" height="100" fill="#436F4D"/></svg>' },
-            { name: "Iceland", code: "IS", svg: '<svg viewBox="0 0 600 600"><rect width="600" height="600" fill="#02529C"/><path d="M300 0v600M0 300h600" stroke="#fff" stroke-width="120"/><path d="M300 0v600M0 300h600" stroke="#DC1E35" stroke-width="60"/></svg>' },
-            { name: "Italy", code: "IT", svg: '<svg viewBox="0 0 900 600"><rect width="300" height="600" fill="#009246"/><rect x="300" width="300" height="600" fill="#fff"/><rect x="600" width="300" height="600" fill="#CE2B37"/></svg>' },
-            { name: "Latvia", code: "LV", svg: '<svg viewBox="0 0 600 400"><rect width="600" height="133" fill="#9E3039"/><rect y="133" width="600" height="134" fill="#fff"/><rect y="267" width="600" height="133" fill="#9E3039"/></svg>' },
-            { name: "Liechtenstein", code: "LI", svg: '<svg viewBox="0 0 1000 600"><rect width="333" height="600" fill="#002B7F"/><rect x="333" width="334" height="600" fill="#CE1126"/><rect x="667" width="333" height="600" fill="#002B7F"/></svg>' },
-            { name: "Lithuania", code: "LT", svg: '<svg viewBox="0 0 600 300"><rect width="600" height="100" fill="#C1272D"/><rect y="100" width="600" height="100" fill="#006A4D"/><rect y="200" width="600" height="100" fill="#F47A20"/></svg>' },
-            { name: "Luxembourg", code: "LU", svg: '<svg viewBox="0 0 600 400"><rect width="600" height="133" fill="#00A1DE"/><rect y="133" width="600" height="134" fill="#fff"/><rect y="267" width="600" height="133" fill="#ED2939"/></svg>' },
-            { name: "Malta", code: "MT", svg: '<svg viewBox="0 0 600 400"><rect width="600" height="400" fill="#fff"/><path d="M300 0L0 400h600L300 0z" fill="#CF142B"/></svg>' },
-            { name: "Netherlands", code: "NL", svg: '<svg viewBox="0 0 900 600"><rect width="900" height="200" fill="#AE1C28"/><rect y="200" width="900" height="200" fill="#fff"/><rect y="400" width="900" height="200" fill="#21468B"/></svg>' },
-            { name: "Norway", code: "NO", svg: '<svg viewBox="0 0 600 600"><rect width="600" height="600" fill="#EF2B2D"/><rect width="180" height="600" fill="#fff"/><rect height="180" width="600" fill="#fff"/><rect x="45" width="90" height="600" fill="#002868"/><rect y="45" width="600" height="90" fill="#002868"/></svg>' },
-            { name: "Poland", code: "PL", svg: '<svg viewBox="0 0 640 480"><rect width="640" height="240" fill="#fff"/><rect y="240" width="640" height="240" fill="#DC143C"/></svg>' },
-            { name: "Portugal", code: "PT", svg: '<svg viewBox="0 0 600 400"><rect width="240" height="400" fill="#006600"/><rect x="240" width="360" height="400" fill="#FF0000"/><circle cx="120" cy="200" r="60" fill="#FFCC00"/></svg>' },
-            { name: "Slovakia", code: "SK", svg: '<svg viewBox="0 0 900 600"><rect width="300" height="600" fill="#0B4EA2"/><rect x="300" width="300" height="600" fill="#fff"/><rect x="600" width="300" height="600" fill="#DC143C"/><path d="M450 100L300 300h300L450 100z" fill="#DC143C"/><path d="M450 150L350 300h200L450 150z" fill="#0B4EA2"/><path d="M450 200L400 300h100L450 200z" fill="#fff"/></svg>' },
-            { name: "Slovenia", code: "SI", svg: '<svg viewBox="0 0 900 600"><rect width="900" height="200" fill="#fff"/><rect y="200" width="900" height="200" fill="#0C4076"/><rect y="400" width="900" height="200" fill="#ED1C24"/><path d="M300 0v600" stroke="#0C4076" stroke-width="100"/></svg>' },
-            { name: "Spain", code: "ES", svg: '<svg viewBox="0 0 750 500"><rect y="100" width="750" height="100" fill="#AA151B"/><rect y="300" width="750" height="100" fill="#AA151B"/><rect width="250" height="500" fill="#F1BF00"/></svg>' },
-            { name: "Sweden", code: "SE", svg: '<svg viewBox="0 0 1000 700"><rect width="1000" height="700" fill="#006AA7"/><rect x="200" width="150" height="700" fill="#FECC00"/><rect y="250" width="1000" height="200" fill="#FECC00"/></svg>' },
-            { name: "Switzerland", code: "CH", svg: '<svg viewBox="0 0 500 500"><rect width="500" height="500" fill="red"/><rect x="175" y="125" width="150" height="250" fill="#fff"/><rect x="100" y="200" width="300" height="100" fill="#fff"/></svg>' },
-            { name: "Vatican City", code: "VA", svg: '<svg viewBox="0 0 600 600"><rect width="600" height="600" fill="#DGGGGG"/><path d="M200 150h200v150H200z" fill="#FFCC00"/></svg>' }
-        ];
-
-        // Render Countries
-        const grid = document.getElementById('countriesGrid');
-        countries.forEach(country => {
-            grid.innerHTML += `
-                <div class="country-card" onclick="openModal('${country.name}', this)">
-                    <div class="country-flag">${country.svg}</div>
-                    <div class="country-name">${country.name}</div>
-                    <div class="country-visa">Schengen Visa</div>
-                </div>
-            `;
-        });
-
         // Mobile Menu Functions
         function openMenu() {
             document.getElementById('navLinks').classList.add('active');
@@ -899,62 +851,6 @@
                     closeMenu();
                 }
             }
-        });
-
-        // Country Modal Functions
-        function openModal(country, cardElement) {
-            const modalFlag = document.getElementById('modalFlag');
-            const cardFlagSvg = cardElement.querySelector('.country-flag svg');
-            modalFlag.innerHTML = '';
-            if (cardFlagSvg) {
-                modalFlag.appendChild(cardFlagSvg.cloneNode(true));
-            }
-            document.getElementById('modalCountry').textContent = country;
-            document.getElementById('modalCountryHidden').value = country;
-            document.getElementById('countryModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal() {
-            document.getElementById('countryModal').classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-
-        document.getElementById('countryModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
-            }
-        });
-
-        // Form submission
-        document.getElementById('modalForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const form = e.target;
-            const btn = form.querySelector('button[type="submit"]');
-            const originalText = btn.innerHTML;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            btn.disabled = true;
-
-            try {
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: new FormData(form),
-                    headers: { 'Accept': 'application/json' }
-                });
-
-                if (response.ok) {
-                    alert('Thank you for your inquiry! We will contact you within 20-30 minutes during office hours.');
-                    form.reset();
-                    closeModal();
-                } else {
-                    alert('Something went wrong. Please try again.');
-                }
-            } catch (error) {
-                alert('Something went wrong. Please try again.');
-            }
-
-            btn.innerHTML = originalText;
-            btn.disabled = false;
         });
     </script>
 

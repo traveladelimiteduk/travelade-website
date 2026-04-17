@@ -21,8 +21,8 @@
             --primary-blue: #1E5FA8;
             --secondary-blue: #154A84;
             --light-blue: #2563eb;
-            --orange: #F47A20;
-            --orange-light: #FFA34D;
+            --orange: #FF8800;
+            --orange-light: #FFAA55;
             --orange-dark: #D46904;
             --dark: #000000;
             --gray-900: #1e293b;
@@ -32,7 +32,7 @@
             --gray-100: #f1f5f9;
             --gray-tagline: #8C8C8C;
             --white: #ffffff;
-            --gradient-orange: linear-gradient(135deg, #F47A20 0%, #FFA34D 50%, #F47A20 100%);
+            --gradient-orange: linear-gradient(135deg, #FF8800 0%, #FFAA55 50%, #FF8800 100%);
             --gradient-blue: linear-gradient(135deg, #1E5FA8 0%, #154A84 100%);
             --gradient-dark: linear-gradient(135deg, #000000 0%, #1E5FA8 100%);
         }
@@ -246,7 +246,7 @@
         /* Hero Section */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(135deg, #F47A20 0%, #D46904 100%);
+            background: linear-gradient(135deg, #FF8800 0%, #FF6600 100%);
             position: relative;
             display: flex;
             align-items: center;
@@ -2636,7 +2636,7 @@
 
         /* Urgent CTA Section */
         .urgent-cta {
-            background: linear-gradient(135deg, #F47A20 0%, #D46904 100%);
+            background: linear-gradient(135deg, #FF8800 0%, #FF6600 100%);
             padding: 80px 0;
             position: relative;
             overflow: hidden;
@@ -2652,6 +2652,48 @@
             background: 
                 radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.3) 0%, transparent 50%),
                 radial-gradient(circle at 80% 50%, rgba(255, 163, 77, 0.5) 0%, transparent 50%);
+        }
+
+        .urgent-cta-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .urgent-globe {
+            position: absolute;
+            font-size: 500px;
+            color: rgba(255, 255, 255, 0.12);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: rotateGlobe 40s linear infinite;
+            text-shadow: 0 0 60px rgba(0, 0, 0, 0.15), 0 0 120px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes rotateGlobe {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .urgent-plane {
+            position: absolute;
+            font-size: 50px;
+            color: rgba(255, 255, 255, 0.5);
+            animation: flyAround 15s linear infinite;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+
+        @keyframes flyAround {
+            0% { top: 50%; left: 10%; transform: translate(-50%, -50%) rotate(0deg); }
+            25% { top: 30%; left: 50%; transform: translate(-50%, -50%) rotate(90deg); }
+            50% { top: 50%; left: 90%; transform: translate(-50%, -50%) rotate(180deg); }
+            75% { top: 70%; left: 50%; transform: translate(-50%, -50%) rotate(270deg); }
+            100% { top: 50%; left: 10%; transform: translate(-50%, -50%) rotate(360deg); }
         }
 
         .urgent-content {
@@ -3015,9 +3057,55 @@
                 width: 100%;
             }
 
-            .bg-plane,
-            .bg-globe {
+            /* Urgent CTA Mobile */
+            .urgent-cta {
+                padding: 50px 0;
+            }
+
+            .urgent-cta h2 {
+                font-size: 26px;
+            }
+
+            .urgent-cta > .container > .urgent-content > p {
+                font-size: 14px;
+            }
+
+            .urgency-features {
+                flex-direction: column;
+                gap: 12px;
+                margin-bottom: 24px;
+            }
+
+            .urgency-feature {
+                justify-content: center;
+            }
+
+            .urgent-buttons {
+                flex-direction: column;
+            }
+
+            .urgent-buttons .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .urgent-globe {
+                font-size: 250px;
+                text-shadow: 0 0 40px rgba(0, 0, 0, 0.15), 0 0 80px rgba(0, 0, 0, 0.1);
+            }
+
+            .urgent-plane {
+                font-size: 30px;
+            }
+
+            .bg-plane {
                 display: none;
+            }
+
+            .bg-globe {
+                display: block;
+                font-size: 250px;
+                opacity: 0.1;
             }
 
             .hero-form-row {
@@ -3042,11 +3130,11 @@
             }
 
             .hero-left {
-                order: 2;
+                order: 1;
             }
 
             .hero-right {
-                order: 1;
+                order: 2;
                 margin-bottom: 30px;
             }
 
@@ -3060,6 +3148,19 @@
 
             .timeline-content {
                 padding-left: 0;
+            }
+
+            .whatsapp-float {
+                bottom: 80px;
+                right: 16px;
+            }
+
+            .start-app-float {
+                padding: 10px 16px;
+            }
+
+            .start-app-float-text {
+                display: none;
             }
         }
 
@@ -3110,6 +3211,45 @@
             </ul>
         </div>
     </nav>
+
+    <!-- Urgent CTA Section -->
+    <section class="urgent-cta" id="book-now">
+        <div class="urgent-cta-bg">
+            <i class="fas fa-globe urgent-globe"></i>
+            <i class="fas fa-plane urgent-plane"></i>
+        </div>
+        <div class="container">
+            <div class="urgent-content">
+                <div class="urgent-badge">
+                    <i class="fas fa-bolt"></i> Limited Time Offer
+                </div>
+                <h2>Book Your <span class="hero-heading-orange">Schengen Visa Appointment</span> NOW!</h2>
+                <p>Don't let your European dream wait! We handle everything — from VFS appointment booking to application form filling, embassy submission, and filing all extra documents. Get started for just <strong>£165</strong>!</p>
+                <div class="urgency-features">
+                    <div class="urgency-feature">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Form Filling & Submission</span>
+                    </div>
+                    <div class="urgency-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Extra Documents Filed</span>
+                    </div>
+                    <div class="urgency-feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>99.7% Approval Rate</span>
+                    </div>
+                </div>
+                <div class="urgent-buttons">
+                    <a href="https://wa.me/923006690701?text=Hi%20Travelade%2C%20I%20want%20to%20book%20my%20Schengen%20visa%20appointment%20NOW!%20Please%20help%20me%20get%20started%20immediately." class="btn btn-primary" style="background: white; color: var(--orange);">
+                        <i class="fab fa-whatsapp"></i> Book Appointment NOW
+                    </a>
+                    <a href="#countries" class="btn btn-outline" style="border-color: white; color: white;">
+                        <i class="fas fa-globe"></i> View All Countries
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -3188,41 +3328,6 @@
                 <div class="trust-item">
                     <i class="fas fa-star"></i>
                     <span>Google Verified Reviews</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Urgent CTA Section -->
-    <section class="urgent-cta" id="book-now">
-        <div class="container">
-            <div class="urgent-content">
-                <div class="urgent-badge">
-                    <i class="fas fa-bolt"></i> Limited Time Offer
-                </div>
-                <h2>Book Your <span class="hero-heading-orange">Schengen Visa Appointment</span> NOW!</h2>
-                <p>Don't let your European dream wait! We handle everything — from VFS appointment booking to application form filling, embassy submission, and filing all extra documents. Get started for just <strong>£165</strong>!</p>
-                <div class="urgency-features">
-                    <div class="urgency-feature">
-                        <i class="fas fa-file-alt"></i>
-                        <span>Form Filling & Submission</span>
-                    </div>
-                    <div class="urgency-feature">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Extra Documents Filed</span>
-                    </div>
-                    <div class="urgency-feature">
-                        <i class="fas fa-shield-alt"></i>
-                        <span>99.7% Approval Rate</span>
-                    </div>
-                </div>
-                <div class="urgent-buttons">
-                    <a href="https://wa.me/923006690701?text=Hi%20Travelade%2C%20I%20want%20to%20book%20my%20Schengen%20visa%20appointment%20NOW!%20Please%20help%20me%20get%20started%20immediately." class="btn btn-primary" style="background: white; color: var(--orange);">
-                        <i class="fab fa-whatsapp"></i> Book Appointment NOW
-                    </a>
-                    <a href="#countries" class="btn btn-outline" style="border-color: white; color: white;">
-                        <i class="fas fa-globe"></i> View All Countries
-                    </a>
                 </div>
             </div>
         </div>

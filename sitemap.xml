@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://travelade.co.uk/</loc>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://travelade.co.uk/countries.html</loc>
+        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://travelade.co.uk/faq.html</loc>
+        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://travelade.co.uk/requirements.html</loc>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+</urlset>

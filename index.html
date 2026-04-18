@@ -49,14 +49,15 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            color: var(--gray-700);
+            color: #ccc;
             line-height: 1.6;
             overflow-x: hidden;
+            background: #000000;
         }
 
         h1, h2, h3, h4 {
             font-family: 'Playfair Display', serif;
-            color: var(--dark);
+            color: white;
         }
 
         .container {
@@ -240,7 +241,7 @@
         /* Hero Section */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(135deg, #FF8800 0%, #FF6600 100%);
+            background: linear-gradient(135deg, #1E5FA8 0%, #0d3d70 100%);
             position: relative;
             display: flex;
             align-items: center;
@@ -270,11 +271,29 @@
             pointer-events: none;
         }
 
-        .bg-plane {
+.bg-plane {
             position: absolute;
             font-size: 80px;
-            color: rgba(244, 122, 32, 0.15);
+            color: rgba(255, 136, 0, 0.1);
             animation: floatPlane 15s ease-in-out infinite;
+        }
+
+        .bg-globe {
+            position: absolute;
+            font-size: 400px;
+            color: rgba(255, 255, 255, 0.05);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: rotateSlow 60s linear infinite;
+        }
+
+        .bg-dots {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
         }
 
         .bg-plane:nth-child(1) {
@@ -288,7 +307,7 @@
             left: 3%;
             font-size: 50px;
             animation-delay: -5s;
-            color: rgba(37, 99, 235, 0.1);
+            color: rgba(255, 136, 0, 0.1);
         }
 
         .bg-globe {
@@ -299,7 +318,6 @@
             left: 50%;
             transform: translate(-50%, -50%);
             animation: rotateSlow 60s linear infinite;
-            filter: drop-shadow(0 0 50px rgba(30, 95, 168, 0.3));
         }
 
         .bg-dots {
@@ -413,12 +431,12 @@
         .hero-form {
             background: rgba(255,255,255,0.1);
             backdrop-filter: blur(30px);
-            border: 2px solid rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.1);
             border-radius: 24px;
             padding: 32px;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
         }
 
         .hero-form::before {
@@ -463,7 +481,7 @@
         }
 
         .hero-form select option {
-            background: var(--orange);
+            background: #222;
             color: white;
         }
 
@@ -471,7 +489,7 @@
             width: 100%;
             justify-content: center;
             margin-top: 10px;
-            background: var(--primary-blue);
+            background: var(--orange);
             color: white;
             padding: 16px;
             border-radius: 12px;
@@ -481,16 +499,16 @@
         }
 
         .hero-form .btn:hover {
-            background: var(--secondary-blue);
+            background: var(--orange-dark);
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(30, 95, 168, 0.4);
+            box-shadow: 0 8px 25px rgba(230, 92, 0, 0.4);
         }
 
         /* Trust Bar */
         .trust-bar {
-            background: var(--white);
+            background: #000000;
             padding: 16px 0;
-            border-bottom: 1px solid var(--gray-100);
+            border-bottom: 1px solid #333;
         }
 
         .trust-items {
@@ -504,7 +522,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            color: var(--gray-700);
+            color: white;
             font-weight: 500;
             font-size: 13px;
         }
@@ -515,7 +533,7 @@
 
         /* Section Styles */
         .section {
-            padding: 90px 0;
+            padding: 60px 0;
             position: relative;
             z-index: 1;
         }
@@ -550,32 +568,196 @@
             font-size: 38px;
             margin-bottom: 16px;
             line-height: 1.2;
+            color: white;
         }
 
         .section-desc {
             font-size: 16px;
-            color: var(--gray-500);
+            color: rgba(255, 255, 255, 0.8);
         }
 
-        /* Services Section */
+        .section-label {
+            color: #FFD700 !important;
+        }
+
+        .section-label::before,
+        .section-label::after {
+            background: #FFD700 !important;
+        }
+
+/* Services Section */
         .services {
-            background: var(--gray-100);
+            background: linear-gradient(135deg, #1a3a5c 0%, #0d2840 50%, #1a3a5c 100%);
+            position: relative;
+            overflow: hidden;
         }
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 28px;
+        .services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.08) 0%, transparent 30%);
+            pointer-events: none;
+        }
+
+        .services::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.5), transparent);
         }
 
         .service-card {
-            background: var(--white);
+            background: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            border-color: #1E5FA8;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            background: #1E5FA8;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            color: white;
+            font-size: 20px;
+        }
+
+        .service-card h3 {
+            color: #000;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .service-card p {
+            color: #333;
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 0;
+        }
+
+.services-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 16px;
+        }
+
+        @media (max-width: 992px) {
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .service-card {
+            background: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            border-color: #1E5FA8;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(30, 95, 168, 0.15);
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            background: #1E5FA8;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            color: white;
+            font-size: 20px;
+        }
+
+        .service-card h3 {
+            color: #000;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .service-card p {
+            color: #333;
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 0;
+        }
+
+        .service-features {
+            list-style: none;
+            text-align: left;
+        }
+
+        .service-features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #000;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .service-features li i {
+            color: #1E5FA8;
+            font-size: 14px;
+        }
+
+        .service-card {
+            background: #1a1a1a;
             border-radius: 24px;
             padding: 36px 28px;
             transition: all 0.4s ease;
-            border: 2px solid transparent;
+            border: 1px solid #333;
             position: relative;
             overflow: hidden;
+        }
+
+        .service-card:hover {
+            border-color: var(--orange);
+            transform: translateY(-5px);
+        }
+
+        .service-card h3 {
+            color: white;
+        }
+
+        .service-card p {
+            color: #aaa;
         }
 
         .service-card::before {
@@ -708,19 +890,40 @@
             margin-bottom: 6px;
             font-family: 'Inter', sans-serif;
             font-weight: 600;
+            color: white;
         }
 
         .step-desc {
             font-size: 12px;
-            color: var(--gray-500);
+            color: #888;
         }
 
         /* Countries Section */
         .countries {
-            background: var(--primary-blue);
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://northmansterling.com/wp-content/uploads/2024/08/What-is-a-Schengen-Visa-A-Comprehensive-Guide.png');
+            background-size: cover;
+            background-position: center;
             color: white;
             position: relative;
             overflow: hidden;
+            border-top: 1px solid #222;
+            border-bottom: 1px solid #222;
+        }
+
+        .country-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .country-card:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: #1E5FA8;
+        }
+
+        .country-name {
+            color: white;
+            font-weight: 600;
         }
 
         .countries::before {
@@ -833,8 +1036,25 @@
 
         /* Reviews Section */
         .reviews {
-            background: var(--white);
+            background: #000000;
             overflow: hidden;
+        }
+
+        .review-card {
+            background: #1a1a1a;
+        }
+
+        .review-text {
+            color: #ccc;
+        }
+
+        .review-meta h5 {
+            color: white;
+        }
+
+        .google-badge {
+            background: #222;
+            color: white;
         }
 
         .reviews-header {
@@ -1043,52 +1263,164 @@
         .pricing-cards {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 28px;
+            gap: 20px;
             position: relative;
             z-index: 1;
         }
 
-        .pricing-card {
-            background: rgba(255,255,255,0.06);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 24px;
-            padding: 36px 28px;
+.pricing-card {
+            background: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            padding: 20px;
             text-align: center;
-            transition: all 0.4s ease;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            border-color: #1E5FA8;
+            box-shadow: 0 10px 30px rgba(30, 95, 168, 0.2);
+        }
+
+        .pricing-card:hover .btn {
+            background: #000000 !important;
+            color: white !important;
+        }
+
+        .pricing-card h3 {
+            color: #000;
+            font-size: 16px;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .pricing-card .price {
+            font-size: 36px;
+            font-weight: 800;
+            color: #1E5FA8;
+            margin: 10px 0;
+        }
+
+        .pricing-card .desc {
+            color: #000;
+            margin-bottom: 12px;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+.pricing-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 8px;
+        }
+
+        .pricing-features li {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 12px;
+            color: #000000;
+            font-weight: 500;
+        }
+
+        .pricing-features li i {
+            color: #000000;
+            font-size: 11px;
+        }
+
+        .pricing-features li {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 11px;
+            color: #000000 !important;
+            font-weight: 600;
+        }
+
+        .pricing-features li i {
+            color: #000000 !important;
+            font-size: 10px;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            border-color: #1E5FA8;
+            box-shadow: 0 10px 30px rgba(30, 95, 168, 0.2);
+        }
+
+        .pricing-card h3 {
+            color: #000;
+            font-size: 20px;
+            margin-bottom: 6px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .pricing-card .price {
+            font-size: 42px;
+            font-weight: 800;
+            color: #1E5FA8;
+            margin: 12px 0;
+        }
+
+        .pricing-card .price span {
+            font-size: 13px;
+            color: #666;
+            font-weight: 400;
+        }
+
+        .pricing-card .desc {
+            color: #333;
+            margin-bottom: 16px;
+            font-size: 13px;
+        }
+
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .pricing-features li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 15px;
+            color: #000000 !important;
+            font-weight: 700;
+        }
+
+        .pricing-features li i {
+            color: #000000 !important;
+            font-size: 16px;
+        }
+
+        .service-features li i {
+            color: #000000;
+            font-size: 16px;
         }
 
         .pricing-card.featured {
-            background: rgba(255,255,255,0.12);
-            border: 2px solid var(--orange);
-            transform: scale(1.05);
+            background: #1a1a1a;
+            border: 2px solid #1E5FA8;
+            transform: scale(1.02);
             position: relative;
         }
 
         .pricing-card.featured::before {
-            content: 'MOST POPULAR';
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--gradient-orange);
-            color: white;
-            padding: 6px 18px;
-            border-radius: 50px;
-            font-size: 9px;
-            font-weight: 700;
-            letter-spacing: 1px;
+            display: none;
         }
 
         .pricing-card:hover,
-        .pricing-card.featured {
-            transform: scale(1.05) translateY(-10px);
-            background: rgba(255,255,255,0.12);
-            border: 2px solid var(--orange);
-        }
-
         .pricing-card.featured:hover {
-            transform: scale(1.05) translateY(-10px);
+            transform: translateY(-5px);
+            border-color: #1E5FA8;
         }
 
         .pricing-card h3 {
@@ -1101,7 +1433,7 @@
         .pricing-card .price {
             font-size: 48px;
             font-weight: 800;
-            color: var(--orange);
+            color: #1E5FA8;
             margin: 18px 0;
         }
 
@@ -1112,7 +1444,7 @@
         }
 
         .pricing-card:hover .price span {
-            color: var(--orange);
+            color: #1E5FA8;
         }
 
         .pricing-card .desc {
@@ -1121,39 +1453,22 @@
             font-size: 13px;
         }
 
-        .pricing-features {
-            list-style: none;
-            text-align: left;
-            margin-bottom: 28px;
-        }
-
-        .pricing-features li {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 9px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            font-size: 13px;
-        }
-
-        .pricing-features li i {
-            color: var(--orange);
-        }
-
-        .pricing-card .btn {
-            width: 100%;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .pricing-card:hover .btn {
-            background: white;
-            color: var(--orange);
-        }
-
         /* Timeline Section */
         .timeline {
-            background: var(--gray-100);
+            background: #000000;
+        }
+
+        .timeline-body {
+            background: #1a1a1a;
+            color: white;
+        }
+
+        .timeline-body h4 {
+            color: white;
+        }
+
+        .timeline-body p {
+            color: #aaa;
         }
 
         .timeline-content {
@@ -1249,11 +1564,19 @@
         }
 
         .refund-card {
-            background: var(--gray-100);
+            background: #1a1a1a;
             border-radius: 20px;
             padding: 28px;
             border-left: 4px solid var(--orange);
             transition: transform 0.3s;
+        }
+
+        .refund-card h4 {
+            color: white;
+        }
+
+        .refund-card ul li {
+            color: #aaa;
         }
 
         .refund-card:hover {
@@ -1321,8 +1644,8 @@
 
         /* CTA Section */
         .cta {
-            background: var(--orange);
-            padding: 80px 0;
+            background: #1E5FA8;
+            padding: 50px 0;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -2609,7 +2932,8 @@
         </div>
         <div class="container hero-content">
             <div class="hero-left">
-                <h1>Your Gateway to <span class="hero-heading-orange">Schengen Europe</span></h1>
+                <h1 style="font-size: 56px; margin-bottom: 12px; color: white; text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);">Travelade Limited</h1>
+                <p style="font-size: 22px; color: white; font-weight: 500; margin-bottom: 20px;">No#1 Schengen Visa Company in UK</p>
                 <p>UK's trusted Schengen visa specialists. We handle your complete visa file — from VFS Global appointment booking to document preparation and embassy filing — with a 99% approval track record.</p>
 
                 <div class="hero-stats">
@@ -2628,27 +2952,76 @@
                 </div>
             </div>
             <div class="hero-right">
-                <div class="hero-form">
-                    <h4>Quick Contact Form</h4>
-                    <div class="hero-form-row">
-                        <input type="text" id="heroName" placeholder="Your Name">
-                        <input type="email" id="heroEmail" placeholder="Your Email">
+                <div class="hero-slider" style="position: relative; width: 100%; max-width: 420px; height: 350px; border-radius: 20px; overflow: hidden; margin: 0 auto;">
+                    <div class="slider-slides" style="display: flex; transition: transform 0.5s ease;">
+                        <div class="slide" style="min-width: 100%; height: 350px; position: relative;">
+                            <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600&h=350&fit=crop" alt="France" style="width: 100%; height: 100%; object-fit: cover;">
+                            <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.85)); padding: 40px 20px 20px;">
+                                <h3 style="color: white; font-size: 22px; font-weight: 800; margin: 0; text-transform: uppercase; letter-spacing: 1px;">Get Your<br><span style="color: #FFD700;">France Visa</span> Now</h3>
+                            </div>
+                        </div>
+                        <div class="slide" style="min-width: 100%; height: 350px; position: relative;">
+                            <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=600&h=350&fit=crop" alt="Italy" style="width: 100%; height: 100%; object-fit: cover;">
+                            <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.85)); padding: 40px 20px 20px;">
+                                <h3 style="color: white; font-size: 22px; font-weight: 800; margin: 0; text-transform: uppercase; letter-spacing: 1px;">Get Your<br><span style="color: #FFD700;">Italy Visa</span> Now</h3>
+                            </div>
+                        </div>
+                        <div class="slide" style="min-width: 100%; height: 350px; position: relative;">
+                            <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=600&h=350&fit=crop" alt="Spain" style="width: 100%; height: 100%; object-fit: cover;">
+                            <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.85)); padding: 40px 20px 20px;">
+                                <h3 style="color: white; font-size: 22px; font-weight: 800; margin: 0; text-transform: uppercase; letter-spacing: 1px;">Get Your<br><span style="color: #FFD700;">Spain Visa</span> Now</h3>
+                            </div>
+                        </div>
+                        <div class="slide" style="min-width: 100%; height: 350px; position: relative;">
+                            <img src="https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=600&h=350&fit=crop" alt="Germany" style="width: 100%; height: 100%; object-fit: cover;">
+                            <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.85)); padding: 40px 20px 20px;">
+                                <h3 style="color: white; font-size: 22px; font-weight: 800; margin: 0; text-transform: uppercase; letter-spacing: 1px;">Get Your<br><span style="color: #FFD700;">Germany Visa</span> Now</h3>
+                            </div>
+                        </div>
+                        <div class="slide" style="min-width: 100%; height: 350px; position: relative;">
+                            <img src="https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=600&h=350&fit=crop" alt="Switzerland" style="width: 100%; height: 100%; object-fit: cover;">
+                            <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.85)); padding: 40px 20px 20px;">
+                                <h3 style="color: white; font-size: 22px; font-weight: 800; margin: 0; text-transform: uppercase; letter-spacing: 1px;">Get Your<br><span style="color: #FFD700;">Switzerland Visa</span> Now</h3>
+                            </div>
+                        </div>
                     </div>
-                    <div class="hero-form-row">
-                        <select id="heroCountry">
-                            <option value="">Destination</option>
-                            <option value="Germany">Germany</option>
-                            <option value="France">France</option>
-                            <option value="Italy">Italy</option>
-                            <option value="Spain">Spain</option>
-                            <option value="Other Schengen Country">Other</option>
-                        </select>
-                        <input type="tel" id="heroPhone" placeholder="Phone/WhatsApp">
+                    <div class="slider-dots" style="position: absolute; bottom: 100px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 10;">
+                        <span class="dot" onclick="changeSlide(0)" style="width: 12px; height: 12px; border-radius: 50%; background: white; cursor: pointer; opacity: 0.7;"></span>
+                        <span class="dot" onclick="changeSlide(1)" style="width: 12px; height: 12px; border-radius: 50%; background: white; cursor: pointer; opacity: 0.7;"></span>
+                        <span class="dot" onclick="changeSlide(2)" style="width: 12px; height: 12px; border-radius: 50%; background: white; cursor: pointer; opacity: 0.7;"></span>
+                        <span class="dot" onclick="changeSlide(3)" style="width: 12px; height: 12px; border-radius: 50%; background: white; cursor: pointer; opacity: 0.7;"></span>
+                        <span class="dot" onclick="changeSlide(4)" style="width: 12px; height: 12px; border-radius: 50%; background: white; cursor: pointer; opacity: 0.7;"></span>
                     </div>
-                    <button type="button" class="btn" onclick="sendToWhatsApp()">
-                        <i class="fab fa-whatsapp"></i> Get Free Consultation
-                    </button>
                 </div>
+                    <div style="display: flex; gap: 10px; margin-top: 15px; padding: 0 5px;">
+                        <a href="tel:02012345678" style="flex: 1; background: white; color: #1E5FA8; padding: 12px 16px; border-radius: 10px; font-weight: 700; font-size: 13px; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
+                            <i class="fas fa-phone"></i> Call Now
+                        </a>
+                        <a href="https://wa.me/923006690701" style="flex: 1; background: #1E5FA8; color: white; padding: 12px 16px; border-radius: 10px; font-weight: 700; font-size: 13px; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
+                            <i class="fab fa-whatsapp"></i> Chat with Agent
+                        </a>
+                    </div>
+                </div>
+                <script>
+                    let currentSlide = 0;
+                    const slides = document.querySelectorAll('.slide');
+                    const dots = document.querySelectorAll('.dot');
+                    
+                    function changeSlide(index) {
+                        currentSlide = index;
+                        document.querySelector('.slider-slides').style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
+                        dots.forEach((dot, i) => {
+                            dot.style.opacity = i === currentSlide ? '1' : '0.7';
+                        });
+                    }
+                    
+                    setInterval(() => {
+                        currentSlide = (currentSlide + 1) % 5;
+                        changeSlide(currentSlide);
+                    }, 4000);
+                    
+                    changeSlide(0);
+                </script>
             </div>
         </div>
     </section>
@@ -2691,48 +3064,59 @@
             </div>
             <div class="pricing-cards">
                 <div class="pricing-card reveal">
-                    <h3>Appointment Only</h3>
-                    <div class="price">£50 <span>from</span></div>
-                    <p class="desc">VFS Global appointment booking hassle-free</p>
+                    <div style="background: #1E5FA8; padding: 10px; border-radius: 12px 12px 0 0; margin: -20px -20px 12px -20px;">
+                        <h3 style="color: white; margin: 0; font-weight: 700; font-size: 16px;">Basic</h3>
+                    </div>
+                    <div style="font-size: 14px; color: #000; margin-bottom: 2px; font-weight: 700;">Visa Package</div>
+                    <div style="font-size: 36px; font-weight: 800; color: #1E5FA8; margin-bottom: 10px;">£50</div>
+                    <a href="javascript:void(0)" onclick="openPackageModal('Basic', '50')" class="btn" style="background: #1E5FA8; color: white; width: 100%; justify-content: center; margin-bottom: 12px; display: block; font-weight: 700; padding: 10px; font-size: 14px; cursor: pointer;"><i class="fas fa-shopping-cart"></i> Buy Package</a>
+                    <p class="desc" style="margin-bottom: 12px; color: #000; font-weight: 700; font-size: 13px;">Fast VFS appointment booking</p>
                     <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Same-day appointment booking</li>
-                        <li><i class="fas fa-check"></i> Slot confirmation within 10-15 mins</li>
-                        <li><i class="fas fa-check"></i> Basic document checklist</li>
-                        <li><i class="fas fa-check"></i> Email/WhatsApp support</li>
+                        <li><i class="fas fa-check"></i> Same-day Appointment</li>
+                        <li><i class="fas fa-check"></i> Slot Confirmation in 15 mins</li>
+                        <li><i class="fas fa-check"></i> All 27 Schengen Countries</li>
+                        <li><i class="fas fa-check"></i> Flexible Date Selection</li>
+                        <li><i class="fas fa-check"></i> Document Checklist</li>
+                        <li><i class="fas fa-check"></i> WhatsApp Support</li>
                     </ul>
-                    <a href="#contact" class="btn btn-outline-white">Apply Now</a>
-                </div>
-                <div class="pricing-card featured reveal">
-                    <h3>Full Service</h3>
-                    <div class="price">£165 <span>complete</span></div>
-                    <p class="desc">Complete visa file preparation, form filling & embassy submission</p>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Everything in Appointment Only</li>
-                        <li><i class="fas fa-check"></i> Application form filling & submission</li>
-                        <li><i class="fas fa-check"></i> Filing all extra required documents</li>
-                        <li><i class="fas fa-check"></i> Professional cover letter drafting</li>
-                        <li><i class="fas fa-check"></i> Day-wise itinerary preparation</li>
-                        <li><i class="fas fa-check"></i> Hotel & travel booking proofs</li>
-                        <li><i class="fas fa-check"></i> €30,000 Travel Insurance included</li>
-                        <li><i class="fas fa-check"></i> Pre-appointment briefing</li>
-                        <li><i class="fas fa-check"></i> Priority WhatsApp support</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-white">Apply Now</a>
                 </div>
                 <div class="pricing-card reveal">
-                    <h3>Premium Plus</h3>
-                    <div class="price">£250 <span>complete</span></div>
-                    <p class="desc">Urgent visa processing with guaranteed appointment & priority handling</p>
+                    <div style="background: #1E5FA8; padding: 10px; border-radius: 12px 12px 0 0; margin: -20px -20px 12px -20px;">
+                        <h3 style="color: white; margin: 0; font-weight: 700; font-size: 16px;">Standard</h3>
+                    </div>
+                    <div style="font-size: 14px; color: #000; margin-bottom: 2px; font-weight: 700;">Visa Package</div>
+                    <div style="font-size: 36px; font-weight: 800; color: #1E5FA8; margin-bottom: 10px;">£165</div>
+                    <a href="javascript:void(0)" onclick="openPackageModal('Standard', '165')" class="btn" style="background: #1E5FA8; color: white; width: 100%; justify-content: center; margin-bottom: 12px; display: block; font-weight: 700; padding: 10px; font-size: 14px; cursor: pointer;"><i class="fas fa-shopping-cart"></i> Buy Package</a>
+                    <p class="desc" style="margin-bottom: 12px; color: #000; font-weight: 700; font-size: 13px;">Complete visa application service</p>
                     <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Everything in Full Service</li>
-                        <li><i class="fas fa-check"></i> Urgent processing (24-48 hrs)</li>
-                        <li><i class="fas fa-check"></i> Guaranteed appointment date</li>
-                        <li><i class="fas fa-check"></i> Dedicated case manager</li>
-                        <li><i class="fas fa-check"></i> Application form & extra docs included</li>
-                        <li><i class="fas fa-check"></i> Unlimited revisions</li>
-                        <li><i class="fas fa-check"></i> Post-submission tracking</li>
+                        <li><i class="fas fa-check"></i> Visa Consultancy</li>
+                        <li><i class="fas fa-check"></i> VFS Appointment Booking</li>
+                        <li><i class="fas fa-check"></i> Travel Insurance</li>
+                        <li><i class="fas fa-check"></i> Flight Booking Proof</li>
+                        <li><i class="fas fa-check"></i> Hotel Booking Proof</li>
+                        <li><i class="fas fa-check"></i> Visa Application Form</li>
+                        <li><i class="fas fa-check"></i> File Submission</li>
+                        <li><i class="fas fa-check"></i> All Inclusive Service</li>
                     </ul>
-                    <a href="#contact" class="btn btn-outline-white">Apply Now</a>
+                </div>
+                <div class="pricing-card reveal">
+                    <div style="background: #1E5FA8; padding: 10px; border-radius: 12px 12px 0 0; margin: -20px -20px 12px -20px;">
+                        <h3 style="color: white; margin: 0; font-weight: 700; font-size: 16px;">Premium</h3>
+                    </div>
+                    <div style="font-size: 14px; color: #000; margin-bottom: 2px; font-weight: 700;">Visa Package</div>
+                    <div style="font-size: 36px; font-weight: 800; color: #1E5FA8; margin-bottom: 10px;">£250</div>
+                    <a href="javascript:void(0)" onclick="openPackageModal('Premium', '250')" class="btn" style="background: #1E5FA8; color: white; width: 100%; justify-content: center; margin-bottom: 12px; display: block; font-weight: 700; padding: 10px; font-size: 14px; cursor: pointer;"><i class="fas fa-shopping-cart"></i> Buy Package</a>
+                    <p class="desc" style="margin-bottom: 12px; color: #000; font-weight: 700; font-size: 13px;">Urgent visa processing for immediate travel</p>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Immediate Appointment Booking</li>
+                        <li><i class="fas fa-check"></i> 24-48 Hour Processing</li>
+                        <li><i class="fas fa-check"></i> Same-day Document Preparation</li>
+                        <li><i class="fas fa-check"></i> Dedicated Case Manager</li>
+                        <li><i class="fas fa-check"></i> Priority Embassy Submission</li>
+                        <li><i class="fas fa-check"></i> Real-time Tracking Updates</li>
+                        <li><i class="fas fa-check"></i> 24/7 WhatsApp Support</li>
+                        <li><i class="fas fa-check"></i> Fast Track Interview Help</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -2743,56 +3127,61 @@
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-label">Our Services</span>
-                <h2 class="section-title">Complete Schengen Visa Solutions</h2>
-                <p class="section-desc">From appointment booking to final submission, we handle every step of your Schengen visa application process.</p>
+                <h2 class="section-title">Travelade Schengen Visa Services</h2>
+                <p class="section-desc">Complete visa support for UK residents. From preparation to submission, we handle everything.</p>
             </div>
             <div class="services-grid">
                 <div class="service-card reveal">
                     <div class="service-icon">
                         <i class="fas fa-calendar-check"></i>
                     </div>
-                    <h3>VFS Global Appointment Booking</h3>
-                    <p>Hassle-free appointment scheduling at VFS Global centres across the UK. We secure your slot within 10-15 minutes.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Same-day appointment availability</li>
-                        <li><i class="fas fa-check"></i> All 27 Schengen countries covered</li>
-                        <li><i class="fas fa-check"></i> Flexible date selection</li>
-                        <li><i class="fas fa-check"></i> Pre-appointment briefing included</li>
-                    </ul>
+                    <h3>Visa Appointment</h3>
+                    <p>Fast VFS booking across the UK</p>
                 </div>
                 <div class="service-card reveal">
                     <div class="service-icon">
                         <i class="fas fa-file-alt"></i>
                     </div>
-                    <h3>Document Processing & Filing</h3>
-                    <p>Complete documentation service including cover letters, itineraries, financial presentations, and hotel/travel proofs.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Customised document checklist</li>
-                        <li><i class="fas fa-check"></i> Professional cover letter drafting</li>
-                        <li><i class="fas fa-check"></i> Day-wise itinerary planning</li>
-                        <li><i class="fas fa-check"></i> Hotel & booking proofs arranged</li>
-                    </ul>
+                    <h3>Form Filling</h3>
+                    <p>Complete application handling</p>
                 </div>
                 <div class="service-card reveal">
                     <div class="service-icon">
-                        <i class="fas fa-building"></i>
+                        <i class="fas fa-file-signature"></i>
                     </div>
-                    <h3>Embassy Submission Support</h3>
-                    <p>Full guidance through the embassy submission process including application form filling, submission, and extra document filing.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Application form filling & submitting to Embassy</li>
-                        <li><i class="fas fa-check"></i> Filing all extra required documents</li>
-                        <li><i class="fas fa-check"></i> Embassy-specific requirements covered</li>
-                        <li><i class="fas fa-check"></i> Biometrics appointment guidance</li>
-                        <li><i class="fas fa-check"></i> Status tracking & updates</li>
-                    </ul>
+                    <h3>Document Check</h3>
+                    <p>Expert document review</p>
                 </div>
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Travel Insurance</h3>
+                    <p>Schengen-compliant coverage</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <h3>Flight & Hotel</h3>
+                    <p>Valid booking proofs</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Dedicated Support</h3>
+                    <p>24/7 WhatsApp assistance</p>
+                </div>
+            </div>
+        </div>
+    </section>
             </div>
         </div>
     </section>
 
     <!-- Process Section -->
-    <section class="section" id="process">
+    <section class="section" id="process" style="background: #000000;">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-label">How It Works</span>
@@ -2852,52 +3241,29 @@
                 <span class="section-label">Explore Europe</span>
                 <h2 class="section-title">Your Dream Destinations Await</h2>
                 <p class="section-desc">With a Schengen visa, access 27 beautiful European countries and countless unforgettable experiences.</p>
-            </div>
-            <div class="landmarks-grid">
-                <div class="landmark-card reveal">
-                    <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600&h=400&fit=crop" alt="Eiffel Tower Paris">
-                    <div class="landmark-overlay">
-                        <h4>Eiffel Tower</h4>
-                        <span>Paris, France</span>
-                    </div>
-                </div>
-                <div class="landmark-card reveal">
-                    <img src="https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?w=600&h=400&fit=crop" alt="Colosseum Rome">
-                    <div class="landmark-overlay">
-                        <h4>Colosseum</h4>
-                        <span>Rome, Italy</span>
-                    </div>
-                </div>
-                <div class="landmark-card reveal">
-                    <img src="https://images.unsplash.com/photo-1520175480921-4edfa2983e0f?w=600&h=400&fit=crop" alt="Brandenburg Gate Berlin">
-                    <div class="landmark-overlay">
-                        <h4>Brandenburg Gate</h4>
-                        <span>Berlin, Germany</span>
-                    </div>
-                </div>
-                <div class="landmark-card reveal">
-                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop" alt="Sagrada Familia Barcelona">
-                    <div class="landmark-overlay">
-                        <h4>Sagrada Familia</h4>
-                        <span>Barcelona, Spain</span>
-                    </div>
-                </div>
-            </div>
+</div>
         </div>
     </section>
 
     <!-- What You Need Section -->
-    <section class="section" id="whatyouneed">
+    <section class="section" id="whatyouneed" style="background: #111;">
         <div class="container">
-            <div class="section-header reveal">
-                <span class="section-label">FAQ</span>
-                <h2 class="section-title">What You Need for Your Visa</h2>
-                <p class="section-desc">Find answers to common visa questions. We handle the rest!</p>
-            </div>
-            <div style="display: flex; justify-content: center; margin: 40px 0;">
-                <a href="faq.html" class="btn btn-primary" style="padding: 20px 50px; font-size: 18px;">
-                    <i class="fas fa-question-circle"></i> View FAQ
-                </a>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+                <div>
+                    <div class="section-header reveal">
+                        <span class="section-label">FAQ</span>
+                        <h2 class="section-title" style="color: white;">What You Need for Your Visa</h2>
+                        <p class="section-desc" style="color: #aaa;">Find answers to common visa questions. We handle the rest!</p>
+                    </div>
+                    <div style="margin-top: 40px;">
+                        <a href="faq.html" class="btn" style="background: #1E5FA8; color: white; padding: 16px 40px; font-size: 16px; font-weight: 700; display: inline-block;">
+                            <i class="fas fa-question-circle"></i> View FAQ
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <img src="https://www.remitly.com/blog/wp-content/uploads/2023/01/shutterstock_101664547.jpg" alt="Visa Documents" style="width: 100%; border-radius: 16px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);">
+                </div>
             </div>
         </div>
     </section>
@@ -3033,51 +3399,6 @@
         </div>
     </section>
 
-    <!-- Processing Time Section -->
-    <section class="section timeline" id="timeline">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-label">Processing Timeline</span>
-                <h2 class="section-title">What to Expect After Submission</h2>
-                <p class="section-desc">Processing times vary by country. Here's a general timeline for Schengen visa processing.</p>
-            </div>
-            <div class="timeline-content">
-                <div class="timeline-item reveal">
-                    <div class="timeline-marker"><i class="fas fa-upload"></i></div>
-                    <div class="timeline-body">
-                        <h4>Document Submission</h4>
-                        <p>Submit your complete file at the VFS Global centre. Biometrics are taken if not provided in the last 59 months.</p>
-                        <span class="duration">Day 1</span>
-                    </div>
-                </div>
-                <div class="timeline-item reveal">
-                    <div class="timeline-marker"><i class="fas fa-building"></i></div>
-                    <div class="timeline-body">
-                        <h4>Consulate Processing</h4>
-                        <p>Your application is forwarded to the respective Schengen country's consulate for review and decision.</p>
-                        <span class="duration">Days 2-15</span>
-                    </div>
-                </div>
-                <div class="timeline-item reveal">
-                    <div class="timeline-marker"><i class="fas fa-check-circle"></i></div>
-                    <div class="timeline-body">
-                        <h4>Decision & Passport Return</h4>
-                        <p>Once approved, your passport is returned to VFS Global for collection or courier delivery.</p>
-                        <span class="duration">Days 10-21</span>
-                    </div>
-                </div>
-                <div class="timeline-item reveal">
-                    <div class="timeline-marker"><i class="fas fa-info-circle"></i></div>
-                    <div class="timeline-body">
-                        <h4>Common Timelines by Country</h4>
-                        <p><strong>France:</strong> 10-15 days | <strong>Germany:</strong> 10-21 days | <strong>Spain:</strong> 7-14 days | <strong>Italy:</strong> 14-21 days</p>
-                        <span class="duration" style="background: var(--secondary-blue);">Note: Times may vary during peak seasons</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Refund Policy Section -->
     <section class="section" id="refund">
         <div class="container">
@@ -3108,8 +3429,8 @@
     <!-- CTA Section -->
     <section class="cta" id="apply">
         <div class="container">
-            <h2>Ready to Start Your Schengen Journey?</h2>
-            <p>Get your visa appointment booked today. Our team is ready to assist you with professional, hassle-free service.</p>
+            <h2 style="font-size: 32px; margin-bottom: 12px;">Ready to Start Your Schengen Journey?</h2>
+            <p style="font-size: 15px; margin-bottom: 24px;">Get your visa appointment booked today. Our team is ready to assist you with professional, hassle-free service.</p>
             <div class="cta-buttons">
                 <a href="https://wa.me/923006690701?text=Hi%20Travelade%2C%20I%20want%20to%20start%20my%20Schengen%20visa%20application.%20Please%20assist." class="btn btn-white">
                     <i class="fab fa-whatsapp"></i> WhatsApp Us Now
@@ -3558,3 +3879,118 @@ Thank you!`;
     </script>
 </body>
 </html>
+
+<!-- Package Selection Modal -->
+<div id="packageModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; overflow-y: auto;">
+    <div style="background: white; max-width: 500px; margin: 50px auto; border-radius: 16px; padding: 30px; position: relative; font-family: Arial, sans-serif;">
+        <button onclick="closePackageModal()" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer; color: #333;">&times;</button>
+        <h2 style="color: #1E5FA8; margin-bottom: 5px; font-size: 24px;" id="modalPackageTitle">Book Your Package</h2>
+        <div id="packageDisplay" style="background: #e8f4fc; padding: 12px; border-radius: 8px; margin-bottom: 15px; text-align: center;">
+            <span id="displayPackage" style="font-size: 18px; font-weight: 700; color: #1E5FA8;"></span>
+        </div>
+        <p style="color: #666; margin-bottom: 20px; font-size: 14px;">Fill in your details and we'll contact you shortly.</p>
+        
+        <form id="packageForm" action="https://formspree.io/f/mjgjgnqk" method="POST">
+            <input type="hidden" name="package" id="selectedPackage" value="">
+            <input type="hidden" name="price" id="selectedPrice" value="">
+            
+            <div style="display: grid; gap: 15px;">
+                <div>
+                    <label style="display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 5px;">First Name *</label>
+                    <input type="text" name="firstname" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
+                </div>
+                
+                <div>
+                    <label style="display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 5px;">Email Address *</label>
+                    <input type="email" name="email" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
+                </div>
+                
+                <div>
+                    <label style="display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 5px;">Phone Number *</label>
+                    <input type="tel" name="phone" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
+                </div>
+                
+                <div>
+                    <label style="display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 5px;">Nationality *</label>
+                    <select name="nationality" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
+                        <option value="">- Select Country -</option>
+                        <option value="UK">United Kingdom</option>
+                        <option value="Pakistan">Pakistan</option>
+                        <option value="India">India</option>
+                        <option value="Bangladesh">Bangladesh</option>
+                        <option value="Sri Lanka">Sri Lanka</option>
+                        <option value="Nigeria">Nigeria</option>
+                        <option value="Ghana">Ghana</option>
+                        <option value="Kenya">Kenya</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label style="display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 5px;">Travel Date?</label>
+                    <input type="date" name="traveldate" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
+                </div>
+                
+                <div>
+                    <label style="display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 5px;">Destination Country *</label>
+                    <select name="destination" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
+                        <option value="">- Select Country -</option>
+                        <option value="France">France</option>
+                        <option value="Germany">Germany</option>
+                        <option value="Italy">Italy</option>
+                        <option value="Spain">Spain</option>
+                        <option value="Netherlands">Netherlands</option>
+                        <option value="Switzerland">Switzerland</option>
+                        <option value="Austria">Austria</option>
+                        <option value="Belgium">Belgium</option>
+                        <option value="Greece">Greece</option>
+                        <option value="Portugal">Portugal</option>
+                        <option value="Other">Other Schengen</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label style="display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 5px;">Select VFS Location</label>
+                    <select name="vfslocation" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
+                        <option value="">- VFS Location -</option>
+                        <option value="London">London</option>
+                        <option value="Manchester">Manchester</option>
+                        <option value="Edinburgh">Edinburgh</option>
+                        <option value="Birmingham">Birmingham</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label style="display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 10px;">How would you like to proceed?</label>
+                    <div style="display: flex; gap: 15px;">
+                        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                            <input type="radio" name="payment" value="Pay Now" style="width: 18px; height: 18px;"> Pay Now
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                            <input type="radio" name="payment" value="Pay Later" checked style="width: 18px; height: 18px;"> Pay Later
+                        </label>
+                    </div>
+                </div>
+                
+                <button type="submit" id="bookBtn" style="background: #1E5FA8; color: white; border: none; padding: 16px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; width: 100%; margin-top: 10px;">Book Now</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+function openPackageModal(packageName, price) {
+    document.getElementById('selectedPackage').value = packageName;
+    document.getElementById('selectedPrice').value = price;
+    document.getElementById('modalPackageTitle').innerText = 'Book ' + packageName + ' - £' + price;
+    document.getElementById('displayPackage').innerText = packageName + ' - £' + price;
+    document.getElementById('bookBtn').innerText = 'Book £' + price;
+    document.getElementById('packageModal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closePackageModal() {
+    document.getElementById('packageModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+</script>

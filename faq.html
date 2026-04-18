@@ -276,14 +276,42 @@
 
         @media (max-width: 768px) {
             .nav-content {
-                flex-wrap: wrap;
+                position: relative;
             }
+            
+            .mobile-toggle {
+                display: flex !important;
+            }
+            
             .nav-links {
                 display: none;
             }
             .navbar .btn {
                 display: none;
             }
+            
+            /* Hamburger menu styles */
+            .nav-links.mobile-active {
+                display: flex;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 280px;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                z-index: 1000;
+                box-shadow: 4px 0 20px rgba(0,0,0,0.1);
+                padding-top: 60px;
+            }
+            
+            .nav-links.mobile-active a {
+                padding: 15px 20px;
+                border-bottom: 1px solid #f0f0f0;
+                color: #333;
+                text-decoration: none;
+            }
+
             .page-header {
                 padding: 120px 0 50px;
             }
@@ -347,11 +375,34 @@
         .footer-links a:hover {
             color: var(--orange);
         }
+
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1001;
+        }
+
+        .mobile-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-blue);
+            border-radius: 2px;
+        }
     </style>
 </head>
 <!-- Navigation -->
     <nav class="navbar">
         <div class="container nav-content">
+            <button class="mobile-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <a href="index.html" class="logo">
                 <img src="logo-secondary.png" alt="Travelade" class="logo-img">
                 <div class="logo-text-group">
@@ -361,7 +412,7 @@
                     <div class="logo-tagline">Schengen Visa Specialists</div>
                 </div>
             </a>
-            <ul class="nav-links">
+            <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="countries.html">Countries</a></li>
                 <li><a href="faq.html" style="color: var(--orange);">FAQ</a></li>
@@ -569,6 +620,11 @@
     </footer>
 
     <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('mobile-active');
+        }
+
         // FAQ Toggle with auto-close
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', () => {

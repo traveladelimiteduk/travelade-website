@@ -147,132 +147,145 @@
             transform: translateY(-2px);
         }
 
-        .mobile-toggle {
+        /* FAQ Section */
+        .page-header {
+            background: linear-gradient(135deg, #1E5FA8 0%, #154A84 100%);
+            padding: 140px 0 60px;
+            text-align: center;
+            color: white;
+        }
+
+        .page-header h1 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .page-header p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .faq-section {
+            padding: 60px 0;
+            background: #f8fafc;
+        }
+
+        .faq-intro {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .faq-intro h2 {
+            font-size: 32px;
+            color: var(--primary-blue);
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .faq-intro p {
+            color: var(--gray-500);
+            font-size: 16px;
+        }
+
+        .faq-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background: #f8fafc;
+        }
+
+        .faq-question h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin: 0;
+        }
+
+        .faq-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            transition: transform 0.3s;
+            flex-shrink: 0;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+            background: var(--orange);
+        }
+
+        .faq-answer {
             display: none;
+            padding: 0 24px 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .faq-answer p {
+            font-size: 15px;
+            color: var(--gray-700);
+            line-height: 1.7;
+            margin-top: 16px;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
         }
 
         @media (max-width: 768px) {
             .nav-content {
-                position: relative;
+                flex-wrap: wrap;
             }
-            
-            .mobile-toggle {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-                padding: 8px;
-                z-index: 1001;
-                background: none;
-                border: none;
-                cursor: pointer;
-            }
-
-            .mobile-toggle span {
-                display: block;
-                width: 25px;
-                height: 3px;
-                background: var(--primary-blue);
-                margin: 3px 0;
-                border-radius: 2px;
-            }
-
             .nav-links {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 280px;
-                height: 100vh;
-                background: white;
-                flex-direction: column;
-                padding: 0;
-                transform: translateX(-100%);
-                transition: transform 0.3s ease;
-                z-index: 1000;
-                box-shadow: 4px 0 20px rgba(0,0,0,0.1);
+                display: none;
             }
-
-            .nav-links.active {
-                transform: translateX(0);
-            }
-
-            .nav-links .nav-menu-header {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 15px 20px;
-                background: linear-gradient(135deg, #1E5FA8 0%, #154A84 100%);
-            }
-
-            .nav-links .nav-menu-header img {
-                height: 40px;
-            }
-
-            .nav-links .mobile-close {
-                background: none;
-                border: none;
-                color: white;
-                font-size: 24px;
-                cursor: pointer;
-            }
-
-            .nav-links a {
-                color: #333;
-                font-size: 14px;
-                font-weight: 500;
-                padding: 12px 20px;
-                text-decoration: none;
-                border-bottom: 1px solid #f0f0f0;
-                display: flex;
-                align-items: center;
-                gap: 12px;
-            }
-
-            .nav-links a:hover {
-                background: #f5f5f5;
-            }
-
-            .nav-links .whatsapp-btn {
-                background: #25D366;
-                color: white;
-                margin: 15px 20px;
-                padding: 12px 20px;
-                border-radius: 8px;
-                justify-content: center;
-            }
-
             .navbar .btn {
                 display: none;
             }
-
-            .nav-overlay {
-                display: none;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0,0,0,0.5);
-                z-index: 999;
-            }
-
-            .nav-overlay.active {
-                display: block;
-            }
-        }
-
-        @media (max-width: 768px) {
             .page-header {
                 padding: 120px 0 50px;
             }
             .page-header h1 {
-                font-size: 32px;
+                font-size: 28px;
+            }
+            .page-header p {
+                font-size: 15px;
+            }
+            .faq-intro h2 {
+                font-size: 24px;
             }
             .faq-question {
-                padding: 20px;
+                padding: 16px 20px;
             }
             .faq-question h3 {
-                font-size: 15px;
+                font-size: 14px;
             }
             .faq-answer p {
                 font-size: 14px;
@@ -281,19 +294,49 @@
                 flex-direction: column;
                 gap: 20px;
                 text-align: center;
+                padding: 20px;
             }
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 30px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            color: #888;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: #888;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--orange);
         }
     </style>
 </head>
-<body>
-    <!-- Navigation -->
+<!-- Navigation -->
     <nav class="navbar">
         <div class="container nav-content">
-            <button class="mobile-toggle" onclick="openMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
             <a href="index.html" class="logo">
                 <img src="logo-secondary.png" alt="Travelade" class="logo-img">
                 <div class="logo-text-group">
@@ -303,57 +346,16 @@
                     <div class="logo-tagline">Schengen Visa Specialists</div>
                 </div>
             </a>
-            <div class="nav-overlay" id="navOverlay" onclick="closeMenu()"></div>
-            <ul class="nav-links" id="navLinks">
-                <li class="nav-menu-header">
-                    <img src="logo-secondary.png" alt="Travelade">
-                    <button class="mobile-close" onclick="closeMenu()">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </li>
-                <li><a href="index.html" onclick="closeMenu()"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="index.html#services" onclick="closeMenu()"><i class="fas fa-concierge-bell"></i> Services</a></li>
-                <li><a href="index.html#process" onclick="closeMenu()"><i class="fas fa-list-ol"></i> How It Works</a></li>
-                <li><a href="countries.html" onclick="closeMenu()"><i class="fas fa-globe-europe"></i> Countries</a></li>
-                <li><a href="index.html#pricing" onclick="closeMenu()"><i class="fas fa-tag"></i> Pricing</a></li>
-                <li><a href="faq.html" onclick="closeMenu()" style="background: #f0f0f0; color: #999;"><i class="fas fa-question-circle"></i> FAQ</a></li>
-                <li><a href="index.html#reviews" onclick="closeMenu()"><i class="fas fa-star"></i> Reviews</a></li>
-                <li><a href="index.html#contact" onclick="closeMenu()"><i class="fas fa-envelope"></i> Contact</a></li>
-                <li><a href="https://wa.me/923006690701" class="whatsapp-btn" onclick="closeMenu()">
-                    <i class="fab fa-whatsapp"></i> WhatsApp Us
-                </a></li>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="countries.html">Countries</a></li>
+                <li><a href="faq.html" style="color: var(--orange);">FAQ</a></li>
             </ul>
             <a href="index.html#contact" class="btn btn-primary">
                 <i class="fab fa-whatsapp"></i> Contact Us
             </a>
         </div>
     </nav>
-
-    <script>
-    function openMenu() {
-        document.getElementById('navLinks').classList.add('active');
-        document.getElementById('navOverlay').classList.add('active');
-    }
-
-    function closeMenu() {
-        document.getElementById('navLinks').classList.remove('active');
-        document.getElementById('navOverlay').classList.remove('active');
-    }
-
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') closeMenu();
-    });
-
-    document.addEventListener('click', function(e) {
-        const navLinks = document.getElementById('navLinks');
-        const mobileToggle = document.querySelector('.mobile-toggle');
-        if (navLinks && navLinks.classList.contains('active')) {
-            if (!navLinks.contains(e.target) && !mobileToggle.contains(e.target)) {
-                closeMenu();
-            }
-        }
-    });
-    </script>
 
     <!-- Page Header -->
     <section class="page-header">

@@ -625,6 +625,17 @@
             document.getElementById('navLinks').classList.toggle('mobile-active');
         }
 
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const navLinks = document.getElementById('navLinks');
+            const mobileToggle = document.querySelector('.mobile-toggle');
+            if (navLinks.classList.contains('mobile-active')) {
+                if (!navLinks.contains(e.target) && !mobileToggle.contains(e.target)) {
+                    navLinks.classList.remove('mobile-active');
+                }
+            }
+        });
+
         // FAQ Toggle with auto-close
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', () => {

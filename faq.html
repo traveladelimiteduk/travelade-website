@@ -142,12 +142,31 @@
             box-shadow: 0 4px 15px rgba(230, 92, 0, 0.3);
         }
 
-.btn-primary:hover {
+        .btn-primary:hover {
             background: var(--orange-dark);
             transform: translateY(-2px);
         }
 
-        /* FAQ Section */
+        /* Mobile Toggle */
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1001;
+        }
+
+        .mobile-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-blue);
+            border-radius: 2px;
+        }
+
+        /* FAQ Section Styles */
         .page-header {
             background: linear-gradient(135deg, #1E5FA8 0%, #154A84 100%);
             padding: 140px 0 60px;
@@ -274,79 +293,6 @@
             transform: translateY(0);
         }
 
-        @media (max-width: 768px) {
-            .nav-content {
-                position: relative;
-            }
-            
-            .mobile-toggle {
-                display: flex !important;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            .navbar .btn {
-                display: none;
-            }
-            
-            /* Hamburger menu styles */
-            .nav-links.mobile-active {
-                display: flex;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 280px;
-                height: 100vh;
-                background: white;
-                flex-direction: column;
-                z-index: 1000;
-                box-shadow: 4px 0 20px rgba(0,0,0,0.1);
-                padding-top: 60px;
-                transform: translateX(-100%);
-                transition: transform 0.3s ease;
-            }
-            
-            .nav-links.mobile-active.show {
-                transform: translateX(0);
-            }
-            
-            .nav-links.mobile-active a {
-                padding: 15px 20px;
-                border-bottom: 1px solid #f0f0f0;
-                color: #333;
-                text-decoration: none;
-            }
-
-            .page-header {
-                padding: 120px 0 50px;
-            }
-            .page-header h1 {
-                font-size: 28px;
-            }
-            .page-header p {
-                font-size: 15px;
-            }
-            .faq-intro h2 {
-                font-size: 24px;
-            }
-            .faq-question {
-                padding: 16px 20px;
-            }
-            .faq-question h3 {
-                font-size: 14px;
-            }
-            .faq-answer p {
-                font-size: 14px;
-            }
-            .footer-content {
-                flex-direction: column;
-                gap: 20px;
-                text-align: center;
-                padding: 20px;
-            }
-        }
-
         /* Footer */
         .footer {
             background: #1a1a1a;
@@ -382,26 +328,91 @@
             color: var(--orange);
         }
 
-        .mobile-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 5px;
-            z-index: 1001;
-        }
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .nav-content {
+                position: relative;
+                justify-content: flex-start;
+                gap: 10px;
+            }
+            
+            .mobile-toggle {
+                display: flex !important;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .navbar .btn {
+                display: none;
+            }
+            
+            /* Hamburger menu */
+            .nav-links.mobile-active {
+                display: flex;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 280px;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                z-index: 1000;
+                box-shadow: 4px 0 20px rgba(0,0,0,0.1);
+                padding-top: 60px;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+            
+            .nav-links.mobile-active.show {
+                transform: translateX(0);
+            }
+            
+            .nav-links.mobile-active a {
+                padding: 15px 20px;
+                border-bottom: 1px solid #f0f0f0;
+                color: #333;
+                text-decoration: none;
+            }
 
-        .mobile-toggle span {
-            width: 25px;
-            height: 3px;
-            background: var(--primary-blue);
-            border-radius: 2px;
+            .nav-links.mobile-active a.active {
+                background: #f0f0f0;
+                color: #999;
+            }
+
+            .page-header {
+                padding: 120px 0 50px;
+            }
+            .page-header h1 {
+                font-size: 28px;
+            }
+            .page-header p {
+                font-size: 15px;
+            }
+            .faq-intro h2 {
+                font-size: 24px;
+            }
+            .faq-question {
+                padding: 16px 20px;
+            }
+            .faq-question h3 {
+                font-size: 14px;
+            }
+            .faq-answer p {
+                font-size: 14px;
+            }
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+                padding: 20px;
+            }
         }
     </style>
 </head>
-<!-- Navigation -->
+<body>
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="container nav-content">
             <button class="mobile-toggle" onclick="toggleMenu()">
@@ -418,10 +429,10 @@
                     <div class="logo-tagline">Schengen Visa Specialists</div>
                 </div>
             </a>
-            <ul class="nav-links" id="navLinks">
+            <ul class="nav-links mobile-active" id="navLinks">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="countries.html">Countries</a></li>
-                <li><a href="faq.html" style="color: var(--orange);">FAQ</a></li>
+                <li><a href="faq.html" class="active">FAQ</a></li>
             </ul>
             <a href="index.html#contact" class="btn btn-primary">
                 <i class="fab fa-whatsapp"></i> Contact Us
@@ -464,7 +475,7 @@
                         <div class="faq-icon"><i class="fas fa-plus"></i></div>
                     </div>
                     <div class="faq-answer">
-                        <p>Yes! A single Schengen visa allows you to travel across <strong>all 27 Schengen countries</strong> including France, Germany, Italy, Spain, Greece, Netherlands, and more. The visa is valid for short stays up to 90 days within a 180-day period. You can enter through any Schengen country and travel freely within the zone.</p>
+                        <p>Yes! A single Schengen visa allows you to travel across <strong>all 27 Schengen countries</strong> including France, Germany, Italy, Spain, Greece, Netherlands, and more. The visa is valid for short stays up to 90 days within a 180-day period.</p>
                     </div>
                 </div>
 
@@ -475,7 +486,7 @@
                         <div class="faq-icon"><i class="fas fa-plus"></i></div>
                     </div>
                     <div class="faq-answer">
-                        <p>Schengen visas are typically valid for <strong>1 to 5 years</strong> depending on your profile and the country you apply through. Multi-entry visas allow multiple trips within the validity period. The maximum stay is <strong>90 days</strong> within any 180-day period. Some countries also offer long-term multiple-entry visas valid for up to 5 years.</p>
+                        <p>Schengen visas are typically valid for <strong>1 to 5 years</strong> depending on your profile and the country you apply through. Multi-entry visas allow multiple trips within the validity period. The maximum stay is <strong>90 days</strong> within any 180-day period.</p>
                     </div>
                 </div>
 
@@ -486,7 +497,7 @@
                         <div class="faq-icon"><i class="fas fa-plus"></i></div>
                     </div>
                     <div class="faq-answer">
-                        <p><strong>Yes, travel insurance is mandatory</strong> for all Schengen visa applications. You need insurance with minimum coverage of <strong>€30,000</strong> (approximately £26,000) that covers medical emergencies, hospitalisation, and repatriation. The insurance must be valid for all Schengen countries and cover your entire stay in Europe.</p>
+                        <p><strong>Yes, travel insurance is mandatory</strong> for all Schengen visa applications. You need insurance with minimum coverage of <strong>€30,000</strong> that covers medical emergencies, hospitalisation, and repatriation.</p>
                     </div>
                 </div>
 
@@ -497,7 +508,7 @@
                         <div class="faq-icon"><i class="fas fa-plus"></i></div>
                     </div>
                     <div class="faq-answer">
-                        <p><strong>No</strong>, a Schengen tourist visa does not allow you to work in Europe. For employment, you need a separate work permit or national visa from the specific country. If you're planning to work, study, or stay long-term in Europe, you must apply for the appropriate national visa from that country's embassy.</p>
+                        <p><strong>No</strong>, a Schengen tourist visa does not allow you to work in Europe. For employment, you need a separate work permit or national visa from the specific country.</p>
                     </div>
                 </div>
 
@@ -508,104 +519,32 @@
                         <div class="faq-icon"><i class="fas fa-plus"></i></div>
                     </div>
                     <div class="faq-answer">
-                        <p>If rejected, you'll receive a written reason from the embassy. Common reasons include incomplete documentation, insufficient financial proof, unclear travel purpose, or previous visa violations. You can <strong>reapply</strong> after addressing the issues. Our team helps ensure your application is complete and correctly documented to maximise approval chances.</p>
+                        <p>If your visa is rejected, you'll receive a rejection letter explaining the reason. Common reasons include <strong>insufficient funds, unclear travel purpose, or lack of travel insurance</strong>. You may reapply addressing the specific rejection reason.</p>
                     </div>
                 </div>
 
                 <!-- FAQ 7 -->
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3>How far in advance should I apply for a Schengen visa?</h3>
+                        <h3>How much bank balance is required for a Schengen visa?</h3>
                         <div class="faq-icon"><i class="fas fa-plus"></i></div>
                     </div>
                     <div class="faq-answer">
-                        <p>You can apply up to <strong>6 months before</strong> your planned travel date. We recommend applying at least <strong>3-4 weeks before</strong> your appointment date to allow for processing. For peak seasons (summer, holidays), apply even earlier as appointment slots fill up quickly. Our team helps secure your appointment within 10-15 minutes of booking!</p>
+                        <p>There's no fixed minimum, but you must demonstrate <strong>sufficient funds for your stay</strong>. Generally, around <strong>£50-100 per day</strong> is recommended. Consulates look for consistent bank statements over 3-6 months.</p>
                     </div>
                 </div>
 
                 <!-- FAQ 8 -->
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3>Can I extend my Schengen visa while in Europe?</h3>
-                        <div class="faq-icon"><i class="fas fa-plus"></i></div>
-                    </div>
-                    <div class="faq-answer">
-                        <p><strong>Rarely</strong>. Extensions are only possible in exceptional circumstances (force majeure, humanitarian reasons). You must apply before your visa expires through the local immigration authority in the country where you're staying. Regular tourist visas cannot be extended for leisure purposes.</p>
-                    </div>
-                </div>
-
-                <!-- FAQ 9 -->
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>What documents do I need for a Schengen visa?</h3>
-                        <div class="faq-icon"><i class="fas fa-plus"></i></div>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Key documents include: <strong>Valid passport</strong> (6+ months), <strong>completed application form</strong>, <strong>recent photos</strong>, <strong>travel insurance</strong> (€30,000+), <strong>flight itinerary</strong>, <strong>hotel bookings</strong>, <strong>proof of finances</strong> (bank statements 3+ months), <strong>employment letter</strong>, and <strong>cover letter</strong>. Requirements vary by country.</p>
-                    </div>
-                </div>
-
-                <!-- FAQ 10 -->
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Which Schengen country has the highest approval rate?</h3>
-                        <div class="faq-icon"><i class="fas fa-plus"></i></div>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Approval rates vary by country and your profile. Generally, countries like <strong>Finland, Iceland, and Poland</strong> have higher approval rates. Other popular countries with good rates include <strong>Germany, France, Italy, and Spain</strong>. The key is applying to the right country based on your travel plans and documentation.</p>
-                    </div>
-                </div>
-
-                <!-- FAQ 11 -->
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Can I book flights and hotels before getting my visa?</h3>
-                        <div class="faq-icon"><i class="fas fa-plus"></i></div>
-                    </div>
-                    <div class="faq-answer">
-                        <p><strong>Yes, but book refundable options</strong>. We recommend booking flexible/refundable flights and hotels since visa outcomes aren't guaranteed. Many applicants book "reservation" style tickets that can be cancelled later. We can help arrange <strong>valid booking proofs</strong> for your application that satisfy visa requirements without financial commitment.</p>
-                    </div>
-                </div>
-
-                <!-- FAQ 12 -->
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Do I need to attend an interview?</h3>
-                        <div class="faq-icon"><i class="fas fa-plus"></i></div>
-                    </div>
-                    <div class="faq-answer">
-                        <p><strong>Usually no</strong>. Most Schengen visa applications don't require an interview. However, the embassy may call you for additional questions if needed. You'll also need to provide <strong>biometrics</strong> (fingerprints and photo) at the VFS Global centre.</p>
-                    </div>
-                </div>
-
-                <!-- FAQ 13 -->
-                <div class="faq-item">
-                    <div class="faq-question">
                         <h3>What happens after I submit my visa application?</h3>
                         <div class="faq-icon"><i class="fas fa-plus"></i></div>
                     </div>
                     <div class="faq-answer">
-                        <p>After submission at VFS Global, here's what to expect:</p>
-                        <ul style="margin: 15px 0; padding-left: 20px;">
-                            <li style="margin-bottom: 10px;"><strong>Day 1:</strong> Document submission & biometrics (if not provided in last 59 months)</li>
-                            <li style="margin-bottom: 10px;"><strong>Days 2-15:</strong> Your application is forwarded to the Schengen country's consulate for review</li>
-                            <li style="margin-bottom: 10px;"><strong>Days 10-21:</strong> Decision made - passport returned to VFS for collection or courier delivery</li>
-                        </ul>
-                        <p><strong>Processing times vary by country:</strong> France: 10-15 days | Germany: 10-21 days | Spain: 7-14 days | Italy: 14-21 days. Note: Times may be longer during peak seasons.</p>
+                        <p>After submission at VFS Global: <strong>Day 1</strong> - Document submission & biometrics. <strong>Days 2-15</strong> - Application reviewed by consulate. <strong>Days 10-21</strong> - Decision made and passport returned.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <h2>Still Have Questions?</h2>
-            <p>Our visa experts are here to help. Contact us for free consultation.</p>
-            <a href="index.html#contact" class="btn btn-primary" style="background: white; color: var(--orange);">
-                <i class="fab fa-whatsapp"></i> WhatsApp Us Now
-            </a>
         </div>
     </section>
 

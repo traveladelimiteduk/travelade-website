@@ -243,20 +243,35 @@
         }
 
         .faq-answer {
-            display: none;
-            padding: 0 24px 20px;
-            border-top: 1px solid #eee;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease, padding 0.5s ease;
+            padding: 0 24px;
+            border-top: 1px solid transparent;
+            opacity: 0;
         }
 
         .faq-answer p {
             font-size: 15px;
             color: var(--gray-700);
             line-height: 1.7;
-            margin-top: 16px;
+            margin-top: 0;
+            margin-bottom: 16px;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.4s ease 0.2s, transform 0.4s ease 0.2s;
         }
 
         .faq-item.active .faq-answer {
-            display: block;
+            max-height: 500px;
+            padding-bottom: 20px;
+            border-top: 1px solid #eee;
+            opacity: 1;
+        }
+
+        .faq-item.active .faq-answer p {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         @media (max-width: 768px) {
@@ -554,11 +569,21 @@
     </footer>
 
     <script>
-        // FAQ Toggle
+        // FAQ Toggle with auto-close
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', () => {
-                const item = question.parentElement;
-                item.classList.toggle('active');
+                const currentItem = question.parentElement;
+                const isActive = currentItem.classList.contains('active');
+                
+                // Close all items first
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // If it wasn't active before, open it now
+                if (!isActive) {
+                    currentItem.classList.add('active');
+                }
             });
         });
     </script>

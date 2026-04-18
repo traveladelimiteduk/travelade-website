@@ -142,179 +142,123 @@
             box-shadow: 0 4px 15px rgba(230, 92, 0, 0.3);
         }
 
-        .btn-primary:hover {
+.btn-primary:hover {
+            background: var(--orange-dark);
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(230, 92, 0, 0.4);
         }
 
-        /* Page Header */
-        .page-header {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
-            padding: 140px 0 60px;
-            text-align: center;
+        .mobile-toggle {
+            display: none;
         }
 
-        .page-header h1 {
-            font-size: 42px;
-            color: white;
-            margin-bottom: 14px;
-        }
+        @media (max-width: 768px) {
+            .nav-content {
+                position: relative;
+            }
+            
+            .mobile-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                padding: 8px;
+                z-index: 1001;
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
 
-        .page-header p {
-            font-size: 17px;
-            color: rgba(255,255,255,0.85);
-            max-width: 600px;
-            margin: 0 auto;
-        }
+            .mobile-toggle span {
+                display: block;
+                width: 25px;
+                height: 3px;
+                background: var(--primary-blue);
+                margin: 3px 0;
+                border-radius: 2px;
+            }
 
-        /* FAQ Section */
-        .faq-section {
-            padding: 60px 0;
-        }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 280px;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                padding: 0;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 1000;
+                box-shadow: 4px 0 20px rgba(0,0,0,0.1);
+            }
 
-        .faq-intro {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+            .nav-links.active {
+                transform: translateX(0);
+            }
 
-        .faq-intro h2 {
-            font-size: 28px;
-            color: var(--dark);
-            margin-bottom: 10px;
-        }
+            .nav-links .nav-menu-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px 20px;
+                background: linear-gradient(135deg, #1E5FA8 0%, #154A84 100%);
+            }
 
-        .faq-intro p {
-            color: var(--gray-500);
-        }
+            .nav-links .nav-menu-header img {
+                height: 40px;
+            }
 
-        .faq-grid {
-            display: grid;
-            gap: 20px;
-        }
+            .nav-links .mobile-close {
+                background: none;
+                border: none;
+                color: white;
+                font-size: 24px;
+                cursor: pointer;
+            }
 
-        .faq-item {
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-            border: 1px solid var(--gray-100);
-        }
+            .nav-links a {
+                color: #333;
+                font-size: 14px;
+                font-weight: 500;
+                padding: 12px 20px;
+                text-decoration: none;
+                border-bottom: 1px solid #f0f0f0;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
 
-        .faq-question {
-            padding: 24px 28px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            background: white;
-            transition: background 0.3s;
-        }
+            .nav-links a:hover {
+                background: #f5f5f5;
+            }
 
-        .faq-question:hover {
-            background: #fafafa;
-        }
+            .nav-links .whatsapp-btn {
+                background: #25D366;
+                color: white;
+                margin: 15px 20px;
+                padding: 12px 20px;
+                border-radius: 8px;
+                justify-content: center;
+            }
 
-        .faq-question h3 {
-            font-size: 17px;
-            font-weight: 600;
-            color: var(--dark);
-            font-family: 'Inter', sans-serif;
-        }
+            .navbar .btn {
+                display: none;
+            }
 
-        .faq-question .faq-icon {
-            width: 32px;
-            height: 32px;
-            background: var(--gray-100);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-blue);
-            font-size: 14px;
-            transition: all 0.3s;
-        }
+            .nav-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.5);
+                z-index: 999;
+            }
 
-        .faq-item.active .faq-question .faq-icon {
-            background: var(--orange);
-            color: white;
-            transform: rotate(45deg);
-        }
-
-        .faq-answer {
-            padding: 0 28px;
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.4s ease;
-        }
-
-        .faq-item.active .faq-answer {
-            padding: 0 28px 24px;
-            max-height: 500px;
-        }
-
-        .faq-answer p {
-            color: var(--gray-700);
-            font-size: 15px;
-            line-height: 1.7;
-            border-top: 1px solid var(--gray-100);
-            padding-top: 20px;
-        }
-
-        .faq-answer p strong {
-            color: var(--primary-blue);
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
-            padding: 60px 0;
-            text-align: center;
-        }
-
-        .cta-section h2 {
-            font-size: 32px;
-            color: white;
-            margin-bottom: 14px;
-        }
-
-        .cta-section p {
-            font-size: 17px;
-            color: rgba(255,255,255,0.9);
-            margin-bottom: 24px;
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--dark);
-            color: rgba(255,255,255,0.7);
-            padding: 40px 0 20px;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .footer-brand p {
-            font-size: 14px;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 24px;
-            list-style: none;
-        }
-
-        .footer-links a {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: var(--orange);
+            .nav-overlay.active {
+                display: block;
+            }
         }
 
         @media (max-width: 768px) {
@@ -345,6 +289,11 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container nav-content">
+            <button class="mobile-toggle" onclick="openMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <a href="index.html" class="logo">
                 <img src="logo-secondary.png" alt="Travelade" class="logo-img">
                 <div class="logo-text-group">
@@ -354,16 +303,38 @@
                     <div class="logo-tagline">Schengen Visa Specialists</div>
                 </div>
             </a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="countries.html">Countries</a></li>
-                <li><a href="faq.html" style="color: var(--orange);">FAQ</a></li>
+            <div class="nav-overlay" id="navOverlay" onclick="closeMenu()"></div>
+            <ul class="nav-links" id="navLinks">
+                <li class="nav-menu-header">
+                    <img src="logo-secondary.png" alt="Travelade">
+                    <button class="mobile-close" onclick="closeMenu()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </li>
+                <li><a href="index.html" onclick="closeMenu()"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="countries.html" onclick="closeMenu()"><i class="fas fa-globe-europe"></i> Countries</a></li>
+                <li><a href="faq.html" onclick="closeMenu()" style="background: #f0f0f0; color: #999;"><i class="fas fa-question-circle"></i> FAQ</a></li>
+                <li><a href="https://wa.me/923006690701" class="whatsapp-btn" onclick="closeMenu()">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Us
+                </a></li>
             </ul>
             <a href="index.html#contact" class="btn btn-primary">
                 <i class="fab fa-whatsapp"></i> Contact Us
             </a>
         </div>
     </nav>
+
+    <script>
+    function openMenu() {
+        document.getElementById('navLinks').classList.add('active');
+        document.getElementById('navOverlay').classList.add('active');
+    }
+
+    function closeMenu() {
+        document.getElementById('navLinks').classList.remove('active');
+        document.getElementById('navOverlay').classList.remove('active');
+    }
+    </script>
 
     <!-- Page Header -->
     <section class="page-header">

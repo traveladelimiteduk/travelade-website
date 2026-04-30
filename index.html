@@ -513,9 +513,9 @@
         
         @media (max-width: 768px) {
             .navbar {
-                position: relative;
+                position: fixed;
                 top: 0;
-                height: 70px;
+                height: 65px;
                 padding: 0 15px;
                 box-sizing: border-box;
             }
@@ -524,16 +524,59 @@
                 display: flex;
                 align-items: center;
                 gap: 0;
+                height: 65px;
             }
             
             .navbar .logo-img {
-                height: 70px;
+                height: 60px;
+                width: auto;
+            }
+            
+            .navbar .logo-text-group {
+                display: none;
+            }
+            
+            .nav-content {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                height: 100%;
+            }
+            
+            .navbar-apply-btn {
+                display: block;
+                background: #FFD700;
+                color: #1E5FA8;
+                padding: 8px 16px;
+                border-radius: 20px;
+                font-size: 12px;
+                font-weight: 700;
+                text-decoration: none;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+                order: 2;
+                margin-right: 10px;
+            }
+            
+            .mobile-toggle {
+                order: 3;
+            }
+        }
+            
+            .navbar .logo {
+                display: flex;
+                align-items: center;
+                gap: 0;
+            }
+            
+            .navbar .logo-img {
+                height: 60px;
                 width: auto;
             }
             
             .navbar .logo {
                 height: 70px;
                 overflow: visible;
+                cursor: pointer;
             }
             
             .navbar .logo-text-group {
@@ -2805,25 +2848,26 @@
             .hero-left h1 {
                 font-size: 36px;
                 line-height: 1.2;
-                margin-bottom: 10px;
+                margin-bottom: 8px;
             }
             
             .hero-subtitle {
-                font-size: 18px;
-                margin-bottom: 15px;
+                font-size: 16px;
+                margin-bottom: 12px;
             }
             
             .hero-description {
                 font-size: 14px;
-                padding: 0 5px;
-                margin-bottom: 20px;
+                padding: 0 10px;
+                margin-bottom: 18px;
+                line-height: 1.6;
             }
             
             .hero-stats {
                 justify-content: center;
-                gap: 20px;
-                padding-top: 20px;
-                margin-bottom: 15px;
+                gap: 15px;
+                padding-top: 15px;
+                margin-bottom: 12px;
             }
             
             .stat-item {
@@ -3276,7 +3320,7 @@
                 <span></span>
                 <span></span>
             </button>
-            <a href="#" class="logo">
+            <a href="#" class="logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
                 <img src="logo-new.jpeg" alt="Travelade" class="logo-img">
                 <div class="logo-text-group">
                     <div class="logo-text"><span>Travel</span><span class="logo-ade">ade</span></div>
@@ -3287,7 +3331,7 @@
             <div class="nav-overlay" id="navOverlay" onclick="closeMenu()"></div>
             <ul class="nav-links" id="navLinks">
                 <li class="nav-menu-header">
-                    <img src="logo-secondary.png" alt="Travelade">
+                    <img src="logo-new.jpeg" alt="Travelade">
                     <button class="mobile-close" onclick="closeMenu()">
                         <i class="fas fa-times"></i>
                     </button>

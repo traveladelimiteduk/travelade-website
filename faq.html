@@ -614,6 +614,15 @@
                 }
             });
         });
+        // Logo click - scroll to top on mobile
+        document.querySelectorAll('.logo').forEach(logo => {
+            logo.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            });
+        });
     </script>
 </body>
 </html>

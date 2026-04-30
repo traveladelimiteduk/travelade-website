@@ -14,7 +14,7 @@
         "@type": "Organization",
         "name": "Travelade Limited",
         "url": "https://www.travelade.co.uk",
-        "logo": "https://www.travelade.co.uk/logo-fetched.jpg",
+        "logo": "https://www.travelade.co.uk/logo-new.jpeg",
         "description": "UK's #1 Schengen Visa Specialists. Professional visa processing services for all Schengen countries.",
         "sameAs": [
             "https://wa.me/447575378991"
@@ -160,7 +160,11 @@
             font-weight: 600;
             margin-top: 3px;
         }
-
+        
+        .navbar-apply-btn {
+            display: none;
+        }
+        
         .nav-links {
             display: flex;
             gap: 24px;
@@ -508,20 +512,42 @@
         }
         
         @media (max-width: 768px) {
-            .mobile-top-bar {
-                display: flex !important;
-                justify-content: space-between;
-                align-items: center;
-                padding: 10px 15px;
-                background: #1E5FA8;
+            .navbar {
+                position: relative;
+                top: 0;
+                height: 70px;
+                padding: 0 15px;
+                box-sizing: border-box;
             }
             
-            .mobile-top-bar img {
-                height: 50px;
+            .navbar .logo {
+                display: flex;
+                align-items: center;
+                gap: 0;
+            }
+            
+            .navbar .logo-img {
+                height: 70px;
                 width: auto;
             }
             
-            .mobile-top-bar a {
+            .navbar .logo {
+                height: 70px;
+                overflow: visible;
+            }
+            
+            .navbar .logo-text-group {
+                display: none;
+            }
+            
+            .nav-content {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .navbar-apply-btn {
+                display: block;
                 background: #FFD700;
                 color: #1E5FA8;
                 padding: 8px 16px;
@@ -530,11 +556,13 @@
                 font-weight: 700;
                 text-decoration: none;
                 box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+                order: 2;
             }
             
-            .navbar .logo {
-                display: none;
+            .mobile-toggle {
+                order: 3;
             }
+        }
         }
 
         .hero::before {
@@ -2164,7 +2192,7 @@
             width: 800px;
             height: auto;
             aspect-ratio: 1133/339;
-            background: url('logo-fetched.jpg') no-repeat center center;
+            background: url('logo-new.jpeg') no-repeat center center;
             background-size: 100% auto;
             opacity: 0.08;
             pointer-events: none;
@@ -3241,11 +3269,6 @@
 </head>
 <body>
 
-    <!-- Mobile Top Bar -->
-    <div class="mobile-top-bar">
-        <img src="logo-fetched.jpg" alt="Travelade">
-        <a href="javascript:void(0)" onclick="openApplyPopup()">Apply Now</a>
-    </div>
     <nav class="navbar" id="navbar">
         <div class="container nav-content">
             <button class="mobile-toggle" onclick="openMenu()">
@@ -3254,12 +3277,13 @@
                 <span></span>
             </button>
             <a href="#" class="logo">
-                <img src="logo-fetched.jpg" alt="Travelade" class="logo-img">
+                <img src="logo-new.jpeg" alt="Travelade" class="logo-img">
                 <div class="logo-text-group">
                     <div class="logo-text"><span>Travel</span><span class="logo-ade">ade</span></div>
                     <div class="logo-tagline">Travel & Visa Consultancy</div>
                 </div>
             </a>
+            <a href="javascript:void(0)" onclick="openApplyPopup()" class="navbar-apply-btn">Apply Now</a>
             <div class="nav-overlay" id="navOverlay" onclick="closeMenu()"></div>
             <ul class="nav-links" id="navLinks">
                 <li class="nav-menu-header">
@@ -3943,7 +3967,7 @@ document.querySelectorAll('.hero-form-card input, .hero-form-card select').forEa
                 <!-- Brand -->
                 <div style="flex: 2; min-width: 280px;">
                     <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 15px;">
-                        <img src="logo-fetched.jpg" alt="Travelade" style="height: 50px;">
+                        <img src="logo-new.jpeg" alt="Travelade" style="height: 50px;">
                         <div>
                             <div style="font-size: 22px; font-weight: 800; color: white; line-height: 1;">Travel<span style="color: #FF8800;">ade</span></div>
                             <div style="font-size: 10px; color: rgba(255,255,255,0.5); letter-spacing: 2px; text-transform: uppercase;">Travel & Visa Consultancy</div>

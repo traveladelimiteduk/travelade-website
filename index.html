@@ -508,8 +508,28 @@
         }
         
         @media (max-width: 768px) {
-            .top-bar-mobile {
-                display: block;
+            .mobile-top-bar {
+                display: flex !important;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px 15px;
+                background: #1E5FA8;
+            }
+            
+            .mobile-top-bar img {
+                height: 50px;
+                width: auto;
+            }
+            
+            .mobile-top-bar a {
+                background: #FFD700;
+                color: #1E5FA8;
+                padding: 8px 16px;
+                border-radius: 20px;
+                font-size: 12px;
+                font-weight: 700;
+                text-decoration: none;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.15);
             }
             
             .navbar .logo {
@@ -627,10 +647,11 @@
         }
 
         /* Mobile Top Bar */
-        .top-bar-mobile {
+        .mobile-top-bar {
             display: none;
             background: #1E5FA8;
             width: 100%;
+            padding: 10px 15px;
         }
 
         .hero-left h1 {
@@ -3228,12 +3249,10 @@
 </head>
 <body>
 
-    <!-- Navigation -->
-    <div class="top-bar-mobile" style="padding: 10px 15px;">
-        <div style="display: flex; justify-content: space-between; align-items: center;">
-            <img src="logo-fetched.jpg" alt="Travelade" style="height: 60px; width: auto;">
-            <a href="javascript:void(0)" onclick="openApplyPopup()" style="background: white; color: #1E5FA8; padding: 10px 20px; border-radius: 20px; font-size: 13px; font-weight: 700; text-decoration: none; box-shadow:0 2px 8px rgba(0,0,0,0.15);">Apply Now</a>
-        </div>
+    <!-- Mobile Top Bar -->
+    <div class="mobile-top-bar">
+        <img src="logo-fetched.jpg" alt="Travelade">
+        <a href="javascript:void(0)" onclick="openApplyPopup()">Apply Now</a>
     </div>
     </div>
     <nav class="navbar" id="navbar">

@@ -507,6 +507,16 @@
             }
         }
         
+        @media (max-width: 768px) {
+            .top-bar-mobile {
+                display: block;
+            }
+            
+            .navbar .logo {
+                display: none;
+            }
+        }
+
         .hero::before {
             content: '';
             position: absolute;
@@ -2829,18 +2839,8 @@
             }
             
             /* Navigation */
-            .navbar .logo {
-                margin-left: 15px;
-                display: flex;
-                align-items: center;
-            }
-            
             .navbar .logo-text-group {
                 display: none;
-            }
-            
-            .navbar .logo-img {
-                height: 40px;
             }
             
             .mobile-apply-btn {
@@ -3230,10 +3230,9 @@
 
     <!-- Navigation -->
     <div class="top-bar-mobile">
-        <div class="container" style="display: flex; justify-content: space-between; gap: 20px; align-items: center; padding: 8px 15px;">
-            <a href="tel:07575378991" style="color: white; font-size: 13px; font-weight: 600;"><i class="fas fa-phone"></i> 07575 378991</a>
-            <a href="javascript:void(0)" onclick="openApplyPopup()" class="mobile-apply-btn" style="display: block; background: white; color: #1E5FA8; padding: 8px 16px; border-radius: 20px; font-size: 12px; font-weight: 700; text-decoration: none;">Apply Now</a>
-            <a href="https://wa.me/447575378991" style="color: white; font-size: 13px; font-weight: 600;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; padding: 8px 15px;">
+            <img src="logo-fetched.jpg" alt="Travelade" style="height: 50px;">
+            <a href="javascript:void(0)" onclick="openApplyPopup()" style="background: white; color: #1E5FA8; padding: 8px 16px; border-radius: 20px; font-size: 12px; font-weight: 700; text-decoration: none; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">Apply Now</a>
         </div>
     </div>
     <nav class="navbar" id="navbar">

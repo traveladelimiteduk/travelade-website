@@ -2651,8 +2651,19 @@
         }
 
         @media (max-width: 768px) {
-            .nav-content {
-                justify-content: flex-start !important;
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+                display: flex;
+            }
+            
+            .hero-left {
+                order: 1;
+            }
+            
+            .hero-form-card {
+                order: 2;
+                margin-bottom: 30px;
             }
 
             .navbar .logo {

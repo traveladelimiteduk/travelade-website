@@ -325,12 +325,79 @@
             text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
         }
         
-        .hero-left p {
+        .hero-subtitle {
+            font-size: 22px;
+            color: white;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+        
+        .hero-description {
             font-size: 15px;
             color: rgba(255,255,255,0.9);
             margin-bottom: 28px;
             line-height: 1.8;
             font-weight: 500;
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: 35px;
+            padding-top: 28px;
+            border-top: 2px solid rgba(255,255,255,0.2);
+            margin-bottom: 20px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-family: 'Inter', sans-serif;
+            font-size: 48px;
+            font-weight: 800;
+            color: white;
+        }
+        
+        .stat-label {
+            font-size: 13px;
+            color: rgba(255,255,255,0.8);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 2px;
+            font-weight: 600;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .hero-btn {
+            flex: 1;
+            padding: 14px 20px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 14px;
+            text-align: center;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            transition: all 0.3s;
+        }
+        
+        .hero-btn-call {
+            background: white;
+            color: #1E5FA8;
+        }
+        
+        .hero-btn-whatsapp {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
         }
         
         .hero-stats {
@@ -366,6 +433,45 @@
             padding: 30px;
             width: 380px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 10;
+        }
+        
+        .hero-form-card h3 {
+            color: #1E5FA8;
+            font-size: 22px;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+        
+        .hero-form-card > p {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+        
+        .hero-form-card input,
+        .hero-form-card select {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+            margin-bottom: 12px;
+        }
+        
+        .hero-form-card button {
+            width: 100%;
+            background: #1E5FA8;
+            color: white;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
         }
         
         .hero-form-card h3 {
@@ -401,16 +507,6 @@
             }
         }
         
-        @media (max-width: 768px) {
-            .hero-left h1 {
-                font-size: 36px;
-            }
-            
-            .hero-form-card {
-                padding: 20px;
-            }
-        }
-
         .hero::before {
             content: '';
             position: absolute;
@@ -525,17 +621,6 @@
             display: none;
             background: #1E5FA8;
             padding: 8px 0;
-        }
-
-        @media (max-width: 768px) {
-            .top-bar-mobile {
-                display: block;
-            }
-            
-            #stickyWidget,
-            #widgetToggle {
-                display: none !important;
-            }
         }
 
         .hero-left h1 {
@@ -2651,21 +2736,99 @@
         }
 
         @media (max-width: 768px) {
+            /* Hero Section */
             .hero-content {
                 flex-direction: column;
                 text-align: center;
-                display: flex;
+                padding: 20px 15px;
+                gap: 30px;
+                align-items: center;
             }
             
             .hero-left {
                 order: 1;
+                max-width: 100%;
+                padding: 0 10px;
+            }
+            
+            .hero-left h1 {
+                font-size: 36px;
+                line-height: 1.2;
+                margin-bottom: 10px;
+            }
+            
+            .hero-subtitle {
+                font-size: 18px;
+                margin-bottom: 15px;
+            }
+            
+            .hero-description {
+                font-size: 14px;
+                padding: 0 5px;
+                margin-bottom: 20px;
+            }
+            
+            .hero-stats {
+                justify-content: center;
+                gap: 20px;
+                padding-top: 20px;
+                margin-bottom: 15px;
+            }
+            
+            .stat-item {
+                flex: 1;
+                min-width: 0;
+            }
+            
+            .stat-number {
+                font-size: 32px;
+            }
+            
+            .stat-label {
+                font-size: 10px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .hero-btn {
+                width: 100%;
+                padding: 12px 20px;
             }
             
             .hero-form-card {
                 order: 2;
-                margin-bottom: 30px;
+                margin: 0 auto 30px;
+                width: 100%;
+                max-width: 350px;
+                padding: 25px 20px;
+                border-radius: 12px;
             }
-
+            
+            .hero-form-card h3 {
+                font-size: 20px;
+            }
+            
+            .hero-form-card > p {
+                font-size: 12px;
+                margin-bottom: 15px;
+            }
+            
+            .hero-form-card input,
+            .hero-form-card select {
+                padding: 10px 12px;
+                font-size: 13px;
+                margin-bottom: 10px;
+            }
+            
+            .hero-form-card button {
+                padding: 12px;
+                font-size: 14px;
+            }
+            
+            /* Navigation */
             .navbar .logo {
                 margin-left: 15px;
             }
@@ -2987,15 +3150,24 @@
             .hero-content {
                 flex-direction: column;
                 text-align: center;
+                padding: 20px 15px;
+                gap: 30px;
+                align-items: center;
             }
-
+            
             .hero-left {
                 order: 1;
+                max-width: 100%;
+                padding: 0 10px;
             }
-
-            .hero-right {
+            
+            .hero-form-card {
                 order: 2;
-                margin-bottom: 30px;
+                margin: 0 auto 30px;
+                width: 100%;
+                max-width: 350px;
+                padding: 25px 20px;
+                border-radius: 12px;
             }
 
             .hero-cta {
@@ -3089,39 +3261,39 @@
             <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=1920&h=1080&fit=crop');"></div>
         </div>
         <div class="hero-overlay"></div>
-        <div class="container hero-content" style="display: flex; align-items: center; justify-content: space-between; gap: 40px; position: relative; z-index: 2;">
-            <div class="hero-left" style="flex: 1; max-width: 600px;">
-                <h1 style="font-size: 56px; margin-bottom: 12px; color: white; text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);">Travelade Limited</h1>
-                <p style="font-size: 22px; color: white; font-weight: 500; margin-bottom: 20px;">UK's #1 Schengen Visa Specialists</p>
-                <p style="font-size: 15px; color: rgba(255,255,255,0.9); margin-bottom: 28px; line-height: 1.8; font-weight: 500;">UK's trusted Schengen visa specialists. We handle your complete visa file — from VFS Global appointment booking to document preparation and embassy filing — with a 99% approval track record.</p>
+        <div class="container hero-content">
+            <div class="hero-left">
+                <h1>Travelade Limited</h1>
+                <p class="hero-subtitle">UK's #1 Schengen Visa Specialists</p>
+                <p class="hero-description">UK's trusted Schengen visa specialists. We handle your complete visa file — from VFS Global appointment booking to document preparation and embassy filing — with a 99% approval track record.</p>
                 
-                <div class="hero-stats" style="display: flex; gap: 35px; padding-top: 28px; border-top: 2px solid rgba(255,255,255,0.2); margin-bottom: 20px;">
-                    <div class="stat-item" style="text-align: center;">
-                        <div class="stat-number" style="font-family: 'Inter', sans-serif; font-size: 48px; font-weight: 800; color: white;">99%</div>
-                        <div class="stat-label" style="font-size: 13px; color: rgba(255,255,255,0.8); text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; font-weight: 600;">Approval Rate</div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">99%</div>
+                        <div class="stat-label">Approval Rate</div>
                     </div>
-                    <div class="stat-item" style="text-align: center;">
-                        <div class="stat-number" style="font-family: 'Inter', sans-serif; font-size: 48px; font-weight: 800; color: white;">5000+</div>
-                        <div class="stat-label" style="font-size: 13px; color: rgba(255,255,255,0.8); text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; font-weight: 600;">Cases Handled</div>
+                    <div class="stat-item">
+                        <div class="stat-number">5000+</div>
+                        <div class="stat-label">Cases Handled</div>
                     </div>
-                    <div class="stat-item" style="text-align: center;">
-                        <div class="stat-number" style="font-family: 'Inter', sans-serif; font-size: 48px; font-weight: 800; color: white;">48hrs</div>
-                        <div class="stat-label" style="font-size: 13px; color: rgba(255,255,255,0.8); text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; font-weight: 600;">File Prep Time</div>
+                    <div class="stat-item">
+                        <div class="stat-number">48hrs</div>
+                        <div class="stat-label">File Prep Time</div>
                     </div>
                 </div>
                 
-                <div style="display: flex; gap: 10px;">
-                    <a href="tel:07575378991" style="flex: 1; background: white; color: #1E5FA8; padding: 14px 20px; border-radius: 10px; font-weight: 700; font-size: 14px; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
+                <div class="hero-buttons">
+                    <a href="tel:07575378991" class="hero-btn hero-btn-call">
                         <i class="fas fa-phone"></i> Call Now
                     </a>
-                    <a href="https://wa.me/447575378991" style="flex: 1; background: rgba(255,255,255,0.2); color: white; padding: 14px 20px; border-radius: 10px; font-weight: 700; font-size: 14px; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); border: 2px solid rgba(255,255,255,0.3);">
+                    <a href="https://wa.me/447575378991" class="hero-btn hero-btn-whatsapp">
                         <i class="fab fa-whatsapp"></i> Chat with Agent
                     </a>
                 </div>
             </div>
             
             <!-- Apply for Schengen Visa Form Card -->
-            <div class="hero-form-card" style="background: white; border-radius: 16px; padding: 30px; width: 380px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); position: relative; z-index: 10;">
+            <div class="hero-form-card">
                 <h3 style="color: #1E5FA8; font-size: 22px; margin-bottom: 5px; font-weight: 700;">Apply for Schengen Visa</h3>
                 <p style="color: #666; font-size: 13px; margin-bottom: 20px;">Start your application in 2 minutes</p>
                 <form action="https://formsubmit.co/travelade.limited.co.uk" method="POST">

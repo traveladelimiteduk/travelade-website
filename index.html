@@ -2831,6 +2831,29 @@
             /* Navigation */
             .navbar .logo {
                 margin-left: 15px;
+                display: flex;
+                align-items: center;
+            }
+            
+            .navbar .logo-text-group {
+                display: none;
+            }
+            
+            .navbar .logo-img {
+                height: 40px;
+            }
+            
+            .mobile-apply-btn {
+                display: block;
+                background: white;
+                color: #1E5FA8;
+                padding: 8px 16px;
+                border-radius: 20px;
+                font-size: 12px;
+                font-weight: 700;
+                text-decoration: none;
+                margin-right: 15px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.15);
             }
 
             .mobile-toggle {
@@ -3207,8 +3230,9 @@
 
     <!-- Navigation -->
     <div class="top-bar-mobile">
-        <div class="container" style="display: flex; justify-content: center; gap: 20px; align-items: center;">
+        <div class="container" style="display: flex; justify-content: space-between; gap: 20px; align-items: center; padding: 8px 15px;">
             <a href="tel:07575378991" style="color: white; font-size: 13px; font-weight: 600;"><i class="fas fa-phone"></i> 07575 378991</a>
+            <a href="javascript:void(0)" onclick="openApplyPopup()" class="mobile-apply-btn" style="display: block; background: white; color: #1E5FA8; padding: 8px 16px; border-radius: 20px; font-size: 12px; font-weight: 700; text-decoration: none;">Apply Now</a>
             <a href="https://wa.me/447575378991" style="color: white; font-size: 13px; font-weight: 600;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
         </div>
     </div>
@@ -3244,7 +3268,6 @@
                 <li><a href="#reviews" onclick="closeMenu()"><i class="fas fa-star"></i> Reviews</a></li>
                 
                 <li><a href="#contact" onclick="closeMenu()"><i class="fas fa-envelope"></i> Contact</a></li>
-                <li><a href="javascript:void(0)" onclick="openApplyPopup(); closeMenu();" class="btn btn-primary" style="padding: 8px 16px; font-size: 12px; border-radius: 20px;">Apply Now</a></li>
                 <li><a href="https://wa.me/447575378991" class="whatsapp-btn" onclick="closeMenu()">
                     <i class="fab fa-whatsapp"></i> WhatsApp Us
                 </a></li>

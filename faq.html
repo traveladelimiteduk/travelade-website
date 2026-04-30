@@ -424,9 +424,27 @@
                 padding: 20px;
             }
         }
+        
+        .top-bar-mobile {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .top-bar-mobile {
+                display: block !important;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Mobile Top Bar -->
+    <div class="top-bar-mobile" style="display: none; background: #1E5FA8; padding: 8px 0;">
+        <div class="container" style="display: flex; justify-content: center; gap: 20px; align-items: center;">
+            <a href="tel:07575378991" style="color: white; font-size: 13px; font-weight: 600;"><i class="fas fa-phone"></i> 07575 378991</a>
+            <a href="https://wa.me/447575378991" style="color: white; font-size: 13px; font-weight: 600;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        </div>
+    </div>
+    
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container nav-content">
@@ -449,8 +467,8 @@
                 <li><a href="countries.html">Countries</a></li>
                 <li><a href="faq.html" class="active">FAQ</a></li>
             </ul>
-            <a href="index.html#contact" class="btn btn-primary">
-                <i class="fab fa-whatsapp"></i> Contact Us
+            <a href="https://wa.me/447575378991" class="btn btn-primary" style="padding: 8px 16px; font-size: 12px; border-radius: 20px; border: none; cursor: pointer;">
+                <i class="fab fa-whatsapp"></i> WhatsApp Us
             </a>
         </div>
     </nav>
@@ -624,5 +642,73 @@
             });
         });
     </script>
+
+    <!-- Apply Now Popup -->
+    <div id="applyPopup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 2000; align-items: center; justify-content: center;">
+        <div style="background: white; border-radius: 16px; padding: 30px; max-width: 450px; width: 90%; max-height: 90vh; overflow-y: auto; position: relative;">
+            <button onclick="closeApplyPopup()" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer; color: #666;">&times;</button>
+            <h3 style="color: #1E5FA8; margin-bottom: 20px; font-size: 22px;">Start Your Application</h3>
+            <form action="https://formsubmit.co/travelade.limited.co.uk" method="POST">
+                <input type="hidden" name="_subject" value="New Application - Travelade">
+                <input type="hidden" name="_next" value="https://travelade.co.uk/thank-you.html">
+                
+                <div style="margin-bottom: 12px;">
+                    <input type="text" name="name" placeholder="Full Name *" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
+                </div>
+                
+                <div style="margin-bottom: 12px;">
+                    <input type="email" name="email" placeholder="Email *" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
+                </div>
+                
+                <div style="margin-bottom: 12px;">
+                    <input type="tel" name="phone" placeholder="Phone: 07575 378991 *" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
+                </div>
+                
+                <div style="margin-bottom: 12px;">
+                    <select name="destination" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
+                        <option value="">Destination Country *</option>
+                        <option value="France">France</option>
+                        <option value="Germany">Germany</option>
+                        <option value="Italy">Italy</option>
+                        <option value="Spain">Spain</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <div style="margin-bottom: 15px;">
+                    <select name="applicants" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
+                        <option value="">Number of Applicants *</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3-4</option>
+                        <option value="5+">5+</option>
+                    </select>
+                </div>
+                
+                <button type="submit" style="background: #1E5FA8; color: white; border: none; padding: 14px; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; width: 100%;">Submit Application</button>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+    function openApplyPopup() {
+        document.getElementById('applyPopup').style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeApplyPopup() {
+        document.getElementById('applyPopup').style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+    
+    // Close popup on outside click
+    document.addEventListener('click', function(e) {
+        const popup = document.getElementById('applyPopup');
+        if (e.target === popup) {
+            closeApplyPopup();
+        }
+    });
+    </script>
+
 </body>
 </html>

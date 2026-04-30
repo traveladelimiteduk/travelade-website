@@ -264,12 +264,151 @@
         /* Hero Section */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(135deg, #1E5FA8 0%, #0d3d70 100%);
             position: relative;
             display: flex;
             align-items: center;
             overflow: hidden;
             padding-top: 70px;
+        }
+        
+        .hero-bg-slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            animation: zoomBackground 20s ease-in-out infinite;
+        }
+        
+        .hero-slide.active {
+            opacity: 1;
+        }
+        
+        @keyframes zoomBackground {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(30,95,168,0.65) 0%, rgba(13,61,112,0.75) 100%);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-left h1 {
+            font-size: 56px;
+            line-height: 1.1;
+            color: white;
+            margin-bottom: 12px;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+        }
+        
+        .hero-left p {
+            font-size: 15px;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 28px;
+            line-height: 1.8;
+            font-weight: 500;
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: 35px;
+            padding-top: 28px;
+            border-top: 2px solid rgba(255,255,255,0.2);
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-family: 'Inter', sans-serif;
+            font-size: 38px;
+            font-weight: 800;
+            color: white;
+        }
+        
+        .stat-label {
+            font-size: 11px;
+            color: rgba(255,255,255,0.8);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 2px;
+            font-weight: 600;
+        }
+        
+        .hero-form-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            width: 380px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .hero-form-card h3 {
+            color: #1E5FA8;
+            font-size: 22px;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+        
+        .hero-form-card p {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+        
+        @media (max-width: 1024px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-left {
+                max-width: 100%;
+            }
+            
+            .hero-form-card {
+                width: 100%;
+                max-width: 400px;
+            }
+            
+            .hero-stats {
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-left h1 {
+                font-size: 36px;
+            }
+            
+            .hero-form-card {
+                padding: 20px;
+            }
         }
 
         .hero::before {
@@ -381,8 +520,26 @@
             to { opacity: 1; transform: translateX(0); }
         }
 
+        /* Mobile Top Bar */
+        .top-bar-mobile {
+            display: none;
+            background: #1E5FA8;
+            padding: 8px 0;
+        }
+
+        @media (max-width: 768px) {
+            .top-bar-mobile {
+                display: block;
+            }
+            
+            #stickyWidget,
+            #widgetToggle {
+                display: none !important;
+            }
+        }
+
         .hero-left h1 {
-            font-size: 54px;
+            font-size: 42px;
             line-height: 1.1;
             color: white;
             margin-bottom: 20px;
@@ -398,7 +555,7 @@
         }
 
         .hero-left p {
-            font-size: 17px;
+            font-size: 15px;
             color: rgba(255,255,255,0.9);
             margin-bottom: 28px;
             line-height: 1.8;
@@ -2019,41 +2176,7 @@
         .whatsapp-float a:hover {
             transform: scale(1.1);
         }
-
-        /* Start Application Float */
-        .start-app-float {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: var(--gradient-blue);
-            padding: 14px 24px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 16px;
-            z-index: 998;
-            box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
-        }
-
-        .start-app-float-text {
-            color: white;
-            font-weight: 600;
-            font-size: 15px;
-        }
-
-        .start-app-float .btn {
-            background: var(--orange);
-            color: white;
-            padding: 12px 28px;
-            font-size: 14px;
-        }
-
-        .start-app-float .btn:hover {
-            background: var(--orange-dark);
-            transform: translateY(-2px);
-        }
-
+        
         /* Urgent CTA Section */
         .urgent-cta {
             background: linear-gradient(135deg, #FF8800 0%, #FF6600 100%);
@@ -2900,6 +3023,12 @@
 <body>
 
     <!-- Navigation -->
+    <div class="top-bar-mobile">
+        <div class="container" style="display: flex; justify-content: center; gap: 20px; align-items: center;">
+            <a href="tel:07575378991" style="color: white; font-size: 13px; font-weight: 600;"><i class="fas fa-phone"></i> 07575 378991</a>
+            <a href="https://wa.me/447575378991" style="color: white; font-size: 13px; font-weight: 600;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        </div>
+    </div>
     <nav class="navbar" id="navbar">
         <div class="container nav-content">
             <button class="mobile-toggle" onclick="openMenu()">
@@ -2932,6 +3061,7 @@
                 <li><a href="#reviews" onclick="closeMenu()"><i class="fas fa-star"></i> Reviews</a></li>
                 
                 <li><a href="#contact" onclick="closeMenu()"><i class="fas fa-envelope"></i> Contact</a></li>
+                <li><a href="javascript:void(0)" onclick="openApplyPopup(); closeMenu();" class="btn btn-primary" style="padding: 8px 16px; font-size: 12px; border-radius: 20px;">Apply Now</a></li>
                 <li><a href="https://wa.me/447575378991" class="whatsapp-btn" onclick="closeMenu()">
                     <i class="fab fa-whatsapp"></i> WhatsApp Us
                 </a></li>
@@ -2941,104 +3071,87 @@
 
     
     <section class="hero">
-        <div class="hero-bg-elements">
-            <div class="bg-dots"></div>
-            <i class="fas fa-plane bg-plane"></i>
-            <i class="fas fa-plane bg-plane"></i>
-            <i class="fas fa-globe bg-globe"></i>
+        <div class="hero-bg-slider">
+            <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=1920&h=1080&fit=crop');"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=1920&h=1080&fit=crop');"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=1920&h=1080&fit=crop');"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=1920&h=1080&fit=crop');"></div>
         </div>
-        <div class="container hero-content">
-            <div class="hero-left">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content" style="display: flex; align-items: center; justify-content: space-between; gap: 40px; position: relative; z-index: 2;">
+            <div class="hero-left" style="flex: 1; max-width: 600px;">
                 <h1 style="font-size: 56px; margin-bottom: 12px; color: white; text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);">Travelade Limited</h1>
                 <p style="font-size: 22px; color: white; font-weight: 500; margin-bottom: 20px;">UK's #1 Schengen Visa Specialists</p>
-                <p>UK's trusted Schengen visa specialists. We handle your complete visa file — from VFS Global appointment booking to document preparation and embassy filing — with a 99% approval track record.</p>
-
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">99%</div>
-                        <div class="stat-label">Approval Rate</div>
+                <p style="font-size: 15px; color: rgba(255,255,255,0.9); margin-bottom: 28px; line-height: 1.8; font-weight: 500;">UK's trusted Schengen visa specialists. We handle your complete visa file — from VFS Global appointment booking to document preparation and embassy filing — with a 99% approval track record.</p>
+                
+                <div class="hero-stats" style="display: flex; gap: 35px; padding-top: 28px; border-top: 2px solid rgba(255,255,255,0.2); margin-bottom: 20px;">
+                    <div class="stat-item" style="text-align: center;">
+                        <div class="stat-number" style="font-family: 'Inter', sans-serif; font-size: 48px; font-weight: 800; color: white;">99%</div>
+                        <div class="stat-label" style="font-size: 13px; color: rgba(255,255,255,0.8); text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; font-weight: 600;">Approval Rate</div>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number">5000+</div>
-                        <div class="stat-label">Cases Handled</div>
+                    <div class="stat-item" style="text-align: center;">
+                        <div class="stat-number" style="font-family: 'Inter', sans-serif; font-size: 48px; font-weight: 800; color: white;">5000+</div>
+                        <div class="stat-label" style="font-size: 13px; color: rgba(255,255,255,0.8); text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; font-weight: 600;">Cases Handled</div>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number">48hrs</div>
-                        <div class="stat-label">File Prep Time</div>
+                    <div class="stat-item" style="text-align: center;">
+                        <div class="stat-number" style="font-family: 'Inter', sans-serif; font-size: 48px; font-weight: 800; color: white;">48hrs</div>
+                        <div class="stat-label" style="font-size: 13px; color: rgba(255,255,255,0.8); text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; font-weight: 600;">File Prep Time</div>
                     </div>
+                </div>
+                
+                <div style="display: flex; gap: 10px;">
+                    <a href="tel:07575378991" style="flex: 1; background: white; color: #1E5FA8; padding: 14px 20px; border-radius: 10px; font-weight: 700; font-size: 14px; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
+                        <i class="fas fa-phone"></i> Call Now
+                    </a>
+                    <a href="https://wa.me/447575378991" style="flex: 1; background: rgba(255,255,255,0.2); color: white; padding: 14px 20px; border-radius: 10px; font-weight: 700; font-size: 14px; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); border: 2px solid rgba(255,255,255,0.3);">
+                        <i class="fab fa-whatsapp"></i> Chat with Agent
+                    </a>
                 </div>
             </div>
-            <div class="hero-right">
-                <div class="hero-slider" style="position: relative; width: 100%; max-width: 420px; height: 350px; border-radius: 20px; overflow: hidden; margin: 0 auto;">
-                    <div class="slider-slides" style="display: flex; transition: transform 0.5s ease;">
-                        <div class="slide" style="min-width: 100%; height: 350px; position: relative;">
-                            <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600&h=350&fit=crop" alt="France" style="width: 100%; height: 100%; object-fit: cover;">
-                            <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.85)); padding: 40px 20px 20px;">
-                                <h3 style="color: white; font-size: 22px; font-weight: 800; margin: 0; text-transform: uppercase; letter-spacing: 1px;">Get Your<br><span style="color: #FF8800;">France Visa</span> Now</h3>
-                            </div>
-                        </div>
-                        <div class="slide" style="min-width: 100%; height: 350px; position: relative;">
-                            <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=600&h=350&fit=crop" alt="Italy" style="width: 100%; height: 100%; object-fit: cover;">
-                            <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.85)); padding: 40px 20px 20px;">
-                                <h3 style="color: white; font-size: 22px; font-weight: 800; margin: 0; text-transform: uppercase; letter-spacing: 1px;">Get Your<br><span style="color: #FF8800;">Italy Visa</span> Now</h3>
-                            </div>
-                        </div>
-                        <div class="slide" style="min-width: 100%; height: 350px; position: relative;">
-                            <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=600&h=350&fit=crop" alt="Spain" style="width: 100%; height: 100%; object-fit: cover;">
-                            <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.85)); padding: 40px 20px 20px;">
-                                <h3 style="color: white; font-size: 22px; font-weight: 800; margin: 0; text-transform: uppercase; letter-spacing: 1px;">Get Your<br><span style="color: #FF8800;">Spain Visa</span> Now</h3>
-                            </div>
-                        </div>
-                        <div class="slide" style="min-width: 100%; height: 350px; position: relative;">
-                            <img src="https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=600&h=350&fit=crop" alt="Germany" style="width: 100%; height: 100%; object-fit: cover;">
-                            <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.85)); padding: 40px 20px 20px;">
-                                <h3 style="color: white; font-size: 22px; font-weight: 800; margin: 0; text-transform: uppercase; letter-spacing: 1px;">Get Your<br><span style="color: #FF8800;">Germany Visa</span> Now</h3>
-                            </div>
-                        </div>
-                        <div class="slide" style="min-width: 100%; height: 350px; position: relative;">
-                            <img src="https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=600&h=350&fit=crop" alt="Switzerland" style="width: 100%; height: 100%; object-fit: cover;">
-                            <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.85)); padding: 40px 20px 20px;">
-                                <h3 style="color: white; font-size: 22px; font-weight: 800; margin: 0; text-transform: uppercase; letter-spacing: 1px;">Get Your<br><span style="color: #FF8800;">Switzerland Visa</span> Now</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slider-dots" style="position: absolute; bottom: 100px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 10;">
-                        <span class="dot" onclick="changeSlide(0)" style="width: 12px; height: 12px; border-radius: 50%; background: white; cursor: pointer; opacity: 0.7;"></span>
-                        <span class="dot" onclick="changeSlide(1)" style="width: 12px; height: 12px; border-radius: 50%; background: white; cursor: pointer; opacity: 0.7;"></span>
-                        <span class="dot" onclick="changeSlide(2)" style="width: 12px; height: 12px; border-radius: 50%; background: white; cursor: pointer; opacity: 0.7;"></span>
-                        <span class="dot" onclick="changeSlide(3)" style="width: 12px; height: 12px; border-radius: 50%; background: white; cursor: pointer; opacity: 0.7;"></span>
-                        <span class="dot" onclick="changeSlide(4)" style="width: 12px; height: 12px; border-radius: 50%; background: white; cursor: pointer; opacity: 0.7;"></span>
-                    </div>
-                </div>
-                    <div style="display: flex; gap: 10px; margin-top: 15px; padding: 0 5px;">
-                        <a href="tel:07575378991" style="flex: 1; background: white; color: #1E5FA8; padding: 12px 16px; border-radius: 10px; font-weight: 700; font-size: 13px; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
-                            <i class="fas fa-phone"></i> Call Now
-                        </a>
-                        <a href="https://wa.me/447575378991" style="flex: 1; background: #1E5FA8; color: white; padding: 12px 16px; border-radius: 10px; font-weight: 700; font-size: 13px; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
-                            <i class="fab fa-whatsapp"></i> Chat with Agent
-                        </a>
-                    </div>
-                </div>
-                <script>
-                    let currentSlide = 0;
-                    const slides = document.querySelectorAll('.slide');
-                    const dots = document.querySelectorAll('.dot');
+            
+            <!-- Apply for Schengen Visa Form Card -->
+            <div class="hero-form-card" style="background: white; border-radius: 16px; padding: 30px; width: 380px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); position: relative; z-index: 10;">
+                <h3 style="color: #1E5FA8; font-size: 22px; margin-bottom: 5px; font-weight: 700;">Apply for Schengen Visa</h3>
+                <p style="color: #666; font-size: 13px; margin-bottom: 20px;">Start your application in 2 minutes</p>
+                <form action="https://formsubmit.co/travelade.limited.co.uk" method="POST">
+                    <input type="hidden" name="_subject" value="Schengen Visa Application - Travelade">
+                    <input type="hidden" name="_next" value="https://travelade.co.uk/thank-you.html">
                     
-                    function changeSlide(index) {
-                        currentSlide = index;
-                        document.querySelector('.slider-slides').style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
-                        dots.forEach((dot, i) => {
-                            dot.style.opacity = i === currentSlide ? '1' : '0.7';
-                        });
-                    }
+                    <div style="margin-bottom: 12px;">
+                        <input type="text" name="name" placeholder="Full Name *" required style="width: 100%; padding: 12px 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; transition: border-color 0.3s;">
+                    </div>
                     
-                    setInterval(() => {
-                        currentSlide = (currentSlide + 1) % 5;
-                        changeSlide(currentSlide);
-                    }, 4000);
+                    <div style="margin-bottom: 12px;">
+                        <input type="email" name="email" placeholder="Email Address *" required style="width: 100%; padding: 12px 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; transition: border-color 0.3s;">
+                    </div>
                     
-                    changeSlide(0);
-                </script>
+                    <div style="margin-bottom: 12px;">
+                        <input type="tel" name="phone" placeholder="Phone: 07575 378991 *" required style="width: 100%; padding: 12px 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; transition: border-color 0.3s;">
+                    </div>
+                    
+                    <div style="margin-bottom: 12px;">
+                        <select name="destination" required style="width: 100%; padding: 12px 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; transition: border-color 0.3s; background: white;">
+                            <option value="">Select Destination *</option>
+                            <option value="France">France</option>
+                            <option value="Germany">Germany</option>
+                            <option value="Italy">Italy</option>
+                            <option value="Spain">Spain</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <select name="applicants" required style="width: 100%; padding: 12px 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; transition: border-color 0.3s; background: white;">
+                            <option value="">Number of Applicants *</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3-4</option>
+                            <option value="5+">5+</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" style="background: #1E5FA8; color: white; border: none; padding: 14px; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; width: 100%; transition: background 0.3s;">Submit Application</button>
+                </form>
             </div>
         </div>
     </section>
@@ -3568,60 +3681,98 @@
                         <button type="submit" class="btn btn-primary">
                             <i class="fas fa-paper-plane"></i> Send Inquiry
                         </button>
-                    </form>
-                </div>
-            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+// Hero Background Slider
+const heroSlides = document.querySelectorAll('.hero-slide');
+let currentHeroSlide = 0;
+
+function changeHeroSlide() {
+    heroSlides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentHeroSlide) {
+            slide.classList.add('active');
+        }
+    });
+    
+    currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
+}
+
+// Initialize hero slider
+if (heroSlides.length > 0) {
+    heroSlides[0].classList.add('active');
+    setInterval(changeHeroSlide, 5000);
+}
+
+// Form focus effects
+document.querySelectorAll('.hero-form-card input, .hero-form-card select').forEach(element => {
+    element.addEventListener('focus', function() {
+        this.style.borderColor = '#1E5FA8';
+    });
+    element.addEventListener('blur', function() {
+        this.style.borderColor = '#ddd';
+    });
+});
+</script>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="#" class="logo">
-                        <img src="logo-secondary.png" alt="Travelade" class="logo-img" style="height: 56px;">
-                        <div class="logo-text-group">
-                            <div class="logo-text"><span>Travel</span><span class="logo-ade">ade</span></div>
-                            <div class="logo-tagline">Travel & Visa Consultancy</div>
+            <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 50px; flex-wrap: wrap; padding: 50px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                <!-- Brand -->
+                <div style="flex: 2; min-width: 280px;">
+                    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 15px;">
+                        <img src="logo-fetched.jpg" alt="Travelade" style="height: 50px;">
+                        <div>
+                            <div style="font-size: 22px; font-weight: 800; color: white; line-height: 1;">Travel<span style="color: #FF8800;">ade</span></div>
+                            <div style="font-size: 10px; color: rgba(255,255,255,0.5); letter-spacing: 2px; text-transform: uppercase;">Travel & Visa Consultancy</div>
                         </div>
-                    </a>
-                    <p>UK's trusted Schengen visa specialists. We handle your complete visa file from appointment booking to application form filling, embassy submission, and filing all extra documents.</p>
+                    </div>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 13px; line-height: 1.6;">UK's trusted Schengen visa specialists. We handle your complete visa file from appointment booking to application filing.</p>
                 </div>
-                <div class="footer-col">
-                    <h4>Quick Links</h4>
-                    <ul class="footer-links">
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#process">How It Works</a></li>
-                        <li><a href="#countries">Countries</a></li>
-                        <li><a href="#pricing">Pricing</a></li>
-                        <li><a href="#apply">Apply Now</a></li>
-                    </ul>
+                
+                <!-- Quick Links -->
+                <div style="flex: 1; min-width: 150px;">
+                    <h4 style="color: white; font-size: 13px; font-weight: 700; margin-bottom: 15px; letter-spacing: 1px; text-transform: uppercase;">Quick Links</h4>
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <a href="#services" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px;">Services</a>
+                        <a href="#process" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px;">How It Works</a>
+                        <a href="countries.html" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px;">Countries</a>
+                        <a href="#pricing" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px;">Pricing</a>
+                        <a href="faq.html" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px;">FAQ</a>
+                    </div>
                 </div>
-                <div class="footer-col">
-                    <h4>Resources</h4>
-                    <ul class="footer-links">
-                        <li><a href="#documents">Required Documents</a></li>
-                        <li><a href="#timeline">Processing Time</a></li>
-                        <li><a href="faq.html">FAQ</a></li>
-                        <li><a href="#refund">Refund Policy</a></li>
-                    </ul>
+                
+                <!-- Contact Us -->
+                <div style="flex: 1; min-width: 200px;">
+                    <h4 style="color: white; font-size: 13px; font-weight: 700; margin-bottom: 15px; letter-spacing: 1px; text-transform: uppercase;">Contact Us</h4>
+                    <div style="display: flex; flex-direction: column; gap: 10px; font-size: 13px; color: rgba(255,255,255,0.7);">
+                        <div><i class="fas fa-phone" style="margin-right: 8px; color: #FF8800;"></i> 07575 378991</div>
+                        <div><i class="fab fa-whatsapp" style="margin-right: 8px; color: #25D366;"></i> +44 7575 378991</div>
+                        <div><i class="fas fa-envelope" style="margin-right: 8px; color: #FF8800;"></i> info@travelade.co.uk</div>
+                    </div>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 12px; margin-top: 8px;"><i class="fas fa-clock" style="margin-right: 6px;"></i> Mon-Sat: 9:00 AM - 6:00 PM</p>
                 </div>
-                <div class="footer-col">
-                    <h4>Contact Us</h4>
-                    <ul class="footer-links">
-                        <li><a href="tel:07575378991"><i class="fas fa-phone"></i> 07575 378991</a></li>
-                        <li><a href="https://wa.me/447575378991"><i class="fab fa-whatsapp"></i> 07575 378991</a></li>
-                        <li><a href="mailto:info@travelade.co.uk"><i class="fas fa-envelope"></i> info@travelade.co.uk</a></li>
-                    </ul>
+                </div>
+                
+                <!-- Get in Touch -->
+                <div style="flex: 1.5; min-width: 250px;">
+                    <h4 style="color: white; font-size: 13px; font-weight: 700; margin-bottom: 15px; letter-spacing: 1px; text-transform: uppercase;">Get in Touch</h4>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 13px; line-height: 1.6; margin-bottom: 15px;">Have questions? We typically respond within 20-30 minutes during office hours.</p>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Travelade Limited. All rights reserved. UK Company Reg. XXXXXX</p>
-                <div class="footer-bottom-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Cookie Policy</a>
+            
+            <!-- Footer Bottom -->
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 20px 0; font-size: 12px; color: rgba(255,255,255,0.5);">
+                <p>&copy; 2026 Travelade Limited. All rights reserved.</p>
+                <div style="display: flex; gap: 20px;">
+                    <a href="#" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 12px;">Privacy</a>
+                    <a href="#" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 12px;">Terms</a>
                 </div>
             </div>
         </div>
@@ -3693,42 +3844,15 @@
             </div>
         </div>
     </div>
-
+    
     <!-- WhatsApp Float -->
     <div class="whatsapp-float">
         <a href="https://wa.me/447575378991?text=Hi%20Travelade%2C%20I%20want%20to%20start%20my%20Schengen%20visa%20application.%20Please%20assist." target="_blank">
             <i class="fab fa-whatsapp"></i>
         </a>
     </div>
-
-    <!-- Start Application Float -->
-    <div class="start-app-float">
-        <span class="start-app-float-text">Ready to get your Schengen Visa? Start your application now!</span>
-        <a href="#form-start" class="btn">
-            <i class="fas fa-paper-plane"></i> Start Application
-        </a>
-    </div>
-
+    
     <script>
-        // Start Application button smooth scroll to form
-        document.addEventListener('DOMContentLoaded', function() {
-            const startBtn = document.querySelector('a[href="#form-start"]');
-            if (startBtn) {
-                startBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const form = document.getElementById('form-start');
-                    if (form) {
-                        const navbarHeight = document.getElementById('navbar').offsetHeight;
-                        const formPosition = form.getBoundingClientRect().top + window.pageYOffset;
-                        window.scrollTo({
-                            top: formPosition - navbarHeight - 20,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            }
-        });
-
         // Logo click - scroll to top on mobile
         document.querySelectorAll('.logo').forEach(logo => {
             logo.addEventListener('click', function(e) {
@@ -3738,7 +3862,7 @@
                 }
             });
         });
-
+        
         // Mobile Menu Functions
         function openMenu() {
             document.getElementById('navLinks').classList.add('active');
@@ -4054,4 +4178,69 @@ function closePackageModal() {
     document.getElementById('packageModal').style.display = 'none';
     document.body.style.overflow = 'auto';
 }
+
+function openApplyPopup() {
+    document.getElementById('applyPopup').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeApplyPopup() {
+    document.getElementById('applyPopup').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+// Close popup on outside click
+document.addEventListener('click', function(e) {
+    const popup = document.getElementById('applyPopup');
+    if (e.target === popup) {
+        closeApplyPopup();
+    }
+});
 </script>
+
+<!-- Apply Now Popup -->
+<div id="applyPopup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 2000; align-items: center; justify-content: center;">
+    <div style="background: white; border-radius: 16px; padding: 30px; max-width: 450px; width: 90%; max-height: 90vh; overflow-y: auto; position: relative;">
+        <button onclick="closeApplyPopup()" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer; color: #666;">&times;</button>
+        <h3 style="color: #1E5FA8; margin-bottom: 20px; font-size: 22px;">Start Your Application</h3>
+        <form action="https://formsubmit.co/travelade.limited.co.uk" method="POST">
+            <input type="hidden" name="_subject" value="New Application - Travelade">
+            <input type="hidden" name="_next" value="https://travelade.co.uk/thank-you.html">
+            
+            <div style="margin-bottom: 12px;">
+                <input type="text" name="name" placeholder="Full Name *" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
+            </div>
+            
+            <div style="margin-bottom: 12px;">
+                <input type="email" name="email" placeholder="Email *" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
+            </div>
+            
+            <div style="margin-bottom: 12px;">
+                <input type="tel" name="phone" placeholder="Phone: 07575 378991 *" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
+            </div>
+            
+            <div style="margin-bottom: 12px;">
+                <select name="destination" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
+                    <option value="">Destination Country *</option>
+                    <option value="France">France</option>
+                    <option value="Germany">Germany</option>
+                    <option value="Italy">Italy</option>
+                    <option value="Spain">Spain</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            
+            <div style="margin-bottom: 15px;">
+                <select name="applicants" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
+                    <option value="">Number of Applicants *</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3-4</option>
+                    <option value="5+">5+</option>
+                </select>
+            </div>
+            
+            <button type="submit" style="background: #1E5FA8; color: white; border: none; padding: 14px; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; width: 100%;">Submit Application</button>
+        </form>
+    </div>
+</div>

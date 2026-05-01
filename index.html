@@ -1494,7 +1494,7 @@
             position: relative;
             overflow: hidden;
             scroll-margin-top: 0;
-            padding: 60px 0;
+            padding: 40px 0;
         }
 
         .contact-grid {
@@ -1644,7 +1644,7 @@
         .footer {
             background: var(--dark);
             color: rgba(255,255,255,0.7);
-            padding: 50px 0 20px;
+            padding: 30px 0 20px;
             position: relative;
             overflow: hidden;
         }
@@ -2364,6 +2364,38 @@
                 width: 100%;
                 justify-content: center;
             }
+
+            .urgent-buttons .btn-primary {
+                background: #000000;
+                color: var(--orange);
+                box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            }
+
+            .urgent-buttons .btn-outline {
+                background: transparent;
+                color: white;
+                border: 2px solid white;
+            }
+
+            .urgent-buttons .btn-outline:hover {
+                background: white;
+                color: var(--orange);
+            }
+
+            /* Fix Why Travelade section on mobile */
+            .section[style*="linear-gradient"] > .container > div:nth-child(2) {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 20px !important;
+            }
+            
+            .section[style*="linear-gradient"] > .container > div:nth-child(2) > div div:first-child {
+                font-size: 32px !important;
+            }
+            
+            .section[style*="linear-gradient"] > .container > div:nth-child(2) > div div:last-child {
+                font-size: 10px !important;
+            }
+        }
 
             .whatsapp-float,
             .start-app-float {

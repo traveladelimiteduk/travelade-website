@@ -118,23 +118,170 @@
             font-weight: 600;
         }
 
+        /* Mobile Menu Slide-out */
         .nav-links {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
+            background: white;
             display: flex;
-            gap: 24px;
-            list-style: none;
+            flex-direction: column;
+            padding: 0;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+            box-shadow: 4px 0 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-links.active {
+            transform: translateX(0);
+        }
+
+        .nav-links .nav-menu-header {
+            display: flex;
+            justify-content: space-between;
             align-items: center;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, #1E5FA8 0%, #154A84 100%);
+        }
+
+        .nav-links .nav-menu-header img {
+            height: 40px;
+        }
+
+        .nav-links .mobile-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .nav-links a:not(.whatsapp-btn) {
+            color: #333;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 12px 20px;
+            text-decoration: none;
+            transition: all 0.2s;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-links a i {
+            color: var(--primary-blue);
+            width: 20px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .nav-links a:not(.whatsapp-btn):hover {
+            background: #f8f9fa;
+            color: var(--primary-blue);
+            padding-left: 25px;
+        }
+
+        .nav-links .whatsapp-btn {
+            margin: 15px 20px;
+            padding: 12px 20px;
+            background: #25D366;
+            color: white;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            border: none;
+            display: block;
+        }
+
+        .nav-links .whatsapp-btn:hover {
+            background: #128C7E;
+        }
+
+        /* Nav Overlay */
+        .nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 998;
+        }
+
+        .nav-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .nav-links li {
+            display: inline-block;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: var(--gray-700);
+            color: #333;
             font-weight: 500;
-            font-size: 14px;
+            font-size: 13px;
             transition: color 0.3s;
         }
 
         .nav-links a:hover {
             color: var(--orange);
+        }
+
+        .desktop-menu {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .desktop-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .desktop-menu a:hover {
+            color: #1E5FA8;
+        }
+
+        .desktop-menu a.active-page {
+            color: #000000;
+            background: #f0f0f0;
+        }
+
+        /* Right side: Apply Now + Mobile Toggle */
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .navbar-apply-btn {
+            background: #FFD700;
+            color: #1E5FA8;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            transition: all 0.3s;
+        }
+
+        .navbar-apply-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         .btn {
@@ -345,56 +492,49 @@
 
         /* Mobile Styles */
         @media (max-width: 768px) {
-            .nav-content {
-                position: relative;
-                justify-content: flex-start;
-                gap: 10px;
-            }
-            
             .mobile-toggle {
                 display: flex !important;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .navbar .btn {
-                display: none;
-            }
-            
-            /* Hamburger menu */
-            .nav-links.mobile-active {
-                display: flex;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 280px;
-                height: 100vh;
-                background: white;
+                align-items: center;
+                justify-content: center;
                 flex-direction: column;
-                z-index: 1000;
-                box-shadow: 4px 0 20px rgba(0,0,0,0.1);
-                padding-top: 60px;
-                transform: translateX(-100%);
-                transition: transform 0.3s ease;
-            }
-            
-            .nav-links.mobile-active.show {
-                transform: translateX(0);
-            }
-            
-            .nav-links.mobile-active a {
-                padding: 15px 20px;
-                border-bottom: 1px solid #f0f0f0;
-                color: #333;
-                text-decoration: none;
+                padding: 8px;
+                background: none;
+                border: none;
+                cursor: pointer;
             }
 
-            .nav-links.mobile-active a.active {
-                background: #f0f0f0;
-                color: #999;
+            .mobile-toggle span {
+                display: block;
+                width: 25px;
+                height: 3px;
+                background: #1E5FA8;
+                margin: 3px 0;
+                border-radius: 2px;
             }
+
+            /* Hide desktop menu on mobile */
+            .desktop-menu {
+                display: none !important;
+            }
+            
+            /* Mobile styles for Apply Now button */
+            .navbar-apply-btn {
+                order: 2;
+                margin-right: 10px;
+                background: #FFD700 !important;
+                color: #1E5FA8 !important;
+                padding: 8px 16px !important;
+                border-radius: 20px !important;
+                font-size: 12px !important;
+                font-weight: 700 !important;
+                text-decoration: none !important;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.15) !important;
+            }
+
+            .nav-overlay {
+                display: block;
+            }
+        }
 
             .page-header {
                 padding: 120px 0 50px;
@@ -465,28 +605,10 @@
                 height: 100%;
             }
             
-            .navbar-apply-btn {
-                display: block;
-                background: #FFD700;
-                color: #1E5FA8;
-                padding: 8px 16px;
-                border-radius: 20px;
-                font-size: 12px;
-                font-weight: 700;
-                text-decoration: none;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-                order: 2;
-                margin-right: 10px;
-            }
-            
             .mobile-toggle {
                 order: 3;
             }
             
-            .nav-links.active {
-                transform: translateX(0);
-            }
-        }
     </style>
 </head>
 <body>
@@ -500,58 +622,57 @@
     
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
-        <div class="container nav-content" style="display: flex; align-items: center; justify-content: space-between;">
-            <!-- Left: Logo -->
+        <div class="container nav-content" style="display: flex; align-items: center;">
             <a href="index.html" class="logo">
                  <img src="logo-new.jpeg" alt="Travelade" class="logo-img">
             </a>
             
-            <!-- Center: Desktop Menu (hidden on mobile) -->
-            <div class="desktop-menu" style="display: flex; gap: 20px; align-items: center;">
-                <a href="index.html" style="text-decoration: none; color: #333; font-weight: 500; font-size: 14px;">Home</a>
-                <a href="#services" style="text-decoration: none; color: #333; font-weight: 500; font-size: 14px;">Services</a>
-                <a href="#process" style="text-decoration: none; color: #333; font-weight: 500; font-size: 14px;">How It Works</a>
-                <a href="countries.html" style="text-decoration: none; color: #333; font-weight: 500; font-size: 14px;">Countries</a>
-                <a href="#pricing" style="text-decoration: none; color: #333; font-weight: 500; font-size: 14px;">Pricing</a>
-                <a href="faq.html" style="text-decoration: none; color: #999; font-weight: 500; font-size: 14px; background: #f0f0f0; padding: 5px 10px; border-radius: 5px;">FAQ</a>
-                <a href="#reviews" style="text-decoration: none; color: #333; font-weight: 500; font-size: 14px;">Reviews</a>
-                <a href="#contact" style="text-decoration: none; color: #333; font-weight: 500; font-size: 14px;">Contact</a>
+            <!-- Desktop Menu -->
+            <div class="desktop-menu">
+                <a href="index.html">Home</a>
+                <a href="index.html#services">Services</a>
+                <a href="index.html#process">How It Works</a>
+                <a href="countries.html">Countries</a>
+                <a href="index.html#pricing">Pricing</a>
+                <a href="faq.html" class="active-page">FAQ</a>
+                <a href="index.html#reviews">Reviews</a>
+                <a href="index.html#contact">Contact</a>
             </div>
             
             <!-- Right: Apply Now + Mobile Toggle -->
-            <div style="display: flex; align-items: center; gap: 15px;">
-                <a href="javascript:void(0)" onclick="openApplyPopup()" style="background: #FFD700; color: #1E5FA8; padding: 8px 16px; border-radius: 20px; font-size: 12px; font-weight: 700; text-decoration: none; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">Apply Now</a>
+            <div class="nav-right">
+                <a href="javascript:void(0)" onclick="openApplyPopup()" class="navbar-apply-btn">Apply Now</a>
                 <button class="mobile-toggle" onclick="openMenu()">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
             </div>
-            
-            <!-- Mobile Menu Overlay -->
-            <div class="nav-overlay" id="navOverlay" onclick="closeMenu()"></div>
-            
-            <!-- Mobile Slide-out Menu -->
-            <ul class="nav-links" id="navLinks">
-                <li class="nav-menu-header">
-                    <img src="logo-new.jpeg" alt="Travelade" style="width: 120px;">
-                    <button class="mobile-close" onclick="closeMenu()">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </li>
-                <li><a href="index.html" onclick="closeMenu()"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="#services" onclick="closeMenu()"><i class="fas fa-concierge-bell"></i> Services</a></li>
-                <li><a href="#process" onclick="closeMenu()"><i class="fas fa-list-ol"></i> How It Works</a></li>
-                <li><a href="countries.html" onclick="closeMenu()"><i class="fas fa-globe-europe"></i> Countries</a></li>
-                <li><a href="#pricing" onclick="closeMenu()"><i class="fas fa-tag"></i> Pricing</a></li>
-                <li><a href="faq.html" onclick="closeMenu()"><i class="fas fa-question-circle"></i> FAQ</a></li>
-                <li><a href="#reviews" onclick="closeMenu()"><i class="fas fa-star"></i> Reviews</a></li>
-                <li><a href="#contact" onclick="closeMenu()"><i class="fas fa-envelope"></i> Contact</a></li>
-                <li><a href="https://wa.me/447575378991" class="whatsapp-btn" onclick="closeMenu()">
-                    <i class="fab fa-whatsapp"></i> WhatsApp Us
-                </a></li>
-            </ul>
         </div>
+        
+        <!-- Mobile Menu Overlay -->
+        <div class="nav-overlay" id="navOverlay" onclick="closeMenu()"></div>
+        
+        <!-- Mobile Slide-out Menu -->
+        <ul class="nav-links" id="navLinks">
+            <li class="nav-menu-header">
+                <img src="logo-new.jpeg" alt="Travelade">
+                <button class="mobile-close" onclick="closeMenu()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </li>
+            <li><a href="index.html" onclick="closeMenu()"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="index.html#services" onclick="closeMenu()"><i class="fas fa-concierge-bell"></i> Services</a></li>
+            <li><a href="index.html#process" onclick="closeMenu()"><i class="fas fa-list-ol"></i> How It Works</a></li>
+            <li><a href="countries.html" onclick="closeMenu()"><i class="fas fa-globe-europe"></i> Countries</a></li>
+            <li><a href="index.html#pricing" onclick="closeMenu()"><i class="fas fa-tag"></i> Pricing</a></li>
+            <li><a href="faq.html" onclick="closeMenu()"><i class="fas fa-question-circle"></i> FAQ</a></li>
+            <li><a href="index.html#reviews" onclick="closeMenu()"><i class="fas fa-star"></i> Reviews</a></li>
+            <li><a href="index.html#contact" onclick="closeMenu()"><i class="fas fa-envelope"></i> Contact</a></li>
+            <li><a href="https://wa.me/447575378991" class="whatsapp-btn" onclick="closeMenu()">
+                <i class="fab fa-whatsapp"></i> WhatsApp Us
+            </a></li>
+        </ul>
     </nav>
 
     <!-- Page Header -->
@@ -792,6 +913,13 @@
     document.addEventListener('click', function(e) {
         const popup = document.getElementById('applyPopup');
         if (e.target === popup) {
+            closeApplyPopup();
+        }
+    });
+
+    // Close popup with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
             closeApplyPopup();
         }
     });

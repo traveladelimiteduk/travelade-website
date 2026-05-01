@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -249,9 +249,10 @@
             justify-content: center;
         }
 
-        .country-flag svg {
-            width: 100%;
-            height: 100%;
+        .country-flag img {
+            width: 80px;
+            height: auto;
+            border-radius: 4px;
         }
 
         .country-name {
@@ -598,718 +599,75 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="section" style="background: #f0f4f8; padding: 60px 0;">
-        <div class="container">
-            <div class="footer-cta">
-                <h3>Ready to Apply for Your Schengen Visa?</h3>
-                <p>Get your visa application started today with our expert team</p>
-                <button class="btn" onclick="openContactModal()" style="border: none; cursor: pointer;">
-                    <i class="fas fa-paper-plane"></i> Start Application
-                </button>
-            </div>
-        </div>
-    </section>
+
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-            <a href="index.html" class="logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
+            <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 50px; flex-wrap: wrap; padding: 50px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                <!-- Brand -->
+                <div style="flex: 2; min-width: 280px;">
+                    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 15px;">
                         <img src="logo-new.jpeg" alt="Travelade" style="height: 50px;">
-                    </a>
-                    <p>UK's trusted Schengen visa specialists. We handle your complete visa file from appointment booking to application form filling, embassy submission, and filing all extra documents.</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <div>
+                            <div style="font-size: 22px; font-weight: 800; color: white; line-height: 1;">Travel<span style="color: #FF8800;">ade</span></div>
+                            <div style="font-size: 10px; color: rgba(255,255,255,0.5); letter-spacing: 2px; text-transform: uppercase;">Travel & Visa Consultancy</div>
+                        </div>
+                    </div>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 13px; line-height: 1.6;">UK's trusted Schengen visa specialists. We handle your complete visa file from appointment booking to application filing.</p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div style="flex: 1; min-width: 150px;">
+                    <h4 style="color: white; font-size: 13px; font-weight: 700; margin-bottom: 15px; letter-spacing: 1px; text-transform: uppercase;">Quick Links</h4>
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <a href="index.html" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px;">Home</a>
+                        <a href="index.html#services" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px;">Services</a>
+                        <a href="countries.html" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px;">Countries</a>
+                        <a href="index.html#pricing" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px;">Pricing</a>
+                        <a href="faq.html" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px;">FAQ</a>
                     </div>
                 </div>
-                <div>
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="index.html#services">Services</a></li>
-                        <li><a href="countries.html">Countries</a></li>
-                        <li><a href="index.html#pricing">Pricing</a></li>
-                        <li><a href="index.html#contact">Contact</a></li>
-                    </ul>
+                
+                <!-- Contact Us -->
+                <div style="flex: 1; min-width: 200px;">
+                    <h4 style="color: white; font-size: 13px; font-weight: 700; margin-bottom: 15px; letter-spacing: 1px; text-transform: uppercase;">Contact Us</h4>
+                    <div style="display: flex; flex-direction: column; gap: 10px; font-size: 13px; color: rgba(255,255,255,0.7);">
+                        <div><i class="fas fa-phone" style="margin-right: 8px; color: #FF8800;"></i> 07575 378991</div>
+                        <div><i class="fab fa-whatsapp" style="margin-right: 8px; color: #25D366;"></i> +44 7575 378991</div>
+                        <div><i class="fas fa-envelope" style="margin-right: 8px; color: #FF8800;"></i> info@travelade.co.uk</div>
+                    </div>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 12px; margin-top: 8px;"><i class="fas fa-clock" style="margin-right: 6px;"></i> Mon-Sat: 9:00 AM - 6:00 PM</p>
                 </div>
-                <div>
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="index.html#services">Visa Application</a></li>
-                        <li><a href="index.html#services">Appointment Booking</a></li>
-                        <li><a href="index.html#services">Document Preparation</a></li>
-                        <li><a href="index.html#services">Embassy Filing</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Contact Us</h4>
-                    <ul class="footer-contact">
-                        <li><i class="fas fa-phone"></i> 07575 378991</li>
-                        <li><i class="fab fa-whatsapp"></i> +92 300 6690701</li>
-                        <li><i class="fas fa-envelope"></i> <a href="mailto:info@travelade.co.uk">info@travelade.co.uk</a></li>
-                    </ul>
+                
+                <!-- Get in Touch -->
+                <div style="flex: 1.5; min-width: 250px;">
+                    <h4 style="color: white; font-size: 13px; font-weight: 700; margin-bottom: 15px; letter-spacing: 1px; text-transform: uppercase;">Get in Touch</h4>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 13px; line-height: 1.6; margin-bottom: 15px;">Have questions? We typically respond within 20-30 minutes during office hours.</p>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Travelade Limited. All rights reserved. UK Company Reg. XXXXXX</p>
-                <div>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
+            
+            <!-- Footer Bottom -->
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 20px 0; font-size: 12px; color: rgba(255,255,255,0.5);">
+                <p>&copy; 2026 Travelade Limited. All rights reserved.</p>
+                <div style="display: flex; gap: 20px;">
+                    <a href="#" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 12px;">Privacy</a>
+                    <a href="#" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 12px;">Terms</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Country Inquiry Modal -->
-    <div class="country-modal" id="countryModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button class="modal-close" onclick="closeModal()">&times;</button>
-                <div class="modal-flag" id="modalFlag"></div>
-                <h3 id="modalTitle">Start Your Visa Inquiry</h3>
-                <p>Send your inquiry for <span id="modalCountry">Schengen Visa</span> today!</p>
-            </div>
-            <div class="modal-body">
-                <form class="modal-form" id="modalForm" action="https://formspree.io/f/mjgjgnqk" method="POST">
-                    <input type="hidden" name="_subject" value="New Visa Inquiry from Country Page">
-                    <input type="hidden" name="destination_country" id="modalCountryHidden">
-                    <div class="form-group">
-                        <label>Full Name</label>
-                        <input type="text" name="full_name" placeholder="Enter your full name" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Phone / WhatsApp</label>
-                        <input type="tel" name="phone" placeholder="0300..." required>
-                    </div>
-                    <div class="form-group">
-                        <label>Email Address</label>
-                        <input type="email" name="email" placeholder="your@email.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Travel Date</label>
-                        <input type="date" name="travel_date">
-                    </div>
-                    <div class="form-group">
-                        <label>Number of Applicants</label>
-                        <select name="passengers">
-                            <option value="1">Solo</option>
-                            <option value="2">Couple</option>
-                            <option value="3">Family (3-4)</option>
-                            <option value="5">Group (5+)</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Additional Notes</label>
-                        <textarea name="message" placeholder="Any special requirements or questions..."></textarea>
-                    </div>
-                    <button type="submit" class="modal-submit">
-                        <i class="fas fa-paper-plane"></i> Send Inquiry
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- Contact Form Modal -->
-    <div class="contact-modal" id="contactModal">
-        <div class="contact-modal-overlay" onclick="closeContactModal()"></div>
-        <div class="contact-modal-content">
-            <button class="contact-modal-close" onclick="closeContactModal()">
-                <i class="fas fa-times"></i>
-            </button>
-            <div class="contact-modal-header">
-                <div class="contact-modal-icon">
-                    <i class="fas fa-paper-plane"></i>
-                </div>
-                <h2>Start Your Visa Application</h2>
-                <p>Fill in your details and our team will contact you within 20-30 minutes</p>
-            </div>
-            <form class="contact-modal-form" id="contactModalForm">
-                <input type="hidden" name="_subject" value="New Schengen Visa Inquiry from Countries Page">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label><i class="fas fa-user"></i> Full Name</label>
-                        <input type="text" name="full_name" placeholder="Enter your full name" required>
-                    </div>
-                    <div class="form-group">
-                        <label><i class="fas fa-envelope"></i> Email Address</label>
-                        <input type="email" name="email" placeholder="your@email.com" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label><i class="fas fa-phone"></i> Phone / WhatsApp</label>
-                        <input type="tel" name="phone" placeholder="0300..." required>
-                    </div>
-                    <div class="form-group">
-                        <label><i class="fas fa-globe-europe"></i> Destination Country</label>
-                        <select name="destination" required>
-                            <option value="">Select country</option>
-                            <option value="Austria">Austria</option>
-                            <option value="Belgium">Belgium</option>
-                            <option value="Czech Republic">Czech Republic</option>
-                            <option value="Denmark">Denmark</option>
-                            <option value="Estonia">Estonia</option>
-                            <option value="Finland">Finland</option>
-                            <option value="France">France</option>
-                            <option value="Germany">Germany</option>
-                            <option value="Greece">Greece</option>
-                            <option value="Hungary">Hungary</option>
-                            <option value="Iceland">Iceland</option>
-                            <option value="Italy">Italy</option>
-                            <option value="Latvia">Latvia</option>
-                            <option value="Liechtenstein">Liechtenstein</option>
-                            <option value="Lithuania">Lithuania</option>
-                            <option value="Luxembourg">Luxembourg</option>
-                            <option value="Malta">Malta</option>
-                            <option value="Netherlands">Netherlands</option>
-                            <option value="Norway">Norway</option>
-                            <option value="Poland">Poland</option>
-                            <option value="Portugal">Portugal</option>
-                            <option value="Slovakia">Slovakia</option>
-                            <option value="Slovenia">Slovenia</option>
-                            <option value="Spain">Spain</option>
-                            <option value="Sweden">Sweden</option>
-                            <option value="Switzerland">Switzerland</option>
-                            <option value="Vatican City">Vatican City</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label><i class="fas fa-calendar"></i> Travel Date</label>
-                        <input type="date" name="travel_date">
-                    </div>
-                    <div class="form-group">
-                        <label><i class="fas fa-users"></i> Number of Applicants</label>
-                        <select name="passengers" required>
-                            <option value="">Select</option>
-                            <option value="1">Solo</option>
-                            <option value="2">Couple</option>
-                            <option value="3">Family (3-4)</option>
-                            <option value="5">Group (5+)</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group full-width">
-                    <label><i class="fas fa-comment"></i> Additional Notes</label>
-                    <textarea name="message" rows="3" placeholder="Tell us about your travel plans or any questions..."></textarea>
-                </div>
-                <button type="submit" class="contact-modal-submit">
-                    <i class="fas fa-paper-plane"></i> Send Inquiry
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Modal Styles -->
-    <style>
-        .country-modal, .contact-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            padding: 20px;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .country-modal.active, .contact-modal.active {
-            display: flex;
-            background: rgba(0,0,0,0.6);
-        }
-
-        .contact-modal-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-        }
-
-        .contact-modal-content {
-            background: white;
-            border-radius: 24px;
-            max-width: 600px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
-            transform: translateY(50px) scale(0.9);
-            opacity: 0;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .contact-modal.active .contact-modal-content {
-            transform: translateY(0) scale(1);
-            opacity: 1;
-        }
-
-        .contact-modal-close {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: rgba(255,255,255,0.2);
-            border: none;
-            color: white;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            font-size: 18px;
-            cursor: pointer;
-            transition: all 0.3s;
-            z-index: 10;
-        }
-
-        .contact-modal-close:hover {
-            background: rgba(255,255,255,0.3);
-            transform: rotate(90deg);
-        }
-
-        .contact-modal-header {
-            background: linear-gradient(135deg, #1E5FA8 0%, #154A84 100%);
-            color: white;
-            padding: 40px 30px 30px;
-            text-align: center;
-            border-radius: 24px 24px 0 0;
-        }
-
-        .contact-modal-icon {
-            width: 70px;
-            height: 70px;
-            background: rgba(255,255,255,0.15);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 28px;
-        }
-
-        .contact-modal-header h2 {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .contact-modal-header p {
-            font-size: 14px;
-            opacity: 0.9;
-        }
-
-        .contact-modal-form {
-            padding: 30px;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            margin-bottom: 16px;
-        }
-
-        .form-group {
-            margin-bottom:0;
-        }
-
-        .form-group.full-width {
-            grid-column: 1 / -1;
-            margin-bottom: 20px;
-        }
-
-        .contact-modal-form label {
-            display: block;
-            font-size: 12px;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 6px;
-        }
-
-        .contact-modal-form label i {
-            color: #1E5FA8;
-            margin-right: 6px;
-        }
-
-        .contact-modal-form input,
-        .contact-modal-form select,
-        .contact-modal-form textarea {
-            width: 100%;
-            padding: 14px 16px;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            font-size: 14px;
-            transition: all 0.3s;
-            background: #f8fafc;
-        }
-
-        .contact-modal-form input:focus,
-        .contact-modal-form select:focus,
-        .contact-modal-form textarea:focus {
-            outline: none;
-            border-color: #1E5FA8;
-            background: white;
-            box-shadow: 0 0 0 4px rgba(30, 95, 168, 0.1);
-        }
-
-        .contact-modal-submit {
-            width: 100%;
-            padding: 18px;
-            background: linear-gradient(135deg, #F47A20 0%, #D46904 100%);
-            color: white;
-            border: none;
-            border-radius: 14px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .contact-modal-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(244, 122, 32, 0.4);
-        }
-
-        @media (max-width: 600px) {
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-modal-content {
-                margin: 10px;
-            }
-            
-            .contact-modal-form {
-                padding: 20px;
-            }
-        }
-
-        .modal-content {
-            background: white;
-            border-radius: 20px;
-            max-width: 500px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
-        }
-
-        .modal-header {
-            background: linear-gradient(135deg, #1E5FA8 0%, #154A84 100%);
-            color: white;
-            padding: 30px;
-            text-align: center;
-            border-radius: 20px 20px 0 0;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 28px;
-            cursor: pointer;
-        }
-
-        .modal-flag {
-            width: 80px;
-            height: 54px;
-            margin: 0 auto 16px;
-            border-radius: 8px;
-            overflow: hidden;
-            background: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-flag svg {
-            width: 100%;
-            height: 100%;
-        }
-
-        @media (max-width: 768px) {
-            .top-bar-mobile {
-                display: block !important;
-            }
-            
-            .navbar {
-                position: fixed;
-                top: 0;
-                height: 65px;
-                padding: 0 15px;
-                box-sizing: border-box;
-            }
-            
-            .navbar .logo {
-                display: flex;
-                align-items: center;
-                gap: 0;
-                height: 65px;
-            }
-            
-            .navbar .logo-img {
-                height: 60px;
-                width: auto;
-            }
-            
-            .navbar .logo-text-group {
-                display: none;
-            }
-            
-            .nav-content {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                height: 100%;
-            }
-            
-            .navbar-apply-btn {
-                display: block;
-                background: #FFD700;
-                color: #1E5FA8;
-                padding: 8px 16px;
-                border-radius: 20px;
-                font-size: 12px;
-                font-weight: 700;
-                text-decoration: none;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-                order: 2;
-                margin-right: 10px;
-            }
-            
-            .mobile-toggle {
-                order: 3;
-            }
-            
-            .start-app-float {
-                position: fixed;
-                bottom: 30px;
-                right: 30px;
-                background: #FFD700;
-                color: #1E5FA8;
-                padding: 14px 24px;
-                border-radius: 50px;
-                font-weight: 700;
-                font-size: 14px;
-                text-decoration: none;
-                box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-                z-index: 999;
-                display: flex;
-                align-items: center;
-                gap: 8px;
-                transition: all 0.3s;
-            }
-            
-            .start-app-float:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 6px 25px rgba(0,0,0,0.4);
-            }
-            
-            .start-app-float-text {
-                display: inline;
-            }
-        }
-    </style>
-
-    <script>
-        // Countries Data with SVG Flags
-        const countries = [
-            { name: "Austria", code: "AT", svg: '<svg viewBox="0 0 640 480"><path d="M0 0h640v480H0z" fill="#ed2939"/><path d="M0 160h640v160H0z" fill="#fff"/><path d="M0 320h640v160H0z" fill="#ed2939"/></svg>' },
-            { name: "Belgium", code: "BE", svg: '<svg viewBox="0 0 600 600"><rect width="200" height="600" fill="black"/><rect x="200" width="200" height="600" fill="#FAE042"/><rect x="400" width="200" height="600" fill="#ED2939"/></svg>' },
-            { name: "Czech Republic", code: "CZ", svg: '<svg viewBox="0 0 900 600"><rect width="900" height="400" fill="#D7141A"/><path d="M0 400h900v200H0z" fill="#11457E"/></svg>' },
-            { name: "Denmark", code: "DK", svg: '<svg viewBox="0 0 740 740"><rect width="740" height="740" fill="#C60C30"/><path d="M0 300h260v140H0z" fill="#fff"/><path d="M0 270h240v200H0z" fill="#C60C30"/></svg>' },
-            { name: "Estonia", code: "EE", svg: '<svg viewBox="0 0 1000 700"><rect width="1000" height="233" fill="#0072CE"/><rect y="233" width="1000" height="234" fill="#fff"/><rect y="467" width="1000" height="233" fill="#000"/></svg>' },
-            { name: "Finland", code: "FI", svg: '<svg viewBox="0 0 1800 1100"><rect width="1800" height="1100" fill="#fff"/><rect x="400" width="200" height="1100" fill="#002F6C"/></svg>' },
-            { name: "France", code: "FR", svg: '<svg viewBox="0 0 900 600"><rect width="300" height="600" fill="#002395"/><rect x="300" width="300" height="600" fill="#fff"/><rect x="600" width="300" height="600" fill="#ED2939"/></svg>' },
-            { name: "Germany", code: "DE", svg: '<svg viewBox="0 0 500 300"><rect width="500" height="100" fill="#000"/><rect y="100" width="500" height="100" fill="#DD0000"/><rect y="200" width="500" height="100" fill="#FFCE00"/></svg>' },
-            { name: "Greece", code: "GR", svg: '<svg viewBox="0 0 640 480"><rect width="640" height="480" fill="#0D5EAF"/><path d="M0 0h640v60H0zM0 120h640v60H0zM0 240h640v60H0zM0 360h640v60H0zM0 480h640v60H0z" fill="#fff"/><rect width="240" height="240" fill="#0D5EAF"/><rect x="60" width="120" height="240" fill="#fff"/><rect x="120" width="60" height="240" fill="#0D5EAF"/></svg>' },
-            { name: "Hungary", code: "HU", svg: '<svg viewBox="0 0 600 300"><rect width="600" height="100" fill="#CD2A3E"/><rect y="100" width="600" height="100" fill="#fff"/><rect y="200" width="600" height="100" fill="#436F4D"/></svg>' },
-            { name: "Iceland", code: "IS", svg: '<svg viewBox="0 0 600 600"><rect width="600" height="600" fill="#02529C"/><path d="M300 0v600M0 300h600" stroke="#fff" stroke-width="120"/><path d="M300 0v600M0 300h600" stroke="#DC1E35" stroke-width="60"/></svg>' },
-            { name: "Italy", code: "IT", svg: '<svg viewBox="0 0 900 600"><rect width="300" height="600" fill="#009246"/><rect x="300" width="300" height="600" fill="#fff"/><rect x="600" width="300" height="600" fill="#CE2B37"/></svg>' },
-            { name: "Latvia", code: "LV", svg: '<svg viewBox="0 0 600 400"><rect width="600" height="133" fill="#9E3039"/><rect y="133" width="600" height="134" fill="#fff"/><rect y="267" width="600" height="133" fill="#9E3039"/></svg>' },
-            { name: "Liechtenstein", code: "LI", svg: '<svg viewBox="0 0 1000 600"><rect width="333" height="600" fill="#002B7F"/><rect x="333" width="334" height="600" fill="#CE1126"/><rect x="667" width="333" height="600" fill="#002B7F"/></svg>' },
-            { name: "Lithuania", code: "LT", svg: '<svg viewBox="0 0 600 300"><rect width="600" height="100" fill="#C1272D"/><rect y="100" width="600" height="100" fill="#006A4D"/><rect y="200" width="600" height="100" fill="#F47A20"/></svg>' },
-            { name: "Luxembourg", code: "LU", svg: '<svg viewBox="0 0 600 400"><rect width="600" height="133" fill="#00A1DE"/><rect y="133" width="600" height="134" fill="#fff"/><rect y="267" width="600" height="133" fill="#ED2939"/></svg>' },
-            { name: "Malta", code: "MT", svg: '<svg viewBox="0 0 600 400"><rect width="600" height="400" fill="#fff"/><path d="M300 0L0 400h600L300 0z" fill="#CF142B"/></svg>' },
-            { name: "Netherlands", code: "NL", svg: '<svg viewBox="0 0 900 600"><rect width="900" height="200" fill="#AE1C28"/><rect y="200" width="900" height="200" fill="#fff"/><rect y="400" width="900" height="200" fill="#21468B"/></svg>' },
-            { name: "Norway", code: "NO", svg: '<svg viewBox="0 0 600 600"><rect width="600" height="600" fill="#EF2B2D"/><rect width="180" height="600" fill="#fff"/><rect height="180" width="600" fill="#fff"/><rect x="45" width="90" height="600" fill="#002868"/><rect y="45" width="600" height="90" fill="#002868"/></svg>' },
-            { name: "Poland", code: "PL", svg: '<svg viewBox="0 0 640 480"><rect width="640" height="240" fill="#fff"/><rect y="240" width="640" height="240" fill="#DC143C"/></svg>' },
-            { name: "Portugal", code: "PT", svg: '<svg viewBox="0 0 600 400"><rect width="240" height="400" fill="#006600"/><rect x="240" width="360" height="400" fill="#FF0000"/><circle cx="120" cy="200" r="60" fill="#FFCC00"/></svg>' },
-            { name: "Slovakia", code: "SK", svg: '<svg viewBox="0 0 900 600"><rect width="300" height="600" fill="#0B4EA2"/><rect x="300" width="300" height="600" fill="#fff"/><rect x="600" width="300" height="600" fill="#DC143C"/><path d="M450 100L300 300h300L450 100z" fill="#DC143C"/><path d="M450 150L350 300h200L450 150z" fill="#0B4EA2"/><path d="M450 200L400 300h100L450 200z" fill="#fff"/></svg>' },
-            { name: "Slovenia", code: "SI", svg: '<svg viewBox="0 0 900 600"><rect width="900" height="200" fill="#fff"/><rect y="200" width="900" height="200" fill="#0C4076"/><rect y="400" width="900" height="200" fill="#ED1C24"/><path d="M300 0v600" stroke="#0C4076" stroke-width="100"/></svg>' },
-            { name: "Spain", code: "ES", svg: '<svg viewBox="0 0 750 500"><rect y="100" width="750" height="100" fill="#AA151B"/><rect y="300" width="750" height="100" fill="#AA151B"/><rect width="250" height="500" fill="#F1BF00"/></svg>' },
-            { name: "Sweden", code: "SE", svg: '<svg viewBox="0 0 1000 700"><rect width="1000" height="700" fill="#006AA7"/><rect x="200" width="150" height="700" fill="#FECC00"/><rect y="250" width="1000" height="200" fill="#FECC00"/></svg>' },
-            { name: "Switzerland", code: "CH", svg: '<svg viewBox="0 0 500 500"><rect width="500" height="500" fill="red"/><rect x="175" y="125" width="150" height="250" fill="#fff"/><rect x="100" y="200" width="300" height="100" fill="#fff"/></svg>' },
-            { name: "Vatican City", code: "VA", svg: '<svg viewBox="0 0 600 600"><rect width="600" height="600" fill="#DGGGGG"/><path d="M200 150h200v150H200z" fill="#FFCC00"/></svg>' }
-        ];
-
-        // Render Countries
-        const grid = document.getElementById('countriesGrid');
-        countries.forEach(country => {
-            grid.innerHTML += `
-                <div class="country-card" onclick="openModal('${country.name}', this)">
-                    <div class="country-flag">${country.svg}</div>
-                    <div class="country-name">${country.name}</div>
-                    <div class="country-visa">Schengen Visa</div>
-                </div>
-            `;
-        });
-
-        // Mobile Menu Functions
-        function openMenu() {
-            document.getElementById('navLinks').classList.add('active');
-            document.getElementById('navOverlay').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeMenu() {
-            document.getElementById('navLinks').classList.remove('active');
-            document.getElementById('navOverlay').classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-
-        document.getElementById('navOverlay').addEventListener('click', function() {
-            closeMenu();
-        });
-
-        document.addEventListener('click', function(e) {
-            const navLinks = document.getElementById('navLinks');
-            const mobileToggle = document.querySelector('.mobile-toggle');
-            if (navLinks && navLinks.classList.contains('active')) {
-                if (!navLinks.contains(e.target) && !mobileToggle.contains(e.target)) {
-                    closeMenu();
-                }
-            }
-        });
-
-        // Contact Modal Functions
-        function openContactModal() {
-            document.getElementById('contactModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeContactModal() {
-            document.getElementById('contactModal').classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-
-        document.getElementById('contactModal').addEventListener('click', function(e) {
-            if (e.target === this || e.target.classList.contains('contact-modal-overlay')) {
-                closeContactModal();
-            }
-        });
-
-        // Contact Modal Form Submission
-        document.getElementById('contactModalForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const form = e.target;
-            const btn = form.querySelector('button[type="submit"]');
-            const originalText = btn.innerHTML;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            btn.disabled = true;
-
-            try {
-                const response = await fetch('https://formspree.io/f/mjgjgnqk', {
-                    method: 'POST',
-                    body: new FormData(form),
-                    headers: { 'Accept': 'application/json' }
-                });
-
-                if (response.ok) {
-                    alert('Thank you for your inquiry! We will contact you within 20-30 minutes during office hours.');
-                    form.reset();
-                    closeContactModal();
-                } else {
-                    alert('Something went wrong. Please try again.');
-                }
-            } catch (error) {
-                alert('Something went wrong. Please try again.');
-            }
-
-            btn.innerHTML = originalText;
-            btn.disabled = false;
-        });
-
-        // Country Modal Functions
-        function openModal(country, cardElement) {
-            const modalFlag = document.getElementById('modalFlag');
-            const cardFlagSvg = cardElement.querySelector('.country-flag svg');
-            modalFlag.innerHTML = '';
-            if (cardFlagSvg) {
-                modalFlag.appendChild(cardFlagSvg.cloneNode(true));
-            }
-            document.getElementById('modalCountry').textContent = country;
-            document.getElementById('modalCountryHidden').value = country;
-            document.getElementById('countryModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal() {
-            document.getElementById('countryModal').classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-
-        document.getElementById('countryModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
-            }
-        });
-
-        // Form submission
-        document.getElementById('modalForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const form = e.target;
-            const btn = form.querySelector('button[type="submit"]');
-            const originalText = btn.innerHTML;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            btn.disabled = true;
-
-            try {
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: new FormData(form),
-                    headers: { 'Accept': 'application/json' }
-                });
-
-                if (response.ok) {
-                    alert('Thank you for your inquiry! We will contact you within 20-30 minutes during office hours.');
-                    form.reset();
-                    closeModal();
-                } else {
-                    alert('Something went wrong. Please try again.');
-                }
-            } catch (error) {
-                alert('Something went wrong. Please try again.');
-            }
-
-            btn.innerHTML = originalText;
-            btn.disabled = false;
-        });
-    </script>
-
-    <!-- Apply Now Popup -->
+    <!-- Country Application Popup -->
     <div id="applyPopup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 2000; align-items: center; justify-content: center;">
-        <div style="background: white; border-radius: 16px; padding: 30px; max-width: 450px; width: 90%; max-height: 90vh; overflow-y: auto; position: relative;">
-            <button onclick="closeApplyPopup()" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer; color: #666;">&times;</button>
-            <h3 style="color: #1E5FA8; margin-bottom: 20px; font-size: 22px;">Start Your Application</h3>
+        <div style="background: white; border-radius: 16px; padding: 30px; max-width: 400px; width: 90%; position: relative;">
+            <button onclick="closeApplyPopup()" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer; color: #333;">&times;</button>
+            <div id="popupFlag" style="text-align: center; margin-bottom: 15px;"></div>
+            <h3 id="popupTitle" style="color: #1E5FA8; margin-bottom: 20px; font-size: 22px; text-align: center;"></h3>
             <form action="https://formsubmit.co/travelade.limited.co.uk" method="POST">
                 <input type="hidden" name="_subject" value="New Application - Travelade">
                 <input type="hidden" name="_next" value="https://travelade.co.uk/thank-you.html">
+                <input type="hidden" name="destination" id="popupDestination">
                 
                 <div style="margin-bottom: 12px;">
                     <input type="text" name="name" placeholder="Full Name *" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
@@ -1320,53 +678,104 @@
                 </div>
                 
                 <div style="margin-bottom: 12px;">
-                    <input type="tel" name="phone" placeholder="Phone: 07575 378991 *" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
+                    <input type="tel" name="phone" placeholder="Phone *" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
                 </div>
                 
-                <div style="margin-bottom: 12px;">
-                    <select name="destination" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
-                        <option value="">Destination Country *</option>
-                        <option value="Austria">Austria</option>
-                        <option value="Belgium">Belgium</option>
-                        <option value="Czech Republic">Czech Republic</option>
-                        <option value="Denmark">Denmark</option>
-                        <option value="Estonia">Estonia</option>
-                        <option value="Finland">Finland</option>
-                        <option value="France">France</option>
-                        <option value="Germany">Germany</option>
-                        <option value="Greece">Greece</option>
-                        <option value="Hungary">Hungary</option>
-                        <option value="Iceland">Iceland</option>
-                        <option value="Italy">Italy</option>
-                        <option value="Latvia">Latvia</option>
-                        <option value="Liechtenstein">Liechtenstein</option>
-                        <option value="Lithuania">Lithuania</option>
-                        <option value="Luxembourg">Luxembourg</option>
-                        <option value="Malta">Malta</option>
-                        <option value="Netherlands">Netherlands</option>
-                        <option value="Norway">Norway</option>
-                        <option value="Poland">Poland</option>
-                        <option value="Portugal">Portugal</option>
-                        <option value="Slovakia">Slovakia</option>
-                        <option value="Slovenia">Slovenia</option>
-                        <option value="Spain">Spain</option>
-                        <option value="Sweden">Sweden</option>
-                        <option value="Switzerland">Switzerland</option>
+                <div style="margin-bottom: 15px;">
+                    <select name="applicants" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
+                        <option value="">Number of Applicants</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3-4">3-4</option>
+                        <option value="5+">5+</option>
                     </select>
                 </div>
                 
-                <div style="margin-bottom: 12px;">
-                    <input type="date" name="travel_date" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
-                </div>
-                
-                <div style="margin-bottom: 16px;">
-                    <textarea name="message" placeholder="Additional notes..." rows="3" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; resize: vertical;"></textarea>
-                </div>
-                
-                <button type="submit" style="width: 100%; padding: 14px; background: linear-gradient(135deg, #F47A20 0%, #D46904 100%); color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer;">Submit Application</button>
+                <button type="submit" style="background: #1E5FA8; color: white; border: none; padding: 14px; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; width: 100%;">Submit Application</button>
             </form>
         </div>
     </div>
 
+    <script>
+        // Load countries data
+        const countries = [
+            {name: 'Austria', code: 'at'},
+            {name: 'Belgium', code: 'be'},
+            {name: 'Czech Republic', code: 'cz'},
+            {name: 'Denmark', code: 'dk'},
+            {name: 'Estonia', code: 'ee'},
+            {name: 'Finland', code: 'fi'},
+            {name: 'France', code: 'fr'},
+            {name: 'Germany', code: 'de'},
+            {name: 'Greece', code: 'gr'},
+            {name: 'Hungary', code: 'hu'},
+            {name: 'Iceland', code: 'is'},
+            {name: 'Italy', code: 'it'},
+            {name: 'Latvia', code: 'lv'},
+            {name: 'Liechtenstein', code: 'li'},
+            {name: 'Lithuania', code: 'lt'},
+            {name: 'Luxembourg', code: 'lu'},
+            {name: 'Malta', code: 'mt'},
+            {name: 'Netherlands', code: 'nl'},
+            {name: 'Norway', code: 'no'},
+            {name: 'Poland', code: 'pl'},
+            {name: 'Portugal', code: 'pt'},
+            {name: 'Slovakia', code: 'sk'},
+            {name: 'Slovenia', code: 'si'},
+            {name: 'Spain', code: 'es'},
+            {name: 'Sweden', code: 'se'},
+            {name: 'Switzerland', code: 'ch'},
+            {name: 'Vatican City', code: 'va'}
+        ];
+
+        // Apply Now Popup Functions
+        function openApplyPopup(country) {
+            document.getElementById('popupFlag').innerHTML = '<img src="https://flagcdn.com/w80/' + country.code + '.png" alt="' + country.name + ' flag" style="width: 80px; height: auto; border-radius: 4px;">';
+            document.getElementById('popupTitle').textContent = country.name + ' Visa Application';
+            document.getElementById('popupDestination').value = country.name;
+            document.getElementById('applyPopup').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeApplyPopup() {
+            document.getElementById('applyPopup').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close popup on outside click
+        document.addEventListener('click', function(e) {
+            const popup = document.getElementById('applyPopup');
+            if (e.target === popup) {
+                closeApplyPopup();
+            }
+        });
+
+        // Close popup with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeApplyPopup();
+            }
+        });
+
+        // Populate countries grid
+        const countriesGrid = document.getElementById('countriesGrid');
+        if (countriesGrid) {
+            countries.forEach(country => {
+                const card = document.createElement('div');
+                card.className = 'country-card';
+                card.innerHTML = `
+                    <div class="country-flag">
+                        <img src="https://flagcdn.com/w80/${country.code}.png" alt="${country.name} flag" style="width: 80px; height: auto; border-radius: 4px;">
+                    </div>
+                    <div class="country-name">${country.name}</div>
+                    <div class="country-type">Schengen Area</div>
+                `;
+                card.onclick = function() {
+                    openApplyPopup(country);
+                };
+                countriesGrid.appendChild(card);
+            });
+        }
+    </script>
 </body>
 </html>

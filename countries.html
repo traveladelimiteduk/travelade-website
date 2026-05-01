@@ -556,32 +556,24 @@
         </div>
     </div>
     <nav class="navbar" id="navbar">
-        <div class="container nav-content">
-            <button class="mobile-toggle" onclick="openMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+        <div class="container nav-content" style="display: flex; align-items: center;">
             <a href="index.html" class="logo">
-                <img src="logo-new.jpeg" alt="Travelade" class="logo-img">
-                <div class="logo-text-group">
-                    <div class="logo-text"><span>Travel</span><span class="logo-ade">ade</span></div>
-                    <div class="logo-tagline">Travel & Visa Consultancy</div>
-                </div>
+                 <img src="logo-new.jpeg" alt="Travelade" class="logo-img">
             </a>
-            <div class="nav-overlay" id="navOverlay" onclick="closeMenu()"></div>
             <ul class="nav-links" id="navLinks">
                 <li class="nav-menu-header">
-                    <img src="logo-new.jpeg" alt="Travelade">
                     <button class="mobile-close" onclick="closeMenu()">
                         <i class="fas fa-times"></i>
                     </button>
                 </li>
                 <li><a href="index.html" onclick="closeMenu()"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="index.html#services" onclick="closeMenu()"><i class="fas fa-concierge-bell"></i> Services</a></li>
+                <li><a href="#services" onclick="closeMenu()"><i class="fas fa-concierge-bell"></i> Services</a></li>
+                <li><a href="#process" onclick="closeMenu()"><i class="fas fa-list-ol"></i> How It Works</a></li>
                 <li><a href="countries.html" onclick="closeMenu()" style="background: #f0f0f0; color: #999;"><i class="fas fa-globe-europe"></i> Countries</a></li>
-                <li><a href="index.html#pricing" onclick="closeMenu()"><i class="fas fa-tag"></i> Pricing</a></li>
-                <li><a href="index.html#contact" onclick="closeMenu()"><i class="fas fa-envelope"></i> Contact</a></li>
+                <li><a href="#pricing" onclick="closeMenu()"><i class="fas fa-tag"></i> Pricing</a></li>
+                <li><a href="faq.html" onclick="closeMenu()"><i class="fas fa-question-circle"></i> FAQ</a></li>
+                <li><a href="#reviews" onclick="closeMenu()"><i class="fas fa-star"></i> Reviews</a></li>
+                <li><a href="#contact" onclick="closeMenu()"><i class="fas fa-envelope"></i> Contact</a></li>
                 <li><a href="https://wa.me/447575378991" class="whatsapp-btn" onclick="closeMenu()">
                     <i class="fab fa-whatsapp"></i> WhatsApp Us
                 </a></li>
@@ -926,7 +918,7 @@
         }
 
         .form-group {
-            margin-bottom: 0;
+            margin-bottom:0;
         }
 
         .form-group.full-width {
@@ -1054,67 +1046,83 @@
             .top-bar-mobile {
                 display: block !important;
             }
-        }
-        
-        .modal-header h3 {
-            font-size: 22px;
-            margin-bottom: 8px;
-        }
-
-        .modal-header p {
-            font-size: 14px;
-            opacity: 0.9;
-        }
-
-        .modal-body {
-            padding: 30px;
-        }
-
-        .modal-form .form-group {
-            margin-bottom: 18px;
-        }
-
-        .modal-form label {
-            display: block;
-            font-size: 13px;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 6px;
-        }
-
-        .modal-form input,
-        .modal-form select,
-        .modal-form textarea {
-            width: 100%;
-            padding: 12px 16px;
-            border: 2px solid #e2e8f0;
-            border-radius: 10px;
-            font-size: 14px;
-            transition: border-color 0.3s;
-        }
-
-        .modal-form input:focus,
-        .modal-form select:focus,
-        .modal-form textarea:focus {
-            outline: none;
-            border-color: var(--primary-blue);
-        }
-
-        .modal-submit {
-            width: 100%;
-            padding: 16px;
-            background: var(--gradient-orange);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        .modal-submit:hover {
-            transform: translateY(-2px);
+            
+            .navbar {
+                position: fixed;
+                top: 0;
+                height: 65px;
+                padding: 0 15px;
+                box-sizing: border-box;
+            }
+            
+            .navbar .logo {
+                display: flex;
+                align-items: center;
+                gap: 0;
+                height: 65px;
+            }
+            
+            .navbar .logo-img {
+                height: 60px;
+                width: auto;
+            }
+            
+            .navbar .logo-text-group {
+                display: none;
+            }
+            
+            .nav-content {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                height: 100%;
+            }
+            
+            .navbar-apply-btn {
+                display: block;
+                background: #FFD700;
+                color: #1E5FA8;
+                padding: 8px 16px;
+                border-radius: 20px;
+                font-size: 12px;
+                font-weight: 700;
+                text-decoration: none;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+                order: 2;
+                margin-right: 10px;
+            }
+            
+            .mobile-toggle {
+                order: 3;
+            }
+            
+            .start-app-float {
+                position: fixed;
+                bottom: 30px;
+                right: 30px;
+                background: #FFD700;
+                color: #1E5FA8;
+                padding: 14px 24px;
+                border-radius: 50px;
+                font-weight: 700;
+                font-size: 14px;
+                text-decoration: none;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+                z-index: 999;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                transition: all 0.3s;
+            }
+            
+            .start-app-float:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 25px rgba(0,0,0,0.4);
+            }
+            
+            .start-app-float-text {
+                display: inline;
+            }
         }
     </style>
 
@@ -1318,48 +1326,47 @@
                 <div style="margin-bottom: 12px;">
                     <select name="destination" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
                         <option value="">Destination Country *</option>
+                        <option value="Austria">Austria</option>
+                        <option value="Belgium">Belgium</option>
+                        <option value="Czech Republic">Czech Republic</option>
+                        <option value="Denmark">Denmark</option>
+                        <option value="Estonia">Estonia</option>
+                        <option value="Finland">Finland</option>
                         <option value="France">France</option>
                         <option value="Germany">Germany</option>
+                        <option value="Greece">Greece</option>
+                        <option value="Hungary">Hungary</option>
+                        <option value="Iceland">Iceland</option>
                         <option value="Italy">Italy</option>
+                        <option value="Latvia">Latvia</option>
+                        <option value="Liechtenstein">Liechtenstein</option>
+                        <option value="Lithuania">Lithuania</option>
+                        <option value="Luxembourg">Luxembourg</option>
+                        <option value="Malta">Malta</option>
+                        <option value="Netherlands">Netherlands</option>
+                        <option value="Norway">Norway</option>
+                        <option value="Poland">Poland</option>
+                        <option value="Portugal">Portugal</option>
+                        <option value="Slovakia">Slovakia</option>
+                        <option value="Slovenia">Slovenia</option>
                         <option value="Spain">Spain</option>
-                        <option value="Other">Other</option>
+                        <option value="Sweden">Sweden</option>
+                        <option value="Switzerland">Switzerland</option>
                     </select>
                 </div>
                 
-                <div style="margin-bottom: 15px;">
-                    <select name="applicants" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
-                        <option value="">Number of Applicants *</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3-4</option>
-                        <option value="5+">5+</option>
-                    </select>
+                <div style="margin-bottom: 12px;">
+                    <input type="date" name="travel_date" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
                 </div>
                 
-                <button type="submit" style="background: #1E5FA8; color: white; border: none; padding: 14px; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; width: 100%;">Submit Application</button>
+                <div style="margin-bottom: 16px;">
+                    <textarea name="message" placeholder="Additional notes..." rows="3" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; resize: vertical;"></textarea>
+                </div>
+                
+                <button type="submit" style="width: 100%; padding: 14px; background: linear-gradient(135deg, #F47A20 0%, #D46904 100%); color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer;">Submit Application</button>
             </form>
         </div>
     </div>
-    
-    <script>
-    function openApplyPopup() {
-        document.getElementById('applyPopup').style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeApplyPopup() {
-        document.getElementById('applyPopup').style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
-    
-    // Close popup on outside click
-    document.addEventListener('click', function(e) {
-        const popup = document.getElementById('applyPopup');
-        if (e.target === popup) {
-            closeApplyPopup();
-        }
-    });
-    </script>
 
 </body>
 </html>

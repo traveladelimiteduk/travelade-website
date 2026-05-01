@@ -113,6 +113,76 @@
             justify-content: space-between;
             align-items: center;
         }
+        
+        /* Desktop Menu - Center */
+        .desktop-menu {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .desktop-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        
+        .desktop-menu a:hover {
+            color: #1E5FA8;
+        }
+        
+        .desktop-menu a.active-page {
+            color: #000000;
+            background: #f0f0f0;
+        }
+        
+        /* Right side: Apply Now + Mobile Toggle */
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .navbar-apply-btn {
+            background: #FFD700;
+            color: #1E5FA8;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            transition: all 0.3s;
+        }
+        
+        .navbar-apply-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* Mobile Toggle - Hidden on Desktop */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            flex-direction: column;
+            gap: 4px;
+        }
+        
+        .mobile-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: #1E5FA8;
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
 
         .logo {
             display: flex;
@@ -159,10 +229,6 @@
             text-transform: uppercase;
             font-weight: 600;
             margin-top: 3px;
-        }
-        
-        .navbar-apply-btn {
-            display: none;
         }
         
         .nav-links {
@@ -272,7 +338,7 @@
             display: flex;
             align-items: center;
             overflow: hidden;
-            padding-top: 70px;
+            padding-top: 80px;
         }
         
         .hero-bg-slider {
@@ -319,6 +385,10 @@
         .hero-content {
             position: relative;
             z-index: 2;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 50px;
+            align-items: center;
         }
         
         .hero-left h1 {
@@ -404,33 +474,6 @@
             border: 2px solid rgba(255,255,255,0.3);
         }
         
-        .hero-stats {
-            display: flex;
-            gap: 35px;
-            padding-top: 28px;
-            border-top: 2px solid rgba(255,255,255,0.2);
-        }
-        
-        .stat-item {
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-family: 'Inter', sans-serif;
-            font-size: 38px;
-            font-weight: 800;
-            color: white;
-        }
-        
-        .stat-label {
-            font-size: 11px;
-            color: rgba(255,255,255,0.8);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 2px;
-            font-weight: 600;
-        }
-        
         .hero-form-card {
             background: white;
             border-radius: 16px;
@@ -478,19 +521,7 @@
             transition: all 0.3s;
         }
         
-        .hero-form-card h3 {
-            color: #1E5FA8;
-            font-size: 22px;
-            margin-bottom: 5px;
-            font-weight: 700;
-        }
-        
-        .hero-form-card p {
-            color: #666;
-            font-size: 13px;
-            margin-bottom: 20px;
-        }
-        
+        /* Mobile Responsive */
         @media (max-width: 1024px) {
             .hero-content {
                 flex-direction: column;
@@ -543,354 +574,190 @@
                 height: 100%;
             }
             
-            .navbar-apply-btn {
+            /* Hide desktop menu on mobile */
+            .desktop-menu {
+                display: none !important;
+            }
+            
+            /* Show mobile toggle */
+            .mobile-toggle {
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                padding: 8px;
+                background: none;
+                border: none;
+                cursor: pointer;
+                order: 3;
+            }
+            
+            .mobile-toggle span {
                 display: block;
-                background: #FFD700;
-                color: #1E5FA8;
-                padding: 8px 16px;
-                border-radius: 20px;
-                font-size: 12px;
-                font-weight: 700;
-                text-decoration: none;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+                width: 25px;
+                height: 3px;
+                background: #1E5FA8;
+                margin: 3px 0;
+                border-radius: 2px;
+            }
+            
+            /* Mobile Apply Now button */
+            .navbar-apply-btn {
                 order: 2;
                 margin-right: 10px;
+                background: #FFD700 !important;
+                color: #1E5FA8 !important;
+                padding: 8px 16px !important;
+                border-radius: 20px !important;
+                font-size: 12px !important;
+                font-weight: 700 !important;
+                text-decoration: none !important;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.15) !important;
             }
             
-            .mobile-toggle {
-                order: 3;
-            }
-        }
-            
-            .navbar .logo {
-                display: flex;
-                align-items: center;
-                gap: 0;
+            .hero-left {
+                order: 1;
+                max-width: 100%;
+                padding: 0 10px;
+                margin-top: 20px;
             }
             
-            .navbar .logo-img {
-                height: 60px;
-                width: auto;
-            }
-            
-            .navbar .logo {
-                height: 70px;
-                overflow: visible;
-                cursor: pointer;
-            }
-            
-            .navbar .logo-text-group {
-                display: none;
-            }
-            
-            .nav-content {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-            
-            .navbar-apply-btn {
-                display: block;
-                background: #FFD700;
-                color: #1E5FA8;
-                padding: 8px 16px;
-                border-radius: 20px;
-                font-size: 12px;
-                font-weight: 700;
-                text-decoration: none;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            .hero-form-card {
                 order: 2;
+                margin: 0 auto 30px;
+                width: 100%;
+                max-width: 350px;
+                padding: 25px 20px;
+                border-radius: 12px;
             }
             
-            .mobile-toggle {
-                order: 3;
+            .hero-stats {
+                justify-content: center;
+                gap: 15px;
+                padding-top: 15px;
+                margin-bottom: 12px;
+            }
+            
+            .stat-number {
+                font-size: 32px;
+            }
+            
+            .stat-label {
+                font-size: 10px;
             }
         }
-        }
 
-        .hero::before {
-            content: '';
-            position: absolute;
+        /* Mobile Menu Slide-out */
+        .nav-links {
+            position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 50%, rgba(255, 163, 77, 0.5) 0%, transparent 50%);
+            width: 280px;
+            height: 100vh;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+            box-shadow: 4px 0 20px rgba(0,0,0,0.1);
         }
 
-        .hero-bg-elements {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            overflow: hidden;
-            pointer-events: none;
+        .nav-links.active {
+            transform: translateX(0);
         }
 
-.bg-plane {
-            position: absolute;
-            font-size: 80px;
-            color: rgba(255, 136, 0, 0.1);
-            animation: floatPlane 15s ease-in-out infinite;
-        }
-
-        .bg-globe {
-            position: absolute;
-            font-size: 400px;
-            color: rgba(255, 255, 255, 0.05);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation: rotateSlow 60s linear infinite;
-        }
-
-        .bg-dots {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-            background-size: 40px 40px;
-        }
-
-        .bg-plane:nth-child(1) {
-            top: 15%;
-            right: 5%;
-            animation-delay: 0s;
-        }
-
-        .bg-plane:nth-child(2) {
-            bottom: 20%;
-            left: 3%;
-            font-size: 50px;
-            animation-delay: -5s;
-            color: rgba(255, 136, 0, 0.1);
-        }
-
-        .bg-globe {
-            position: absolute;
-            font-size: 400px;
-            color: rgba(255, 255, 255, 0.08);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation: rotateSlow 60s linear infinite;
-        }
-
-        .bg-dots {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
-            background-size: 40px 40px;
-        }
-
-        @keyframes floatPlane {
-            0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); }
-            25% { transform: translateY(-20px) translateX(10px) rotate(3deg); }
-            50% { transform: translateY(-10px) translateX(20px) rotate(-2deg); }
-            75% { transform: translateY(-30px) translateX(5px) rotate(2deg); }
-        }
-
-        @keyframes rotateSlow {
-            from { transform: translate(-50%, -50%) rotate(0deg); }
-            to { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 50px;
+        .nav-links .nav-menu-header {
+            display: flex;
+            justify-content: space-between;
             align-items: center;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, #1E5FA8 0%, #154A84 100%);
         }
 
-        .hero-left {
-            animation: slideInLeft 1s ease-out;
+        .nav-links .nav-menu-header img {
+            height: 40px;
         }
 
-        @keyframes slideInLeft {
-            from { opacity: 0; transform: translateX(-50px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        .hero-left h1 {
-            font-size: 42px;
-            line-height: 1.1;
-            color: white;
-            margin-bottom: 20px;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-        }
-
-        .hero-left h1 span {
-            color: white;
-        }
-
-        .hero-heading-orange {
-            color: white !important;
-        }
-
-        .hero-left p {
-            font-size: 15px;
-            color: rgba(255,255,255,0.9);
-            margin-bottom: 28px;
-            line-height: 1.8;
-            animation: fadeInUp 0.8s ease-out 0.4s both;
-            font-weight: 500;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 14px;
-            margin-bottom: 40px;
-            animation: fadeInUp 0.8s ease-out 0.6s both;
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 35px;
-            padding-top: 28px;
-            border-top: 2px solid rgba(255,255,255,0.2);
-            animation: fadeInUp 0.8s ease-out 0.8s both;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-family: 'Inter', sans-serif;
-            font-size: 38px;
-            font-weight: 800;
-            color: white;
-        }
-
-        .stat-label {
-            font-size: 11px;
-            color: rgba(255,255,255,0.8);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 2px;
-            font-weight: 600;
-        }
-
-        .hero-right {
-            position: relative;
-            animation: slideInRight 1s ease-out 0.3s both;
-        }
-
-        @keyframes slideInRight {
-            from { opacity: 0; transform: translateX(50px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        .hero-form {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(30px);
-            border: 2px solid rgba(255,255,255,0.1);
-            border-radius: 24px;
-            padding: 32px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-        }
-
-        .hero-form::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -30%;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-        }
-
-        .hero-form h4 {
-            color: white;
-            font-size: 16px;
-            margin-bottom: 16px;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-        }
-
-        .hero-form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-bottom: 12px;
-        }
-
-        .hero-form input,
-        .hero-form select {
-            width: 100%;
-            padding: 14px 16px;
-            border: 2px solid rgba(255,255,255,0.3);
-            border-radius: 12px;
-            background: rgba(255,255,255,0.15);
-            color: white;
-            font-size: 14px;
-            backdrop-filter: blur(10px);
-        }
-
-        .hero-form input::placeholder {
-            color: rgba(255,255,255,0.6);
-        }
-
-        .hero-form select option {
-            background: #222;
-            color: white;
-        }
-
-        .hero-form .btn {
-            width: 100%;
-            justify-content: center;
-            margin-top: 10px;
-            background: var(--orange);
-            color: white;
-            padding: 16px;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 15px;
+        .nav-links .mobile-close {
+            background: none;
             border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 5px;
         }
 
-        .hero-form .btn:hover {
-            background: var(--orange-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(230, 92, 0, 0.4);
-        }
-
-        /* Trust Bar */
-        .trust-bar {
-            background: #000000;
-            padding: 16px 0;
-            border-bottom: 1px solid #333;
-        }
-
-        .trust-items {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-
-        .trust-item {
+        .nav-links a:not(.whatsapp-btn) {
+            color: #333;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 12px 20px;
+            text-decoration: none;
+            transition: all 0.2s;
+            border-bottom: 1px solid #f0f0f0;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 12px;
+        }
+
+        .nav-links a i {
+            color: var(--primary-blue);
+            width: 20px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .nav-links a:not(.whatsapp-btn):hover {
+            background: #f8f9fa;
+            color: var(--primary-blue);
+            padding-left: 25px;
+        }
+
+        .nav-links .whatsapp-btn {
+            margin: 15px 20px;
+            padding: 12px 20px;
+            background: #25D366;
             color: white;
-            font-weight: 500;
-            font-size: 13px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            border: none;
+            display: block;
         }
 
-        .trust-item i {
-            color: var(--orange);
+        .nav-links .whatsapp-btn:hover {
+            background: #128C7E;
         }
 
-        /* Section Styles */
+        .nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 998;
+        }
+
+        .nav-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Rest of your CSS from backup file... */
+        /* Services Section */
+        .services {
+            background: linear-gradient(135deg, #1a3a5c 0%, #0d2840 50%, #1a3a5c 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 60px 0;
+        }
+
         .section {
             padding: 60px 0;
             position: relative;
@@ -915,14 +782,6 @@
             margin-bottom: 14px;
         }
 
-        .section-label::before,
-        .section-label::after {
-            content: '';
-            width: 30px;
-            height: 2px;
-            background: var(--orange);
-        }
-
         .section-title {
             font-size: 38px;
             margin-bottom: 16px;
@@ -935,43 +794,10 @@
             color: rgba(255, 255, 255, 0.8);
         }
 
-        .section-label {
-            color: #FF8800 !important;
-        }
-
-        .section-label::before,
-        .section-label::after {
-            background: #FF8800 !important;
-        }
-
-/* Services Section */
-        .services {
-            background: linear-gradient(135deg, #1a3a5c 0%, #0d2840 50%, #1a3a5c 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .services::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 40%),
-                radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.08) 0%, transparent 30%);
-            pointer-events: none;
-        }
-
-        .services::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.5), transparent);
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 16px;
         }
 
         .service-card {
@@ -1014,180 +840,6 @@
             font-size: 12px;
             font-weight: 500;
             margin-bottom: 0;
-        }
-
-.services-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 16px;
-        }
-
-        @media (max-width: 992px) {
-            .services-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        @media (max-width: 576px) {
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        .service-card {
-            background: #ffffff;
-            border: 1px solid #ddd;
-            border-radius: 12px;
-            padding: 16px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .service-card:hover {
-            border-color: #1E5FA8;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(30, 95, 168, 0.15);
-        }
-
-        .service-icon {
-            width: 50px;
-            height: 50px;
-            background: #1E5FA8;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 12px;
-            color: white;
-            font-size: 20px;
-        }
-
-        .service-card h3 {
-            color: #000;
-            font-size: 14px;
-            font-weight: 700;
-            margin-bottom: 6px;
-        }
-
-        .service-card p {
-            color: #333;
-            font-size: 12px;
-            font-weight: 500;
-            margin-bottom: 0;
-        }
-
-        .service-features {
-            list-style: none;
-            text-align: left;
-        }
-
-        .service-features li {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: #000;
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-
-        .service-features li i {
-            color: #1E5FA8;
-            font-size: 14px;
-        }
-
-        .service-card {
-            background: #1a1a1a;
-            border-radius: 24px;
-            padding: 36px 28px;
-            transition: all 0.4s ease;
-            border: 1px solid #333;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card:hover {
-            border-color: var(--orange);
-            transform: translateY(-5px);
-        }
-
-        .service-card h3 {
-            color: white;
-        }
-
-        .service-card p {
-            color: #aaa;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gradient-orange);
-            transform: scaleX(0);
-            transition: transform 0.4s;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
-            border-color: rgba(230, 92, 0, 0.2);
-        }
-
-        .service-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .service-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
-            border-radius: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 22px;
-            color: white;
-            font-size: 28px;
-        }
-
-        .service-card:nth-child(2) .service-icon {
-            background: var(--gradient-orange);
-        }
-
-        .service-card:nth-child(3) .service-icon {
-            background: linear-gradient(135deg, #059669, #10b981);
-        }
-
-        .service-card h3 {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-
-        .service-card p {
-            color: var(--gray-500);
-            margin-bottom: 18px;
-            font-size: 13px;
-        }
-
-        .service-features {
-            list-style: none;
-        }
-
-        .service-features li {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--gray-700);
-            font-size: 13px;
-            margin-bottom: 8px;
-        }
-
-        .service-features li i {
-            color: var(--orange);
         }
 
         /* Process Section */
@@ -1267,44 +919,7 @@
             overflow: hidden;
             border-top: 1px solid #222;
             border-bottom: 1px solid #222;
-        }
-
-        .country-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .country-card:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-color: #1E5FA8;
-        }
-
-        .country-name {
-            color: white;
-            font-weight: 600;
-        }
-
-        .countries::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 60%;
-            height: 200%;
-            background: radial-gradient(ellipse, rgba(244, 122, 32, 0.2) 0%, transparent 60%);
-        }
-
-        .countries .section-label {
-            color: var(--orange);
-        }
-
-        .countries .section-title {
-            color: white;
-        }
-
-        .countries .section-desc {
-            color: rgba(255,255,255,0.7);
+            padding: 60px 0;
         }
 
         .countries-grid {
@@ -1337,6 +952,7 @@
         .country-name {
             font-size: 13px;
             font-weight: 600;
+            color: white;
         }
 
         .country-type {
@@ -1346,74 +962,11 @@
             letter-spacing: 1px;
         }
 
-        /* Landmarks Grid */
-        .landmarks-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-        .landmark-card {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            height: 250px;
-            cursor: pointer;
-        }
-
-        .landmark-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-
-        .landmark-card:hover img {
-            transform: scale(1.1);
-        }
-
-        .landmark-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 20px;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
-            color: white;
-        }
-
-        .landmark-overlay h4 {
-            color: white;
-            font-size: 16px;
-            margin-bottom: 4px;
-        }
-
-        .landmark-overlay span {
-            font-size: 12px;
-            color: var(--orange);
-        }
-
         /* Reviews Section */
         .reviews {
             background: #000000;
             overflow: hidden;
-        }
-
-        .review-card {
-            background: #1a1a1a;
-        }
-
-        .review-text {
-            color: #ccc;
-        }
-
-        .review-meta h5 {
-            color: white;
-        }
-
-        .google-badge {
-            background: #222;
-            color: white;
+            padding: 60px 0;
         }
 
         .reviews-header {
@@ -1458,6 +1011,7 @@
 
         .reviews-slider {
             position: relative;
+            overflow: hidden;
         }
 
         .reviews-track {
@@ -1477,15 +1031,10 @@
 
         .review-card {
             flex: 0 0 380px;
-            background: var(--gray-100);
+            background: #1a1a1a;
             border-radius: 20px;
             padding: 28px;
             position: relative;
-        }
-
-        .review-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
         }
 
         .review-quote {
@@ -1506,7 +1055,7 @@
 
         .review-text {
             font-size: 14px;
-            color: var(--gray-700);
+            color: #ccc;
             line-height: 1.7;
             margin-bottom: 20px;
             font-style: italic;
@@ -1534,7 +1083,7 @@
         .review-meta h5 {
             font-size: 14px;
             font-weight: 600;
-            color: var(--primary-blue);
+            color: white;
             font-family: 'Inter', sans-serif;
         }
 
@@ -1588,6 +1137,7 @@
             color: white;
             position: relative;
             overflow: hidden;
+            padding: 60px 0;
         }
 
         .pricing::before {
@@ -1602,23 +1152,6 @@
                 radial-gradient(circle at 70% 50%, rgba(30, 95, 168, 0.2) 0%, transparent 50%);
         }
 
-        .pricing .section-header {
-            position: relative;
-            z-index: 1;
-        }
-
-        .pricing .section-label {
-            color: var(--orange);
-        }
-
-        .pricing .section-title {
-            color: white;
-        }
-
-        .pricing .section-desc {
-            color: rgba(255,255,255,0.7);
-        }
-
         .pricing-cards {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -1627,7 +1160,7 @@
             z-index: 1;
         }
 
-.pricing-card {
+        .pricing-card {
             background: #ffffff;
             border: 1px solid #ddd;
             border-radius: 12px;
@@ -1640,11 +1173,6 @@
             transform: translateY(-5px);
             border-color: #1E5FA8;
             box-shadow: 0 10px 30px rgba(30, 95, 168, 0.2);
-        }
-
-        .pricing-card:hover .btn {
-            background: #000000 !important;
-            color: white !important;
         }
 
         .pricing-card h3 {
@@ -1661,14 +1189,20 @@
             margin: 10px 0;
         }
 
+        .pricing-card .price span {
+            font-size: 13px;
+            color: #666;
+            font-weight: 400;
+        }
+
         .pricing-card .desc {
-            color: #000;
+            color: #333;
             margin-bottom: 12px;
             font-size: 13px;
             font-weight: 700;
         }
 
-.pricing-features {
+        .pricing-features {
             list-style: none;
             text-align: left;
             margin-bottom: 8px;
@@ -1690,33 +1224,15 @@
             font-size: 11px;
         }
 
-        .pricing-features li {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            padding: 4px 0;
-            border-bottom: 1px solid #eee;
-            font-size: 11px;
-            color: #000000 !important;
-            font-weight: 600;
-        }
-
-        .pricing-features li i {
-            color: #000000 !important;
-            font-size: 10px;
-        }
-
         .pricing-card:hover {
+            border-color: var(--orange);
             transform: translateY(-5px);
-            border-color: #1E5FA8;
-            box-shadow: 0 10px 30px rgba(30, 95, 168, 0.2);
         }
 
         .pricing-card h3 {
-            color: #000;
-            font-size: 20px;
-            margin-bottom: 6px;
-            font-family: 'Inter', sans-serif;
+            color: white;
+            font-size: 18px;
+            margin-bottom: 10px;
         }
 
         .pricing-card .price {
@@ -1728,12 +1244,12 @@
 
         .pricing-card .price span {
             font-size: 13px;
-            color: #666;
+            color: rgba(255,255,255,0.6);
             font-weight: 400;
         }
 
         .pricing-card .desc {
-            color: #333;
+            color: rgba(255,255,255,0.7);
             margin-bottom: 16px;
             font-size: 13px;
         }
@@ -1747,7 +1263,7 @@
         .pricing-features li {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 8px;
             padding: 12px 0;
             border-bottom: 1px solid #eee;
             font-size: 15px;
@@ -1760,74 +1276,10 @@
             font-size: 16px;
         }
 
-        .service-features li i {
-            color: #000000;
-            font-size: 16px;
-        }
-
-        .pricing-card.featured {
-            background: #1a1a1a;
-            border: 2px solid #1E5FA8;
-            transform: scale(1.02);
-            position: relative;
-        }
-
-        .pricing-card.featured::before {
-            display: none;
-        }
-
-        .pricing-card:hover,
-        .pricing-card.featured:hover {
-            transform: translateY(-5px);
-            border-color: #1E5FA8;
-        }
-
-        .pricing-card h3 {
-            color: white;
-            font-size: 20px;
-            margin-bottom: 6px;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .pricing-card .price {
-            font-size: 48px;
-            font-weight: 800;
-            color: #1E5FA8;
-            margin: 18px 0;
-        }
-
-        .pricing-card .price span {
-            font-size: 13px;
-            color: rgba(255,255,255,0.6);
-            font-weight: 400;
-        }
-
-        .pricing-card:hover .price span {
-            color: #1E5FA8;
-        }
-
-        .pricing-card .desc {
-            color: rgba(255,255,255,0.7);
-            margin-bottom: 22px;
-            font-size: 13px;
-        }
-
         /* Timeline Section */
         .timeline {
             background: #000000;
-        }
-
-        .timeline-body {
-            background: #1a1a1a;
-            color: white;
-        }
-
-        .timeline-body h4 {
-            color: white;
-        }
-
-        .timeline-body p {
-            color: #aaa;
+            padding: 60px 0;
         }
 
         .timeline-content {
@@ -1876,13 +1328,9 @@
             transform: scale(1.1);
         }
 
-        .timeline-item:nth-child(even) .timeline-marker {
-            background: var(--gradient-blue);
-        }
-
         .timeline-body {
             flex: 1;
-            background: white;
+            background: #1a1a1a;
             padding: 22px;
             border-radius: 16px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
@@ -1894,13 +1342,14 @@
         }
 
         .timeline-body h4 {
+            color: white;
             font-size: 16px;
             margin-bottom: 6px;
             font-family: 'Inter', sans-serif;
         }
 
         .timeline-body p {
-            color: var(--gray-500);
+            color: #aaa;
             font-size: 13px;
         }
 
@@ -1918,7 +1367,7 @@
         /* Refund Section */
         .refund-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 24px;
         }
 
@@ -1928,14 +1377,6 @@
             padding: 28px;
             border-left: 4px solid var(--orange);
             transition: transform 0.3s;
-        }
-
-        .refund-card h4 {
-            color: white;
-        }
-
-        .refund-card ul li {
-            color: #aaa;
         }
 
         .refund-card:hover {
@@ -1957,10 +1398,7 @@
             font-size: 15px;
             margin-bottom: 18px;
             font-family: 'Inter', sans-serif;
-        }
-
-        .refund-card h4 i {
-            font-size: 18px;
+            color: white;
         }
 
         .refund-card h4 i.fa-check-circle {
@@ -1969,10 +1407,6 @@
 
         .refund-card h4 i.fa-times-circle {
             color: #ef4444;
-        }
-
-        .refund-card h4 i.fa-clock {
-            color: var(--orange);
         }
 
         .refund-card ul {
@@ -1985,20 +1419,7 @@
             gap: 8px;
             margin-bottom: 10px;
             font-size: 13px;
-            color: var(--gray-700);
-        }
-
-        .refund-card.positive ul li i {
-            color: #10b981;
-        }
-
-        .refund-card.negative ul li i {
-            color: #ef4444;
-        }
-
-        .refund-card ul li i.fa-check,
-        .refund-card ul li i.fa-minus {
-            color: var(--orange);
+            color: #aaa;
         }
 
         /* CTA Section */
@@ -2019,6 +1440,11 @@
             height: 200%;
             background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 50%);
             animation: rotateSlow 20s linear infinite;
+        }
+
+        @keyframes rotateSlow {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
         }
 
         .cta h2 {
@@ -2068,10 +1494,7 @@
             position: relative;
             overflow: hidden;
             scroll-margin-top: 0;
-        }
-
-        html {
-            scroll-padding-top: 0;
+            padding: 60px 0;
         }
 
         .contact-grid {
@@ -2376,46 +1799,6 @@
                 radial-gradient(circle at 80% 50%, rgba(255, 163, 77, 0.5) 0%, transparent 50%);
         }
 
-        .urgent-cta-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        .urgent-globe {
-            position: absolute;
-            font-size: 500px;
-            color: rgba(255, 255, 255, 0.12);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation: rotateGlobe 40s linear infinite;
-        }
-
-        @keyframes rotateGlobe {
-            from { transform: translate(-50%, -50%) rotate(0deg); }
-            to { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-
-        .urgent-plane {
-            position: absolute;
-            font-size: 50px;
-            color: rgba(255, 255, 255, 0.5);
-            animation: flyAround 15s linear infinite;
-        }
-
-        @keyframes flyAround {
-            0% { top: 50%; left: 10%; transform: translate(-50%, -50%) rotate(0deg); }
-            25% { top: 30%; left: 50%; transform: translate(-50%, -50%) rotate(90deg); }
-            50% { top: 50%; left: 90%; transform: translate(-50%, -50%) rotate(180deg); }
-            75% { top: 70%; left: 50%; transform: translate(-50%, -50%) rotate(270deg); }
-            100% { top: 50%; left: 10%; transform: translate(-50%, -50%) rotate(360deg); }
-        }
-
         .urgent-content {
             position: relative;
             z-index: 1;
@@ -2611,14 +1994,10 @@
             background: #f8f9fa;
         }
 
-        .modal-flag svg, .modal-flag img {
-            width: 100%;
-            height: 100%;
-        }
-
         .modal-header h3 {
             font-size: 24px;
             margin-bottom: 8px;
+            color: #000;
         }
 
         .modal-header p {
@@ -2802,16 +2181,26 @@
                 min-width: 200px;
             }
 
-            .process-steps::before {
-                display: none;
-            }
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 48px;
+            left: 10%;
+            right: 10%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--orange), var(--primary-blue), var(--orange));
+            z-index: 0;
+            border-radius: 2px;
+            animation: lineFlow 3s ease-in-out infinite;
+        }
+        
+        @keyframes lineFlow {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
 
             .countries-grid {
                 grid-template-columns: repeat(4, 1fr);
-            }
-
-            .landmarks-grid {
-                grid-template-columns: repeat(2, 1fr);
             }
 
             .pricing-cards {
@@ -2830,19 +2219,12 @@
         }
 
         @media (max-width: 768px) {
-            /* Hero Section */
             .hero-content {
                 flex-direction: column;
                 text-align: center;
                 padding: 20px 15px;
                 gap: 30px;
                 align-items: center;
-            }
-            
-            .hero-left {
-                order: 1;
-                max-width: 100%;
-                padding: 0 10px;
             }
             
             .hero-left h1 {
@@ -2893,202 +2275,6 @@
                 padding: 12px 20px;
             }
             
-            .hero-form-card {
-                order: 2;
-                margin: 0 auto 30px;
-                width: 100%;
-                max-width: 350px;
-                padding: 25px 20px;
-                border-radius: 12px;
-            }
-            
-            .hero-form-card h3 {
-                font-size: 20px;
-            }
-            
-            .hero-form-card > p {
-                font-size: 12px;
-                margin-bottom: 15px;
-            }
-            
-            .hero-form-card input,
-            .hero-form-card select {
-                padding: 10px 12px;
-                font-size: 13px;
-                margin-bottom: 10px;
-            }
-            
-            .hero-form-card button {
-                padding: 12px;
-                font-size: 14px;
-            }
-            
-            /* Navigation */
-            .navbar .logo-text-group {
-                display: none;
-            }
-            
-            .mobile-apply-btn {
-                display: block;
-                background: white;
-                color: #1E5FA8;
-                padding: 8px 16px;
-                border-radius: 20px;
-                font-size: 12px;
-                font-weight: 700;
-                text-decoration: none;
-                margin-right: 15px;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-            }
-
-            .mobile-toggle {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-                padding: 8px;
-                z-index: 1001;
-                background: none;
-                border: none;
-                cursor: pointer;
-            }
-
-            .mobile-toggle span {
-                display: block;
-                width: 25px;
-                height: 3px;
-                background: var(--primary-blue);
-                margin: 3px 0;
-                border-radius: 2px;
-                transition: all 0.3s;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 280px;
-                height: 100vh;
-                background: white;
-                display: flex;
-                flex-direction: column;
-                padding: 0;
-                transform: translateX(-100%);
-                transition: transform 0.3s ease;
-                z-index: 1000;
-                box-shadow: 4px 0 20px rgba(0,0,0,0.1);
-            }
-
-            .nav-links.active {
-                transform: translateX(0);
-            }
-
-            .nav-links .nav-menu-header {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 15px 20px;
-                background: linear-gradient(135deg, #1E5FA8 0%, #154A84 100%);
-            }
-
-            .nav-links .nav-menu-header img {
-                height: 40px;
-            }
-
-            .nav-links .mobile-close {
-                background: none;
-                border: none;
-                color: white;
-                font-size: 24px;
-                cursor: pointer;
-                padding: 5px;
-            }
-
-            .nav-links a:not(.whatsapp-btn) {
-                color: #333;
-                font-size: 14px;
-                font-weight: 500;
-                padding: 12px 20px;
-                text-decoration: none;
-                transition: all 0.2s;
-                border-bottom: 1px solid #f0f0f0;
-                display: flex;
-                align-items: center;
-                gap: 12px;
-            }
-
-            .nav-links a i {
-                color: var(--primary-blue);
-                width: 20px;
-                text-align: center;
-                font-size: 16px;
-            }
-
-            .nav-links a:not(.whatsapp-btn):hover {
-                background: #f8f9fa;
-                color: var(--primary-blue);
-                padding-left: 25px;
-            }
-
-            .nav-links .whatsapp-btn {
-                margin: 15px 20px;
-                padding: 12px 20px;
-                background: #25D366;
-                color: white;
-                border-radius: 8px;
-                text-align: center;
-                font-weight: 600;
-                border: none;
-                display: block;
-            }
-
-            .nav-links .whatsapp-btn:hover {
-                background: #128C7E;
-            }
-
-            .nav-overlay {
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: rgba(0,0,0,0.5);
-                opacity: 0;
-                visibility: hidden;
-                transition: all 0.3s;
-                z-index: 998;
-            }
-
-            .nav-overlay.active {
-                opacity: 1;
-                visibility: visible;
-            }
-
-            .navbar {
-                z-index: 999;
-            }
-
-            .hero-left h1 {
-                font-size: 32px;
-            }
-
-            .hero-stats {
-                flex-wrap: wrap;
-                gap: 16px;
-            }
-
-            .stat-item {
-                flex: 1 1 70px;
-            }
-
-            .stat-number {
-                font-size: 28px;
-            }
-
-            .section-title {
-                font-size: 26px;
-            }
-
             .services-grid,
             .documents-grid,
             .refund-grid {
@@ -3097,10 +2283,6 @@
 
             .countries-grid {
                 grid-template-columns: repeat(3, 1fr);
-            }
-
-            .landmarks-grid {
-                grid-template-columns: 1fr;
             }
 
             .reviews-slider,
@@ -3164,34 +2346,6 @@
                 font-size: 22px;
             }
 
-            .urgent-content {
-                position: relative;
-                z-index: 999;
-            }
-
-            .urgent-badge {
-                font-size: 10px;
-                padding: 6px 12px;
-                margin-bottom: 12px;
-            }
-
-            .navbar {
-                z-index: 998;
-            }
-
-            .whatsapp-float,
-            .start-app-float {
-                z-index: 999;
-            }
-
-            .urgent-cta {
-                padding-top: 85px;
-            }
-
-            .urgent-cta > .container > .urgent-content > p {
-                font-size: 14px;
-            }
-
             .urgency-features {
                 flex-direction: column;
                 gap: 12px;
@@ -3211,79 +2365,9 @@
                 justify-content: center;
             }
 
-            .urgent-globe {
-                font-size: 250px;
-            }
-
-            .bg-plane {
-                display: none;
-            }
-
-            .urgent-badge {
-                font-size: 10px;
-                padding: 6px 14px;
-            }
-
-            .urgent-content {
-                position: relative;
-                z-index: 2;
-            }
-
-            .bg-plane {
-                display: none;
-            }
-
-            .bg-globe {
-                display: block;
-                font-size: 250px;
-                opacity: 0.1;
-            }
-
-            .hero-form-row {
-                grid-template-columns: 1fr;
-            }
-
-            .blog-card {
-                flex: 0 0 320px;
-            }
-
-            .requirements-grid,
-            .documents-grid,
-            .refund-grid,
-            .pricing-cards,
-            .countries-grid {
-                grid-template-columns: 1fr !important;
-            }
-
-            .hero-content {
-                flex-direction: column;
-                text-align: center;
-                padding: 20px 15px;
-                gap: 30px;
-                align-items: center;
-            }
-            
-            .hero-left {
-                order: 1;
-                max-width: 100%;
-                padding: 0 10px;
-            }
-            
-            .hero-form-card {
-                order: 2;
-                margin: 0 auto 30px;
-                width: 100%;
-                max-width: 350px;
-                padding: 25px 20px;
-                border-radius: 12px;
-            }
-
-            .hero-cta {
-                justify-content: center;
-            }
-
-            .hero-stats {
-                justify-content: center;
+            .whatsapp-float,
+            .start-app-float {
+                z-index: 999;
             }
 
             .timeline-content {
@@ -3315,20 +2399,37 @@
 
     <nav class="navbar" id="navbar">
         <div class="container nav-content">
-            <button class="mobile-toggle" onclick="openMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <a href="#" class="logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
+            <!-- Left: Logo -->
+            <a href="index.html" class="logo">
                 <img src="logo-new.jpeg" alt="Travelade" class="logo-img">
-                <div class="logo-text-group">
-                    <div class="logo-text"><span>Travel</span><span class="logo-ade">ade</span></div>
-                    <div class="logo-tagline">Travel & Visa Consultancy</div>
-                </div>
             </a>
-            <a href="javascript:void(0)" onclick="openApplyPopup()" class="navbar-apply-btn">Apply Now</a>
+            
+            <!-- Center: Desktop Menu (hidden on mobile) -->
+            <div class="desktop-menu">
+                <a href="index.html" class="active-page">Home</a>
+                <a href="#services">Services</a>
+                <a href="#process">How It Works</a>
+                <a href="countries.html">Countries</a>
+                <a href="#pricing">Pricing</a>
+                <a href="faq.html">FAQ</a>
+                <a href="#reviews">Reviews</a>
+                <a href="#contact">Contact</a>
+            </div>
+            
+            <!-- Right: Apply Now + Mobile Toggle -->
+            <div class="nav-right">
+                <a href="javascript:void(0)" onclick="openApplyPopup()" class="navbar-apply-btn">Apply Now</a>
+                <button class="mobile-toggle" onclick="openMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu Overlay -->
             <div class="nav-overlay" id="navOverlay" onclick="closeMenu()"></div>
+            
+            <!-- Mobile Slide-out Menu -->
             <ul class="nav-links" id="navLinks">
                 <li class="nav-menu-header">
                     <img src="logo-new.jpeg" alt="Travelade">
@@ -3340,11 +2441,9 @@
                 <li><a href="#services" onclick="closeMenu()"><i class="fas fa-concierge-bell"></i> Services</a></li>
                 <li><a href="#process" onclick="closeMenu()"><i class="fas fa-list-ol"></i> How It Works</a></li>
                 <li><a href="countries.html" onclick="closeMenu()"><i class="fas fa-globe-europe"></i> Countries</a></li>
-                
                 <li><a href="#pricing" onclick="closeMenu()"><i class="fas fa-tag"></i> Pricing</a></li>
                 <li><a href="faq.html" onclick="closeMenu()"><i class="fas fa-question-circle"></i> FAQ</a></li>
                 <li><a href="#reviews" onclick="closeMenu()"><i class="fas fa-star"></i> Reviews</a></li>
-                
                 <li><a href="#contact" onclick="closeMenu()"><i class="fas fa-envelope"></i> Contact</a></li>
                 <li><a href="https://wa.me/447575378991" class="whatsapp-btn" onclick="closeMenu()">
                     <i class="fab fa-whatsapp"></i> WhatsApp Us
@@ -3353,7 +2452,6 @@
         </div>
     </nav>
 
-    
     <section class="hero">
         <div class="hero-bg-slider">
             <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=1920&h=1080&fit=crop');"></div>
@@ -3441,27 +2539,27 @@
     </section>
 
     <!-- Trust Bar -->
-    <section class="trust-bar">
+    <section class="trust-bar" style="background: #000000; padding: 16px 0; border-bottom: 1px solid #333;">
         <div class="container">
-            <div class="trust-items">
-                <div class="trust-item">
-                    <i class="fas fa-shield-alt"></i>
+            <div class="trust-items" style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
+                <div class="trust-item" style="display: flex; align-items: center; gap: 8px; color: white; font-weight: 500; font-size: 13px;">
+                    <i class="fas fa-shield-alt" style="color: var(--orange);"></i>
                     <span>UK Registered Company</span>
                 </div>
-                <div class="trust-item">
-                    <i class="fas fa-clock"></i>
+                <div class="trust-item" style="display: flex; align-items: center; gap: 8px; color: white; font-weight: 500; font-size: 13px;">
+                    <i class="fas fa-clock" style="color: var(--orange);"></i>
                     <span>Avg. Response: 20-30 mins</span>
                 </div>
-                <div class="trust-item">
-                    <i class="fas fa-user-check"></i>
+                <div class="trust-item" style="display: flex; align-items: center; gap: 8px; color: white; font-weight: 500; font-size: 13px;">
+                    <i class="fas fa-user-check" style="color: var(--orange);"></i>
                     <span>1-to-1 Case Handling</span>
                 </div>
-                <div class="trust-item">
-                    <i class="fas fa-file-check"></i>
+                <div class="trust-item" style="display: flex; align-items: center; gap: 8px; color: white; font-weight: 500; font-size: 13px;">
+                    <i class="fas fa-file-check" style="color: var(--orange);"></i>
                     <span>File Review Before Submission</span>
                 </div>
-                <div class="trust-item">
-                    <i class="fas fa-star"></i>
+                <div class="trust-item" style="display: flex; align-items: center; gap: 8px; color: white; font-weight: 500; font-size: 13px;">
+                    <i class="fas fa-star" style="color: var(--orange);"></i>
                     <span>Google Verified Reviews</span>
                 </div>
             </div>
@@ -3590,9 +2688,6 @@
             </div>
         </div>
     </section>
-            </div>
-        </div>
-    </section>
 
     <!-- Process Section -->
     <section class="section" id="process" style="background: #000000;">
@@ -3677,7 +2772,7 @@
             <div class="section-header reveal" style="color: white;">
                 <span class="section-label" style="color: rgba(255,255,255,0.8);">Why Travelade?</span>
                 <h2 class="section-title" style="color: white;">100% Professional Documentation</h2>
-                <p class="section-desc" style="color: rgba(255,255,255,0.9);">Every document is professionally prepared and meticulously checked to meet consulate standards.</p>
+                <p class="section-desc" style="color: rgba(255,255,255,0.7);">Every document is professionally prepared and meticulously checked to meet consulate standards.</p>
             </div>
             <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 40px; text-align: center;">
                 <div class="reveal">
@@ -3697,21 +2792,6 @@
                     <div style="font-size: 12px; color: rgba(255,255,255,0.8); margin-top: 8px; text-transform: uppercase; letter-spacing: 1px;">File Preparation</div>
                 </div>
             </div>
-            <style>
-            @media (max-width: 576px) {
-                .section[style*="linear-gradient"] > .container > div:nth-child(2) {
-                    display: grid !important;
-                    grid-template-columns: repeat(2, 1fr) !important;
-                    gap: 20px !important;
-                }
-                .section[style*="linear-gradient"] > .container > div:nth-child(2) > div div:first-child {
-                    font-size: 32px !important;
-                }
-                .section[style*="linear-gradient"] > .container > div:nth-child(2) > div div:last-child {
-                    font-size: 10px !important;
-                }
-            }
-            </style>
         </div>
     </section>
 
@@ -3965,42 +3045,9 @@
                         <button type="submit" class="btn btn-primary">
                             <i class="fas fa-paper-plane"></i> Send Inquiry
                         </button>
-        </form>
-    </div>
-</div>
-
-<script>
-// Hero Background Slider
-const heroSlides = document.querySelectorAll('.hero-slide');
-let currentHeroSlide = 0;
-
-function changeHeroSlide() {
-    heroSlides.forEach((slide, index) => {
-        slide.classList.remove('active');
-        if (index === currentHeroSlide) {
-            slide.classList.add('active');
-        }
-    });
-    
-    currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
-}
-
-// Initialize hero slider
-if (heroSlides.length > 0) {
-    heroSlides[0].classList.add('active');
-    setInterval(changeHeroSlide, 5000);
-}
-
-// Form focus effects
-document.querySelectorAll('.hero-form-card input, .hero-form-card select').forEach(element => {
-    element.addEventListener('focus', function() {
-        this.style.borderColor = '#1E5FA8';
-    });
-    element.addEventListener('blur', function() {
-        this.style.borderColor = '#ddd';
-    });
-});
-</script>
+                    </form>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -4042,7 +3089,6 @@ document.querySelectorAll('.hero-form-card input, .hero-form-card select').forEa
                     </div>
                     <p style="color: rgba(255,255,255,0.6); font-size: 12px; margin-top: 8px;"><i class="fas fa-clock" style="margin-right: 6px;"></i> Mon-Sat: 9:00 AM - 6:00 PM</p>
                 </div>
-                </div>
                 
                 <!-- Get in Touch -->
                 <div style="flex: 1.5; min-width: 250px;">
@@ -4062,91 +3108,180 @@ document.querySelectorAll('.hero-form-card input, .hero-form-card select').forEa
         </div>
     </footer>
 
-    <!-- Country Inquiry Modal -->
-    <div class="country-modal" id="countryModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button class="modal-close" onclick="closeModal()">&times;</button>
-                <div class="modal-flag" id="modalFlag"></div>
-                <h3 id="modalTitle">Start Your Visa Inquiry</h3>
-                <p>Send your inquiry for <span id="modalCountry">Schengen Visa</span> today!</p>
+    <!-- Package Selection Modal -->
+    <div id="packageModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; overflow-y: auto;">
+        <div style="background: white; max-width: 500px; margin: 50px auto; border-radius: 16px; padding: 30px; position: relative; font-family: Arial, sans-serif;">
+            <button onclick="closePackageModal()" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer; color: #333;">&times;</button>
+            <h2 style="color: #1E5FA8; margin-bottom: 5px; font-size: 24px;" id="modalPackageTitle">Book Your Package</h2>
+            <div id="packageDisplay" style="background: #e8f4fc; padding: 12px; border-radius: 8px; margin-bottom: 15px; text-align: center;">
+                <span id="displayPackage" style="font-size: 18px; font-weight: 700; color: #1E5FA8;"></span>
             </div>
-            <div class="modal-body">
-                <div class="modal-discount">
-                    <div class="old-price">£199</div>
-                    <div class="new-price">£165</div>
-                    <div class="label">Limited Time Offer</div>
-                </div>
-                <div class="modal-features">
-                    <h4>What We Offer:</h4>
-                    <ul>
-                        <li><i class="fas fa-check"></i> VFS appointment booked within 15 minutes</li>
-                        <li><i class="fas fa-check"></i> Application form filling & embassy submission</li>
-                        <li><i class="fas fa-check"></i> Complete document preparation & extra filing</li>
-                        <li><i class="fas fa-check"></i> Professional cover letter drafting</li>
-                        <li><i class="fas fa-check"></i> Day-wise itinerary planning</li>
-                        <li><i class="fas fa-check"></i> Hotel & travel booking proofs</li>
-                        <li><i class="fas fa-check"></i> 1-to-1 WhatsApp support</li>
-                    </ul>
-                </div>
-                <form class="modal-form" id="modalForm" action="https://formspree.io/f/mjgjgnqk" method="POST">
-                    <input type="hidden" name="_subject" value="New Visa Inquiry from Country Page">
-                    <input type="hidden" name="destination_country" id="modalCountryHidden">
-                    <div class="form-group">
-                        <label>Full Name</label>
-                        <input type="text" name="full_name" placeholder="Enter your full name" required>
+            <p style="color: #666; margin-bottom: 20px; font-size: 14px;">Fill in your details and we'll contact you shortly.</p>
+            
+            <form id="packageForm" action="https://formspree.io/f/mjgjgnqk" method="POST">
+                <input type="hidden" name="package" id="selectedPackage" value="">
+                <input type="hidden" name="price" id="selectedPrice" value="">
+                
+                <div style="display: grid; gap: 15px;">
+                    <div>
+                        <label style="display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 5px;">First Name *</label>
+                        <input type="text" name="firstname" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
                     </div>
-                    <div class="form-group">
-                        <label>Phone / WhatsApp</label>
-                        <input type="tel" name="phone" placeholder="0300..." required>
+                    
+                    <div>
+                        <label style="display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 5px;">Email Address *</label>
+                        <input type="email" name="email" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
                     </div>
-                    <div class="form-group">
-                        <label>Email Address</label>
-                        <input type="email" name="email" placeholder="your@email.com" required>
+                    
+                    <div>
+                        <label style="display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 5px;">Phone Number *</label>
+                        <input type="tel" name="phone" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
                     </div>
-                    <div class="form-group">
-                        <label>Travel Date</label>
-                        <input type="date" name="travel_date">
-                    </div>
-                    <div class="form-group">
-                        <label>Number of Applicants</label>
-                        <select name="applicants">
-                            <option value="1">Solo</option>
-                            <option value="2">Couple</option>
-                            <option value="3">Family (3-4)</option>
-                            <option value="5">Group (5+)</option>
+                    
+                    <div>
+                        <label style="display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 5px;">Nationality *</label>
+                        <select name="nationality" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
+                            <option value="">- Select Country -</option>
+                            <option value="UK">United Kingdom</option>
+                            <option value="Pakistan">Pakistan</option>
+                            <option value="India">India</option>
+                            <option value="Bangladesh">Bangladesh</option>
+                            <option value="Sri Lanka">Sri Lanka</option>
+                            <option value="Nigeria">Nigeria</option>
+                            <option value="Ghana">Ghana</option>
+                            <option value="Kenya">Kenya</option>
+                            <option value="Other">Other</option>
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label>Additional Notes</label>
-                        <textarea name="message" placeholder="Any special requirements or questions..."></textarea>
+                    
+                    <div>
+                        <label style="display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 5px;">Travel Date?</label>
+                        <input type="date" name="traveldate" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
                     </div>
-                    <button type="submit" class="modal-submit">
-                        <i class="fas fa-paper-plane"></i> Send Inquiry
-                    </button>
-                </form>
-            </div>
+                    
+                    <div>
+                        <label style="display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 5px;">Destination Country *</label>
+                        <select name="destination" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
+                            <option value="">- Select Country -</option>
+                            <option value="France">France</option>
+                            <option value="Germany">Germany</option>
+                            <option value="Italy">Italy</option>
+                            <option value="Spain">Spain</option>
+                            <option value="Netherlands">Netherlands</option>
+                            <option value="Switzerland">Switzerland</option>
+                            <option value="Austria">Austria</option>
+                            <option value="Belgium">Belgium</option>
+                            <option value="Greece">Greece</option>
+                            <option value="Portugal">Portugal</option>
+                            <option value="Other">Other Schengen</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label style="display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 5px;">Select VFS Location</label>
+                        <select name="vfslocation" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
+                            <option value="">- VFS Location -</option>
+                            <option value="London">London</option>
+                            <option value="Manchester">Manchester</option>
+                            <option value="Edinburgh">Edinburgh</option>
+                            <option value="Birmingham">Birmingham</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label style="display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 10px;">How would you like to proceed?</label>
+                        <div style="display: flex; gap: 15px;">
+                            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                                <input type="radio" name="payment" value="Pay Now" style="width: 18px; height: 18px;"> Pay Now
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                                <input type="radio" name="payment" value="Pay Later" checked style="width: 18px; height: 18px;"> Pay Later
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" id="bookBtn" style="background: #1E5FA8; color: white; border: none; padding: 16px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; width: 100%; margin-top: 10px;">Book Now</button>
+                </div>
+            </form>
         </div>
     </div>
-    
+
+    <!-- Apply Now Popup -->
+    <div id="applyPopup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 2000; align-items: center; justify-content: center;">
+        <div style="background: white; border-radius: 16px; padding: 30px; max-width: 450px; width: 90%; max-height: 90vh; overflow-y: auto; position: relative;">
+            <button onclick="closeApplyPopup()" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer; color: #666;">&times;</button>
+            <h3 style="color: #1E5FA8; margin-bottom: 20px; font-size: 22px;">Start Your Application</h3>
+            <form action="https://formsubmit.co/travelade.limited.co.uk" method="POST">
+                <input type="hidden" name="_subject" value="New Application - Travelade">
+                <input type="hidden" name="_next" value="https://travelade.co.uk/thank-you.html">
+                
+                <div style="margin-bottom: 12px;">
+                    <input type="text" name="name" placeholder="Full Name *" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
+                </div>
+                
+                <div style="margin-bottom: 12px;">
+                    <input type="email" name="email" placeholder="Email *" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
+                </div>
+                
+                <div style="margin-bottom: 12px;">
+                    <input type="tel" name="phone" placeholder="Phone: 07575 378991 *" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
+                </div>
+                
+                <div style="margin-bottom: 12px;">
+                    <select name="destination" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
+                        <option value="">Destination Country *</option>
+                        <option value="France">France</option>
+                        <option value="Germany">Germany</option>
+                        <option value="Italy">Italy</option>
+                        <option value="Spain">Spain</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <div style="margin-bottom: 15px;">
+                    <select name="applicants" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
+                        <option value="">Number of Applicants *</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3-4</option>
+                        <option value="5+">5+</option>
+                    </select>
+                </div>
+                
+                <button type="submit" style="background: #1E5FA8; color: white; border: none; padding: 14px; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; width: 100%;">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
     <!-- WhatsApp Float -->
     <div class="whatsapp-float">
         <a href="https://wa.me/447575378991?text=Hi%20Travelade%2C%20I%20want%20to%20start%20my%20Schengen%20visa%20application.%20Please%20assist." target="_blank">
             <i class="fab fa-whatsapp"></i>
         </a>
     </div>
-    
+
     <script>
-        // Logo click - scroll to top on mobile
-        document.querySelectorAll('.logo').forEach(logo => {
-            logo.addEventListener('click', function(e) {
-                if (window.innerWidth <= 768) {
-                    e.preventDefault();
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
+        // Hero Background Slider
+        const heroSlides = document.querySelectorAll('.hero-slide');
+        let currentHeroSlide = 0;
+
+        function changeHeroSlide() {
+            heroSlides.forEach((slide, index) => {
+                slide.classList.remove('active');
+                if (index === currentHeroSlide) {
+                    slide.classList.add('active');
                 }
             });
-        });
-        
+            
+            currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
+        }
+
+        // Initialize hero slider
+        if (heroSlides.length > 0) {
+            heroSlides[0].classList.add('active');
+            setInterval(changeHeroSlide, 5000);
+        }
+
         // Mobile Menu Functions
         function openMenu() {
             document.getElementById('navLinks').classList.add('active');
@@ -4158,34 +3293,6 @@ document.querySelectorAll('.hero-form-card input, .hero-form-card select').forEa
             document.getElementById('navLinks').classList.remove('active');
             document.getElementById('navOverlay').classList.remove('active');
             document.body.style.overflow = 'auto';
-        }
-
-        // Hero Form - Send to WhatsApp
-        function sendToWhatsApp() {
-            const name = document.getElementById('heroName').value || 'Not provided';
-            const email = document.getElementById('heroEmail').value || 'Not provided';
-            const country = document.getElementById('heroCountry').value || 'Not specified';
-            const phone = document.getElementById('heroPhone').value || 'Not provided';
-
-            const message = `Hello Travelade,
-
-My name is ${name}.
-
-I am looking to apply for a Schengen Visa to ${country}.
-
-My Contact Details:
-• Email: ${email}
-• Phone/WhatsApp: ${phone}
-
-I found your service online and I'm interested in your visa processing service with 99.7% approval rate.
-
-Please assist me in getting started.
-
-Thank you!`;
-
-            const encodedMessage = encodeURIComponent(message);
-            const whatsappUrl = `https://wa.me/447575378991?text=${encodedMessage}`;
-            window.open(whatsappUrl, '_blank');
         }
 
         // Close menu when clicking overlay
@@ -4214,51 +3321,48 @@ Thank you!`;
             }
         });
 
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                const target = document.getElementById(targetId);
-                if (target) {
-                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
+        // Logo click - scroll to top on mobile
+        document.querySelectorAll('.logo').forEach(logo => {
+            logo.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
                 }
             });
         });
 
         // Form submission to Formspree
-        document.getElementById('contactForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const form = e.target;
-            const btn = form.querySelector('button[type="submit"]');
-            const originalText = btn.innerHTML;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            btn.disabled = true;
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const form = e.target;
+                const btn = form.querySelector('button[type="submit"]');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                btn.disabled = true;
 
-            try {
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: new FormData(form),
-                    headers: { 'Accept': 'application/json' }
-                });
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: new FormData(form),
+                        headers: { 'Accept': 'application/json' }
+                    });
 
-                if (response.ok) {
-                    alert('Thank you for your inquiry! We will contact you within 20-30 minutes during office hours.');
-                    form.reset();
-                } else {
+                    if (response.ok) {
+                        alert('Thank you for your inquiry! We will contact you within 20-30 minutes during office hours.');
+                        form.reset();
+                    } else {
+                        alert('Something went wrong. Please try again or contact us directly.');
+                    }
+                } catch (error) {
                     alert('Something went wrong. Please try again or contact us directly.');
                 }
-            } catch (error) {
-                alert('Something went wrong. Please try again or contact us directly.');
-            }
 
-            btn.innerHTML = originalText;
-            btn.disabled = false;
-        });
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            });
+        }
 
         // Scroll reveal animation
         const revealElements = document.querySelectorAll('.reveal');
@@ -4276,255 +3380,40 @@ Thank you!`;
 
         revealElements.forEach(el => revealObserver.observe(el));
 
-        // Country Modal Functions
-        function openModal(country, cardElement) {
-            const modalFlag = document.getElementById('modalFlag');
-            const cardFlagSvg = cardElement.querySelector('.country-flag svg');
-            modalFlag.innerHTML = '';
-            if (cardFlagSvg) {
-                modalFlag.appendChild(cardFlagSvg.cloneNode(true));
-            }
-            document.getElementById('modalCountry').textContent = country;
-            document.getElementById('modalTitle').textContent = country + ' Visa Inquiry';
-            document.getElementById('countryModal').classList.add('active');
+        // Package Modal Functions
+        function openPackageModal(packageName, price) {
+            document.getElementById('selectedPackage').value = packageName;
+            document.getElementById('selectedPrice').value = price;
+            document.getElementById('modalPackageTitle').innerText = 'Book ' + packageName + ' - £' + price;
+            document.getElementById('displayPackage').innerText = packageName + ' - £' + price;
+            document.getElementById('bookBtn').innerText = 'Book £' + price;
+            document.getElementById('packageModal').style.display = 'block';
             document.body.style.overflow = 'hidden';
         }
 
-        function closeModal() {
-            document.getElementById('countryModal').classList.remove('active');
+        function closePackageModal() {
+            document.getElementById('packageModal').style.display = 'none';
             document.body.style.overflow = 'auto';
         }
 
-        // Close modal when clicking outside
-        document.getElementById('countryModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
+        // Apply Now Popup Functions
+        function openApplyPopup() {
+            document.getElementById('applyPopup').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeApplyPopup() {
+            document.getElementById('applyPopup').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close popup on outside click
+        document.addEventListener('click', function(e) {
+            const popup = document.getElementById('applyPopup');
+            if (e.target === popup) {
+                closeApplyPopup();
             }
-        });
-
-        // Modal Form submission to Formspree
-        document.getElementById('modalForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const form = e.target;
-            const country = document.getElementById('modalCountry').textContent;
-            document.getElementById('modalCountryHidden').value = country;
-            const btn = form.querySelector('button[type="submit"]');
-            const originalText = btn.innerHTML;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            btn.disabled = true;
-
-            try {
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: new FormData(form),
-                    headers: { 'Accept': 'application/json' }
-                });
-
-                if (response.ok) {
-                    alert('Thank you for your inquiry for ' + country + ' visa! We will contact you within 20-30 minutes during office hours.');
-                    form.reset();
-                    closeModal();
-                } else {
-                    alert('Something went wrong. Please try again or contact us directly.');
-                }
-            } catch (error) {
-                alert('Something went wrong. Please try again or contact us directly.');
-            }
-
-            btn.innerHTML = originalText;
-            btn.disabled = false;
         });
     </script>
 </body>
 </html>
-
-<!-- Package Selection Modal -->
-<div id="packageModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; overflow-y: auto;">
-    <div style="background: white; max-width: 500px; margin: 50px auto; border-radius: 16px; padding: 30px; position: relative; font-family: Arial, sans-serif;">
-        <button onclick="closePackageModal()" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer; color: #333;">&times;</button>
-        <h2 style="color: #1E5FA8; margin-bottom: 5px; font-size: 24px;" id="modalPackageTitle">Book Your Package</h2>
-        <div id="packageDisplay" style="background: #e8f4fc; padding: 12px; border-radius: 8px; margin-bottom: 15px; text-align: center;">
-            <span id="displayPackage" style="font-size: 18px; font-weight: 700; color: #1E5FA8;"></span>
-        </div>
-        <p style="color: #666; margin-bottom: 20px; font-size: 14px;">Fill in your details and we'll contact you shortly.</p>
-        
-        <form id="packageForm" action="https://formspree.io/f/mjgjgnqk" method="POST">
-            <input type="hidden" name="package" id="selectedPackage" value="">
-            <input type="hidden" name="price" id="selectedPrice" value="">
-            
-            <div style="display: grid; gap: 15px;">
-                <div>
-                    <label style="display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 5px;">First Name *</label>
-                    <input type="text" name="firstname" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
-                </div>
-                
-                <div>
-                    <label style="display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 5px;">Email Address *</label>
-                    <input type="email" name="email" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
-                </div>
-                
-                <div>
-                    <label style="display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 5px;">Phone Number *</label>
-                    <input type="tel" name="phone" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
-                </div>
-                
-                <div>
-                    <label style="display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 5px;">Nationality *</label>
-                    <select name="nationality" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
-                        <option value="">- Select Country -</option>
-                        <option value="UK">United Kingdom</option>
-                        <option value="Pakistan">Pakistan</option>
-                        <option value="India">India</option>
-                        <option value="Bangladesh">Bangladesh</option>
-                        <option value="Sri Lanka">Sri Lanka</option>
-                        <option value="Nigeria">Nigeria</option>
-                        <option value="Ghana">Ghana</option>
-                        <option value="Kenya">Kenya</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-                
-                <div>
-                    <label style="display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 5px;">Travel Date?</label>
-                    <input type="date" name="traveldate" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
-                </div>
-                
-                <div>
-                    <label style="display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 5px;">Destination Country *</label>
-                    <select name="destination" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
-                        <option value="">- Select Country -</option>
-                        <option value="France">France</option>
-                        <option value="Germany">Germany</option>
-                        <option value="Italy">Italy</option>
-                        <option value="Spain">Spain</option>
-                        <option value="Netherlands">Netherlands</option>
-                        <option value="Switzerland">Switzerland</option>
-                        <option value="Austria">Austria</option>
-                        <option value="Belgium">Belgium</option>
-                        <option value="Greece">Greece</option>
-                        <option value="Portugal">Portugal</option>
-                        <option value="Other">Other Schengen</option>
-                    </select>
-                </div>
-                
-                <div>
-                    <label style="display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 5px;">Select VFS Location</label>
-                    <select name="vfslocation" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
-                        <option value="">- VFS Location -</option>
-                        <option value="London">London</option>
-                        <option value="Manchester">Manchester</option>
-                        <option value="Edinburgh">Edinburgh</option>
-                        <option value="Birmingham">Birmingham</option>
-                    </select>
-                </div>
-
-                <div>
-                    <label style="display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 5px;">Number of Applicants *</label>
-                    <select name="applicants" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
-                        <option value="">- Select -</option>
-                        <option value="1">Solo</option>
-                        <option value="2">Couple</option>
-                        <option value="3">Family (3-4)</option>
-                        <option value="5">Group (5+)</option>
-                    </select>
-                </div>
-                
-                <div>
-                    <label style="display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 10px;">How would you like to proceed?</label>
-                    <div style="display: flex; gap: 15px;">
-                        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
-                            <input type="radio" name="payment" value="Pay Now" style="width: 18px; height: 18px;"> Pay Now
-                        </label>
-                        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
-                            <input type="radio" name="payment" value="Pay Later" checked style="width: 18px; height: 18px;"> Pay Later
-                        </label>
-                    </div>
-                </div>
-                
-                <button type="submit" id="bookBtn" style="background: #1E5FA8; color: white; border: none; padding: 16px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; width: 100%; margin-top: 10px;">Book Now</button>
-            </div>
-        </form>
-    </div>
-</div>
-
-<script>
-function openPackageModal(packageName, price) {
-    document.getElementById('selectedPackage').value = packageName;
-    document.getElementById('selectedPrice').value = price;
-    document.getElementById('modalPackageTitle').innerText = 'Book ' + packageName + ' - £' + price;
-    document.getElementById('displayPackage').innerText = packageName + ' - £' + price;
-    document.getElementById('bookBtn').innerText = 'Book £' + price;
-    document.getElementById('packageModal').style.display = 'block';
-    document.body.style.overflow = 'hidden';
-}
-
-function closePackageModal() {
-    document.getElementById('packageModal').style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
-
-function openApplyPopup() {
-    document.getElementById('applyPopup').style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-}
-
-function closeApplyPopup() {
-    document.getElementById('applyPopup').style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
-
-// Close popup on outside click
-document.addEventListener('click', function(e) {
-    const popup = document.getElementById('applyPopup');
-    if (e.target === popup) {
-        closeApplyPopup();
-    }
-});
-</script>
-
-<!-- Apply Now Popup -->
-<div id="applyPopup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 2000; align-items: center; justify-content: center;">
-    <div style="background: white; border-radius: 16px; padding: 30px; max-width: 450px; width: 90%; max-height: 90vh; overflow-y: auto; position: relative;">
-        <button onclick="closeApplyPopup()" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer; color: #666;">&times;</button>
-        <h3 style="color: #1E5FA8; margin-bottom: 20px; font-size: 22px;">Start Your Application</h3>
-        <form action="https://formsubmit.co/travelade.limited.co.uk" method="POST">
-            <input type="hidden" name="_subject" value="New Application - Travelade">
-            <input type="hidden" name="_next" value="https://travelade.co.uk/thank-you.html">
-            
-            <div style="margin-bottom: 12px;">
-                <input type="text" name="name" placeholder="Full Name *" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
-            </div>
-            
-            <div style="margin-bottom: 12px;">
-                <input type="email" name="email" placeholder="Email *" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
-            </div>
-            
-            <div style="margin-bottom: 12px;">
-                <input type="tel" name="phone" placeholder="Phone: 07575 378991 *" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
-            </div>
-            
-            <div style="margin-bottom: 12px;">
-                <select name="destination" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
-                    <option value="">Destination Country *</option>
-                    <option value="France">France</option>
-                    <option value="Germany">Germany</option>
-                    <option value="Italy">Italy</option>
-                    <option value="Spain">Spain</option>
-                    <option value="Other">Other</option>
-                </select>
-            </div>
-            
-            <div style="margin-bottom: 15px;">
-                <select name="applicants" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
-                    <option value="">Number of Applicants *</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3-4</option>
-                    <option value="5+">5+</option>
-                </select>
-            </div>
-            
-            <button type="submit" style="background: #1E5FA8; color: white; border: none; padding: 14px; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; width: 100%;">Submit Application</button>
-        </form>
-    </div>
-</div>

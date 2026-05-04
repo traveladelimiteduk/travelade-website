@@ -99,8 +99,18 @@
             backdrop-filter: blur(20px);
             z-index: 1000;
             padding: 10px 0;
-            transition: all 0.3s ease;
             border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .navbar.scrolled {
+            padding: 6px 0;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .navbar.scrolled {
@@ -550,14 +560,14 @@
                 padding: 0 15px;
                 box-sizing: border-box;
             }
-            
+
             .navbar .logo {
                 display: flex;
                 align-items: center;
                 gap: 0;
                 height: 65px;
             }
-            
+
             .navbar .logo-img {
                 height: 60px;
                 width: auto;
@@ -2279,6 +2289,21 @@
             .documents-grid,
             .refund-grid {
                 grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .refund-card {
+                padding: 20px;
+                max-width: 100%;
+                box-sizing: border-box;
+            }
+
+            .refund-card h4 {
+                font-size: 16px;
+            }
+
+            .refund-card ul li {
+                font-size: 13px;
             }
 
             .countries-grid {
@@ -2936,18 +2961,20 @@
                 <span class="section-label">Refund Policy</span>
                 <h2 class="section-title">Fair & Transparent Refunds</h2>
             </div>
-            <div class="refund-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
-                <div class="refund-card positive reveal" style="padding: 24px;">
+            <div class="refund-grid">
+                <div class="refund-card positive" style="padding: 24px;">
                     <h4><i class="fas fa-check-circle"></i> Full Refund</h4>
                     <p style="margin-top: 10px; font-size: 14px;">Appointment not secured • Service not started • Duplicate payment</p>
                 </div>
-                <div class="refund-card positive reveal" style="padding: 24px;">
+                <div class="refund-card positive" style="padding: 24px;">
                     <h4><i class="fas fa-clock"></i> Partial Refund</h4>
-                    <p style="margin-top: 10px; font-size: 14px;">Work started but not completed — unused portion refunded</p>
+                    <p style="margin-top: 10px; font-size: 14px;">Work started but not completed - unused portion refunded</p>
                 </div>
-                <div class="refund-card negative reveal" style="padding: 24px;">
+                <div class="refund-card negative" style="padding: 24px;">
                     <h4><i class="fas fa-times-circle"></i> No Refund</h4>
                     <p style="margin-top: 10px; font-size: 14px;">Rejection due to false docs • Missed appointments • Consulate delays</p>
+                </div>
+                </div>
                 </div>
             </div>
             <p style="text-align: center; margin-top: 20px; font-size: 14px; color: var(--gray-500);">

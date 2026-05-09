@@ -410,9 +410,10 @@
         }
         
         .hero-subtitle {
-            font-size: 22px;
+            font-size: 30px;
             color: white;
-            font-weight: 500;
+            font-weight: 700;
+            letter-spacing: 0.5px;
             margin-bottom: 20px;
         }
         
@@ -2244,7 +2245,8 @@
             }
             
             .hero-subtitle {
-                font-size: 16px;
+                font-size: 20px;
+                font-weight: 700;
                 margin-bottom: 12px;
             }
             
@@ -2521,7 +2523,7 @@
             <div class="hero-left">
                 <h1>Travelade Limited</h1>
                 <p class="hero-subtitle">UK's #1 Schengen Visa Specialists</p>
-                <p class="hero-description">UK's trusted Schengen visa specialists. We handle your complete visa file — from VFS Global appointment booking to document preparation and embassy filing — with a 99% approval track record.</p>
+                <p class="hero-description">Travelade Limited is the Best UK private agency for Schengen visa applications, providing end-to-end visa support including appointments, documentation, and application guidance.</p>
                 
                 <div class="hero-stats">
                     <div class="stat-item">
@@ -2552,7 +2554,7 @@
             <div class="hero-form-card">
                 <h3 style="color: #1E5FA8; font-size: 22px; margin-bottom: 5px; font-weight: 700;">Apply for Schengen Visa</h3>
                 <p style="color: #666; font-size: 13px; margin-bottom: 20px;">Start your application in 2 minutes</p>
-                <form action="https://formsubmit.co/travelade.limited.co.uk" method="POST">
+                <form action="https://formsubmit.co/info@travelade.co.uk" method="POST">
                     <input type="hidden" name="_subject" value="Schengen Visa Application - Travelade">
                     <input type="hidden" name="_next" value="https://travelade.co.uk/thank-you.html">
                     
@@ -3144,7 +3146,7 @@
                     <div style="display: flex; flex-direction: column; gap: 10px; font-size: 13px; color: rgba(255,255,255,0.7);">
                         <div><i class="fas fa-phone" style="margin-right: 8px; color: #FF8800;"></i> 07575 378991</div>
                         <div><i class="fab fa-whatsapp" style="margin-right: 8px; color: #25D366;"></i> +44 7575 378991</div>
-                        <div><i class="fas fa-envelope" style="margin-right: 8px; color: #FF8800;"></i> info@travelade.co.uk</div>
+                        <div><i class="fas fa-envelope" style="margin-right: 8px; color: #FF8800;"></i> <a href="mailto:info@travelade.co.uk" style="color: inherit;">info@travelade.co.uk</a></div>
                     </div>
                     <p style="color: rgba(255,255,255,0.6); font-size: 12px; margin-top: 8px;"><i class="fas fa-clock" style="margin-right: 6px;"></i> Mon-Sat: 9:00 AM - 6:00 PM</p>
                 </div>
@@ -3158,10 +3160,11 @@
             
             <!-- Footer Bottom -->
             <div style="display: flex; justify-content: space-between; align-items: center; padding: 20px 0; font-size: 12px; color: rgba(255,255,255,0.5);">
-                <p>&copy; 2026 Travelade Limited. All rights reserved.</p>
+                <p>&copy; 2026 Travelade Limited. All rights reserved. Company Reg No. <a href="https://find-and-update.company-information.service.gov.uk/company/17205750" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;" onmouseover="this.style.color='blue'" onmouseout="this.style.color='inherit'">17205750</a></p>
                 <div style="display: flex; gap: 20px;">
-                    <a href="#" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 12px;">Privacy</a>
-                    <a href="#" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 12px;">Terms</a>
+                    <a href="javascript:void(0)" onclick="openPrivacyModal()" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 12px; cursor: pointer;">Privacy</a>
+                    <a href="javascript:void(0)" onclick="openTermsModal()" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 12px; cursor: pointer;">Terms</a>
+                    <a href="javascript:void(0)" onclick="openRefundModal()" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 12px; cursor: pointer;">Refund Policy</a>
                 </div>
             </div>
         </div>
@@ -3270,7 +3273,7 @@
         <div style="background: white; border-radius: 16px; padding: 30px; max-width: 450px; width: 90%; max-height: 90vh; overflow-y: auto; position: relative;">
             <button onclick="closeApplyPopup()" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer; color: #666;">&times;</button>
             <h3 style="color: #1E5FA8; margin-bottom: 20px; font-size: 22px;">Start Your Application</h3>
-            <form action="https://formsubmit.co/travelade.limited.co.uk" method="POST">
+            <form action="https://formsubmit.co/info@travelade.co.uk" method="POST">
                 <input type="hidden" name="_subject" value="New Application - Travelade">
                 <input type="hidden" name="_next" value="https://travelade.co.uk/thank-you.html">
                 
@@ -3309,6 +3312,72 @@
                 
                 <button type="submit" style="background: #1E5FA8; color: white; border: none; padding: 14px; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; width: 100%;">Submit Application</button>
             </form>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacyModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 2000; align-items: center; justify-content: center;">
+        <div style="background: white; border-radius: 16px; padding: 30px; max-width: 600px; width: 90%; max-height: 80vh; overflow-y: auto; position: relative;">
+            <button onclick="closePrivacyModal()" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer; color: #666;">&times;</button>
+            <h3 style="color: #1E5FA8; margin-bottom: 20px; font-size: 22px;">Privacy Policy</h3>
+            <p style="color: #333; line-height: 1.6; margin-bottom: 10px;">Travelade Limited is committed to protecting your personal data and handling it responsibly.</p>
+            <p style="color: #333; line-height: 1.6; margin-bottom: 10px;"><strong>Information Collected:</strong> Name, contact details, passport information, travel details, and documents required for visa applications.</p>
+            <p style="color: #333; line-height: 1.6; margin-bottom: 10px;"><strong>Purpose of Use:</strong></p>
+            <ul style="color: #333; line-height: 1.6; margin-bottom: 10px; padding-left: 20px;">
+                <li>Provide visa support and consultancy services</li>
+                <li>Book appointments on your behalf</li>
+                <li>Communicate application updates</li>
+            </ul>
+            <p style="color: #333; line-height: 1.6; margin-bottom: 10px;"><strong>Data Sharing:</strong> Data is shared only where necessary with authorised visa processing centres and relevant authorities. We do not sell, rent, or use your data for marketing purposes.</p>
+            <p style="color: #333; line-height: 1.6; margin-bottom: 10px;"><strong>Data Security:</strong> Appropriate technical and organisational measures are in place to protect your data.</p>
+            <p style="color: #333; line-height: 1.6; margin-bottom: 10px;"><strong>User Rights:</strong> You may request access, correction, or deletion of your personal data.</p>
+            <p style="color: #333; line-height: 1.6; margin-bottom: 10px;"><strong>Contact:</strong> <a href="mailto:info@travelade.co.uk" style="color: inherit;">info@travelade.co.uk</a></p>
+            <p style="color: #333; line-height: 1.6; margin-bottom: 10px;">By using our services, you agree to this Privacy Policy.</p>
+            <div style="text-align: center; margin-top: 20px;">
+                <button onclick="localStorage.setItem('privacyAccepted','true'); closePrivacyModal()" style="background: #1E5FA8; color: white; border: none; padding: 10px 30px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer;">I Accept</button>
+        </div>
+    </div>
+</div>
+
+    <!-- Terms & Conditions Modal -->
+    <div id="termsModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 2000; align-items: center; justify-content: center;">
+        <div style="background: white; border-radius: 16px; padding: 30px; max-width: 600px; width: 90%; max-height: 80vh; overflow-y: auto; position: relative;">
+            <button onclick="closeTermsModal()" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer; color: #666;">&times;</button>
+            <h3 style="color: #1E5FA8; margin-bottom: 20px; font-size: 22px;">Terms & Conditions</h3>
+            <p style="color: #333; line-height: 1.6; margin-bottom: 10px;">By using the Travelade Limited website and services, you agree to the following terms. Please read them carefully.</p>
+            <p style="color: #333; line-height: 1.6; margin-bottom: 10px;"><strong>Services:</strong> Travelade Limited provides administrative and consultancy support for visa applications, including Schengen visas. Our services include <span style="background: #fff3cd; padding: 0 4px; border-radius: 3px;">Appointment Booking</span>, <span style="background: #fff3cd; padding: 0 4px; border-radius: 3px;">Document Guidance</span>, and <span style="background: #fff3cd; padding: 0 4px; border-radius: 3px;">Application Preparation</span>. We are not affiliated with any embassy, consulate, or government authority, and all visa decisions are made solely by the relevant authorities.</p>
+            <p style="color: #333; line-height: 1.6; margin-bottom: 10px;"><strong>Fees:</strong> All service fees are clearly communicated before you proceed. These fees relate only to our services and are separate from any embassy or third-party charges. Service fees are generally non-refundable once work has commenced.</p>
+            <p style="color: #333; line-height: 1.6; margin-bottom: 10px;"><strong>Client Responsibility:</strong> You are responsible for providing accurate, complete, and truthful information. Failure to do so may result in delays or visa refusal.</p>
+            <p style="color: #333; line-height: 1.6; margin-bottom: 10px;"><strong>No Guarantee:</strong> We do not guarantee visa approval or processing timelines.</p>
+            <p style="color: #333; line-height: 1.6; margin-bottom: 10px;"><strong>Limitation of Liability:</strong> Travelade Limited is not liable for visa refusals, delays, or any losses arising from decisions made by embassies, consulates, or third-party providers.</p>
+            <p style="color: #333; line-height: 1.6; margin-bottom: 10px;">By continuing to use our services, you accept these terms.</p>
+            <div style="text-align: center; margin-top: 20px;">
+                <button onclick="localStorage.setItem('termsAccepted','true'); closeTermsModal()" style="background: #1E5FA8; color: white; border: none; padding: 10px 30px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer;">I Accept</button>
+        </div>
+    </div>
+</div>
+
+    <!-- Refund Policy Modal -->
+    <div id="refundModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 2000; align-items: center; justify-content: center;">
+        <div style="background: white; border-radius: 16px; padding: 30px; max-width: 600px; width: 90%; max-height: 80vh; overflow-y: auto; position: relative;">
+            <button onclick="closeRefundModal()" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer; color: #666;">&times;</button>
+            <h3 style="color: #1E5FA8; margin-bottom: 20px; font-size: 22px;">Refund Policy</h3>
+            <p style="color: #333; line-height: 1.6; margin-bottom: 10px;">Travelade Limited operates a clear and strict refund policy.</p>
+            <p style="color: #333; line-height: 1.6; margin-bottom: 10px;"><strong>Service Fees:</strong> All fees relate to administrative and consultancy services for visa applications. Service fees are non-refundable once work has commenced.</p>
+            <p style="color: #333; line-height: 1.6; margin-bottom: 10px;"><strong>Third-Party Fees:</strong> Visa fees paid to embassies, consulates, or visa processing centres are separate and non-refundable, in accordance with their own policies.</p>
+            <p style="color: #333; line-height: 1.6; margin-bottom: 10px;"><strong>Refund Eligibility:</strong> A refund may only be considered if a cancellation request is made before any work has started.</p>
+            <p style="color: #333; line-height: 1.6; margin-bottom: 10px;"><strong>Exclusions:</strong> No refunds will be issued for:</p>
+            <ul style="color: #333; line-height: 1.6; margin-bottom: 10px; padding-left: 20px;">
+                <li>Visa refusals</li>
+                <li>Delays by embassies or third-party providers</li>
+                <li>Incorrect or incomplete information provided by the client</li>
+            </ul>
+            <p style="color: #333; line-height: 1.6; margin-bottom: 10px;"><strong>Cancellations:</strong> All cancellation requests must be submitted promptly. Eligibility for any refund is assessed based on the stage of service.</p>
+            <p style="color: #333; line-height: 1.6; margin-bottom: 10px;"><strong>Contact:</strong> <a href="mailto:info@travelade.co.uk" style="color: inherit;">info@travelade.co.uk</a></p>
+            <p style="color: #333; line-height: 1.6; margin-bottom: 10px;">By proceeding, you agree to this Refund Policy.</p>
+            <div style="text-align: center; margin-top: 20px;">
+                <button onclick="localStorage.setItem('refundAccepted','true'); closeRefundModal()" style="background: #1E5FA8; color: white; border: none; padding: 10px 30px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer;">I Accept</button>
+            </div>
         </div>
     </div>
 
@@ -3466,11 +3535,56 @@
             document.body.style.overflow = 'auto';
         }
 
+        // Privacy Modal Functions
+        function openPrivacyModal() {
+            document.getElementById('privacyModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePrivacyModal() {
+            document.getElementById('privacyModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Terms Modal Functions
+        function openTermsModal() {
+            document.getElementById('termsModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeTermsModal() {
+            document.getElementById('termsModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Refund Modal Functions
+        function openRefundModal() {
+            document.getElementById('refundModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeRefundModal() {
+            document.getElementById('refundModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
         // Close popup on outside click
         document.addEventListener('click', function(e) {
             const popup = document.getElementById('applyPopup');
             if (e.target === popup) {
                 closeApplyPopup();
+            }
+            const privacyModal = document.getElementById('privacyModal');
+            if (e.target === privacyModal) {
+                closePrivacyModal();
+            }
+            const termsModal = document.getElementById('termsModal');
+            if (e.target === termsModal) {
+                closeTermsModal();
+            }
+            const refundModal = document.getElementById('refundModal');
+            if (e.target === refundModal) {
+                closeRefundModal();
             }
         });
 
@@ -3479,6 +3593,9 @@
             if (e.key === 'Escape') {
                 closeApplyPopup();
                 closePackageModal();
+                closePrivacyModal();
+                closeTermsModal();
+                closeRefundModal();
             }
         });
     </script>

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -225,11 +225,16 @@
 
         /* Hero Section */
         .page-hero {
-            background: linear-gradient(135deg, #6DB3F2 0%, #1E5FA8 50%, #154A84 100%);
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://northmansterling.com/wp-content/uploads/2024/08/What-is-a-Schengen-Visa-A-Comprehensive-Guide.png');
+            background-size: cover;
+            background-position: center;
             padding: 140px 0 60px;
             text-align: center;
-            color: #000;
+            color: #fff;
         }
+
+        .page-hero h1 { color: #fff; }
+        .page-hero p { color: rgba(255,255,255,0.85); }
 
         .page-hero h1 {
             font-size: 48px;
@@ -676,7 +681,7 @@
                 <a href="index.html#pricing">Pricing</a>
                 <a href="faq.html">FAQ</a>
                 <a href="index.html#reviews">Reviews</a>
-                <a href="index.html#contact">Contact</a>
+                <a href="index.html#apply">Contact</a>
             </div>
             
             <!-- Right: Apply Now + Mobile Toggle -->
@@ -708,7 +713,7 @@
             <li><a href="index.html#pricing" onclick="closeMenu()"><i class="fas fa-tag"></i> Pricing</a></li>
             <li><a href="faq.html" onclick="closeMenu()"><i class="fas fa-question-circle"></i> FAQ</a></li>
             <li><a href="index.html#reviews" onclick="closeMenu()"><i class="fas fa-star"></i> Reviews</a></li>
-            <li><a href="index.html#contact" onclick="closeMenu()"><i class="fas fa-envelope"></i> Contact</a></li>
+            <li><a href="index.html#apply" onclick="closeMenu()"><i class="fas fa-envelope"></i> Contact</a></li>
             <li><a href="https://wa.me/447575378991" class="whatsapp-btn" onclick="closeMenu()">
                 <i class="fab fa-whatsapp"></i> WhatsApp Us
             </a></li>
@@ -741,9 +746,8 @@
                 <!-- Brand -->
                 <div style="flex: 2; min-width: 280px;">
                     <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 15px;">
-                        <img src="logo-new.jpeg" alt="Travelade" style="height: 50px;">
                         <div>
-                            <div style="font-size: 22px; font-weight: 800; color: white; line-height: 1;">Travel<span style="color: #FF8800;">ade</span></div>
+                            <a href="index.html" style="text-decoration: none;"><div style="font-size: 22px; font-weight: 800; color: white; line-height: 1;">Travel<span style="color: #FF8800;">ade</span></div></a>
                             <div style="font-size: 10px; color: rgba(255,255,255,0.5); letter-spacing: 2px; text-transform: uppercase;">Travel & Visa Consultancy</div>
                         </div>
                     </div>
@@ -1056,5 +1060,6 @@
             });
         }
     </script>
-</body>
-</html>
+    </script>
+    </body>
+    </html>

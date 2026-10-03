@@ -543,7 +543,7 @@
             position: relative;
             z-index: 2;
             display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
+            grid-template-columns: 1.2fr 0.8fr;
             gap: 50px;
             align-items: center;
         }
@@ -684,6 +684,37 @@
             transition: all 0.3s;
         }
         
+        /* Laptop band: below ~1180px the two hero columns get too narrow for a
+   52px headline and the form card starts crowding it. Stack earlier. */
+        @media (max-width: 1180px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                justify-items: center;
+                text-align: center;
+            }
+
+            .hero {
+                padding-top: 90px;
+            }
+
+            .hero-left h1 {
+                top: 0;
+            }
+
+            .hero-left {
+                max-width: 100%;
+            }
+
+            .hero-form-card {
+                width: 100%;
+                max-width: 400px;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+        }
+
         /* Mobile Responsive */
         @media (max-width: 1024px) {
             /* Stacked layout starts at the top of the hero, so it needs the
@@ -827,11 +858,16 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 280px;
+            width: 250px;
+            max-width: 82vw;
             height: 100vh;
             background: white;
             display: flex;
             flex-direction: column;
+            /* No gap here: every link already carries its own hairline
+               divider, so the extra 24px spacing pushed those dividers away
+               from their rows and the list read as disconnected fragments. */
+            gap: 0;
             padding: 0;
             transform: translateX(-100%);
             transition: transform 0.3s ease;
@@ -847,21 +883,28 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
-            background: linear-gradient(135deg, #1E5FA8 0%, #154A84 100%);
+            padding: 12px 16px;
+            /* White rather than the old blue gradient. logo-new.jpeg is a JPEG,
+               so its white background is baked into the pixels and cannot be
+               transparent - on blue it showed up as a white rectangle with the
+               logo floating inside it. White matches both the panel and the
+               navbar above it. */
+            background: white;
+            border-bottom: 1px solid #f0f0f0;
         }
 
         .nav-links .nav-menu-header img {
-            height: 40px;
+            height: 44px;
         }
 
         .nav-links .mobile-close {
             background: none;
             border: none;
-            color: white;
+            color: #333;
             font-size: 24px;
             cursor: pointer;
-            padding: 5px;
+            padding: 10px;
+            margin: -10px -6px -10px 0;
         }
 
         .nav-links a:not(.whatsapp-btn) {
@@ -885,9 +928,11 @@
         }
 
         .nav-links a:not(.whatsapp-btn):hover {
+            /* Colour and background only. Shifting padding-left made the row
+               jump sideways the instant you tapped it, because :hover sticks
+               on touch screens. */
             background: #f8f9fa;
             color: var(--primary-blue);
-            padding-left: 25px;
         }
 
         .nav-links .whatsapp-btn {
@@ -2477,6 +2522,11 @@
                 font-size: 34px;
                 line-height: 1.2;
                 margin-bottom: 8px;
+                /* Gentle lift on phones, matching the desktop hero. Relative
+                   positioning so the paragraph, stats and buttons below keep
+                   their current spacing. */
+                position: relative;
+                top: -22px;
             }
             
             .hero-subtitle {

@@ -275,7 +275,8 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 280px;
+            width: 250px;
+            max-width: 82vw;
             height: 100vh;
             background: white;
             flex-direction: column;
@@ -639,20 +640,26 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                padding: 15px 20px;
-                background: linear-gradient(135deg, #1E5FA8 0%, #154A84 100%);
+                padding: 12px 16px;
+                /* White, not the old blue gradient. logo-new.jpeg is a JPEG so
+                   its white background is baked in and cannot be transparent -
+                   on blue it rendered as a white rectangle. */
+                background: white;
+                border-bottom: 1px solid #f0f0f0;
             }
 
             .nav-links .nav-menu-header img {
-                height: 40px;
+                height: 44px;
             }
 
             .nav-links .mobile-close {
                 background: none;
                 border: none;
-                color: white;
+                color: #333;
                 font-size: 24px;
                 cursor: pointer;
+                padding: 10px;
+                margin: -10px -6px -10px 0;
             }
 
             .nav-links a:not(.whatsapp-btn) {

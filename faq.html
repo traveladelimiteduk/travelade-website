@@ -250,7 +250,8 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 280px;
+            width: 250px;
+            max-width: 82vw;
             height: 100vh;
             background: white;
             display: flex;
@@ -270,21 +271,27 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
-            background: linear-gradient(135deg, #1E5FA8 0%, #154A84 100%);
+            padding: 12px 16px;
+            /* White, not the old blue gradient. logo-new.jpeg is a JPEG, so
+               its white background is baked into the pixels and cannot be
+               transparent - on blue it showed as a white rectangle with the
+               logo floating inside it. */
+            background: white;
+            border-bottom: 1px solid #f0f0f0;
         }
 
         .nav-links .nav-menu-header img {
-            height: 40px;
+            height: 44px;
         }
 
         .nav-links .mobile-close {
             background: none;
             border: none;
-            color: white;
+            color: #333;
             font-size: 24px;
             cursor: pointer;
-            padding: 5px;
+            padding: 10px;
+            margin: -10px -6px -10px 0;
         }
 
         .nav-links a:not(.whatsapp-btn) {
@@ -308,9 +315,11 @@
         }
 
         .nav-links a:not(.whatsapp-btn):hover {
+            /* Colour and background only. Shifting padding-left made the row
+               jump sideways the moment you tapped it, because :hover sticks
+               on touch screens. */
             background: #f8f9fa;
             color: var(--primary-blue);
-            padding-left: 25px;
         }
 
         .nav-links .whatsapp-btn {

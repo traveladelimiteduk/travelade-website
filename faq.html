@@ -28,7 +28,7 @@
         "name": "Travelade Limited",
         "url": "https://www.travelade.co.uk",
         "logo": "https://www.travelade.co.uk/logo-secondary.png",
-        "description": "UK's #1 Schengen Visa Specialists."
+        "description": "UK-based Schengen visa specialists."
     }
     </script>
     
@@ -72,7 +72,7 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
         }
@@ -106,6 +106,7 @@
         .logo-img {
             height: 52px;
             width: auto;
+            flex-shrink: 0;
         }
 
         .logo-text-group {
@@ -262,6 +263,8 @@
             font-weight: 500;
             font-size: 14px;
             transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 5px;
         }
 
         .desktop-menu a:hover {
@@ -271,6 +274,11 @@
         .desktop-menu a.active-page {
             color: #000000;
             background: #f0f0f0;
+        }
+
+        /* Match homepage navbar width across pages */
+        .navbar .container {
+            max-width: 1280px;
         }
 
         /* Right side: Apply Now + Mobile Toggle */
@@ -712,7 +720,7 @@
                         <div class="faq-icon"><i class="fas fa-plus"></i></div>
                     </div>
                     <div class="faq-answer">
-                        <p>Standard processing takes <strong>15-21 business days</strong> from the date of your embassy appointment. However, processing times vary by country â€” some consulates may process faster (10-15 days) while others may take longer (up to 30 days). We recommend applying at least <strong>3 weeks before</strong> your planned travel date to account for any delays.</p>
+                        <p>Standard processing takes <strong>15-21 business days</strong> from the date of your embassy appointment. However, processing times vary by country — some consulates may process faster (10-15 days) while others may take longer (up to 30 days). We recommend applying at least <strong>3 weeks before</strong> your planned travel date to account for any delays.</p>
                     </div>
                 </div>
 
@@ -745,7 +753,7 @@
                         <div class="faq-icon"><i class="fas fa-plus"></i></div>
                     </div>
                     <div class="faq-answer">
-                        <p><strong>Yes, travel insurance is mandatory</strong> for all Schengen visa applications. You need insurance with minimum coverage of <strong>â‚¬30,000</strong> that covers medical emergencies, hospitalisation, and repatriation.</p>
+                        <p><strong>Yes, travel insurance is mandatory</strong> for all Schengen visa applications. You need insurance with minimum coverage of <strong>€30,000</strong> that covers medical emergencies, hospitalisation, and repatriation.</p>
                     </div>
                 </div>
 
@@ -1056,8 +1064,5 @@
     });
     
     </script>
-
-        <!-- Apply Now Floating Button -->
-    </script>
-    </body>
+</body>
 </html>

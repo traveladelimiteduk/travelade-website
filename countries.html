@@ -28,7 +28,7 @@
         "name": "Travelade Limited",
         "url": "https://www.travelade.co.uk",
         "logo": "https://www.travelade.co.uk/logo-secondary.png",
-        "description": "UK's #1 Schengen Visa Specialists."
+        "description": "UK-based Schengen visa specialists."
     }
     </script>
     
@@ -100,6 +100,8 @@
             font-weight: 500;
             font-size: 14px;
             transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 5px;
         }
 
         .desktop-menu a:hover {
@@ -109,6 +111,11 @@
         .desktop-menu a.active-page {
             color: #000000;
             background: #f0f0f0;
+        }
+
+        /* Match homepage navbar width across pages */
+        .navbar .container {
+            max-width: 1280px;
         }
 
         /* Right side: Apply Now */
@@ -145,6 +152,7 @@
         .logo-img {
             height: 52px;
             width: auto;
+            flex-shrink: 0;
         }
 
         .logo-text-group {
@@ -737,8 +745,6 @@
         </div>
     </section>
 
-
-
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -751,7 +757,7 @@
                             <div style="font-size: 10px; color: rgba(255,255,255,0.5); letter-spacing: 2px; text-transform: uppercase;">Travel & Visa Consultancy</div>
                         </div>
                     </div>
-                    <p style="color: rgba(255,255,255,0.6); font-size: 13px; line-height: 1.6;">UK's trusted Schengen visa specialists. We handle your complete visa file from appointment booking to application filing.</p>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 13px; line-height: 1.6;">UK-based Schengen visa specialists. We handle your complete visa file from appointment booking to application filing.</p>
                 </div>
                 
                 <!-- Quick Links -->
@@ -1060,6 +1066,5 @@
             });
         }
     </script>
-    </script>
-    </body>
-    </html>
+</body>
+</html>

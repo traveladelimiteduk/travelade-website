@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-# Block nothing publicly, but keep non-content pages out of the index
+# Non-content / utility paths
 Disallow: /travelade-processor/
 
 Sitemap: https://www.travelade.co.uk/sitemap.xml

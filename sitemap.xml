@@ -7,6 +7,12 @@
         <changefreq>weekly</changefreq>
     </url>
     <url>
+        <loc>https://www.travelade.co.uk/requirements.html</loc>
+        <lastmod>2026-10-03</lastmod>
+        <priority>0.9</priority>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
         <loc>https://www.travelade.co.uk/countries.html</loc>
         <lastmod>2026-10-03</lastmod>
         <priority>0.8</priority>

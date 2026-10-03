@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Essential Requirements | Travelade Limited</title>
+    <title>Schengen Visa Requirements | Documents Checklist | Travelade Limited</title>
+    <meta name="description" content="Full Schengen visa requirements for UK applicants: passport validity rules, photo specifications, travel insurance minimums, proof of funds and the complete document checklist.">
+    <link rel="canonical" href="https://www.travelade.co.uk/requirements.html">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
     
     <!-- Favicon -->
@@ -11,14 +13,83 @@
     <link rel="apple-touch-icon" href="/favicon.png?v=4">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="Essential Requirements | Travelade Limited">
+    <meta property="og:title" content="Schengen Visa Requirements | Documents Checklist | Travelade Limited">
     <meta property="og:description" content="Everything you need for your Schengen visa application. Required documents, passport validity, travel insurance, and more.">
     <meta property="og:image" content="https://www.travelade.co.uk/logo-secondary.png">
     <meta property="og:url" content="https://www.travelade.co.uk/requirements.html">
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="article">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://www.travelade.co.uk/logo-secondary.png">
     
+    <!-- Professional Service Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "@id": "https://www.travelade.co.uk/#organization",
+        "name": "Travelade Limited",
+        "url": "https://www.travelade.co.uk",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.travelade.co.uk/logo-secondary.png"
+        },
+        "image": "https://www.travelade.co.uk/logo-secondary.png",
+        "description": "UK-based Schengen visa consultancy helping applicants book appointments, prepare documents and file visa applications for all 29 Schengen countries.",
+        "foundingDate": "2025",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "GB"
+        },
+        "areaServed": [
+            { "@type": "Country", "name": "United Kingdom" },
+            { "@type": "Place", "name": "Europe" }
+        ],
+        "availableLanguage": ["en"],
+        "openingHoursSpecification": [{
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+            "opens": "09:00",
+            "closes": "18:00"
+        }],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+447575378991",
+            "email": "info@travelade.co.uk",
+            "contactType": "customer service",
+            "areaServed": "GB",
+            "availableLanguage": ["en"]
+        }
+    }
+    </script>
+    
+    <!-- Article schema: this is a requirements/document page -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "@id": "https://www.travelade.co.uk/requirements.html#article",
+        "headline": "Schengen Visa Requirements and Document Checklist",
+        "description": "Complete Schengen visa requirements for UK applicants, including passport validity, photographs, insurance, proof of funds and cover letter guidance.",
+        "author": { "@id": "https://www.travelade.co.uk/#organization" },
+        "publisher": { "@id": "https://www.travelade.co.uk/#organization" },
+        "inLanguage": "en-GB",
+        "mainEntityOfPage": "https://www.travelade.co.uk/requirements.html"
+    }
+    </script>
+    
+    
+    
+    <!-- Breadcrumbs -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.travelade.co.uk/" },
+            { "@type": "ListItem", "position": 2, "name": "Visa Requirements", "item": "https://www.travelade.co.uk/requirements.html" }
+        ]
+    }
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -112,23 +183,87 @@
             font-weight: 600;
         }
 
-        .nav-links {
+        /* Match homepage navbar width across pages */
+        .navbar .container {
+            max-width: 1280px;
+        }
+
+        /* Desktop menu */
+        .desktop-menu {
             display: flex;
-            gap: 24px;
-            list-style: none;
+            gap: 20px;
             align-items: center;
+        }
+
+        .desktop-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .desktop-menu a:hover {
+            color: #1E5FA8;
+        }
+
+        .desktop-menu a.active-page {
+            color: #000000;
+            background: #f0f0f0;
+        }
+
+        /* Mobile slide-out menu - hidden by default on desktop. It is only
+           revealed from the 768px breakpoint below, via .active. */
+        .nav-links {
+            display: none;
+            list-style: none;
+        }
+
+        .nav-links.active {
+            display: flex;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
+            background: white;
+            flex-direction: column;
+            padding: 0;
+            z-index: 1000;
+            box-shadow: 4px 0 20px rgba(0,0,0,0.1);
         }
 
         .nav-links a {
             text-decoration: none;
-            color: #334155;
+            color: #333;
             font-weight: 500;
-            font-size: 14px;
+            font-size: 13px;
             transition: color 0.3s;
         }
 
         .nav-links a:hover {
             color: var(--orange);
+        }
+
+        .nav-links a.active {
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        .nav-links .nav-menu-header,
+        .nav-links .whatsapp-btn {
+            display: none;
+        }
+
+        .nav-overlay {
+            display: none;
+        }
+
+        /* Mobile Toggle */
+        .mobile-toggle {
+            display: none;
         }
 
         .btn {
@@ -271,7 +406,11 @@
         @media (max-width: 768px) {
             .page-header h1 { font-size: 32px; }
             .requirements-grid { grid-template-columns: 1fr; }
-            .footer-content { flex-direction: column; gap: 20px; }
+            
+            /* Hide desktop menu on mobile */
+            .desktop-menu {
+                display: none !important;
+            }
             
             .navbar {
                 position: fixed;
@@ -319,7 +458,90 @@
             }
             
             .mobile-toggle {
+                display: flex !important;
                 order: 3;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 8px;
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
+            
+            .mobile-toggle span {
+                display: block;
+                width: 25px;
+                height: 3px;
+                background: var(--primary-blue);
+                margin: 3px 0;
+                border-radius: 2px;
+            }
+            
+            .nav-links .nav-menu-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px 20px;
+                background: linear-gradient(135deg, #1E5FA8 0%, #154A84 100%);
+            }
+            
+            .nav-links .nav-menu-header img {
+                height: 40px;
+            }
+            
+            .nav-links .mobile-close {
+                background: none;
+                border: none;
+                color: white;
+                font-size: 24px;
+                cursor: pointer;
+            }
+            
+            .nav-links a:not(.whatsapp-btn) {
+                color: #333;
+                font-size: 14px;
+                font-weight: 500;
+                padding: 12px 20px;
+                text-decoration: none;
+                border-bottom: 1px solid #f0f0f0;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+            
+            .nav-links a i {
+                color: var(--primary-blue);
+                width: 20px;
+            }
+            
+            .nav-links .whatsapp-btn {
+                margin: 15px 20px;
+                padding: 12px 20px;
+                background: #25D366;
+                color: white;
+                border-radius: 8px;
+                text-align: center;
+                font-weight: 600;
+                display: block;
+            }
+            
+            .nav-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0,0,0,0.5);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s;
+                z-index: 998;
+            }
+            
+            .nav-overlay.active {
+                opacity: 1;
+                visibility: visible;
             }
         }
     </style>
@@ -340,16 +562,17 @@
                  <img src="logo-new.jpeg" alt="Travelade" class="logo-img">
             </a>
             
-            <!-- Center: Desktop Menu (hidden on mobile) -->
-            <div class="desktop-menu" style="display: flex; gap: 20px; align-items: center;">
-                <a href="index.html" style="text-decoration: none; color: #333; font-weight: 500; font-size: 14px;">Home</a>
-                <a href="#services" style="text-decoration: none; color: #333; font-weight: 500; font-size: 14px;">Services</a>
-                <a href="#process" style="text-decoration: none; color: #333; font-weight: 500; font-size: 14px;">How It Works</a>
-                <a href="countries.html" style="text-decoration: none; color: #333; font-weight: 500; font-size: 14px;">Countries</a>
-                <a href="#pricing" style="text-decoration: none; color: #333; font-weight: 500; font-size: 14px;">Pricing</a>
-                <a href="faq.html" style="text-decoration: none; color: #333; font-weight: 500; font-size: 14px;">FAQ</a>
-                <a href="#reviews" style="text-decoration: none; color: #333; font-weight: 500; font-size: 14px;">Reviews</a>
-                <a href="#contact" style="text-decoration: none; color: #333; font-weight: 500; font-size: 14px;">Contact</a>
+            <!-- Desktop Menu -->
+            <div class="desktop-menu">
+                <a href="index.html">Home</a>
+                <a href="index.html#services">Services</a>
+                <a href="index.html#process">How It Works</a>
+                <a href="countries.html">Countries</a>
+                <a href="index.html#pricing">Pricing</a>
+                <a href="faq.html">FAQ</a>
+                <a href="requirements.html" class="active-page">Requirements</a>
+                <a href="index.html#reviews">Reviews</a>
+                <a href="index.html#apply">Contact</a>
             </div>
             
             <!-- Right: Apply Now + Mobile Toggle -->
@@ -374,13 +597,14 @@
                     </button>
                 </li>
                 <li><a href="index.html" onclick="closeMenu()"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="#services" onclick="closeMenu()"><i class="fas fa-concierge-bell"></i> Services</a></li>
-                <li><a href="#process" onclick="closeMenu()"><i class="fas fa-list-ol"></i> How It Works</a></li>
+                <li><a href="index.html#services" onclick="closeMenu()"><i class="fas fa-concierge-bell"></i> Services</a></li>
+                <li><a href="index.html#process" onclick="closeMenu()"><i class="fas fa-list-ol"></i> How It Works</a></li>
                 <li><a href="countries.html" onclick="closeMenu()"><i class="fas fa-globe-europe"></i> Countries</a></li>
-                <li><a href="#pricing" onclick="closeMenu()"><i class="fas fa-tag"></i> Pricing</a></li>
+                <li><a href="index.html#pricing" onclick="closeMenu()"><i class="fas fa-tag"></i> Pricing</a></li>
                 <li><a href="faq.html" onclick="closeMenu()"><i class="fas fa-question-circle"></i> FAQ</a></li>
-                <li><a href="#reviews" onclick="closeMenu()"><i class="fas fa-star"></i> Reviews</a></li>
-                <li><a href="#contact" onclick="closeMenu()"><i class="fas fa-envelope"></i> Contact</a></li>
+                <li><a href="requirements.html" onclick="closeMenu()"><i class="fas fa-list-check"></i> Requirements</a></li>
+                <li><a href="index.html#reviews" onclick="closeMenu()"><i class="fas fa-star"></i> Reviews</a></li>
+                <li><a href="index.html#apply" onclick="closeMenu()"><i class="fas fa-envelope"></i> Contact</a></li>
                 <li><a href="https://wa.me/447575378991" class="whatsapp-btn" onclick="closeMenu()">
                     <i class="fab fa-whatsapp"></i> WhatsApp Us
                 </a></li>
@@ -390,13 +614,16 @@
 
     <section class="page-header">
         <div class="container">
-            <h1>Essential Requirements</h1>
+            <h1>Requirements</h1>
             <p>Everything you need to prepare for your Schengen visa application.</p>
         </div>
     </section>
 
     <section class="requirements">
         <div class="container">
+            <h2 style="font-size: 28px; text-align: center; margin-bottom: 14px;">Documents Required for a Schengen Visa</h2>
+            <p style="font-size: 16px; line-height: 1.8; color: #475569; text-align: center; max-width: 760px; margin: 0 auto 40px;">Every Schengen visa application from the UK needs the same core set of documents. Requirements vary slightly by destination consulate, so confirm the exact specification for the country you are applying through before you book. Below is the standard checklist.</p>
+
             <div class="requirements-grid">
                 <div class="req-card">
                     <div class="req-icon"><i class="fas fa-passport"></i></div>
@@ -404,7 +631,8 @@
                         <h3>Valid Passport</h3>
                         <p>Your passport must meet these requirements:</p>
                         <ul>
-                            <li>Minimum 6 months validity from intended return date</li>
+                            <li>Issued within the last 10 years</li>
+                            <li>Valid at least 3 months beyond your intended departure from the Schengen area</li>
                             <li>At least 2 blank pages</li>
                             <li>No damage or wear</li>
                         </ul>
@@ -498,32 +726,90 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Supporting copy: adds topical depth and internal links -->
+            <div style="max-width: 860px; margin: 50px auto 0;">
+                <h2 style="font-size: 28px; margin-bottom: 16px;">How to Check Your Documents Before You Apply</h2>
+                <p style="font-size: 16px; line-height: 1.8; color: #475569; margin-bottom: 16px;">Most refusals are caused by documents that contradict each other rather than by anything unusual in your circumstances. Before your appointment, lay every document out on one surface and check that the dates line up: your flight booking should fall inside your insurance dates, your hotel booking should match your travel dates, and your employment letter should be dated recently.</p>
+                <p style="font-size: 16px; line-height: 1.8; color: #475569; margin-bottom: 16px;">Check that the name on your passport, your application form, your bank statements and your insurance policy is spelled identically. A middle name included on one document but omitted from another is a routine cause of an application being held for further checks.</p>
+
+                <h2 style="font-size: 28px; margin: 32px 0 16px;">Which Country Are You Applying Through?</h2>
+                <p style="font-size: 16px; line-height: 1.8; color: #475569; margin-bottom: 16px;">You must apply to the Schengen country where you plan to spend the longest stay, or the one where you arrive first if your trip is split evenly. Each consulate sets its own appointment centre, photograph standard and fee, so the country you nominate affects your whole checklist. Our <a href="countries.html" style="color: #1E5FA8;">Schengen countries page</a> explains how the rule works and lists all 29 destinations.</p>
+
+                <h2 style="font-size: 28px; margin: 32px 0 16px;">Questions About Specific Documents</h2>
+                <p style="font-size: 16px; line-height: 1.8; color: #475569; margin-bottom: 16px;">Travelers frequently ask about processing times, how much bank balance is enough, whether UK passport holders need a visa at all, and what happens after submission. These are answered in detail on our <a href="faq.html" style="color: #1E5FA8;">Schengen visa FAQ</a>, along with the insurance minimum and what to do if an application is refused.</p>
+
+                <h2 style="font-size: 28px; margin: 32px 0 16px;">What Our Fee Covers</h2>
+                <p style="font-size: 16px; line-height: 1.8; color: #475569; margin-bottom: 16px;">Our service fee covers appointment booking, checking this document list against your specific destination, completing the application form and submission support. The Schengen visa fee is set by each consulate and paid directly to the visa application centre, so it is not part of our package. <a href="index.html#pricing" style="color: #1E5FA8;">Compare our three packages</a> to see what each tier includes.</p>
+                <p style="font-size: 16px; line-height: 1.8; color: #475569; margin-bottom: 16px;">Visa decisions are made solely by the relevant consulate. We prepare applications accurately and completely, but approval is never guaranteed.</p>
+            </div>
         </div>
     </section>
-
-    <section class="cta-section">
         <div class="container">
             <h2>Need Help With Your Documents?</h2>
             <p>Our team can help prepare all your documents.</p>
-            <a href="index.html#contact" class="btn btn-primary" style="background: white; color: var(--orange);">
+            <a href="index.html#apply" class="btn btn-primary" style="background: white; color: var(--orange);">
                 <i class="fab fa-whatsapp"></i> Contact Us
             </a>
         </div>
     </section>
 
     <footer class="footer">
-        <div class="container footer-content">
-            <p>&copy; 2026 Travelade Limited. All rights reserved. Company Reg No. <a href="https://find-and-update.company-information.service.gov.uk/company/17205750" target="_blank" rel="noopener" style="color: #4da6ff; text-decoration: underline;" onmouseover="this.style.textDecoration='none'" onmouseout="this.style.textDecoration='underline'">17205750</a></p>
-            <ul class="footer-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="countries.html">Countries</a></li>
-                <li><a href="requirements.html">Requirements</a></li>
-                <li><a href="index.html#pricing">Pricing</a></li>
-                <li><a href="javascript:void(0)" onclick="openPrivacyModal()">Privacy</a></li>
-                <li><a href="javascript:void(0)" onclick="openTermsModal()">Terms</a></li>
-                <li><a href="javascript:void(0)" onclick="openRefundModal()">Refund Policy</a></li>
-            </ul>
+        <div class="container">
+            <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 30px; flex-wrap: wrap; padding: 50px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                <!-- Brand -->
+                <div style="flex: 2; min-width: 280px;">
+                    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 15px;">
+                        <div>
+                            <a href="index.html" style="text-decoration: none;"><div style="font-size: 22px; font-weight: 800; color: white; line-height: 1;">Travel<span style="color: #FF8800;">ade</span></div></a>
+                            <div style="font-size: 10px; color: rgba(255,255,255,0.5); letter-spacing: 2px; text-transform: uppercase;">Travel & Visa Consultancy</div>
+                        </div>
+                    </div>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 13px; line-height: 1.6;">UK-based Schengen visa specialists. We handle your complete visa file from appointment booking to application filing.</p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div style="flex: 1; min-width: 150px;">
+                    <h4 style="color: white; font-size: 13px; font-weight: 700; margin-bottom: 15px; letter-spacing: 1px; text-transform: uppercase;">Quick Links</h4>
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <a href="index.html" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px;">Home</a>
+                        <a href="index.html#services" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px;">Services</a>
+                        <a href="countries.html" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px;">Countries</a>
+                        <a href="index.html#pricing" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px;">Pricing</a>
+                        <a href="faq.html" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px;">FAQ</a>
+                    </div>
+                </div>
+                
+                <!-- Contact Us -->
+                <div style="flex: 1; min-width: 200px;">
+                    <h4 style="color: white; font-size: 13px; font-weight: 700; margin-bottom: 15px; letter-spacing: 1px; text-transform: uppercase;">Contact Us</h4>
+                    <div style="display: flex; flex-direction: column; gap: 10px; font-size: 13px; color: rgba(255,255,255,0.7);">
+                        <div><i class="fas fa-phone" style="margin-right: 8px; color: #FF8800;"></i> 07575 378991</div>
+                        <div><i class="fab fa-whatsapp" style="margin-right: 8px; color: #25D366;"></i> +44 7575 378991</div>
+                        <div><i class="fas fa-envelope" style="margin-right: 8px; color: #FF8800;"></i> <a href="mailto:info@travelade.co.uk" style="color: inherit;">info@travelade.co.uk</a></div>
+                    </div>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 12px; margin-top: 8px;"><i class="fas fa-clock" style="margin-right: 6px;"></i> Mon-Sat: 9:00 AM - 6:00 PM</p>
+                </div>
+                
+                <!-- Get in Touch -->
+                <div style="flex: 1.5; min-width: 250px;">
+                    <h4 style="color: white; font-size: 13px; font-weight: 700; margin-bottom: 15px; letter-spacing: 1px; text-transform: uppercase;">Get in Touch</h4>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 13px; line-height: 1.6; margin-bottom: 15px;">Have questions? We typically respond within 20-30 minutes during office hours.</p>
+                </div>
+            </div>
+            
+            <!-- Footer Bottom -->
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 20px 0; font-size: 12px; color: rgba(255,255,255,0.5); flex-wrap: wrap; gap: 10px;">
+                <p>&copy; 2026 Travelade Limited. All rights reserved. Company Reg No. <a href="https://find-and-update.company-information.service.gov.uk/company/17205750" target="_blank" rel="noopener" style="color: #4da6ff; text-decoration: underline;" onmouseover="this.style.textDecoration='none'" onmouseout="this.style.textDecoration='underline'">17205750</a></p>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap; align-items: center;">
+                    <a href="https://g.page/r/CVdyj7CAiUSWEAI/review" target="_blank" rel="noopener" style="color: #FF8800; text-decoration: none; font-size: 12px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px;"><i class="fab fa-google"></i> Leave us a Google review</a>
+                    <a href="javascript:void(0)" onclick="openPrivacyModal()" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 12px; cursor: pointer;">Privacy</a>
+                    <a href="javascript:void(0)" onclick="openTermsModal()" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 12px; cursor: pointer;">Terms</a>
+                    <a href="javascript:void(0)" onclick="openRefundModal()" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 12px; cursor: pointer;">Refund Policy</a>
+                </div>
+            </div>
         </div>
+    </footer>
     
     <!-- Apply Now Popup -->
     <div id="applyPopup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 2000; align-items: center; justify-content: center;">
@@ -532,7 +818,7 @@
             <h3 style="color: #1E5FA8; margin-bottom: 20px; font-size: 22px;">Start Your Application</h3>
             <form action="https://formsubmit.co/info@travelade.co.uk" method="POST">
                 <input type="hidden" name="_subject" value="New Application - Travelade">
-                <input type="hidden" name="_next" value="https://travelade.co.uk/thank-you.html">
+                <input type="hidden" name="_next" value="https://www.travelade.co.uk/thank-you.html">
                 <input type="hidden" name="_captcha" value="false">
                 
                 <div style="margin-bottom: 12px;">
@@ -641,13 +927,13 @@
 
     <script>
     function openMenu() {
-        document.getElementById('navLinks').classList.add('show');
+        document.getElementById('navLinks').classList.add('active');
         document.getElementById('navOverlay').classList.add('active');
         document.body.style.overflow = 'hidden';
     }
     
     function closeMenu() {
-        document.getElementById('navLinks').classList.remove('show');
+        document.getElementById('navLinks').classList.remove('active');
         document.getElementById('navOverlay').classList.remove('active');
         document.body.style.overflow = 'auto';
     }
@@ -728,12 +1014,5 @@
     
     </script>
 
-        <!-- Apply Now Floating Button -->
-        <a href="javascript:void(0)" onclick="openApplyPopup()" class="start-app-float">
-            <i class="fas fa-calendar-check"></i>
-            <span class="start-app-float-text">Apply Now</span>
-        </a>
-
-    </script>
-    </body>
+        </body>
     </html>

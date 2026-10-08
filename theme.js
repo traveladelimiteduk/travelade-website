@@ -568,6 +568,20 @@
 
 })();
 
+/* --------------------------------------------------------------- logo home
+   Clicking the navbar logo always returns visitors to the homepage,
+   regardless of what page they're on. */
+    (function () {
+        var logos = document.querySelectorAll('.nav__logo');
+        if (!logos.length) return;
+        logos.forEach(function (logo) {
+            logo.addEventListener('click', function (e) {
+                e.preventDefault();
+                window.location.href = 'index.html';
+            });
+        });
+    })();
+
 /* ---------------------------------------------------------------- cookie consent
    A first-visit card, styled like the ones every reputable site runs: one
    question, two honest answers. There are no advertising or tracking cookies

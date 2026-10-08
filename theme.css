@@ -1161,6 +1161,7 @@ img,
 
     .nav__right {
         gap: 6px;
+        margin-right: 4px;
     }
 
     .nav__cta {
@@ -3497,13 +3498,20 @@ button.dest:focus-visible {
 
 @media (max-width: 560px) {
     .footer__grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px 18px;
+    }
+
+    .footer__brand,
+    .footer__grid > div:nth-child(2),
+    .footer__grid > div:nth-child(3),
+    .footer__bottom {
+        grid-column: auto;
     }
 
     .footer__bottom {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
     }
 
     /* Comfortable tap targets on phones. */

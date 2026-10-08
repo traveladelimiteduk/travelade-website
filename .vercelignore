@@ -1,0 +1,5 @@
+# Build tooling stays local — the published site is pure static HTML.
+build/
+# Local audit harnesses (phone-width iframe etc.) — never deployed.
+__*.html
+phonetest.html

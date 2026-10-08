@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phone audit harness (local only - not deployed)</title>
+<style>
+    html, body { margin: 0; background: #4b5563; }
+    #f { display: block; width: 390px; height: 844px; margin: 0 auto; border: 0; background: #fff; }
+</style>
+</head>
+<body>
+<iframe id="f" title="phone"></iframe>
+<script>
+    /* Local-only harness: renders a site page inside a phone-sized iframe so
+       media queries match a phone viewport. ?page= picks the page, ?w= the
+       width (default 390). Excluded from deploy via .vercelignore. */
+    var q = new URLSearchParams(location.search);
+    var page = q.get('page') || 'index.html';
+    var w = parseInt(q.get('w'), 10) || 390;
+    var f = document.getElementById('f');
+    f.style.width = w + 'px';
+    f.src = page;
+</script>
+<!-- Cookie consent -->
+<div class="ck-overlay" aria-hidden="true"></div>
+<div class="ck-card" id="ckCard" role="dialog" aria-modal="true" aria-labelledby="ck-title">
+    <div class="ck-head">
+        <span class="ck-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M12 2a10 10 0 1 0 10 10 3.2 3.2 0 0 1-4.6-3.4A3.2 3.2 0 0 1 12 2z"></path><circle cx="9.2" cy="10" r="1" fill="currentColor" stroke="none"></circle><circle cx="14.4" cy="14.6" r="1" fill="currentColor" stroke="none"></circle><circle cx="8.6" cy="15.4" r="1" fill="currentColor" stroke="none"></circle></svg>
+        </span>
+        <h2 id="ck-title">Cookies on this site</h2>
+    </div>
+    <p class="ck-body" id="ckBody">
+        We use a couple of essential cookies to keep the site working and to remember your display settings. No analytics, advertising or tracking &mdash; ever.
+        <span class="ck-current" id="ckCurrent"></span>
+    </p>
+    <div class="ck-actions">
+        <button type="button" class="ck-btn ck-btn-accept" id="ckAccept">Accept cookies</button>
+        <button type="button" class="ck-btn ck-btn-reject" id="ckReject">Essential only</button>
+    </div>
+    <p class="ck-foot">Your choice is saved on this device. <a href="cookie-policy.html" data-open-cookie-settings>Cookie&nbsp;settings</a> &middot; <a href="privacy-policy.html">Privacy&nbsp;policy</a></p>
+</div>
+
+<!-- Cookie settings popup -->
+<div class="modal" id="cookieSettingsModal" role="dialog" aria-modal="true" aria-labelledby="ckSettingsTitle">
+    <div class="modal__box" style="max-width:560px;">
+        <div class="ck-head">
+            <span class="ck-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M12 2a10 10 0 1 0 10 10 3.2 3.2 0 0 1-4.6-3.4A3.2 3.2 0 0 1 12 2z"></path><circle cx="9.2" cy="10" r="1" fill="currentColor" stroke="none"></circle><circle cx="14.4" cy="14.6" r="1" fill="currentColor" stroke="none"></circle><circle cx="8.6" cy="15.4" r="1" fill="currentColor" stroke="none"></circle></svg></span>
+            <h2 id="ckSettingsTitle">Cookie settings</h2>
+        </div>
+        <div class="prose">
+            <p>This site stores two things in your browser, on this device only:</p>
+            <ul>
+                <li><strong>Your cookie choice</strong> &mdash; so this question is only asked once.</li>
+                <li><strong>Your display theme</strong> &mdash; light or dark, remembered between visits.</li>
+            </ul>
+            <p>Both are essential to how the site behaves. There are no analytics, advertising or tracking cookies, and nothing about your visit is shared with anyone else.</p>
+        </div>
+        <div class="ck-actions">
+            <button type="button" class="ck-btn ck-btn-accept" id="ckSetAccept" data-close>Accept cookies</button>
+            <button type="button" class="ck-btn ck-btn-reject" id="ckSetReject" data-close>Essential only</button>
+        </div>
+        <p class="ck-foot">Either button records your answer on this device.</p>
+        <button class="modal__x" type="button" data-close aria-label="Close cookie settings"><i class="fas fa-times" aria-hidden="true"></i></button>
+    </div>
+</div>
+
+</body>
+</html>

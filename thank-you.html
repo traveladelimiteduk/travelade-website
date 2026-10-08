@@ -1,29 +1,118 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB" class="no-js">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thank You | Travelade Limited</title>
-    <meta name="robots" content="noindex">
-    <link rel="icon" type="image/png" href="/favicon.png?v=4">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #f8f9fa; display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; }
-        .card { background: white; border-radius: 16px; padding: 50px; max-width: 500px; width: 100%; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.08); }
-        .icon { width: 80px; height: 80px; background: #e8f4fc; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 36px; color: #1E5FA8; }
-        h1 { color: #1E5FA8; font-size: 28px; margin-bottom: 12px; }
-        p { color: #666; line-height: 1.6; margin-bottom: 25px; font-size: 15px; }
-        .btn { display: inline-block; background: #1E5FA8; color: white; padding: 14px 40px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 15px; }
-        .btn:hover { background: #164a84; }
-    </style>
+    <meta name="description" content="Your enquiry has reached Travelade. We will come back to you shortly.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://www.travelade.co.uk/thank-you.html">
+
+    <link rel="icon" type="image/png" href="/favicon.png?v=5">
+    <link rel="apple-touch-icon" href="/favicon.png?v=5">
+
+    <meta property="og:title" content="Thank You | Travelade">
+    <meta property="og:description" content="Your enquiry has reached Travelade.">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="theme.css">
+    <!-- The theme is resolved before the first paint, so a dark-theme visitor never
+         sees a white flash while the stylesheet loads. localStorage wins, then the
+         operating system preference. Nothing here depends on theme.js, which is
+         deferred. -->
+    <script>
+    (function () {
+        /* This script is running, so scripting is available. Drop the
+           marker that let the stylesheet show .reveal content without
+           help; from here the observer in theme.js takes over. */
+        document.documentElement.classList.remove("no-js");
+        try {
+            var t = localStorage.getItem("travelade-theme");
+            if (!t) t = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+            document.documentElement.setAttribute("data-theme", t);
+        } catch (e) {}
+    })();
+    </script>
+    <meta name="theme-color" content="#05070C">
+    <script src="theme.js" defer></script>
+
 </head>
 <body>
-    <div class="card">
-        <div class="icon">&#10003;</div>
-        <h1>Thank You!</h1>
-        <p>Your submission has been received successfully. We'll review your details and get back to you within 24 hours.</p>
-        <a href="https://www.travelade.co.uk/" class="btn">Back to Home</a>
+
+<main class="thanks">
+    <div class="wrap">
+        <div class="thanks__card">
+            <div class="thanks__tick"><i class="fas fa-check" aria-hidden="true"></i></div>
+            <h1>Thanks, we have your details</h1>
+            <p>Your enquiry is with us. Someone will reply to you directly, usually within 20&ndash;30 minutes during office hours.</p>
+            <p class="thanks__note">Check your junk folder if nothing arrives within the hour, then call us on 07575&nbsp;378991 and we will pick it up straight away.</p>
+            <button class="themebtn" id="themeBtn" type="button" aria-live="polite"
+                    aria-label="Switch to light mode" title="Switch to light mode" style="margin:0 auto 22px">
+                <i class="fas fa-moon" aria-hidden="true"></i>
+            </button>
+            <div class="btn-row">
+                <a class="btn btn--primary" href="index.html">Back to the homepage</a>
+                <a class="btn btn--ghost" href="tel:+447575378991"><i class="fas fa-phone-alt" aria-hidden="true"></i> 07575 378991</a>
+            </div>
+        </div>
     </div>
+</main>
+
+<footer class="footer">
+    <div class="wrap">
+        <div class="footer__bottom">
+            <span>&copy; 2026 Travelade Limited. Registered in England &amp; Wales, Company Reg No. 17205750. Registered office at 14 Pheasant Rise, Chesham, Buckinghamshire, HP5 1NT. Not affiliated with any government body.</span>
+        </div>
+    </div>
+</footer>
+
+<!-- Cookie consent -->
+<div class="ck-overlay" aria-hidden="true"></div>
+<div class="ck-card" id="ckCard" role="dialog" aria-modal="true" aria-labelledby="ck-title">
+    <div class="ck-head">
+        <span class="ck-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M12 2a10 10 0 1 0 10 10 3.2 3.2 0 0 1-4.6-3.4A3.2 3.2 0 0 1 12 2z"></path><circle cx="9.2" cy="10" r="1" fill="currentColor" stroke="none"></circle><circle cx="14.4" cy="14.6" r="1" fill="currentColor" stroke="none"></circle><circle cx="8.6" cy="15.4" r="1" fill="currentColor" stroke="none"></circle></svg>
+        </span>
+        <h2 id="ck-title">Cookies on this site</h2>
+    </div>
+    <p class="ck-body" id="ckBody">
+        We use a couple of essential cookies to keep the site working and to remember your display settings. No analytics, advertising or tracking &mdash; ever.
+        <span class="ck-current" id="ckCurrent"></span>
+    </p>
+    <div class="ck-actions">
+        <button type="button" class="ck-btn ck-btn-accept" id="ckAccept">Accept cookies</button>
+        <button type="button" class="ck-btn ck-btn-reject" id="ckReject">Essential only</button>
+    </div>
+    <p class="ck-foot">Your choice is saved on this device. <a href="cookie-policy.html" data-open-cookie-settings>Cookie&nbsp;settings</a> &middot; <a href="privacy-policy.html">Privacy&nbsp;policy</a></p>
+</div>
+
+<!-- Cookie settings popup -->
+<div class="modal" id="cookieSettingsModal" role="dialog" aria-modal="true" aria-labelledby="ckSettingsTitle">
+    <div class="modal__box" style="max-width:560px;">
+        <div class="ck-head">
+            <span class="ck-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M12 2a10 10 0 1 0 10 10 3.2 3.2 0 0 1-4.6-3.4A3.2 3.2 0 0 1 12 2z"></path><circle cx="9.2" cy="10" r="1" fill="currentColor" stroke="none"></circle><circle cx="14.4" cy="14.6" r="1" fill="currentColor" stroke="none"></circle><circle cx="8.6" cy="15.4" r="1" fill="currentColor" stroke="none"></circle></svg></span>
+            <h2 id="ckSettingsTitle">Cookie settings</h2>
+        </div>
+        <div class="prose">
+            <p>This site stores two things in your browser, on this device only:</p>
+            <ul>
+                <li><strong>Your cookie choice</strong> &mdash; so this question is only asked once.</li>
+                <li><strong>Your display theme</strong> &mdash; light or dark, remembered between visits.</li>
+            </ul>
+            <p>Both are essential to how the site behaves. There are no analytics, advertising or tracking cookies, and nothing about your visit is shared with anyone else.</p>
+        </div>
+        <div class="ck-actions">
+            <button type="button" class="ck-btn ck-btn-accept" id="ckSetAccept" data-close>Accept cookies</button>
+            <button type="button" class="ck-btn ck-btn-reject" id="ckSetReject" data-close>Essential only</button>
+        </div>
+        <p class="ck-foot">Either button records your answer on this device.</p>
+        <button class="modal__x" type="button" data-close aria-label="Close cookie settings"><i class="fas fa-times" aria-hidden="true"></i></button>
+    </div>
+</div>
+
 </body>
 </html>

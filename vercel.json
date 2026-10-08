@@ -3,14 +3,14 @@
   "trailingSlash": false,
   "redirects": [
     {
-      "source": "/",
+      "source": "/:path*",
       "has": [
         {
           "type": "host",
           "value": "travelade.co.uk"
         }
       ],
-      "destination": "https://www.travelade.co.uk/",
+      "destination": "https://www.travelade.co.uk/:path*",
       "permanent": true
     }
   ],
@@ -34,6 +34,15 @@
     },
     {
       "source": "/sitemap.xml",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/(theme\\.(css|js))",
       "headers": [
         {
           "key": "Cache-Control",

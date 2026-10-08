@@ -1,0 +1,5416 @@
+/* ==========================================================================
+   TRAVELADE DESIGN SYSTEM  v2
+   --------------------------------------------------------------------------
+   Single source of truth for the whole site. Every page loads this last so
+   it wins over legacy page-level rules.
+
+   Look: editorial serif headings over a clean sans body. Warm cream and
+   deep navy, with a burnt-orange accent. Pill buttons, one easing curve,
+   one spacing rhythm.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. TOKENS
+   -------------------------------------------------------------------------- */
+
+:root {
+    /* --------------------------------------------------------------
+       BASE - near-black carrying a blue cast.
+       Flat #000 reads as a hole in the page; a near-black with a cool
+       bias reads as depth, which is most of what "premium" is on screen.
+       -------------------------------------------------------------- */
+    --navy-900: #05070C;
+    --navy-800: #0A0E17;
+    --navy-700: #101724;
+
+    /* Brand blue - deeper and less saturated than a corporate primary. */
+    --blue-700: #0C2340;
+    --blue-600: #11315A;
+    --blue-500: #17457C;
+    --blue-400: #2E6CB0;
+    /* blue-300 exists only for text sitting on the dark base. blue-400
+       measures 3.7:1 on navy-900, which is why links on dark lift here. */
+    --blue-300: #7FB6E8;
+    --blue-100: #CFDCEA;
+    --blue-050: #EDF1F7;
+
+    /* --------------------------------------------------------------
+       ACCENT - copper.
+       The old bright orange was correct for a discount feel and wrong
+       for a premium one. Copper sits next to near-black the way brass
+       sits next to lacquer, and it is the only warm hue on the page,
+       so the eye goes straight to a call to action.
+       -------------------------------------------------------------- */
+    --orange-700: #8C3F10;  /* 7.4:1 with white text - solid button fill */
+    --orange-600: #A85118;  /* hover                             */
+    --orange-500: #C06322;
+    --orange-400: #DE8340;  /* 7.1:1 on navy-900 - accent on dark    */
+    --orange-100: #F3DFCB;
+    --orange-050: #FBF3EB;
+
+    /* Rating stars only. A third metal, used once, so a 5-star row reads
+       as a rating rather than as decoration. */
+    
+
+    /* Neutrals - warm-shifted so light sections feel printed, not clinical. */
+    --cream: #F7F4EF;
+    --paper: #F1F2F4;
+    --white: #FFFFFF;
+    --ink: #070A10;
+    --ink-2: #333A45;
+    /* ink-3 and ink-4 are small text on light backgrounds, so both are
+       tuned to clear 4.5:1 against --paper and --white, not against pure
+       white alone. Measured: ink-3 5.8:1 on paper, ink-4 5.4:1 on white. */
+    --ink-3: #585F6A;
+    --ink-4: #646B76;
+    --line: #DFE2E7;
+    --line-2: #ECEEF1;
+
+    /* Type. Serif display over sans body - the one thing that makes this
+       look different from both competitors, who use a single family. */
+    --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    --fs-xs: 0.8125rem;    /* 13   captions, legal       */
+    --fs-sm: 0.75rem;     /* 12   nav, small body      */
+    --fs-base: 1.03125rem; /* 16.5 body                 */
+    --fs-md: 1.1875rem;    /* 19   lead paragraph       */
+    --fs-lg: 1.375rem;     /* 22   card titles          */
+    --fs-xl: 1.75rem;      /* 28   h3 / mobile h2        */
+    --fs-2xl: 2.375rem;    /* 38   h2 desktop            */
+    --fs-3xl: 3.625rem;    /* 58   h1                    */
+
+    /* 8px rhythm. */
+    --sp-1: 8px;
+    --sp-2: 16px;
+    --sp-3: 24px;
+    --sp-4: 32px;
+    --sp-5: 40px;
+    --sp-6: 48px;
+    --sp-7: 64px;
+    --sp-8: 88px;
+    --sp-9: 112px;
+
+    --r-sm: 8px;
+    --r-md: 12px;
+    --r-lg: 18px;
+    --r-xl: 26px;
+    --r-pill: 999px;
+
+    /* Shadows are the cheapest depth cue there is. These are long and
+       diffuse rather than short and tight - a tight shadow reads cheap. */
+    --sh-sm: 0 1px 2px rgba(7, 10, 16, 0.06);
+    --sh-md: 0 2px 8px rgba(7, 10, 16, 0.06), 0 1px 2px rgba(7, 10, 16, 0.04);
+    --sh-lg: 0 18px 44px -14px rgba(7, 10, 16, 0.20), 0 4px 12px rgba(7, 10, 16, 0.05);
+    --sh-xl: 0 40px 90px -24px rgba(7, 10, 16, 0.30), 0 8px 24px rgba(7, 10, 16, 0.07);
+
+    --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --dur-fast: 150ms;
+    --dur: 260ms;
+    --dur-slow: 520ms;
+
+    --nav-h: 76px;
+    --wrap: 1200px;
+
+
+    /* --------------------------------------------------------------
+       THEME LAYER
+       Every surface in the document is painted from this ramp and every
+       run of body copy takes its colour from --fg*, so dark and light are
+       one switch rather than two stylesheets: one attribute on <html> and
+       the document inverts. The raw palette above never moves, so copper,
+       blue and gold keep their identity either way - which is what stops the
+       light theme looking like a different company.
+       -------------------------------------------------------------- */
+    color-scheme: dark;
+    --surface: #05070C;   /* hero, footer, page hero                    */
+    --surface-2: #0A0E17; /* alternating section                      */
+    --surface-3: #101724; /* a card sitting on surface-2              */
+    --fg: #FFFFFF;
+    --fg-2: rgba(255, 255, 255, 0.76);
+    --fg-3: rgba(255, 255, 255, 0.60);
+    --fg-4: rgba(255, 255, 255, 0.48);
+    --fg-invert: #05070C;      /* text on a --fg filled control        */
+    --hairline: rgba(255, 255, 255, 0.14);
+    --hairline-2: rgba(255, 255, 255, 0.08);
+    --chip: rgba(255, 255, 255, 0.07);      /* icon wells, discs        */
+    --chip-fg: #7FB6E8;
+    /* Copper lifts on dark and deepens on light so the accent keeps at
+       least 7:1 against whichever surface it lands on. */
+    --accent: #DE8340;
+    --accent-hover: #DE8340;
+    /* Spotlight tokens. Colour is spent only where it carries meaning: the
+       "With Travelade" column, the review score, the primary button. Anywhere
+       else it would be decoration, and decoration reads as noise on a page
+       that is trying to be believed.
+
+       The washes sit low (6-9%) because the winning column carries a full
+       sentence of text on every row; anything heavier drops that copy. */
+    --gold-ink: #D0A32B;               /* 8.2:1 on --surface-2            */
+    --gold-wash: rgba(208, 163, 43, 0.07);
+    --accent-wash: rgba(222, 131, 64, 0.09);
+    --accent-wash-hi: rgba(222, 131, 64, 0.15);
+    --accent-line: rgba(222, 131, 64, 0.30);
+    --glow-accent: 0 12px 34px -14px rgba(222, 131, 64, 0.55);
+    /* text-shadow takes no spread, so it needs its own value. Reusing
+       --glow-gold here would be silently dropped for that reason. */
+    --glow-gold-ink: 0 0 18px rgba(208, 163, 43, 0.45);
+    /* The bloom round a hovered country name on the zone map. A drop-shadow
+       filter takes a colour, not a whole box-shadow, so it cannot share a
+       value with --glow-gold-ink and needs one of its own. */
+    --emap-glow: rgba(208, 163, 43, 0.60);
+    /* The outline round the hero headline. Deliberately NOT var(--surface),
+       even though --surface is #05070C in the dark theme: --surface is
+       #FFFFFF in the light theme, which would put a white outline round white
+       text and eat the letterforms. --navy-900 holds #05070C in both themes
+       because it is raw palette rather than a themed surface, so the value is
+       the same for the same reason the headline colour is pinned to #fff - the
+       photograph stays dark in the light theme too. */
+    --hero-outline: #05070C;
+    --link: #8FBEE9;
+    --link-hover: #DE8340;
+    --glass: rgba(10, 14, 23, 0.86);       /* the nav once it is solid  */
+    --glass-line: rgba(255, 255, 255, 0.12);
+    /* The nav's bottom edge, which needs different treatment per theme. The
+       line itself is visible in both - 14% white reads clearly as a rule
+       against the near-black page without turning into a drawn outline,
+       because the drop shadow underneath it now gives the bar real depth
+       rather than leaving it floating on a flat sheet of black. */
+    --nav-line: rgba(255, 255, 255, 0.14);
+    --nav-drop: rgba(0, 0, 0, 0.78);
+}
+
+/* --------------------------------------------------------------------------
+   2. BASE
+   -------------------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+/* Smooth scrolling with a delicate touch. */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--nav-h) + 16px);
+    overscroll-behavior: y-mouse;
+}
+
+/* Cross-page transitions for same-origin navigation, so the jump from the
+   destinations grid to countries.html cross-fades instead of snapping.
+   Browsers without support navigate instantly, which is the old behaviour and
+   perfectly fine, so this degrades rather than breaking. */
+@media (prefers-reduced-motion: no-preference) {
+    @view-transition {
+        navigation: auto;
+    }
+
+    ::view-transition-old(root) {
+        animation: vt-out 180ms ease both;
+    }
+
+    ::view-transition-new(root) {
+        animation: vt-in 240ms ease both;
+    }
+
+    @keyframes vt-out {
+        to {
+            opacity: 0;
+        }
+    }
+
+    @keyframes vt-in {
+        from {
+            opacity: 0;
+        }
+    }
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: var(--fs-base);
+    line-height: 1.68;
+    color: var(--fg);
+    background: var(--surface);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    color: var(--fg);
+    line-height: 1.14;
+    letter-spacing: -0.015em;
+    margin: 0 0 0.5em;
+    text-wrap: balance;
+}
+
+p {
+    margin: 0 0 1.15em;
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+a {
+    color: var(--link);
+    text-decoration: none;
+    transition: color var(--dur) var(--ease);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Browsers do not make <button> inherit type or drop the UA border. A button
+   that does not set these by hand silently renders in Arial inside a 2px
+   outset bevel - which is what drew a pale lining around .nav__cta. Every
+   component still sets its own family, size and border; this only removes
+   the UA default so nothing has to remember to. */
+button {
+    font-family: inherit;
+    color: inherit;
+    border: 0;
+    cursor: pointer;
+}
+
+:focus-visible {
+    outline: 3px solid var(--orange-500);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+.wrap {
+    width: 100%;
+    max-width: var(--wrap);
+    margin-inline: auto;
+    padding-inline: 24px;
+}
+
+@media (max-width: 600px) {
+    .wrap {
+        padding-inline: 20px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   3. MOTION
+   Applied broadly rather than per-component, which is what makes the page
+   feel like one thing instead of assembled parts.
+   -------------------------------------------------------------------------- */
+
+a,
+button,
+input,
+select,
+textarea,
+img,
+.card,
+[class*="-card"],
+[class*="-btn"],
+[class*="-item"],
+[class*="-icon"],
+[class*="-step"],
+[class*="-pill"], .reveal, .review-card, .flag-pill, .prose a {
+    transition:
+        color var(--dur) var(--ease),
+        background-color var(--dur) var(--ease),
+        border-color var(--dur) var(--ease),
+        box-shadow var(--dur) var(--ease),
+        transform var(--dur) var(--ease),
+        opacity var(--dur) var(--ease),
+        filter var(--dur) var(--ease);
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(22px);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: none;
+    transition:
+        opacity var(--dur-slow) var(--ease-out),
+        transform var(--dur-slow) var(--ease-out);
+}
+
+/* If the observer never runs, content must still be readable. */
+.no-js .reveal, .reveal.no-observer {
+    opacity: 1;
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   4. TYPOGRAPHY COMPONENTS
+   -------------------------------------------------------------------------- */
+
+.eyebrow {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: var(--sp-2);
+}
+
+/* The --light suffix means "this is going on something dark", so it must not
+   follow --accent. --accent is deliberately deepened for the light theme so it
+   holds contrast on cream, but this eyebrow sits on the hero photograph, and a
+   photograph stays dark in both themes - swapping to the deeper copper here
+   made it look muddy rather than brighter. Pinned to the raw palette instead. */
+.eyebrow--light {
+    color: var(--orange-400) !important;
+}
+
+.h-sec {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.022em;
+}
+
+.h-sec--light {
+    color: var(--fg);
+}
+
+.lead {
+    font-size: 0.9375rem;
+    line-height: 1.66;
+    color: var(--fg-2);
+    max-width: 62ch;
+}
+
+.lead--light {
+    color: var(--fg-2);
+}
+
+.sec-head {
+    max-width: 720px;
+    margin-bottom: var(--sp-7);
+}
+
+.sec-head--center {
+    margin-inline: auto;
+    text-align: center;
+}
+
+/* Nudges a heading a little right of the column it sits in. Uses margin rather
+   than transform on purpose: section headings are also .reveal elements, and
+   .reveal.active resets transform to none, so a transform here would silently
+   vanish the moment the heading scrolled into view. */
+.sec-head--nudge {
+    margin-inline-start: 20px;
+}
+
+.sec-head--center .lead {
+    margin-inline: auto;
+}
+
+.section {
+    padding: var(--sp-9) 0;
+}
+
+.section--tight {
+    padding: var(--sp-8) 0;
+}
+
+.section--cream {
+    background: var(--surface-2);
+}
+
+.section--paper {
+    background: var(--surface-2);
+}
+
+.section--navy {
+    background: var(--surface-2);
+    color: var(--fg-2);
+}
+
+.section--navy .h-sec, .section--navy h2, .section--navy h3 {
+    color: var(--fg);
+}
+
+/* --------------------------------------------------------------------------
+   5. BUTTONS
+   -------------------------------------------------------------------------- */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    letter-spacing: 0.005em;
+    line-height: 1;
+    padding: 15px 28px;
+    border: 1px solid transparent;
+    border-radius: var(--r-pill);
+    cursor: pointer;
+    text-align: center;
+    white-space: nowrap;
+    transition:
+        transform var(--dur) var(--ease),
+        box-shadow var(--dur) var(--ease),
+        background-color var(--dur) var(--ease),
+        border-color var(--dur) var(--ease),
+        color var(--dur) var(--ease);
+}
+
+.btn:active {
+    transform: translateY(0) scale(0.99);
+}
+
+/* The button already carried a copper shadow, so the glow is a firming-up of
+   something that was already there rather than a new effect. A second bloom
+   layer was tried on top and removed - it doubled the edge and read as a halo
+   rather than a lift. */
+.btn--primary {
+    background: var(--orange-700);
+    color: #fff;
+    box-shadow: var(--glow-accent), 0 1px 2px rgba(140, 63, 16, 0.24);
+}
+
+.btn--primary:hover {
+    background: var(--orange-600);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 16px 34px -12px rgba(192, 99, 34, 0.5);
+}
+
+.btn--navy {
+    background: var(--blue-600);
+    color: #fff;
+    box-shadow: 0 8px 22px rgba(17, 49, 90, 0.24);
+}
+
+.btn--navy:hover {
+    background: var(--blue-700);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(17, 49, 90, 0.3);
+}
+
+.btn--ghost {
+    background: transparent;
+    color: var(--fg);
+    border-color: var(--hairline);
+}
+
+.btn--ghost:hover {
+    border-color: var(--fg);
+    background: var(--fg);
+    color: var(--fg-invert);
+    transform: translateY(-2px);
+}
+
+.btn--ghost-light {
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.28);
+    backdrop-filter: blur(6px);
+}
+
+.btn--ghost-light:hover {
+    background: #fff;
+    color: var(--navy-800);
+    border-color: #fff;
+    transform: translateY(-2px);
+}
+
+.btn--sm {
+    font-size: var(--fs-xs);
+    padding: 12px 20px;
+}
+
+.btn--block {
+    width: 100%;
+}
+
+.btn-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* Inline text link with a sliding arrow - used all over the body copy. */
+.arrow-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-weight: 600;
+    font-size: var(--fs-sm);
+    color: var(--link);
+}
+
+.arrow-link i {
+    transition: transform var(--dur) var(--ease);
+}
+
+.arrow-link:hover {
+    color: var(--link-hover);
+}
+
+.arrow-link:hover i {
+    transform: translateX(4px);
+}
+
+.arrow-link--light {
+    color: var(--accent);
+}
+
+.arrow-link--light:hover {
+    color: #fff;
+}
+
+/* --------------------------------------------------------------------------
+   6. NAVBAR
+   -------------------------------------------------------------------------- */
+
+/* The bottom line sits on the base .nav, not on .nav--solid, so the nav always
+   has the same edge and the line does not snap into existence on the first
+   scroll. A transparent nav can still have a rule under it - what it cannot
+   have is a shadow, because there is no plate to cast one. The shadow is
+   therefore added by .nav--solid and layered *under* the line. */
+.nav {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 200;
+    height: var(--nav-h);
+    display: flex;
+    align-items: center;
+    background: transparent;
+    box-shadow: 0 1px 0 var(--nav-line);
+    transition: background-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease), backdrop-filter var(--dur) var(--ease);
+}
+
+.nav__inner {
+    width: 100%;
+    max-width: var(--wrap);
+    margin-inline: auto;
+    padding-inline: 24px;
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+}
+
+.nav--solid {
+    background: var(--glass);
+    backdrop-filter: blur(14px) saturate(1.4);
+    box-shadow: 0 1px 0 var(--nav-line), 0 12px 32px -16px var(--nav-drop);
+}
+
+/* Over the dark hero the logo needs a light plate, because logo-new.jpeg
+   /* The source logo-new.jpeg is a JPEG, so its white background is baked
+   into the pixels. These two PNGs are that same wordmark with the white
+   knocked out to real alpha (distance-from-white for the alpha channel,
+   then un-premultiplied against it so no white halo survives on curves).
+   No plate, no shadow - just the wordmark on whatever the nav background is.
+
+   Two files, because the nav has two very different backgrounds. The
+   the original blue is invisible on navy, so the hero version lifts
+   it to a lighter brand blue while keeping the orange accent:
+     --blue  transparent nav over the dark hero   blue 6.96:1, orange 7.17:1
+     --dark  solid white nav once you scroll      original brand tones */
+.nav__logo {
+    display: flex;
+    align-items: center;
+    height: 44px;
+    flex: none;
+    transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+.nav__logo:hover {
+    opacity: 0.8;
+    transform: translateY(-1px);
+}
+
+.nav__logo-img {
+    display: block;
+    height: 100%;
+    width: auto;
+    max-width: none;
+}
+
+/* Default state: transparent nav over the dark hero -> lifted blue. */
+.nav__logo-img--dark {
+    display: none;
+}
+
+/* Which wordmark shows is decided by the theme alone, not by whether the nav
+   has gone solid. In dark mode the glass is still dark, so the lifted wordmark
+   is correct both at the top of the page and once it sticks; in light mode both
+   those surfaces are light and the dark wordmark is the only one that reads.
+   Two rules, and no state can desynchronise them. */
+.nav__logo-img--dark {
+    display: none;
+}
+
+.nav__logo-img--blue {
+    display: block;
+}
+/* --------------------------------------------------------------
+   THEME TOGGLE
+   -------------------------------------------------------------- */
+.themebtn {
+    width: 38px;
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 50%;
+    color: rgba(255, 255, 255, 0.86);
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.themebtn:hover {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(255, 255, 255, 0.28);
+    color: #fff;
+}
+
+.nav--solid .themebtn {
+    background: var(--chip);
+    border-color: var(--hairline);
+    color: var(--fg-2);
+}
+
+.nav--solid .themebtn:hover {
+    background: var(--chip);
+    border-color: var(--accent);
+    color: var(--accent);
+}
+/* The light theme is a straight inversion of the same ramp: white
+   surfaces, ink copy, copper deepened to hold the same contrast. */
+[data-theme="light"] {
+    color-scheme: light;
+    --surface: #FFFFFF;
+    --surface-2: #F7F4EF;
+    --surface-3: #FFFFFF;
+    --fg: #070A10;
+    --fg-2: #333A45;
+    --fg-3: #585F6A;
+    --fg-4: #646B76;
+    --fg-invert: #FFFFFF;
+    --hairline: #DFE2E7;
+    --hairline-2: #ECEEF1;
+    --chip: #EDF1F7;
+    --chip-fg: #11315A;
+    --accent: #8C3F10;
+    --accent-hover: #A85118;
+    --gold-ink: #8A6A0F;               /* 5.1:1 on white. --gold (#D0A32B)
+                                         only reaches 2.3:1 here, so the stars
+                                         and the rating take this rather than
+                                         the raw gold, which fails on white. */
+    --gold-wash: rgba(138, 106, 15, 0.06);
+    --accent-wash: rgba(192, 99, 34, 0.06);
+    --accent-wash-hi: rgba(192, 99, 34, 0.11);
+    --accent-line: rgba(140, 63, 16, 0.20);
+    --glow-accent: 0 12px 30px -16px rgba(192, 99, 34, 0.38);
+    --glow-gold-ink: 0 0 16px rgba(140, 106, 15, 0.35);
+    /* Weaker than in the dark theme. On a near-black map a bloom reads as
+       light; on white the same gold just muddies the name sitting on top of
+       the country outline. */
+    --emap-glow: rgba(140, 106, 15, 0.38);
+    --link: #11315A;
+    --link-hover: #A85118;
+    --glass: rgba(255, 255, 255, 0.90);
+    --glass-line: #DFE2E7;
+    /* See the note on the dark-theme values: a slightly stronger rule than the
+       default hairline, because the nav is the one edge on the page that has
+       to read as a bar sitting above the content rather than as a seam. */
+    --nav-line: #C8CDD4;
+    --nav-drop: rgba(7, 10, 16, 0.16);
+}
+
+/* The upper-left light source is a dark-surface effect. Over cream it
+   would only tint the page, so the light theme drops it. */
+[data-theme="light"] .section--navy, [data-theme="light"] .footer {
+    background-image: linear-gradient(180deg, var(--surface-2), var(--surface));
+}
+[data-theme="light"] .page-hero::before {
+    background: linear-gradient(165deg, var(--surface-2) 0%, var(--surface) 100%);
+}
+
+/* The ghost-light button is a white outline for photographs - the hero and the
+   CTA band, both of which are dark in every theme. The page hero is a normal
+   surface that happens to be near the top of the page, so the same button
+   there has to become an ordinary ink outline or it disappears. */
+[data-theme="light"] .page-hero .btn--ghost-light {
+    background: transparent;
+    color: var(--fg);
+    border-color: var(--hairline);
+    backdrop-filter: none;
+}
+
+[data-theme="light"] .page-hero .btn--ghost-light:hover {
+    background: var(--fg);
+    color: var(--fg-invert);
+    border-color: var(--fg);
+}
+
+/* The nav is transparent at the top of the page, so in the light theme it is
+   sitting on a light hero and needs ink, not white. These sit alongside the
+   .nav--solid rules further down rather than replacing them, because the two
+   states have to end up looking the same once the bar has stuck. */
+[data-theme="light"] .nav__link {
+    color: var(--fg-2);
+}
+
+[data-theme="light"] .nav__link:hover {
+    color: var(--fg);
+    background: var(--chip);
+}
+
+[data-theme="light"] .nav__link.is-current {
+    color: var(--fg);
+}
+
+[data-theme="light"] .nav__tel {
+    color: var(--fg-2);
+}
+
+[data-theme="light"] .nav__tel:hover {
+    color: var(--fg);
+    background: var(--chip);
+}
+
+[data-theme="light"] .nav__burger {
+    background: var(--chip);
+    border-color: var(--hairline);
+}
+
+[data-theme="light"] .nav__burger span {
+    background: var(--fg);
+}
+
+[data-theme="light"] .themebtn {
+    background: var(--chip);
+    border-color: var(--hairline);
+    color: var(--fg-2);
+}
+
+[data-theme="light"] .themebtn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.nav__links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: auto;
+}
+
+.nav__link {
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.86);
+    padding: 9px 14px;
+    border-radius: var(--r-pill);
+    position: relative;
+}
+
+.nav__link:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav--solid .nav__link {
+    color: var(--fg-2);
+}
+
+.nav--solid .nav__link:hover {
+    color: var(--fg);
+    background: var(--chip);
+}
+
+.nav__link.is-current {
+    color: #fff;
+}
+
+.nav--solid .nav__link.is-current {
+    color: var(--link);
+}
+
+.nav__link.is-current::after {
+    content: "";
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 4px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--orange-500);
+}
+
+.nav__right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav__tel {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    padding: 9px 14px;
+    border-radius: var(--r-pill);
+}
+
+.nav__tel:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav--solid .nav__tel {
+    color: var(--fg);
+}
+
+.nav--solid .nav__tel:hover {
+    background: var(--chip);
+}
+
+/* White on orange-500 only reaches 3.4:1, which fails WCAG AA for the
+   button text size. orange-700 gives 5.9:1 and still reads clearly orange.
+   Hover steps back up to orange-600 for a subtle lift. */
+.nav__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: #fff;
+    background: var(--orange-700);
+    padding: 12px 22px;
+    border-radius: var(--r-pill);
+    box-shadow: 0 6px 18px rgba(140, 63, 16, 0.32);
+}
+
+.nav__cta:hover {
+    background: var(--orange-600);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(192, 99, 34, 0.36);
+}
+
+/* --- Mobile trigger --- */
+.nav__burger {
+    display: none;
+    margin-left: auto;
+    width: 46px;
+    height: 46px;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.nav--solid .nav__burger {
+    background: var(--chip);
+    border-color: var(--hairline);
+}
+
+.nav__burger span {
+    display: block;
+    width: 19px;
+    height: 2px;
+    border-radius: 2px;
+    background: #fff;
+    transition: transform var(--dur) var(--ease), opacity var(--dur) var(--ease);
+}
+
+.nav--solid .nav__burger span {
+    background: var(--fg);
+}
+
+.nav__burger[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.nav__burger[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav__burger[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* --- Slide-out panel --- */
+.nav__scrim {
+    position: fixed;
+    inset: 0;
+    z-index: 190;
+    background: rgba(5, 7, 12, 0.5);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--dur) var(--ease), visibility var(--dur) var(--ease);
+}
+
+.nav__scrim.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.nav__panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 210;
+    width: 300px;
+    max-width: 84vw;
+    background: var(--surface-3);
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform var(--dur-slow) var(--ease-out);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+}
+
+.nav__panel.is-open {
+    transform: none;
+    box-shadow: -24px 0 60px rgba(5, 7, 12, 0.22);
+}
+
+.nav__panel-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 16px;
+    background: var(--surface-3);
+    border-bottom: 1px solid var(--hairline-2);
+}
+
+.nav__panel-head img {
+    height: 42px;
+    width: auto;
+}
+
+.nav__close {
+    width: 44px;
+    height: 44px;
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--chip);
+    border: 1px solid var(--hairline);
+    border-radius: 12px;
+    color: var(--fg);
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.nav__close:hover {
+    background: var(--fg);
+    color: var(--fg-invert);
+    border-color: var(--fg);
+}
+
+.nav__panel-body {
+    padding: 8px 0 24px;
+}
+
+.nav__panel-body a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 15px 20px;
+    font-size: 1.0625rem;
+    font-weight: 500;
+    color: var(--fg);
+    border-bottom: 1px solid var(--hairline-2);
+}
+
+.nav__panel-body a i {
+    font-size: 12px;
+    color: var(--fg-4);
+}
+
+.nav__panel-body a:hover, .nav__panel-body a:active {
+    background: var(--chip);
+    color: var(--link);
+}
+
+/* No hover shift on touch - it sticks after a tap and makes the row jump. */
+@media (hover: none) {
+    .nav__panel-body a:hover {
+        background: transparent;
+        color: var(--fg);
+    }
+}
+
+.nav__panel-foot {
+    padding: 20px;
+    display: grid;
+    gap: 10px;
+    border-top: 1px solid var(--hairline-2);
+    margin-top: 8px;
+}
+
+.nav__panel-foot a {
+    justify-content: flex-start;
+    font-weight: 600;
+    color: var(--link);
+}
+
+@media (max-width: 940px) {
+
+.nav__links, .nav__tel {
+        display: none;
+    }
+
+    .nav__burger {
+        display: flex;
+    }
+
+    .nav__cta {
+        padding: 11px 18px;
+    }
+}
+
+/* The wordmark is 171px wide at full size. On a 320-360px phone that
+   plus the Apply button and the burger no longer fit across the nav,
+   so the logo steps down rather than shoving the controls off-screen. */
+@media (max-width: 480px) {
+    .nav__logo {
+        height: 42px;
+    }
+}
+
+@media (max-width: 360px) {
+    .nav__logo {
+        height: 37px;
+    }
+}
+
+@media (max-width: 420px) {
+    .nav__cta span {
+        display: none;
+    }
+}
+
+/* At 320px the wordmark plus the right-hand cluster (CTA, theme toggle,
+   burger) ran 16px off the edge of the screen. Every part of the row steps
+   down together here - padding, gap, logo, button padding - so the burger
+   stays fully on-screen instead of being clipped. */
+@media (max-width: 360px) {
+    .nav__inner {
+        padding-inline: 14px;
+        gap: 10px;
+    }
+
+    .nav__logo {
+        height: 32px;
+    }
+
+    .nav__right {
+        gap: 6px;
+    }
+
+    .nav__cta {
+        padding: 10px 14px;
+    }
+
+    .nav__burger {
+        width: 42px;
+        height: 42px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   7. HERO
+   -------------------------------------------------------------------------- */
+
+/* No min-height and no centring. Both were there to fill a tall screen, but
+   the hero is a framed photograph, so leftover height had nowhere to go: it
+   was split above and below the content, which made the gap between the card
+   and the stat rule anywhere between 40px and 85px depending on the height of
+   the window. The hero is now exactly as tall as its content, so the photo is
+   cropped to the copy and the spacing below the card is always the grid's own
+   40px. */
+.hero {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: calc(var(--nav-h) + 22px) 0 0;
+    background: var(--surface);
+    overflow: hidden;
+}
+
+/* The photograph floats inside the hero as a rounded card instead of
+   running edge to edge, so the hero reads as a sheet of page colour with a
+   photo laid on it. The gutter shows at both sides, in the corners and in
+   the band behind the nav; it takes --surface rather than a fixed navy, so
+   in the light theme it is white and the nav above it is ink on white
+   instead of ink on black. Only the photograph itself stays dark, because a
+   photograph is a photograph in either theme. */
+.hero__bg {
+    position: absolute;
+    inset: calc(var(--nav-h) + 22px) 20px 0;
+    z-index: -2;
+    overflow: hidden;
+    border-radius: var(--r-xl);
+}
+
+/* Every photograph is stacked in the same box and cross-faded on opacity.
+   Only the one carrying .is-active is painted, so the other two cost
+   nothing to render and are never announced - they are aria-hidden in
+   the markup. */
+.hero__bg img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 55%;
+    opacity: 0;
+    transition: opacity 1400ms var(--ease);
+}
+
+.hero__bg img.is-active {
+    opacity: 1;
+}
+
+/* The slow drift. Each photograph creeps up and scales for as long as it
+   is on screen, which is what stops the hero reading as a static banner.
+   Seven seconds, the same as the dwell in theme.js, so the creep lands
+   exactly as the slide fades. */
+@media (prefers-reduced-motion: no-preference) {
+    .hero__bg img.is-active {
+        animation: hero-drift 7000ms linear both;
+    }
+}
+
+@keyframes hero-drift {
+    from {
+        transform: scale(1.06) translate3d(0, 0, 0);
+    }
+
+    to {
+        transform: scale(1.16) translate3d(0, -1.6%, 0);
+    }
+}
+
+/* Someone who has asked for less motion gets one photograph, held, and
+   no rotation at all. The drift above is already gated on
+   no-preference, so with this set the hero does not move in any way. */
+@media (prefers-reduced-motion: reduce) {
+
+    .hero__bg img {
+        transition: none;
+    }
+}
+
+/* Three layers, first is on top.
+
+   1. A soft blue light off the top-left corner. It was written as a separate
+      rule further down this file so the hero and .section--navy / .footer
+      shared one light source, which meant .hero__bg::after was declared twice
+      and the later copy silently won. It lives here now, once, with the wash.
+   2. The pool of shade over the middle of the frame. This used to be a 90deg
+      wash, darkest down the left edge and almost clear by the right, because
+      the copy sat in a left hand column. Centred copy needs the opposite: dark
+      where the type is, falling away to the sides so the photograph still
+      carries the left and right thirds of the image. Radial rather than linear
+      for that reason - a centred linear wash cannot fall off in both
+      directions at once, and asymmetric falloff is what the old one had.
+   3. Vertical navy top and bottom, thin through the middle, which is what
+      keeps the photograph reading as a photograph rather than a flat panel.
+
+   The pool is 88% tall and centred at 44% rather than something tighter,
+   because the copper eyebrow is the one element on a photograph that cannot be
+   moved: it is copper on dark navy at 13px, which is a genuinely narrow pair
+   to begin with, and it sits at the very top of the copy where a short pool
+   has already fallen away. At 66% tall it measured 4.3:1 at 390px wide, below
+   the 4.5:1 it needs. At 88% it holds 5.55:1 at 390 and 5.80:1 at 1440, and
+   the white headline is unaffected - it was never the tight one.
+
+   The alphas in the layers below were lightened to match the country-page
+   hero (the same photograph, brighter and more visible). The pool's core -
+   the alpha underneath the eyebrow - is left at 0.6, the mid-tones are pulled
+   from 0.44 to 0.32 and the vertical bands drop to 0.52/0.40, so the readable
+   centre is unchanged while the top, sides and bottom of the photograph
+   finally carry the frame.
+
+   Those figures are the worst pixel under the eyebrow across all three
+   photographs and all three frames of the hero-drift zoom, not a guess at a
+   typical one. Do not lower them without re-measuring against the real images.
+
+   Anything changing this scrim must change it here. There used to be a second
+   copy at the end of the polish section and it beat this one on source order. */
+.hero__bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(90% 70% at 18% 6%, rgba(46, 108, 176, 0.14), transparent 60%),
+        radial-gradient(78% 66% at 50% 46%, rgba(5, 7, 12, 0.6) 0%, rgba(5, 7, 12, 0.32) 54%, rgba(10, 14, 23, 0.05) 100%),
+        linear-gradient(180deg, rgba(5, 7, 12, 0.52) 0%, rgba(5, 7, 12, 0.28) 32%, rgba(5, 7, 12, 0.4) 68%, rgba(5, 7, 12, 0.62) 100%);
+}
+
+.hero__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--sp-6);
+    align-items: start;
+    width: 100%;
+    padding-top: 44px;
+    padding-bottom: 40px;
+}
+
+/* The block sits in the middle of the hero, the words inside it run from the
+   left.
+
+   Those are two separate decisions and neither implies the other. margin-inline
+   auto puts the 600px measure on the centreline of the photograph, which is
+   where the subject is. text-align:left keeps the eyebrow, headline, paragraph
+   and button row reading from a common left edge, so the eye has one starting
+   point instead of a new one on every line.
+
+   This is deliberately not text-align:center. Centred text re-breaks on every
+   line, so the left edge of the paragraph is a ragged sawtooth rather than one
+   clean edge, and the headline above it looked unrelated to the words below.
+   The block is centred; the text in it is not. Do not "fix" one into the other.
+
+   width:100% with a max-width, not just a max-width.
+
+   margin-inline:auto on a grid item absorbs the free space, and an item with an
+   auto margin in that axis is sized to fit-content rather than stretched. Left
+   to shrink-wrap, the width of this block was whatever the widest child
+   happened to be: 572px at most viewports, but 598px at 1000px, because the
+   max-width:24ch on the title below that breakpoint measured wider than the
+   button row. So the block got wider as the screen got narrower. A fixed
+   measure removes the coupling and the whole thing is 600px from 648px up. */
+/* The block sits in the middle of the hero, the words inside it run from the
+   left.
+
+   Those are two separate decisions and neither implies the other. margin-inline
+   auto puts the 600px measure on the centreline of the photograph, which is
+   where the subject is. text-align:left keeps the eyebrow, headline, paragraph
+   and button row reading from a common left edge, so the eye has one starting
+   point instead of a new one on every line.
+
+   This is deliberately not text-align:center. Centred text re-breaks on every
+   line, so the left edge of the paragraph is a ragged sawtooth rather than one
+   clean edge, and the headline above it looked unrelated to the words below.
+   The block is centred; the text in it is not. Do not "fix" one into the other.
+
+   width:100% with a max-width, not just a max-width.
+
+   margin-inline:auto on a grid item absorbs the free space, and an item with an
+   auto margin in that axis is sized to fit-content rather than stretched. Left
+   to shrink-wrap, the width of this block was whatever the widest child
+   happened to be: 572px at most viewports, but 598px at 1000px, because the
+   max-width:24ch on the title below that breakpoint measured wider than the
+   button row. So the block got wider as the screen got narrower. A fixed
+   measure removes the coupling and the whole thing is 600px from 648px up. */
+.hero__copy {
+    width: 100%;
+    max-width: 600px;
+    margin-inline: auto;
+    text-align: left;
+}
+.hero__copy .eyebrow,
+.hero__copy .hero__title,
+.hero__copy .hero__sub {
+    display: block;
+    text-align: left;
+}
+
+/* The ceiling is 46px - between the 52px this headline used to reach and the
+   42px it was later cut to. At 52px a two-line headline in the middle of the
+   frame shouted over the photograph; 46px is a tenth bigger than 42 and still
+   short of that.
+
+   The floor is deliberately NOT raised along with it. Raising it to 36px gives
+   a 390px phone four lines instead of three - the tail of the sentence
+   ("...who answer the phone.") stops greedy-wrapping to two lines one size up -
+   and a fourth line costs 46px of hero height for nothing. Narrower phones are
+   on four lines whichever floor is chosen, so 34px buys the same line count for
+   2px less. The clamp holds 34px flat to ~570px and ramps to 46px at 1200px.
+
+   The text-shadow is an outline, not a glow. It was a glow until this was
+   measured and the outline turned out to be the better trade - see the note on
+   the width below before changing it.
+
+   Eight layers, zero blur, at +-0.03em on the axes and on both diagonals. That
+   is the classic hand-built outline: one shadow per compass direction, each a
+   copy of the text displaced a hair away, so the union of all eight is a ring
+   sitting outside the letterform. The diagonals are what fill the corners; drop
+   them and notches appear at every join.
+
+   NOT -webkit-text-stroke, which is the one-line way to do this and the wrong
+   one here. That property centres the stroke on the glyph outline, so half of
+   it is eaten out of each edge of every stem. The headline is Playfair Display
+   and its stems are only 6.75px across at 46px and 5px at 34px, so the
+   letterforms cannot afford it. Measured on the real stack: the stem of the h
+   in "who", rasterised against #05070C at 4x supersampling, median over the
+   rows where it is a single unbroken run.
+
+       stroke     stem @46px       stem @34px
+       none       6.75px           5px
+       1px        5.75px  (-15%)   4px  (-20%)
+       2px        4.75px  (-29%)   3px  (-40%)
+
+   A text-shadow is painted behind the glyph rather than through it, so it
+   costs nothing from the stem - the outline is purely additive. That is the
+   whole reason this is eight verbose declarations instead of one short one.
+
+   0.03em rather than a fixed 1px so the outline stays in proportion as the
+   clamp shrinks: it lands at 1.38px against the 46px end and 1.02px against
+   the 34px end, which is a fifth of the stem width at both sizes (1.38/6.75
+   and 1.02/5).
+
+   How visible is it? The scrim (.hero__bg::after) holds the backdrop behind the
+   headline to a luminance of 0.02-0.10, sampled across all three photographs
+   and the whole hero-drift cycle, so there is no bright patch anywhere for the
+   outline to disappear into. Against that backdrop #05070C reads at 7:1 to
+   15:1. It is visible everywhere, not conditionally. */
+.hero__title {
+    font-size: clamp(2.125rem, 1.45rem + 1.9vw, 2.875rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.028em;
+    color: #fff;
+    margin-bottom: var(--sp-3);
+    margin-inline: auto;
+    max-width: none;
+    width: auto;
+    text-shadow:
+        -0.03em  0        0 var(--hero-outline),
+         0.03em  0        0 var(--hero-outline),
+         0      -0.03em   0 var(--hero-outline),
+         0       0.03em   0 var(--hero-outline),
+        -0.03em -0.03em   0 var(--hero-outline),
+         0.03em -0.03em   0 var(--hero-outline),
+        -0.03em  0.03em   0 var(--hero-outline),
+         0.03em  0.03em   0 var(--hero-outline);
+}
+
+/* The one word in copper keeps the outline. text-shadow is inherited, so the
+   eight layers above reach this element on their own and nothing has to be
+   redeclared here - the copper letterforms are outlined in exactly the same
+   ink as the white ones either side of them.
+
+   That is also why this needs no colour of its own now. An outline separates a
+   letterform from whatever is behind it regardless of what colour the letter is
+   itself, so the copper no longer has to work harder to hold its own: it sits
+   on the same footing as the white text rather than being the only part of the
+   sentence that needs separating. */
+.hero__title em {
+    font-style: italic;
+    color: var(--orange-400) !important;
+}
+
+/* 14px. One step under the eyebrow's 13px and well under the headline's 34px
+   floor, so the paragraph stays visibly secondary to the serif headline above
+   it. Left-aligned with the rest of the block - the block is centred, the text
+   in it is deliberately not (see the note on .hero__copy). The stack leads
+   with system-ui, which keeps the small type crisp against Playfair. */
+.hero__sub {
+    font-size: 0.875rem;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    color: #fff;
+    max-width: none;
+    width: auto;
+    margin-bottom: var(--sp-3);
+    margin-inline: auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Playfair Display", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+/* --gold-ink, not --gold. The raw gold #D0A32B measures 2.3:1 on white, which
+   is why it looked weak on light; this is the darkened variant.
+
+   The specificity here is deliberate. .stars is a span, and inside the score
+   card it sits inside another span, where .reviews__score span (0,1,1) was
+   beating this rule (0,1,0) and painting the rating's stars in --fg-3. They
+   have never been gold there. Matched class-plus-element rather than adding
+   !important. */
+.stars,
+.reviews__score span .stars {
+    display: inline-flex;
+    gap: 3px;
+    color: var(--gold-ink);
+    font-size: 13px;
+}
+
+.field {
+    margin-bottom: 14px;
+}
+
+.field label {
+    display: block;
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--fg-3);
+    margin-bottom: 6px;
+}
+
+.field input,
+.field select, .field textarea, input, select, textarea {
+    /* !important: many fields carry an inline font-size that would otherwise win.
+       16px minimum also stops iOS Safari zooming the page on focus. */
+    font-family: var(--font-body) !important;
+    font-size: 16px !important;
+    width: 100%;
+    padding: 13px 15px;
+    color: var(--fg);
+    background: var(--surface-3);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-md);
+    transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+.field input:focus,
+.field select:focus, .field textarea:focus, input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--blue-500);
+    box-shadow: 0 0 0 3px rgba(23, 69, 124, 0.14);
+}
+
+.field input::placeholder, textarea::placeholder {
+    color: var(--fg-4);
+}
+
+.field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+/* The four headline facts, as small print under the buttons. A flex row
+   that wraps, not a grid, so there is no breakpoint to keep in sync and no
+   narrow column for it to collapse into. Centred with the rest of the copy;
+   the rule above it still spans the full 680px measure, which is what holds
+   the block together once the text above it is ragged on both edges. */
+.hero__facts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+    column-gap: 8px;
+    row-gap: 4px;
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+    font-size: var(--fs-xs);
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.62);
+}
+
+.hero__facts li {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 6px;
+}
+
+/* A middot rather than space alone, so four figures still read as four
+   separate things. It is punctuation the list already implies, so it is
+   left out of the accessibility tree. */
+.hero__facts li + li::before {
+    content: "\00b7";
+    margin-right: 8px;
+    color: rgba(255, 255, 255, 0.34);
+}
+
+.hero__facts b {
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.94);
+}
+
+/* The buttons are inline level, so .btn-row alone would leave them hard
+   against the left edge of an otherwise centred block. Scoped to the hero
+   rather than to .btn-row because every other row of buttons on the site is
+   left aligned and must stay that way. */
+.hero__copy .btn-row {
+    justify-content: center;
+}
+
+/* No hero query sits between 561px and 1179px, and the one at 560px carries no
+   font-size.
+
+   Both of the 2.25rem declarations that used to sit here are gone on purpose:
+   they sat on top of the clamp in .hero__title and were the wrong way round,
+   forcing 36px onto phones where the clamp would have given 34px. The ramp
+   already runs 34 to 46 with no breakpoints in it, which is one less pair of
+   numbers to keep in sync.
+
+   The 1180px query is gone for the same reason. Its grid-template-columns and
+   gap declarations repeated the base .hero__grid rule verbatim, so all it did
+   was widen the title to 24ch below 1180px - which, combined with fit-content
+   sizing on .hero__copy, made the whole block wider on a narrower screen. */
+
+@media (max-width: 560px) {
+
+    .hero {
+        padding-top: calc(var(--nav-h) + 14px);
+    }
+
+    .hero__bg {
+        inset: calc(var(--nav-h) + 14px) 12px 0;
+        border-radius: var(--r-lg);
+    }
+
+    .hero__grid {
+        padding-top: 32px;
+    }
+
+    .field-row {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-row .btn {
+        width: 100%;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   8. DESTINATION CARDS
+   -------------------------------------------------------------------------- */
+
+/* The destinations grid is the one place on the site allowed to run wider than
+   the standard 1200px wrap, because five cards at a fixed 227px cannot fit
+   inside it. The arithmetic is exact: five 227px cards and four 16px gaps make
+   1199px, and the wrap's own 24px side padding brings that to 1247px. Nothing
+   else on the section changes width, since the heading is capped at 720px. */
+.destinations-wrap {
+    max-width: 1247px;
+}
+
+/* Five across, four down. The track is capped at 227px rather than using 1fr so
+   the cards stay exactly the size they are specified to be instead of growing
+   with the viewport, and minmax lets them shrink on a narrower screen rather
+   than force the page into a horizontal scrollbar. */
+.dest-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 227px));
+    justify-content: center;
+    gap: 16px;
+}
+
+.dest {
+    position: relative;
+    display: block;
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    background: var(--surface-3);
+    aspect-ratio: 227 / 303.1;
+    box-shadow: var(--sh-md);
+}
+
+/* On countries.html these cards are buttons, so they start an application
+   for that country rather than jumping to a dead anchor. Reset the UA
+   button chrome so they render exactly like the anchor version did. */
+button.dest {
+    width: 100%;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+button.dest:focus-visible {
+    outline: 3px solid var(--orange-500);
+    outline-offset: 3px;
+}
+
+.dest__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 700ms var(--ease-out), filter var(--dur) var(--ease);
+}
+
+.dest::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(5, 7, 12, 0.05) 0%, rgba(5, 7, 12, 0.28) 45%, rgba(5, 7, 12, 0.9) 100%);
+    transition: background-color var(--dur) var(--ease);
+}
+
+.dest:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--sh-lg);
+}
+
+.dest:hover .dest__img {
+    transform: scale(1.06);
+}
+
+.dest__body {
+    position: absolute;
+    inset: auto 0 0 0;
+    z-index: 2;
+    padding: 16px;
+    color: #fff;
+}
+
+.dest__country {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    margin-bottom: 2px;
+}
+
+.dest__country img {
+    width: 20px;
+    height: 14px;
+    border-radius: 2px;
+    flex: none;
+    object-fit: cover;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3);
+}
+
+.dest__city {
+    font-size: var(--fs-sm);
+    color: rgba(255, 255, 255, 0.66);
+    margin-bottom: 10px;
+}
+
+.dest__foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.dest__from {
+    font-size: var(--fs-sm);
+    color: rgba(255, 255, 255, 0.66);
+}
+
+.dest__from b {
+    font-size: 0.9375rem;
+    color: #fff;
+    font-weight: 700;
+}
+
+.dest__go {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--orange-400) !important;
+}
+
+.dest:hover .dest__go {
+    color: #fff;
+}
+
+/* Link-out under the grid. The twenty cards are the popular destinations, not
+   the whole list, so this is what stops the section implying we stop at twenty. */
+.dest-more {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 34px;
+    text-align: center;
+}
+
+.dest-more__btn {
+    /* .btn lifts on hover; this one already sits centred in its own row, so the
+       lift reads as a nudge rather than a jump. */
+    transition: transform var(--dur) var(--ease), border-color var(--dur) var(--ease),
+        background var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+
+/* --- All 29 country pills --- */
+.flags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.flag-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px 8px 9px;
+    background: var(--surface-3);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-pill);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    color: var(--fg-2);
+}
+
+.flag-pill img {
+    width: 20px;
+    height: 14px;
+    border-radius: 2px;
+    object-fit: cover;
+    box-shadow: 0 0 0 1px rgba(7, 10, 16, 0.08);
+    flex: none;
+}
+
+.flag-pill:hover {
+    border-color: var(--link);
+    color: var(--link);
+    transform: translateY(-2px);
+    box-shadow: var(--sh-md);
+}
+
+.flag-pill.is-on {
+    background: var(--blue-600);
+    border-color: var(--blue-600);
+    color: #fff;
+}
+
+.flag-pill.is-on:hover {
+    background: var(--blue-700);
+    color: #fff;
+}
+
+.flags-wrap {
+    background: var(--surface-3);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-lg);
+    padding: 26px;
+    box-shadow: var(--sh-sm);
+}
+
+/* The card is capped at 227px wide, so the column count is what changes as the
+   screen narrows, not the card. Letting the columns stretch instead would mean
+   pairing each of those widths with its own ratio, and the numbers drift: a
+   two-up grid on a tablet is over 450px wide, where even a 9/10 portrait ratio
+   comes out 509px tall. Capping the width means every card above the phone
+   breakpoint is exactly 227 x 303.1, whatever the column count, and a narrower
+   screen simply fits fewer of them and centres what is left.
+
+   Five columns stop being usable once the wrap can no longer give each card
+   200px, which is where the longer country names start to wrap. */
+@media (max-width: 1109px) {
+    .dest-grid {
+        grid-template-columns: repeat(4, minmax(0, 227px));
+    }
+}
+
+@media (max-width: 979px) {
+    .dest-grid {
+        grid-template-columns: repeat(3, minmax(0, 227px));
+    }
+}
+
+@media (max-width: 759px) {
+    .dest-grid {
+        grid-template-columns: repeat(2, minmax(0, 227px));
+    }
+}
+
+/* Two in a line on a phone, and small. The old rule stretched one card to the
+   full width of the screen; the phone layout asks for the opposite - two
+   compact cards side by side, portrait ratio kept, so a 390px screen shows a
+   matrix of small tiles rather than one tile per scroll. The column count does
+   the shrinking: two minmax(0, 1fr) tracks fill the row exactly, and the card
+   interior steps down with them further below. */
+@media (max-width: 519px) {
+    .dest-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .dest__body {
+        padding: 10px 12px;
+    }
+
+    .dest__country {
+        gap: 6px;
+        font-size: 0.875rem;
+    }
+
+    .dest__country img {
+        width: 18px;
+        height: 13px;
+    }
+
+    .dest__city {
+        margin-bottom: 6px;
+        font-size: var(--fs-xs);
+    }
+
+    .dest__foot {
+        gap: 6px;
+        padding-top: 8px;
+    }
+
+    .dest__from {
+        font-size: var(--fs-xs);
+    }
+
+    .dest__from b {
+        font-size: 0.875rem;
+    }
+
+    .dest__go {
+        font-size: var(--fs-xs);
+    }
+}
+
+/* countries.html features six destinations rather than twenty, so five columns
+   would strand a single card on the second row. Three across fills two rows
+   evenly, and the width cap keeps the cards identical to the homepage grid.
+
+   This whole ladder sits after the queries above on purpose. Both selectors
+   weigh the same, so whichever comes later in the stylesheet wins, and a
+   .dest-grid--three declared up beside the base rule was being overridden by
+   a 1000px screen. */
+.dest-grid--three {
+    grid-template-columns: repeat(3, minmax(0, 227px));
+}
+
+@media (max-width: 979px) {
+    .dest-grid--three {
+        grid-template-columns: repeat(2, minmax(0, 227px));
+    }
+}
+
+@media (max-width: 519px) {
+    .dest-grid--three {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* --------------------------------------------------------------------------
+   DESTINATION FILTER BAR
+   --------------------------------------------------------------------------
+   Region chips on the left, a search box on the right. Colours come only from
+   tokens, so both themes are covered without a second set of rules. */
+
+.filterbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    /* Left-packed, so the search box sits right beside the chips rather than
+       being pushed to the far edge by a space-between. */
+    gap: 14px 20px;
+    margin-bottom: 22px;
+}
+
+.filterbar-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.chip {
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    line-height: 1;
+    color: var(--fg-2);
+    background: transparent;
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-pill);
+    /* A height rather than padding, so the chip matches the search box beside
+    it and both clear the 42px touch target comfortably on a phone. */
+    height: 42px;
+    padding: 0 18px;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    transition:
+        color var(--dur) var(--ease),
+        border-color var(--dur) var(--ease),
+        background-color var(--dur) var(--ease);
+}
+
+.chip:hover {
+    color: var(--fg);
+    border-color: var(--fg-3);
+}
+
+.chip:focus-visible {
+    outline: 2px solid var(--orange-400);
+    outline-offset: 2px;
+}
+
+/* The selected chip fills with the same accent the Apply links use, with the
+   page's darkest ink on top, which is the pairing the buttons already make. */
+.chip.on {
+    color: var(--navy-900);
+    background: var(--orange-400);
+    border-color: var(--orange-400);
+}
+
+.home-search {
+    flex: 0 1 250px;
+    min-width: 190px;
+    /* No auto margin here. The box is meant to sit right beside the chips, so
+       it stays left-packed with them and only drops onto a line of its own
+       when the row genuinely runs out of room. */
+    margin-inline-start: 0;
+}
+
+.home-search input {
+    /* height rather than padding, so the box stays 42px tall like the chips
+       beside it whatever the platform's own line height turns out to be. */
+    height: 42px;
+    padding-block: 0;
+    border-radius: var(--r-pill);
+}
+
+/* Safari draws its own clear button inside a type="search" field, which would
+   sit on top of this one. The native control is replaced by a reset chip below
+   the grid, which is reachable by keyboard and can be labelled properly. */
+.home-search input::-webkit-search-decoration,
+.home-search input::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+}
+
+/* Shown when a filter leaves nothing on screen. It sits in the space the cards
+   would have occupied rather than inside a panel of its own, so the section
+   does not change shape under the reader. */
+.dest-empty {
+    margin: 0;
+    padding: 20px 0;
+    font-size: var(--fs-base);
+    line-height: 1.6;
+    color: var(--fg-2);
+    text-align: center;
+}
+
+.dest-empty__or {
+    margin-inline: 6px;
+}
+
+/* An action inside a sentence, as opposed to .btn which stands on its own.
+   Kept at the reader's text size so it does not shout over the line it sits in;
+   the underline is what marks it as something to press. */
+.linkbtn {
+    font: inherit;
+    font-weight: 600;
+    color: var(--orange-400);
+    background: none;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    text-align: left;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition:
+        color var(--dur) var(--ease),
+        text-decoration-thickness var(--dur) var(--ease);
+}
+
+.linkbtn:hover {
+    text-decoration-thickness: 2px;
+}
+
+.linkbtn:focus-visible {
+    outline: 2px solid var(--orange-400);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+/* .dest sets display:block, which outranks the user-agent [hidden] rule, so the
+   filtered-out cards have to be taken out of flow explicitly. Without this the
+   filter would appear to do nothing at all. */
+.dest[hidden] {
+    display: none;
+}
+
+/* The nine countries countries.html documents but the grid does not show.
+   They start hidden and stay that way until a search actually names one, which
+   is what keeps the grid at 5x4 rather than spilling onto a fifth row. */
+.dest--ondemand[hidden] {
+    display: none;
+}
+
+/* On a narrow phone the chips and the box no longer fit on one line, so the
+   box takes the full width underneath them instead of stopping at 190px. */
+@media (max-width: 700px) {
+    .filterbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .home-search {
+        flex: 1 1 auto;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   9. SERVICE CARDS
+   -------------------------------------------------------------------------- */
+
+.svc-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.svc {
+    padding: 30px 28px;
+    background: var(--surface-3);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-lg);
+    box-shadow: var(--sh-sm);
+}
+
+.svc:hover {
+    transform: translateY(-4px);
+    border-color: var(--blue-100);
+    box-shadow: var(--sh-lg);
+}
+
+.svc__icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: var(--chip);
+    color: var(--chip-fg);
+    font-size: 20px;
+    margin-bottom: 18px;
+    transition: background var(--dur) var(--ease), color var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+.svc:hover .svc__icon {
+    background: var(--blue-600);
+    color: #fff;
+    transform: scale(1.06) rotate(-4deg);
+}
+
+.svc h3 {
+    font-size: var(--fs-lg);
+    margin-bottom: 8px;
+}
+
+.svc p {
+    font-size: var(--fs-sm);
+    line-height: 1.62;
+    color: var(--fg-2);
+    margin-bottom: 14px;
+}
+
+.svc .arrow-link {
+    font-size: var(--fs-xs);
+}
+
+@media (max-width: 900px) {
+    .svc-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .svc-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   10. PROCESS TIMELINE
+   --------------------------------------------------------------------------
+   Five steps read as a sequence, so they are laid out as one: a rail down the
+   page with each step sitting on it. Laid out as five boxes side by side they
+   looked like five equal things happening at once, which is the opposite of
+   what the section is describing.
+
+   The heading sits in its own column and sticks while the steps scroll past,
+   which keeps "Five steps, one consultant" on screen for the whole sequence.
+
+   An <ol> is used rather than a row of articles because this is an ordered
+   process, so the numbering is real list structure and not five paragraphs
+   that happen to be numbered. ------------------------------------------------------------------------ */
+
+.steps-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+    gap: var(--sp-8);
+    align-items: start;
+}
+
+/* In the two-column shape the lead column is not capped any more, and the
+   big bottom margin would only push the steps away from the heading they
+   belong to. */
+.steps-layout .sec-head {
+    max-width: none;
+    margin-bottom: 0;
+    position: sticky;
+    top: calc(var(--nav-h) + var(--sp-5));
+}
+
+/* The rail. Drawn on the list rather than on each step so it is one
+   continuous line, and stopped short of the last number so the sequence has
+   an end rather than trailing off.
+
+   It sits centred on the numbers. Those are 48px wide and are the first
+   column of the step, so their centres fall 24px in from the left edge of the
+   list - a 2px line is drawn from 23px to make that 24px land on the middle. */
+.tl {
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    counter-reset: tl;
+}
+
+.tl::before {
+    content: "";
+    position: absolute;
+    left: 23px;
+    top: 24px;
+    bottom: 24px;
+    width: 2px;
+    background: linear-gradient(
+        180deg,
+        var(--orange-400) 0%,
+        var(--accent) 34%,
+        var(--hairline) 100%
+    );
+}
+
+.tl__item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr);
+    gap: var(--sp-4);
+    align-items: start;
+    padding-bottom: var(--sp-6);
+}
+
+.tl__item:last-child {
+    padding-bottom: 0;
+}
+
+/* The number sits on the rail. It carries the section's own background so the
+   line reads as passing behind it rather than through it. */
+.tl__n {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--surface-2);
+    border: 1px solid var(--hairline);
+    color: var(--fg);
+    font-family: var(--font-display);
+    font-size: 1.1875rem;
+    font-weight: 700;
+    line-height: 1;
+    transition:
+        background var(--dur) var(--ease),
+        border-color var(--dur) var(--ease),
+        color var(--dur) var(--ease),
+        transform var(--dur) var(--ease);
+}
+
+.tl__body {
+    padding-top: 9px;
+    min-width: 0;
+}
+
+.tl__body h3 {
+    font-size: var(--fs-md);
+    font-family: var(--font-body);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+    margin-bottom: 7px;
+}
+
+.tl__body p {
+    font-size: var(--fs-base);
+    line-height: 1.62;
+    color: var(--fg-2);
+    margin: 0;
+    max-width: 58ch;
+}
+
+/* The first step is where a reader starts, so its number carries the accent
+   and stays filled. Hovering any other step borrows that treatment, which
+   gives the rail something to respond to. */
+.tl__item:first-child .tl__n,
+.tl__item:hover .tl__n {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--fg-invert);
+}
+
+.tl__item:first-child:hover .tl__n,
+.tl__item:hover .tl__n {
+    transform: scale(1.07);
+}
+
+/* Single column below this: two columns need more width than this to avoid
+   squeezing the steps into a narrow measure next to a narrow heading. The
+   sticky heading is dropped too, since a heading that pins while nothing else
+   is beside it just eats the viewport. */
+@media (max-width: 980px) {
+    .steps-layout {
+        grid-template-columns: 1fr;
+        gap: var(--sp-6);
+    }
+
+    .steps-layout .sec-head {
+        position: static;
+    }
+}
+
+@media (max-width: 560px) {
+    .tl__item {
+        grid-template-columns: 40px minmax(0, 1fr);
+        gap: var(--sp-3);
+        padding-bottom: var(--sp-5);
+    }
+
+    .tl::before {
+        left: 19px;
+    }
+
+    .tl__n {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .tl__body {
+        padding-top: 7px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   11. COMPARISON TABLE
+   -------------------------------------------------------------------------- */
+
+.cmp {
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    background: var(--surface-3);
+    box-shadow: var(--sh-md);
+}
+
+.cmp__row {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr 1.25fr;
+    align-items: stretch;
+}
+
+.cmp__row + .cmp__row {
+    border-top: 1px solid var(--hairline-2);
+}
+
+.cmp__row--head {
+    background: var(--surface-2);
+}
+
+.cmp__row--head > div {
+    padding: 18px 24px;
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--fg-3);
+}
+
+/* The "With Travelade" header cell, kept in step with the column beneath it:
+   same wash, same 2px spine, so the accent reads as one continuous block from
+   the heading down to the last row. */
+.cmp__row--head > div:last-child {
+    color: var(--accent);
+    background: var(--accent-wash);
+    border-left: 2px solid var(--accent-line);
+}
+
+.cmp__k, .cmp__a, .cmp__b {
+    padding: 18px 24px;
+    font-size: var(--fs-sm);
+    line-height: 1.55;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.cmp__k {
+    font-weight: 600;
+    color: var(--fg);
+    background: var(--chip);
+    border-right: 1px solid var(--hairline-2);
+}
+
+.cmp__a {
+    color: var(--fg-3);
+    border-right: 1px solid var(--hairline-2);
+}
+
+/* --chip rather than a literal tint. The old value here was
+   rgba(237, 241, 247, 0.5), which is #EDF1F7 at half strength - and #EDF1F7 is
+   exactly what --chip resolves to in the light theme, so this was the same
+   colour written out by hand and never converted. In the dark theme --chip is a
+   7% white wash, which the theme's own text colour sits on comfortably; the
+   literal did not, and white on a pale tint measured 3.76:1. The sibling
+   column, .cmp__k, was already using --chip for this same purpose.
+
+   This is now the one column on the page carrying an accent rather than a
+   neutral wash, because it is the only column that is a claim rather than a
+   description. "Doing it yourself online" describes; "With Travelade" asserts,
+   so the assertion is what gets the colour, a spine, and the depth.
+
+   The 2px left border is repeated on the header cell above, otherwise the
+   column would sit 2px off from its own heading at laptop width. Both keep the
+   declared grid width because the box model is border-box. */
+.cmp__b {
+    color: var(--fg);
+    background: var(--accent-wash);
+    border-left: 2px solid var(--accent-line);
+    transition: background var(--dur) var(--ease);
+}
+
+/* Deepen the winning column as the row is read. This is the one interactive
+   state on the table, and it points at the row rather than the whole table. */
+.cmp__row:hover .cmp__b {
+    background: var(--accent-wash-hi);
+}
+
+.cmp__a i {
+    flex: none;
+    color: var(--fg-4);
+    font-size: 13px;
+}
+
+.cmp__b i {
+    flex: none;
+    color: var(--accent-hover);
+    font-size: 13px;
+}
+
+.cmp__row--head + .cmp__row .cmp__b i, .cmp__b i.fa-check {
+    color: var(--accent-hover);
+}
+
+@media (max-width: 860px) {
+
+    .cmp__row {
+        grid-template-columns: 1fr;
+    }
+
+    .cmp__row--head {
+        display: none;
+    }
+
+    .cmp__row + .cmp__row {
+        border-top: 1px solid var(--hairline);
+    }
+
+    .cmp__k {
+        border-right: 0;
+        padding-bottom: 6px;
+        background: var(--surface-3);
+    }
+
+.cmp__a, .cmp__b {
+        padding-top: 8px;
+        padding-bottom: 14px;
+        border-right: 0;
+    }
+
+    /* Stacked, a 2px spine down the left edge would only trace the card
+       outline, so it becomes a rule above the block instead. The winning
+       answer is still marked, just across rather than down. */
+    .cmp__b {
+        padding-bottom: 20px;
+        border-left: 0;
+        border-top: 2px solid var(--accent-line);
+    }
+}
+
+/* --------------------------------------------------------------------------
+   12. STAT BAND
+   -------------------------------------------------------------------------- */
+
+.band {
+    background: var(--surface-2);
+    position: relative;
+    overflow: hidden;
+}
+
+.band::before {
+    content: "";
+    position: absolute;
+    top: -40%;
+    right: -10%;
+    width: 620px;
+    height: 620px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(192, 99, 34, 0.16) 0%, rgba(192, 99, 34, 0) 68%);
+    pointer-events: none;
+}
+
+.band__row {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    padding: var(--sp-8) 0;
+    text-align: center;
+}
+
+.band__n {
+    font-family: var(--font-display);
+    font-size: 2.75rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--fg);
+    margin-bottom: 8px;
+}
+
+.band__n span {
+    color: var(--accent);
+}
+
+.band__l {
+    font-size: var(--fs-sm);
+    color: var(--fg-3);
+    max-width: 22ch;
+    margin-inline: auto;
+}
+
+@media (max-width: 860px) {
+    .band__row {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px 20px;
+        padding: var(--sp-7) 0;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   13. PROSE BLOCK  (this is what ranks)
+   -------------------------------------------------------------------------- */
+
+.prose {
+    max-width: 72ch;
+}
+
+.prose h3 {
+    font-size: var(--fs-xl);
+    margin: var(--sp-6) 0 14px;
+}
+
+.prose h3:first-child {
+    margin-top: 0;
+}
+
+.prose p {
+    font-size: var(--fs-base);
+    line-height: 1.75;
+    color: var(--fg-2);
+}
+
+.prose ul {
+    margin: 0 0 var(--sp-4);
+    display: grid;
+    gap: 10px;
+}
+
+.prose li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: var(--fs-base);
+    line-height: 1.62;
+    color: var(--fg-2);
+}
+
+.prose li i {
+    flex: none;
+    margin-top: 5px;
+    color: var(--accent-hover);
+    font-size: 12px;
+}
+
+.prose-sb {
+    position: relative;
+    z-index: 2;
+}
+
+.prose-cols {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: 64px;
+    align-items: start;
+}
+
+/* Grid children default to min-width:auto, which means they refuse to shrink
+   below their own min-content width. One long unbreakable run of text in a
+   list item or a link is then enough to push the whole page sideways on a
+   320px screen. Zeroing the minimum lets both columns actually wrap. */
+.prose-cols > *,
+.cmp__row > *,
+.faq-item, .review-card, .svc, .dest, .price {
+    min-width: 0;
+}
+
+/* Belt and braces: long URLs and unbroken tokens wrap rather than overflow. */
+.prose, .prose li, .aside-card, .aside-card li {
+    overflow-wrap: break-word;
+}
+
+@media (max-width: 980px) {
+    .prose-cols {
+        grid-template-columns: 1fr;
+        gap: var(--sp-6);
+    }
+}
+
+/* Side card that sits beside the prose. */
+.aside-card {
+    padding: 28px;
+    background: var(--surface-3);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-lg);
+    box-shadow: var(--sh-md);
+}
+
+.aside-card h3 {
+    font-size: var(--fs-lg);
+    margin-bottom: 14px;
+}
+
+.aside-card li {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    padding: 11px 0;
+    font-size: var(--fs-sm);
+    line-height: 1.55;
+    color: var(--fg-2);
+    border-bottom: 1px solid var(--hairline-2);
+}
+
+.aside-card li:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+.aside-card li i {
+    flex: none;
+    margin-top: 4px;
+    color: var(--accent-hover);
+    font-size: 12px;
+}
+
+/* --------------------------------------------------------------------------
+   14. REVIEWS
+   -------------------------------------------------------------------------- */
+
+.reviews {
+    overflow: hidden;
+}
+
+.reviews__top {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--sp-4);
+    margin-bottom: var(--sp-6);
+}
+
+/* The score card is the single most checkable claim on the page - a rating
+   that links out to Google, so it can be verified rather than trusted. It gets
+   the accent border and a coloured bloom to say so. The bloom replaces --sh-sm
+   outright; layering both just muddied the edge. */
+.reviews__score {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 24px;
+    background: var(--surface-3);
+    border: 1px solid var(--accent-line);
+    border-radius: var(--r-lg);
+    box-shadow: var(--glow-accent);
+}
+
+/* Gold rather than the body colour, with a soft bloom so the rating reads as
+   the headline of this block. --gold-ink is used rather than --gold because the
+   raw gold only reaches 2.3:1 on white. */
+.reviews__score b {
+    font-family: var(--font-display);
+    font-size: 2.25rem;
+    line-height: 1;
+    color: var(--gold-ink);
+    text-shadow: var(--glow-gold-ink);
+}
+
+.reviews__score span {
+    font-size: var(--fs-xs);
+    color: var(--fg-3);
+    line-height: 1.5;
+}
+
+.reviews__score span em {
+    display: block;
+    font-style: normal;
+    color: var(--fg-4);
+    font-size: 11px;
+}
+
+.reviews__viewport {
+    /* Fade the edges so cards enter and leave instead of popping. */
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 56px, #000 calc(100% - 56px), transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0, #000 56px, #000 calc(100% - 56px), transparent 100%);
+}
+
+.reviews__track {
+    --rev-gap: 22px;
+    display: flex;
+    gap: var(--rev-gap);
+    width: max-content;
+    padding: 4px 0 18px;
+    animation: t-rev-slide 62s linear infinite;
+}
+
+/* Runs continuously by design - there is no pause control.
+   It only stops while the section is off screen, to save CPU.
+
+   The loop distance is one full set of cards PLUS the gap that follows it.
+   Plain -50% lands half a gap short, because the track carries one fewer
+   gap than it has cards, which makes the loop visibly stutter. Subtracting
+   half the gap makes the two halves line up exactly. */
+@keyframes t-rev-slide {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(-50% - (var(--rev-gap) / 2)));
+    }
+}
+
+.review-card {
+    flex: 0 0 380px;
+    width: 380px;
+    display: flex;
+    flex-direction: column;
+    padding: 26px;
+    background: var(--surface-3);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-lg);
+    box-shadow: var(--sh-sm);
+}
+
+.review-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--blue-100);
+    box-shadow: var(--sh-lg);
+}
+
+.review-card__head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.review-card__av {
+    width: 42px;
+    height: 42px;
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--chip);
+    color: var(--fg);
+    font-family: var(--font-display);
+    font-size: 1.0625rem;
+    font-weight: 700;
+}
+
+.review-card__who {
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--fg);
+    line-height: 1.3;
+}
+
+.review-card__when {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: var(--fs-xs);
+    color: var(--fg-4);
+}
+
+.review-card__when i {
+    color: var(--blue-500);
+    font-size: 11px;
+}
+
+.review-card .stars {
+    margin-bottom: 12px;
+}
+
+.review-card__text {
+    font-size: var(--fs-sm);
+    line-height: 1.68;
+    color: var(--fg-2);
+    margin: 0 0 12px;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.review-card.is-expanded .review-card__text {
+    display: block;
+    -webkit-line-clamp: unset;
+}
+
+.review-card__more {
+    align-self: flex-start;
+    background: none;
+    border: 0;
+    padding: 0;
+    margin-bottom: 14px;
+    font-family: inherit;
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    color: var(--link);
+    cursor: pointer;
+}
+
+.review-card__more:hover {
+    color: var(--link-hover);
+}
+
+.review-card__foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: auto;
+    padding-top: 14px;
+    border-top: 1px solid var(--hairline-2);
+}
+
+.review-card__country {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    color: var(--fg-3);
+}
+
+.review-card__country img {
+    width: 18px;
+    height: 13px;
+    border-radius: 2px;
+    object-fit: cover;
+    box-shadow: 0 0 0 1px rgba(7, 10, 16, 0.08);
+}
+
+.review-card__src {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    color: var(--fg-3);
+}
+
+.review-card__src:hover {
+    color: var(--link);
+}
+
+.review-card__src i {
+    font-size: 11px;
+}
+
+@media (max-width: 520px) {
+    .review-card {
+        flex-basis: 300px;
+        width: 300px;
+    }
+
+    .reviews__top {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   15. PRICING
+   -------------------------------------------------------------------------- */
+
+.price-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    align-items: start;
+}
+
+.price {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 32px 28px;
+    background: var(--surface-3);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-lg);
+    box-shadow: var(--sh-sm);
+}
+
+.price:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--sh-lg);
+}
+
+/* The Best Seller keeps the plain card face; it is told apart by its gold
+   badge and a copper-tinted border rather than a metal rim. Firm, not loud. */
+.price--hot {
+    border-color: var(--accent-line);
+    box-shadow: var(--sh-lg), 0 0 0 1px var(--accent-line);
+}
+
+.price__tag {
+    position: absolute;
+    top: -13px;
+    left: 28px;
+    padding: 6px 15px;
+    background: var(--orange-700);
+    color: #fff;
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-radius: var(--r-pill);
+    box-shadow: 0 6px 16px -8px rgba(7, 10, 16, 0.45);
+}
+
+.price h3 {
+    font-size: var(--fs-lg);
+    margin-bottom: 4px;
+}
+
+.price__for {
+    font-size: var(--fs-sm);
+    color: var(--fg-3);
+    margin-bottom: 20px;
+}
+
+.price ul {
+    margin-bottom: 24px;
+    display: grid;
+    gap: 10px;
+    flex: 1;
+}
+
+.price li {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    font-size: var(--fs-sm);
+    line-height: 1.5;
+    color: var(--fg-2);
+}
+
+/* A plain glyph, not a disc: the list should read as a checklist, and the
+   tick is all that is needed. Excluded rows swap to the muted cross. */
+.price li i {
+    flex: none;
+    margin-top: 3px;
+    font-size: 12px;
+    color: var(--accent-hover);
+}
+
+.price li.is-out i {
+    color: var(--fg-4);
+}
+
+/* The price and its CTA sit on one baseline under a hairline, the way a
+   quote and its signature sit together - price left, action right. */
+.price__foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding-top: 20px;
+    border-top: 1px solid var(--hairline-2);
+}
+
+.price__amt {
+    display: grid;
+    gap: 2px;
+}
+
+.price__amt b {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    line-height: 1;
+    color: var(--fg);
+}
+
+.price__amt span {
+    font-size: var(--fs-xs);
+    color: var(--fg-3);
+}
+
+.price__vat {
+    font-size: var(--fs-xs);
+    color: var(--fg-4);
+    margin-top: 14px;
+}
+
+@media (max-width: 900px) {
+    .price-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+        margin-inline: auto;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   16. FAQ
+   -------------------------------------------------------------------------- */
+
+/* The FAQ is a numbered editorial list, not a box. Each question is a row
+   with a serif index numeral in the copper accent, the question in display
+   type, and the circular control pinned to the right. Rows are divided by a
+   hairline and the answer indents beneath the question text, so the list
+   reads as one continuous, aligned column whether it sits on the homepage,
+   a country page, a requirements page or the full FAQ page. */
+.faq-list {
+    --faq-num: 2.25rem;
+    max-width: 860px;
+    counter-reset: faq-n;
+}
+
+/* Optional sub-heading inside a long FAQ, so the list can be chunked
+   into readable blocks instead of one flat 25-question run. Each block
+   restarts its own numbering, so "01" always opens a group. */
+.faq-group {
+    margin-top: var(--sp-5);
+    padding-top: var(--sp-4);
+    border-top: 2px solid var(--hairline);
+    font-family: var(--font-display);
+    font-size: var(--fs-md);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--fg);
+    counter-reset: faq-n;
+}
+
+.faq-list > .faq-item:first-of-type {
+    border-bottom: 1px solid var(--hairline);
+}
+
+.faq-item {
+    border-bottom: 1px solid var(--hairline);
+    counter-increment: faq-n;
+}
+
+.faq-q {
+    display: grid;
+    grid-template-columns: var(--faq-num) 1fr auto;
+    align-items: flex-start;
+    gap: 0 var(--sp-4);
+    width: 100%;
+    padding: 22px 0;
+    background: none;
+    border: 0;
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: -0.015em;
+    color: var(--fg);
+    text-align: left;
+    cursor: pointer;
+}
+
+/* The index numeral: serif, copper, one per question, from a counter so a
+   page adding or removing a question renumbers itself without an edit. */
+.faq-q::before {
+    content: counter(faq-n, decimal-leading-zero);
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    padding-top: 3px;
+}
+
+.faq-q:hover {
+    color: var(--link);
+}
+
+.faq-q i {
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 26px;
+    height: 26px;
+    margin-top: -3px;
+    border: 1px solid var(--hairline);
+    border-radius: 50%;
+    font-size: 11px;
+    color: var(--accent);
+    transition:
+        transform var(--dur) var(--ease),
+        border-color var(--dur) var(--ease),
+        background-color var(--dur) var(--ease);
+}
+
+.faq-q:hover i {
+    border-color: var(--accent-line);
+    background: var(--accent-wash);
+}
+
+.faq-q[aria-expanded="true"] i {
+    transform: rotate(45deg);
+    border-color: var(--accent-line);
+    background: var(--accent-wash);
+}
+
+.faq-a {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows var(--dur-slow) var(--ease-out);
+}
+
+.faq-a.is-open {
+    grid-template-rows: 1fr;
+}
+
+.faq-a > div {
+    overflow: hidden;
+    padding-left: calc(var(--faq-num) + var(--sp-4));
+}
+
+.faq-a p {
+    padding-bottom: 24px;
+    font-size: 15px;
+    line-height: 1.72;
+    color: var(--fg-2);
+    max-width: 68ch;
+}
+
+@media (max-width: 560px) {
+    .faq-list {
+        --faq-num: 1.875rem;
+    }
+
+    .faq-q {
+        gap: 0 var(--sp-2);
+        padding: 18px 0;
+    }
+
+    .faq-a > div {
+        padding-left: calc(var(--faq-num) + var(--sp-2));
+    }
+}
+
+/* --------------------------------------------------------------------------
+   17. CTA
+   -------------------------------------------------------------------------- */
+
+/* The closing conversion point, and the only place on the site that uses a
+   framed panel rather than a full-bleed band. Two decisions drive it:
+
+   1. WHY A BOX. The section underneath it is a photograph pushed to 90-95%
+      dark, so it reads as a flat dark band exactly like the footer below it -
+      nothing says "this is the thing to act on". The hairline rectangle gives
+      the pitch an object edge. It separates the section from the footer by
+      tone and frame rather than by another background colour, which is the
+      same trade the FAQ card makes for the same reason.
+
+   2. WHY A SPLIT AND NOT CENTRED. Every section on this page stacks
+      centred copy over centred buttons, so the reader has to travel down to
+      find the call to action and back up to remember what it was for. Putting
+      the pitch and the action side by side with a rule between them makes the
+      button the endpoint of the sentence rather than a separate errand. It is
+      the one section that does not do this, which is what makes it read as
+      deliberate rather than as a mistake.
+
+   The panel is always dark in both themes, so the tints below are raw white
+   alphas rather than themed tokens. --glass would be the obvious choice and
+   is wrong here: it flips to rgba(255,255,255,0.90) in the light theme, which
+   over a --navy-900 section would put white text on a white panel. The section
+   itself never flips - --navy-900 is raw palette and the heading colour is
+   hard-coded #fff - so the panel must be pinned the same way. */
+.cta {
+    position: relative;
+    isolation: isolate;
+    padding: var(--sp-9) 0;
+    background: var(--navy-900);
+    color: #fff;
+    overflow: hidden;
+}
+
+.cta__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+}
+
+.cta__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cta__bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(5, 7, 12, 0.9) 0%, rgba(5, 7, 12, 0.86) 50%, rgba(5, 7, 12, 0.95) 100%);
+}
+
+.cta__panel {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    column-gap: clamp(24px, 4vw, 56px);
+    max-width: 1040px;
+    margin-inline: auto;
+    padding: clamp(32px, 4.5vw, 60px) clamp(24px, 4vw, 56px);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: var(--r-xl);
+    text-align: left;
+}
+
+/* 52px, up from var(--fs-2xl) (38px), which was the smallest section heading
+   on the page - a closing call to action reading smaller than the sections
+   leading into it is the wrong way round. It stays under the 54px FAQ heading
+   and the 58px h1 token so it does not outrank either.
+
+   A clamp rather than a token because the column it sits in narrows with the
+   panel; a fixed 52px would run three lines on a phone. The ceiling is what
+   does the work at desktop, where the request was to make this big. */
+.cta h2 {
+    font-size: clamp(2.125rem, 1.4rem + 2.5vw, 3.25rem);
+    line-height: 1.06;
+    letter-spacing: -0.025em;
+    color: #fff;
+    margin: 0 0 14px;
+    max-width: none;
+}
+
+.cta p {
+    font-size: var(--fs-md);
+    color: rgba(255, 255, 255, 0.78);
+    max-width: 46ch;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* The action column. The rule is what turns this from "copy beside buttons"
+   into a framed panel with a marked end, and it sits on the left of the
+   buttons so the eye crosses it as it arrives at the button. */
+.cta__actions {
+    display: grid;
+    align-content: center;
+    align-self: stretch;
+    gap: 10px;
+    padding-left: clamp(20px, 3vw, 44px);
+    border-left: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+/* Both buttons step up from the site default. .btn is --fs-sm (12px) with
+   15px of padding, sized for a nav and a footer row; on the section that
+   exists to be pressed, 12px type inside a 190px pill is the smallest
+   interactive text on the page. 15px with deeper padding keeps the pair
+   reading as one column instead of two loose links. */
+.cta__actions .btn {
+    font-size: 0.9375rem;
+    padding: 20px 30px;
+    justify-content: center;
+}
+
+/* Under 860px the panel collapses to one column, and two things have to
+   change with it.
+
+   THE DIVIDER FLIPS. A border-left running the full height of the box would
+   now sit against the edge of the panel itself and read as a second border
+   rather than as a separator, so it becomes a horizontal rule above the
+   action zone instead.
+
+   THE BUTTONS BECOME A WRAPPING ROW. A full-width pill is the right shape on
+   a phone, but by 700px the panel is ~630px across and a single 630px-wide
+   button is a bar, not a button - too elongated to have an edge you would
+   want to press. flex-wrap with a 16rem basis, which is a little wider than
+   the primary button's own 243px label, lets the pair sit side by side
+   whenever they both fit at a normal shape and fall back to one per row,
+   full width, when they do not. The basis has to clear 243px rather than
+   match it: at exactly the label width the pair can share a line while each
+   is a fraction under what its own text needs, and the label breaks onto a
+   second line. One rule covers phone and tablet - below ~620px they stack and
+   stretch, above it they pair. No second breakpoint.
+
+   white-space: normal is load-bearing here, not cosmetic. .btn is nowrap, so
+   its min-content is its full label at 15px, which is wider than the panel's
+   content box on a 320-340px phone - the button would overflow its own
+   padding. With wrapping allowed the label only breaks when there is no room,
+   and at every width where it fits, nothing changes.
+
+   THE BREAKPOINT IS 860px rather than the more obvious 760px because of what
+   the copy column measures at each. The pitch column is the 1fr track, so it
+   only gets whatever the auto action column leaves behind: at 761px that is
+   339px, which runs the heading to three lines and the paragraph to three as
+   well - denser than the stacked layout at 760px directly above it, which is
+   the wrong way for a breakpoint to behave and worse for a section whose job
+   is to read quickly. At 861px the same column is ~438px and both sit at two
+   lines. iPad portrait lands at 768-810px, so this is not an edge case. */
+@media (max-width: 860px) {
+    .cta__panel {
+        grid-template-columns: 1fr;
+        row-gap: 26px;
+    }
+
+    .cta__actions {
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 0;
+        padding-top: 26px;
+        border-left: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .cta__actions .btn {
+        flex: 1 1 16rem;
+        white-space: normal;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   18. FOOTER
+   -------------------------------------------------------------------------- */
+
+.footer {
+    background: var(--surface);
+    color: var(--fg-3);
+    font-size: var(--fs-sm);
+    padding: var(--sp-8) 0 0;
+    border-top: 1px solid var(--hairline-2);
+}
+
+.footer__grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.25fr;
+    gap: 48px;
+    padding-bottom: var(--sp-7);
+}
+
+.footer__brand img {
+    height: 50px;
+    width: auto;
+    margin-bottom: 18px;
+}
+
+.footer__brand p {
+    line-height: 1.66;
+    margin-bottom: 16px;
+    max-width: 34ch;
+}
+
+.footer h2 {
+    font-family: var(--font-body);
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--fg);
+    margin-bottom: 16px;
+}
+
+.footer__links li {
+    margin-bottom: 10px;
+}
+
+.footer__links a {
+    color: var(--fg-3);
+}
+
+.footer__links a:hover {
+    color: var(--accent);
+    padding-left: 3px;
+}
+
+.footer__contact li {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    margin-bottom: 13px;
+    line-height: 1.55;
+}
+
+.footer__contact i {
+    flex: none;
+    width: 17px;
+    margin-top: 4px;
+    color: var(--accent);
+    font-size: 13px;
+}
+
+.footer__contact a {
+    color: var(--fg-2);
+    font-weight: 500;
+}
+
+.footer__contact a:hover {
+    color: var(--accent);
+}
+
+.footer__social {
+    display: flex;
+    gap: 9px;
+    margin-top: 18px;
+}
+
+.footer__social a {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 50%;
+    color: var(--fg-2);
+    font-size: 14px;
+}
+
+.footer__social a:hover {
+    background: var(--orange-500);
+    border-color: var(--orange-500);
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+.footer__bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px 24px;
+    padding: 22px 0 28px;
+    border-top: 1px solid var(--hairline-2);
+    font-size: var(--fs-xs);
+    color: var(--fg-4);
+}
+
+.footer__legal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+}
+
+.footer__legal a {
+    color: var(--fg-3);
+}
+
+.footer__legal a:hover {
+    color: var(--accent);
+}
+
+@media (max-width: 940px) {
+    .footer__grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 36px;
+    }
+}
+
+@media (max-width: 560px) {
+    .footer__grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .footer__bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /* Comfortable tap targets on phones. */
+.footer__contact a, .footer__links a, .footer__legal a {
+        display: inline-block;
+        padding: 7px 0;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   19. FLOATING WHATSAPP
+   -------------------------------------------------------------------------- */
+
+.wa-float {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 150;
+    width: 54px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #25D366;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 24px;
+    box-shadow: 0 10px 26px rgba(37, 211, 102, 0.36);
+    transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+.wa-float:hover {
+    transform: scale(1.08);
+    box-shadow: 0 14px 34px rgba(37, 211, 102, 0.44);
+}
+
+/* --------------------------------------------------------------------------
+   20. MODALS
+   -------------------------------------------------------------------------- */
+
+/* ==========================================================================
+   26. POLISH
+   --------------------------------------------------------------------------
+   Small, deliberate adjustments that make the same layout read as expensive.
+   Nothing here changes layout or adds an element - these are all paint.
+
+   The rule followed throughout: one light source, upper left. Every
+   highlight sits on the top edge of a surface and every shadow falls down
+   and to the right. That consistency is most of what the eye reads as
+   "premium" before it has read a single word.
+   ========================================================================== */
+
+/* Solid buttons get a shallow vertical gradient, lighter at the top. A flat
+   fill looks printed; a fill with a light source across it looks moulded.
+   The top stop is the lightest colour on the button and it still has to
+   clear 4.5:1 with white text, so copper-600 is the ceiling, not copper-500. */
+.btn--primary, .nav__cta {
+    background-image: linear-gradient(180deg, var(--orange-600), var(--orange-700));
+}
+
+.btn--primary:hover, .nav__cta:hover {
+    background-image: linear-gradient(180deg, var(--orange-500), var(--orange-600));
+}
+
+/* A hairline of light along the top inside edge. One pixel, and it is the
+   difference between a shape and an object. */
+.btn--primary, .btn--navy, .nav__cta {
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.16),
+        0 8px 22px rgba(140, 63, 16, 0.28);
+}
+
+.btn--navy {
+    background-image: linear-gradient(180deg, var(--blue-500), var(--blue-700));
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.14),
+        0 8px 22px rgba(17, 49, 90, 0.26);
+}
+
+/* Dark sections get one wide, very soft light source off the top-left
+   corner. At 3% over a near-black base this is invisible as a shape and
+   obvious as a lack of flatness. */
+.section--navy, .footer {
+    background-image:
+        radial-gradient(120% 90% at 12% -10%, rgba(46, 108, 176, 0.16), transparent 62%),
+        linear-gradient(180deg, var(--surface), var(--surface-2));
+}
+
+.footer {
+    background-image:
+        radial-gradient(120% 90% at 12% -10%, rgba(46, 108, 176, 0.14), transparent 62%),
+        linear-gradient(180deg, var(--surface-2), var(--surface));
+}
+
+/* The hero wash carries the same light source, so the photograph and the
+   sections below it feel lit by one thing. It is declared with .hero__bg::after
+   in section 7 rather than here - a second copy of that rule sat in this block
+   and beat the real one on source order, which is how the hero kept rendering a
+   scrim nobody was looking at. */
+
+/* Cards on light backgrounds: the border does the edge work and the shadow
+   only supplies lift. Two shadows at once on a white card is what makes a
+   page look busy rather than clean. */
+.svc, .aside-card, .flag-pill {
+    border-color: var(--hairline-2);
+}
+
+.svc, .aside-card {
+    box-shadow: 0 1px 2px rgba(7, 10, 16, 0.04);
+}
+
+.svc:hover, .aside-card:hover {
+    box-shadow: var(--sh-lg);
+}
+
+/* Section headings sit on a hairline rule rather than floating, which is
+   the single cheapest editorial signal there is. */
+.h-sec {
+    position: relative;
+}
+
+.h-sec--light {
+    color: var(--fg);
+}
+
+/* Links: underline on hover only, so a paragraph of body copy does not turn
+   into a wall of lines. */
+.prose a, .aside-card a {
+    text-decoration-color: rgba(140, 63, 16, 0.35);
+    text-underline-offset: 3px;
+}
+
+.prose a:hover, .aside-card a:hover {
+    text-decoration-color: var(--accent);
+}
+
+/* ------------------------------------------------------------------
+   DRAWER  -  the Apply panel slides in from the left
+
+   A .modal that carries .modal--drawer is a left-hand panel rather than a
+   centred box. It is always in the DOM and slid out of view with a
+   transform, rather than display:none, because a transform can be
+   transitioned and display cannot - which is what makes the motion smooth
+   instead of an instant pop.
+
+   Width is 440px, deliberately well under the competitor's 800px: at
+   800px the panel took more than half a 1440px laptop screen and crowded
+   the page, which is the same problem the hero had.
+   ------------------------------------------------------------------ */
+/* Two classes, not one, and that is deliberate. The base .modal rule sets
+   display:none and .modal.is-open sets display:flex; both are one class
+   deep, so a bare .modal--drawer would lose to whichever of those came
+   later in the file. Doubling the class beats them on specificity. */
+.modal.modal--drawer {
+    display: block;
+    padding: 0;
+    background: rgba(5, 7, 12, 0);
+    backdrop-filter: none;
+    overflow: hidden;
+    /* Keep the page behind it from scrolling, without the layout jump that
+       scrollbar removal causes. */
+    overflow-y: auto;
+    opacity: 1;
+    pointer-events: none;
+    transition: background-color 380ms var(--ease);
+}
+
+.modal.modal--drawer.is-open {
+    display: block;
+}
+
+.modal--drawer .modal__box {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: min(440px, 100%);
+    max-width: none;
+    height: 100%;
+    max-height: none;
+    margin: 0;
+    padding: 34px 34px 40px;
+    border-radius: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    animation: none;
+    transform: translate3d(-100%, 0, 0);
+    transition: transform 460ms cubic-bezier(0.22, 0.75, 0.24, 1);
+    pointer-events: auto;
+}
+
+.modal--drawer.is-open {
+    background: rgba(5, 7, 12, 0.62);
+    pointer-events: auto;
+}
+
+/* The slide itself. Off-screen is a transform rather than a left offset, so
+   the panel is painted in its final position and only compositing changes -
+   which is why the motion is smooth instead of a reflow. */
+.modal--drawer.is-open .modal__box {
+    transform: translate3d(0, 0, 0);
+}
+
+/* Sticky head so the close button stays reachable on a long form. */
+.modal--drawer .modal__head {
+    position: sticky;
+    top: -34px;
+    z-index: 2;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin: -34px -34px 22px;
+    padding: 30px 74px 18px 34px;
+    background: var(--surface-3);
+    border-bottom: 1px solid var(--hairline-2);
+}
+
+.modal--drawer .modal__head h2 {
+    padding-right: 0;
+    margin: 0;
+}
+
+.modal--drawer .modal__x {
+    position: static;
+    flex: none;
+}
+
+/* The eyebrow normally carries --sp-2 of air below it. Inside the drawer
+   head it sits directly on top of the h2, so that gap is tightened. */
+.modal--drawer .modal__head .eyebrow {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.drawer__lede {
+    font-size: var(--fs-base);
+    line-height: 1.6;
+    color: var(--fg-2);
+    margin-bottom: 26px;
+}
+
+/* Four reassuring lines under the form, so the panel earns its height. */
+.drawer__reassure {
+    display: grid;
+    gap: 10px;
+    margin: 24px 0 0;
+    padding: 20px 0 0;
+    border-top: 1px solid var(--hairline-2);
+}
+
+.drawer__reassure li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: var(--fs-sm);
+    line-height: 1.5;
+    color: var(--fg-2);
+}
+
+.drawer__reassure i {
+    flex: none;
+    width: 20px;
+    margin-top: 1px;
+    color: var(--accent-hover);
+}
+
+.drawer__reassure strong {
+    color: var(--fg);
+    font-weight: 600;
+}
+
+.drawer__reassure a {
+    color: var(--link);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.drawer__reassure a:hover {
+    color: var(--accent-hover);
+}
+
+@media (max-width: 520px) {
+    .modal--drawer .modal__box {
+        width: 100%;
+        padding: 24px 22px 32px;
+    }
+
+    .modal--drawer .modal__head {
+        top: -24px;
+        margin: -24px -22px 18px;
+        padding: 22px 64px 14px 22px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .modal--drawer .modal__box {
+        transition: none;
+    }
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 300;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(5, 7, 12, 0.62);
+    backdrop-filter: blur(4px);
+    overflow-y: auto;
+}
+
+.modal.is-open {
+    display: flex;
+}
+
+.modal__box {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    padding: 34px;
+    background: var(--surface-3);
+    border-radius: var(--r-xl);
+    box-shadow: var(--sh-xl);
+    animation: t-pop 320ms var(--ease-out);
+}
+
+@keyframes t-pop {
+    from {
+        opacity: 0;
+        transform: translateY(16px) scale(0.98);
+    }
+}
+
+.modal__box h2 {
+    font-size: var(--fs-xl);
+    padding-right: 40px;
+}
+
+.modal__x {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--chip);
+    border: 1px solid var(--hairline);
+    border-radius: 50%;
+    color: var(--fg);
+    cursor: pointer;
+}
+
+.modal__x:hover {
+    background: var(--fg);
+    color: var(--fg-invert);
+    border-color: var(--fg);
+}
+
+/* --------------------------------------------------------------------------
+   21. SUBPAGE HERO  (requirements / countries / faq)
+   -------------------------------------------------------------------------- */
+
+.page-hero {
+    position: relative;
+    isolation: isolate;
+    padding: calc(var(--nav-h) + 72px) 0 72px;
+    background: var(--surface);
+    color: var(--fg);
+    overflow: hidden;
+}
+
+.page-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+        radial-gradient(1100px 480px at 12% -10%, rgba(192, 99, 34, 0.18) 0%, rgba(192, 99, 34, 0) 62%),
+        radial-gradient(900px 420px at 92% 8%, rgba(46, 108, 176, 0.2) 0%, rgba(46, 108, 176, 0) 60%),
+        linear-gradient(165deg, var(--surface-2) 0%, var(--surface) 100%);
+}
+
+.page-hero h1 {
+    font-size: clamp(2.25rem, 4.4vw, 3.25rem);
+    color: var(--fg);
+    max-width: 18ch;
+    margin-bottom: 16px;
+}
+
+.page-hero p {
+    font-size: var(--fs-md);
+    line-height: 1.66;
+    color: var(--fg-2);
+    max-width: 58ch;
+}
+
+.crumbs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
+    font-size: var(--fs-xs);
+    color: var(--fg-4);
+}
+
+.crumbs a {
+    color: var(--fg-3);
+}
+
+.crumbs a:hover {
+    color: var(--accent);
+}
+
+.crumbs i {
+    font-size: 9px;
+    opacity: 0.6;
+}
+
+/* --------------------------------------------------------------------------
+   22. MISC
+   -------------------------------------------------------------------------- */
+
+.t-center {
+    text-align: center;
+}
+
+.mt-0 { margin-top: 0; }
+.mb-0 { margin-bottom: 0; }
+.mt-4 { margin-top: var(--sp-4); }
+.mt-5 { margin-top: var(--sp-5); }
+.mt-6 { margin-top: var(--sp-6); }
+.mt-7 { margin-top: var(--sp-7); }
+.mb-4 { margin-bottom: var(--sp-4); }
+.mb-5 { margin-bottom: var(--sp-5); }
+.mb-6 { margin-bottom: var(--sp-6); }
+
+.hr {
+    height: 1px;
+    background: var(--hairline);
+    border: 0;
+    margin: var(--sp-7) 0;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* --------------------------------------------------------------------------
+   23. FORM CONFIRMATION (thank-you.html)
+   Lives here rather than in a page-level <style> so every page still loads
+   exactly one shared stylesheet, last.
+   -------------------------------------------------------------------------- */
+
+.thanks {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: calc(var(--nav-h) + 64px) 0 96px;
+    background: var(--surface-2);
+}
+
+.thanks__card {
+    max-width: 560px;
+    margin-inline: auto;
+    padding: 56px 44px;
+    text-align: center;
+    background: var(--surface-3);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-xl);
+    box-shadow: var(--sh-lg);
+}
+
+.thanks__tick {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 84px;
+    height: 84px;
+    margin: 0 auto 26px;
+    border-radius: 50%;
+    background: var(--chip);
+    color: var(--accent-hover);
+    font-size: 2.25rem;
+}
+
+.thanks__card h1 {
+    font-size: var(--fs-xl);
+    margin-bottom: 14px;
+}
+
+.thanks__card p {
+    color: var(--fg-3);
+    margin-bottom: 10px;
+}
+
+.thanks__card .thanks__note {
+    font-size: var(--fs-sm);
+    color: var(--fg-4);
+    margin-bottom: 28px;
+}
+/* ------------------------------------------------------------------------
+   27. THEME EXCEPTIONS
+   ------------------------------------------------------------------------
+
+   The hero sits on a photograph in both themes, so its own type stays
+   white whatever the page is doing. Same for the wordmark: dark blue on a
+   dark sticky nav would simply vanish.
+   -------------------------------------------------------------------------- */
+/* The wordmark, in both the nav and the footer, is chosen by the theme and
+   nothing else - see the pair next to .nav__logo-img above. */
+.footer__logo-img--dark {
+    display: none;
+}
+
+[data-theme="light"] .nav__logo-img--dark, [data-theme="light"] .footer__logo-img--dark {
+    display: block;
+}
+
+[data-theme="light"] .nav__logo-img--blue, [data-theme="light"] .footer__logo-img--blue {
+    display: none;
+}
+
+/* Nothing above may use --accent here: these surfaces are colour, not
+   text, so they keep the raw palette. */
+
+/* ------------------------------------------------------------------------
+   ACCENT TEXT INSIDE A HEADING
+
+   This rule was written into the end of this file with a NUL byte between
+   every character, and with the quotes around three font names replaced by
+   line breaks. Nothing in it matched anything, so .orange-cursive did nothing
+   even though the destinations heading asks for it. Now that it parses, the
+   colour is var(--accent) rather than the hard-coded --orange-400:
+   #DE8340 on white is 2.4:1, which would have put unreadable text in the
+   light theme. --accent is 7.1:1 on the dark surface and 7.4:1 on the light
+   one, and is already what the comparison table uses for accent text. The
+   font stack is the body stack, upright only in weight - the site has no
+   script face loaded, so italic is the whole of the effect.
+   -------------------------------------------------------------------------- */
+.orange-cursive {
+    color: var(--accent);
+    font-style: italic;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    letter-spacing: -0.01em;
+}
+
+/* --------------------------------------------------------------------------
+   THE ZONE  -  #zone
+
+   One visa, twenty-nine countries. This section makes one claim and then proves
+   it spatially: every Schengen member is drawn, outlined and is a link to that
+   country's own anchor on countries.html.
+
+   Two decisions worth knowing before this is changed.
+
+   The map is built rather than drawn. Every country's outline is a <path> and
+   every label is a <text> already sitting in the markup at a point proven to be
+   inside the country it names, so the whole thing works with no JavaScript at
+   all. Nothing here is positioned at runtime and nothing can shift after load.
+
+   The map is the only place a country is named here. An earlier version also
+   ran a full-width list of all 29 underneath it. That was a second index of the
+   same 29 things and it made the section longer than the argument it supports,
+   so it went. Reachability does not rest on it: all 29 are <a href> elements
+   inside the SVG, so they sit in the tab order and in the accessibility tree,
+   each with an aria-label, and the two members too small to be a shape at this
+   scale - Liechtenstein and Malta - are drawn as pins with a hit disc. The
+   plain-text index of every member lives on countries.html, which the ghost
+   button under the copy links to.
+   -------------------------------------------------------------------------- */
+.zone__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 460px);
+    gap: var(--sp-8);
+    align-items: start;
+}
+
+/* Two paragraphs of setup need a small gap, not the 0.5em the heading leaves. */
+.zone__copy .lead + .lead {
+    margin-top: 14px;
+}
+
+.zone__notes {
+    display: grid;
+    gap: 20px;
+    margin: var(--sp-6) 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* An accent rule rather than a bullet, matching the spine on the winning column
+   of the comparison table above. It marks the three points as a set without
+   spending colour on all of them at once. */
+.zone__notes li {
+    border-left: 2px solid var(--accent-line);
+    padding-left: 16px;
+}
+
+.zone__notes h3 {
+    font-size: var(--fs-base);
+    font-weight: 700;
+    line-height: 1.35;
+    margin-bottom: 5px;
+}
+
+.zone__notes p {
+    font-size: var(--fs-xs);
+    line-height: 1.66;
+    color: var(--fg-2);
+    margin: 0;
+}
+
+/* .btn-row carries no margin of its own; elsewhere it always sits flush under
+   something that provides one. */
+.zone__copy .btn-row {
+    margin-top: var(--sp-6);
+}
+
+/* --------------------------------------------------------------------------
+   The map
+   -------------------------------------------------------------------------- */
+.zone__map {
+    margin: 0;
+    padding: 22px 20px 20px;
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-lg);
+    background: var(--surface-3);
+    box-shadow: var(--sh-md);
+}
+
+/* The caption is a header for the drawing, not a sentence floating above it:
+   what the shape is on the left, how many members it holds on the right, and a
+   hairline between it and the map so the two never read as one object. */
+.zone__map__cap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--hairline);
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--fg-3);
+}
+
+.zone__map__cap-t {
+    color: var(--fg);
+}
+
+/* The count is the claim the whole section is making, so it is the one word in
+   the caption allowed to carry colour - and it is the same gold the country
+   names glow in, so the caption and the map are arguing the same thing. */
+.zone__map__cap-n {
+    margin-left: auto;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--gold-ink);
+}
+
+/* The one spot of unearned motion in the section: a soft ring on a dot that
+   says "live" before anyone has touched anything. */
+.zone__map__live {
+    flex: none;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-wash);
+}
+
+.emap__svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    /* Malta's pin sits 8 units below the southernmost coastline and its label
+       hangs below that. Clipped, the label would simply be missing. */
+    overflow: visible;
+}
+
+/* Land outside the Schengen area. It is drawn so Europe has a shape and so a
+   viewer can tell "not in the zone" from "small"; none of it is a link. */
+.emap__out path {
+    fill: var(--surface-2);
+    stroke: var(--hairline);
+    stroke-width: 0.8;
+    stroke-linejoin: round;
+}
+
+.emap__land {
+    fill: var(--accent-wash);
+    stroke: var(--accent-line);
+    stroke-width: 0.8;
+    stroke-linejoin: round;
+    transition: fill var(--dur) var(--ease), stroke var(--dur) var(--ease);
+}
+
+.emap__c {
+    cursor: pointer;
+}
+
+.emap__c:hover .emap__land,
+.emap__c:focus-visible .emap__land {
+    fill: var(--accent-wash-hi);
+    stroke: var(--accent);
+}
+
+/* The invisible part that makes a small country pointable.
+
+   The band width is set per country in the markup, because how much one needs
+   depends on how big it is drawn. pointer-events:stroke is what makes the band
+   hittable at all - a transparent stroke is still painted, so the band works
+   without the fill being disturbed and the visible shape is untouched. */
+.emap__hit {
+    fill: none;
+    stroke: transparent;
+    pointer-events: stroke;
+}
+
+/* A pin has no outline to widen: a <circle> carrying fill:none has no
+   reachable interior at all, so its target is the filled disc instead. Without
+   this the two smallest countries on the map would be uncatchable. */
+.emap__c--pin .emap__hit {
+    fill: transparent;
+    stroke: none;
+    pointer-events: fill;
+}
+
+.emap__pin {
+    fill: var(--accent);
+    stroke: var(--surface-3);
+    stroke-width: 1.3;
+    transition: fill var(--dur) var(--ease);
+}
+
+.emap__c--pin:hover .emap__pin,
+.emap__c--pin:focus-visible .emap__pin {
+    fill: var(--gold-ink);
+}
+
+/* The country name. Hidden until the country is hovered or focused, which is
+   the whole point of the section: the map is one shape until you point at it.
+
+   The stroke is a halo in the card's own colour rather than a shadow, so the
+   name stays legible where it crosses a coastline or a border. It has to be
+   pointer-events:none, or a name that grows past its own country would steal
+   the hover from whoever is underneath it. */
+.emap__label {
+    fill: var(--fg);
+    font-family: var(--font-body);
+    font-size: 8px;
+    font-weight: 700;
+    paint-order: stroke fill;
+    stroke: var(--surface-3);
+    stroke-width: 2.6px;
+    stroke-linejoin: round;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--dur) var(--ease), fill var(--dur) var(--ease),
+        filter var(--dur) var(--ease);
+}
+
+/* Names over ten characters - Czech Republic, Liechtenstein, Netherlands -
+   get a size that fits rather than one that swamps the country under them. */
+.emap__label--sm {
+    font-size: 6.4px;
+}
+
+.emap__c:hover .emap__label,
+.emap__c:focus-visible .emap__label {
+    opacity: 1;
+    fill: var(--gold-ink);
+    filter: drop-shadow(0 0 4px var(--emap-glow));
+}
+
+/* 29 focus stops is a lot, so the ring is drawn tight to the country it
+   belongs to and the name comes with it. Anything less and a keyboard user
+   would not know which one they had landed on. */
+.emap__c:focus-visible {
+    outline: 1.5px solid var(--accent);
+    outline-offset: 1px;
+}
+
+/* The hint under the map. One clause on what a hover does, one on what a click
+   gets you; it is not a second caption and does not restate the heading. */
+.zone__map__note {
+    margin: 12px 0 0;
+    font-size: var(--fs-xs);
+    line-height: 1.6;
+    color: var(--fg-3);
+    max-width: 52ch;
+}
+
+/* --------------------------------------------------------------------------
+   Narrower: the map comes first, because on a phone the map is the reason for
+   the section and the argument underneath it is the part that can wait.
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+    .zone__grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: var(--sp-7);
+    }
+
+    /* The map gets a cap of its own rather than the full column, or a 430px
+       tall drawing pushes the argument a full screen away. */
+    .zone__side {
+        max-width: 460px;
+    }
+}
+
+@media (max-width: 760px) {
+    .zone__copy {
+        order: 2;
+    }
+
+    .zone__side {
+        order: 1;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   FAQ on the homepage and country pages  -  #faq.faq-home
+
+   Scoped to .faq-home rather than restyling .faq-list itself, because faq.html
+   shares every one of those classes and wants the opposite: 25 questions run
+   down a page as one long list. Here there are only five to seven, so the
+   section keeps a centred, slightly larger heading and a centred call to
+   action. The list itself is the base question list - no card, no box - and
+   rows are led by the same serif numerals, so the FAQ reads as one design
+   across every page of the site.
+   -------------------------------------------------------------------------- */
+.faq-home .eyebrow {
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+}
+
+.faq-home .sec-head {
+    max-width: 720px;
+    margin-inline: auto;
+    text-align: center;
+    margin-bottom: var(--sp-6);
+}
+
+.faq-home .sec-head .lead {
+    /* Narrower than the heading it sits under. "Questions we are asked most"
+       already sits at the section's full width, so the lead running the same
+       measure would put two long lines edge to edge and stop the heading
+       reading as the larger thing. */
+    max-width: 560px;
+    margin-inline: auto;
+}
+
+.faq-home .h-sec {
+    font-size: 3.375rem;
+    text-wrap: balance;
+}
+
+.faq-home .faq-list {
+    max-width: 860px;
+    margin-inline: auto;
+}
+
+.faq-home .faq-item:last-child {
+    border-bottom: 0;
+}
+
+.faq-home .btn-row {
+    justify-content: center;
+    margin-top: var(--sp-6);
+}
+
+@media (max-width: 620px) {
+    .faq-home .h-sec {
+        font-size: 3rem;
+    }
+
+    .faq-home .sec-head .lead {
+        max-width: none;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   29. COUNTRY PAGES  (france.html)
+   -------------------------------------------------------------------------- */
+
+/* The hero on a country landing page is the homepage hero with one photograph
+   instead of three. The markup reuses .hero / .hero__bg / .hero__grid /
+   .hero__copy wholesale, so the frame is the same rounded card (inset from
+   the sides, border-radius, surface gutter around it), the same sharp
+   photograph at full opacity, and the same lightened scrim behind the copy.
+   The country page is deliberately the homepage pattern, one country at a
+   time.
+
+   The one divergence is alignment. The homepage holds its block centred and
+   keeps its words left-aligned; a country hero centres every line - crumbs,
+   eyebrow, headline and paragraph share one centreline, which is the layout
+   these pages ask for.
+
+   Still permanently dark like .hero: the photograph stays a photograph in
+   both themes, so nothing here follows the light-theme tokens. Text uses raw
+   white alphas and the one accent is the raw copper, exactly as the homepage
+   hero does. */
+.country-hero .hero__copy {
+    text-align: center;
+}
+
+.country-hero .hero__copy .eyebrow,
+.country-hero .hero__copy .hero__title,
+.country-hero .hero__copy .hero__sub {
+    display: block;
+    text-align: center;
+    margin-inline: auto;
+}
+
+/* The eyebrow sits in a rounded pill with a soft glow, so it reads as a
+   badge pinned to the top of the card rather than a line of type. The
+   pill is inline-block so it hugs the text; the glow is a tight copper
+   shadow tuned to the hero's dark backdrop, and the type steps down one
+   notch so the badge does not outshout the headline in the pill. */
+.country-hero .hero__copy .country-hero__eyebrow {
+    display: inline-block;
+    font-size: 0.6875rem;
+    letter-spacing: 0.15em;
+    padding: 5px 14px;
+    border-radius: 999px;
+    background: rgba(5, 7, 12, 0.4);
+    box-shadow:
+        0 0 0 1px rgba(211, 148, 76, 0.3),
+        0 0 12px rgba(211, 148, 76, 0.22);
+    margin-bottom: var(--sp-3);
+}
+
+/* The headline is the loudest element on a country page, so it runs bigger
+   than the homepage's: a step up from the 34-46px home clamp to 40-56px
+   here, with the line tightened hard so the larger serif still reads as a
+   single confident line.
+
+   The ceiling is not a design preference, it is a measure. The copy block
+   is 600px wide and the two forced lines of the headline are what they are:
+   at 56px Playfair "Your France visa, with" measures ~572px and "the whole
+   file handled." ~581px, the last ~19px short of the measure. A higher
+   ceiling wraps a forced line past the 600px block and the headline spills
+   into a ragged third line on laptop viewports - measured against the real
+   font, 4.75rem costs 776px/788px and wraps at any viewport over ~950px.
+   Do not raise this clamp without re-measuring both lines against the real
+   font and the 600px block.
+
+   The eight-layer outline and the copper em are inherited from .hero__title,
+   so legibility on the photograph is untouched. */
+.country-hero .hero__title {
+    font-size: clamp(2.5rem, 1.75rem + 2.05vw, 3.5rem);
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    max-width: none;
+}
+
+.country-hero .btn-row .btn--primary {
+    padding: 17px 48px;
+    font-size: var(--fs-md);
+}
+
+/* The crumbs are the first line of the copy on the card. They take raw white
+   alphas like everything else on the photograph and share the copy block's
+   centreline. */
+.country-hero .crumbs {
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.55);
+    margin-bottom: 24px;
+}
+
+.country-hero .crumbs a {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.country-hero .crumbs a:hover {
+    color: #fff;
+}
+
+/* One photograph, held. The carousel's slow drift is paired with the
+   rotation, so with a single frame the drift is turned off and the photo
+   simply sits there. It is also softened: a blur to take the edge off the
+   detail and a lowered opacity so the page colour behind the card shows
+   through and the hero reads as a tinted pane rather than a sharp photo.
+   Legibility is untouched - the headline carries its eight-layer outline
+   and the scrim still darkens the middle of the frame behind the copy. */
+.country-hero .hero__bg img.is-active {
+    animation: none;
+    filter: blur(8px);
+    opacity: 0.72;
+}
+
+/* The country-page hero is deliberately brighter than the homepage's: the
+   blurred, faded photograph asks for a lighter darkening layer, so the pool
+   and the vertical bands step down from the homepage values (the homepage
+   keeps its original, darker scrim). Text on top still reads - the headline
+   carries the eight-layer outline and the pool core stays dark enough behind
+   the eyebrow. */
+.country-hero .hero__bg::after {
+    background:
+        radial-gradient(90% 70% at 18% 6%, rgba(46, 108, 176, 0.2), transparent 60%),
+        radial-gradient(78% 66% at 50% 46%, rgba(5, 7, 12, 0.38) 0%, rgba(5, 7, 12, 0.18) 54%, rgba(10, 14, 23, 0.02) 100%),
+        linear-gradient(180deg, rgba(5, 7, 12, 0.3) 0%, rgba(5, 7, 12, 0.14) 32%, rgba(5, 7, 12, 0.22) 68%, rgba(5, 7, 12, 0.4) 100%);
+}
+
+.country-hero .btn-row {
+    justify-content: center;
+    margin-top: 28px;
+}
+
+/* The three quick facts under the CTA. They are the country page's own
+   punctuation: one measure (how long it takes), one boundary (how long the
+   visa lasts) and one promise (how often it works), each with its proof
+   line. Three up on the copy block's centreline, sharing the hero's raw
+   white alphas. The grid does the centring, so the copy block's grid
+   fallback (1fr) is enough; the columns size themselves and the text in
+   them is centred. */
+.country-hero__stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-5);
+    margin-top: 30px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    text-align: center;
+}
+
+.country-hero__stat {
+    display: grid;
+    gap: 4px;
+}
+
+.country-hero__stat-label {
+    font-size: var(--fs-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.country-hero__stat b {
+    font-weight: 700;
+    font-size: clamp(1.25rem, 1.05rem + 0.8vw, 1.6rem);
+    line-height: 1.15;
+    color: #fff;
+}
+
+.country-hero__stat-detail {
+    font-size: var(--fs-xs);
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.62);
+}
+
+/* Three columns need more room than a phone has for the proof lines, so
+   below 560px the three stack on the centreline and read top to bottom. */
+@media (max-width: 560px) {
+    .country-hero__stats {
+        grid-template-columns: 1fr;
+        gap: var(--sp-4);
+    }
+}
+
+/* The facts keep the homepage hero's punctuation and white alphas, and follow
+   the copy block's centreline like the buttons above them. */
+.country-hero .hero__facts {
+    justify-content: center;
+}
+
+/* The one line of earned proof in the hero: a gold 5.0 and the link straight
+   to the Google reviews, matching the drawer's own reassurance line. It shares
+   the copy block's centreline too. */
+.country-hero__rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    margin-top: 22px;
+    font-size: var(--fs-sm);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.country-hero__rating a {
+    color: rgba(255, 255, 255, 0.92);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.country-hero__rating a:hover {
+    color: #fff;
+    border-bottom-color: var(--orange-400);
+}
+
+/* The price cards get three companion rules: a gold tag for the best-seller,
+   a dark tag for the urgent tier, and a muted cross for the "not included"
+   rows on the slot-booking card. Colour is spent only where it carries a
+   meaning, which is the same discipline the comparison table uses. */
+.price li.is-out i {
+    color: var(--fg-4);
+}
+
+.price li.is-out {
+    color: var(--fg-3);
+}
+
+.price__tag--gold {
+    background: var(--gold-ink);
+    color: var(--navy-900);
+}
+
+.price__tag--prem {
+    background: var(--navy-900);
+    color: var(--gold-ink);
+}
+
+/* On the country pages the France group in the map is not a link - it is the
+   country you are on. Lit like a hover, plus a ring that says so without the
+   visitor pointing at anything. */
+.emap__c.is-current {
+    cursor: default;
+}
+
+.emap__c.is-current .emap__land {
+    fill: var(--accent-wash-hi);
+    stroke: var(--accent);
+    stroke-width: 1.2;
+    filter: drop-shadow(0 0 5px var(--emap-glow));
+}
+
+.emap__c.is-current .emap__label {
+    opacity: 1;
+    fill: var(--gold-ink);
+    filter: drop-shadow(0 0 4px var(--emap-glow));
+}
+
+.emap__c.is-current:hover .emap__land {
+    fill: var(--accent-wash-hi);
+    stroke: var(--accent);
+}
+
+/* The pulse is the one spot of earned motion in the section: it repeats a
+   "you are here" hint in the same gold the captions use. transform-box keeps
+   the scale around the circle's own centre rather than the SVG origin. */
+.emap__pulse {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 1.6;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: emap-pulse 2.8s ease-out infinite;
+    pointer-events: none;
+}
+
+@keyframes emap-pulse {
+    0%   { transform: scale(0.5); opacity: 0.9; }
+    70%  { transform: scale(2.4); opacity: 0; }
+    100% { transform: scale(2.4); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .emap__pulse {
+        animation: none;
+        opacity: 0.6;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   29.4  FRANCE PROCESS  (france.html)
+
+   The homepage tells "how it works" as a numbered rail. France gets a
+   different telling: a dossier of five stamped steps in a staggered bento
+   grid, each card led by a big outlined numeral and finished by a one-line
+   fact pinned to its base. Same order, different voice.
+
+   The grid is 12 columns so the five cards can be asymmetrical - a wide lead
+   card, a wide second, then three equal cards - without ever guessing at
+   widths. Row one reads 01 next to 02, row two runs 03, 04, 05.
+   ------------------------------------------------------------------------ */
+
+.route {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+}
+
+.route__step {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 30px 28px 24px;
+    background: var(--surface-3);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-lg);
+    box-shadow: var(--sh-sm);
+    transition:
+        transform var(--dur) var(--ease),
+        box-shadow var(--dur) var(--ease),
+        border-color var(--dur) var(--ease);
+}
+
+/* The first card is where a reader starts, so it carries the copper wash the
+   rest of the section reserves for "you are here". */
+.route__step--1 {
+    border-color: var(--accent-line);
+    background: linear-gradient(170deg, var(--accent-wash-hi), var(--surface-3) 62%);
+    box-shadow: var(--sh-md);
+}
+
+.route__step--1 { grid-column: span 5; }
+.route__step--2 { grid-column: span 7; }
+.route__step--3 { grid-column: span 4; }
+.route__step--4 { grid-column: span 4; }
+.route__step--5 { grid-column: span 4; }
+
+/* The numeral is outlined in copper, not filled: it is a stamp on the
+   dossier, and the fill appears when the card is hovered. @supports guards
+   the transparent fill so old engines fall back to a solid copper figure
+   instead of an invisible one. */
+.route__num {
+    margin-bottom: 16px;
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    color: var(--accent);
+    -webkit-text-stroke: 1.4px var(--accent-line);
+    transition:
+        color var(--dur) var(--ease),
+        -webkit-text-stroke-color var(--dur) var(--ease);
+}
+
+@supports (-webkit-text-stroke: 1px black) {
+    .route__num {
+        color: transparent;
+    }
+}
+
+.route__step:hover .route__num {
+    color: var(--accent);
+    -webkit-text-stroke-color: transparent;
+}
+
+.route__eyebrow {
+    margin: 0 0 10px;
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.route__title {
+    margin: 0 0 10px;
+    font-family: var(--font-display);
+    font-size: var(--fs-lg);
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: var(--fg);
+}
+
+.route__text {
+    flex: 1;
+    margin: 0;
+    max-width: 48ch;
+    font-size: var(--fs-base);
+    line-height: 1.62;
+    color: var(--fg-2);
+}
+
+.route__chip {
+    margin-top: 22px;
+    padding-top: 16px;
+    border-top: 1px solid var(--hairline-2);
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: var(--fg-3);
+}
+
+.route__step:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-line);
+    box-shadow: var(--sh-lg), 0 0 0 1px var(--accent-line);
+}
+
+/* Two columns below this: the lead card goes full width so row one reads as
+   01 over its two companions instead of three cards squeezed side by side. */
+@media (max-width: 980px) {
+    .route {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+
+    /* Every span resets here: the 12-column maths no longer applies and a
+       leftover "span 4" would silently create phantom implicit columns. */
+    .route__step--1,
+    .route__step--2,
+    .route__step--3,
+    .route__step--4,
+    .route__step--5 {
+        grid-column: auto;
+    }
+
+    .route__step--1 {
+        grid-column: 1 / -1;
+    }
+
+    .route__num {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .route {
+        grid-template-columns: 1fr;
+    }
+
+    .route__step--1,
+    .route__step--2,
+    .route__step--3,
+    .route__step--4,
+    .route__step--5 {
+        grid-column: auto;
+    }
+
+    .route__step {
+        padding: 26px 22px 20px;
+    }
+
+    .route__num {
+        font-size: 2.6rem;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   29.5  WHY / COMPARISON  (france.html)
+
+   The "why work with us" block is a comparison table inside a card, built on
+   real <td>/<th> semantics and three named classes: .wcmp__o (the partners'
+   row - muted), .wcmp__us (the Travelade row - gold tick, gold head) and the
+   feature cell. The gold accents use --gold-ink, the same token the site's
+   stars and emap captions use, so the winning column shares the brand colour
+   rather than inventing a new one.
+   ------------------------------------------------------------------------ */
+
+.wcmp-card {
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    background: var(--surface-3);
+    box-shadow: var(--sh-md);
+}
+
+.wcmp {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.wcmp th,
+.wcmp td {
+    padding: 15px 22px;
+    font-size: 11px;
+    line-height: 1.55;
+    text-align: left;
+    vertical-align: top;
+}
+
+.wcmp thead th {
+    padding: 14px 22px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--fg-3);
+    background: var(--surface-2);
+    border-bottom: 1px solid var(--hairline-2);
+    white-space: nowrap;
+}
+
+.wcmp thead th:first-child {
+    width: 28%;
+}
+
+.wcmp thead th.wcmp__head--us {
+    color: var(--gold-ink);
+}
+
+.wcmp tbody th,
+.wcmp tbody td {
+    border-bottom: 1px solid var(--hairline-2);
+}
+
+.wcmp tbody tr:last-child th,
+.wcmp tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.wcmp tbody th {
+    font-weight: 700;
+    color: var(--fg);
+    background: var(--chip);
+    border-right: 1px solid var(--hairline-2);
+}
+
+.wcmp td.wcmp__o {
+    color: var(--fg-3);
+    border-right: 1px solid var(--hairline-2);
+}
+
+/* The winning column is the only one with any colour: --gold-ink text for the
+   tick, a plain ink body, and a faint gold wash so the column reads as one
+   block from the header down rather than as a set of separate cells. The wash
+   contracts in the light theme with the rest of the ramp. */
+.wcmp td.wcmp__us {
+    color: var(--fg);
+    background: linear-gradient(90deg, var(--gold-wash), transparent 70%);
+}
+
+.wcmp__tick {
+    display: inline-block;
+    margin-right: 7px;
+    font-weight: 700;
+    color: var(--gold-ink);
+}
+
+/* The homepage's own .cmp block keeps its grid layout; the country page now
+   uses the table above, so the old media query does not need to change. The
+   table itself stacks on small screens: the header row goes away and each
+   row becomes its own card with the feature as a bold label. */
+@media (max-width: 860px) {
+    .wcmp-card {
+        overflow: visible;
+        border: 0;
+        border-radius: 0;
+        background: none;
+        box-shadow: none;
+    }
+
+    .wcmp,
+    .wcmp tbody,
+    .wcmp tr,
+    .wcmp th,
+    .wcmp td {
+        display: block;
+        width: 100%;
+    }
+
+    .wcmp thead {
+        display: none;
+    }
+
+    .wcmp tbody tr {
+        border: 1px solid var(--hairline);
+        border-radius: var(--r-md);
+        margin-bottom: 14px;
+        background: var(--surface-3);
+        box-shadow: var(--sh-sm);
+        padding: 0;
+    }
+
+    .wcmp tbody tr:last-child {
+        margin-bottom: 0;
+    }
+
+    .wcmp tbody th,
+    .wcmp tbody td {
+        border: 0;
+        padding: 14px 18px;
+    }
+
+    .wcmp tbody th {
+        border-bottom: 1px solid var(--hairline-2);
+        background: var(--surface-2);
+    }
+
+    .wcmp td.wcmp__o {
+        border-right: 0;
+        border-bottom: 1px solid var(--hairline-2);
+    }
+
+    .wcmp td.wcmp__us {
+        background: var(--gold-wash);
+    }
+}
+
+/* The gold serif catch in the "why" headline. The heading already inherits
+   the display face, so only the colour is stamped here; it is the same
+   --gold-ink the table's winning column uses, which ties the promise at the
+   top of the section to the evidence beneath it. */
+.why-gold {
+    color: var(--gold-ink);
+}
+
+/* --------------------------------------------------------------------------
+   29.6  COUNTRY-PAGE RHYTHM  (france.html)
+
+   The shared .section rule sets padding to --sp-9 on the homepage so each
+   full page of the site breathes on its own. A country page is a single
+   page, not a gallery, so its sections step down to --sp-8 and its section
+   heads pull in from --sp-7 to --sp-6 - the generous gaps read as leftover
+   space (the page "roughly built") rather than as a deliberate rhythm. The
+   FAQ and process sections are .section variants and inherit the tighter
+   step automatically.
+   ------------------------------------------------------------------------ */
+.country-page .section {
+    padding: var(--sp-8) 0;
+}
+
+.country-page .sec-head {
+    margin-bottom: var(--sp-6);
+}
+
+.country-page .section--cream .faq-home .sec-head {
+    margin-bottom: var(--sp-6);
+}
+
+@media (max-width: 860px) {
+    .country-page .section {
+        padding: var(--sp-7) 0;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   32. COOKIE CONSENT
+
+   A single centred card over a soft scrim, shown once per device the first
+   time someone arrives. theme.js opens it a beat after load only when no
+   choice is stored in localStorage yet, and the card is display:none until
+   then, so it never flashes on repeat visits. It sits above every other
+   layer (nav 210, modals 300) because it is the one thing that must be
+   answered - except the settings popup opened from the card's own footer
+   link, which sits one layer above the card itself. The site sets no
+   advertising or tracking cookies - the copy says exactly that, and
+   "Essential only" records the preference so the card does not come back
+   on every visit.
+   -------------------------------------------------------------------------- */
+
+.ck-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 380;
+    background: rgba(4, 6, 11, 0.62);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    display: none;
+}
+
+.ck-overlay.is-shown {
+    display: block;
+    animation: ck-fade 200ms var(--ease);
+}
+
+.ck-card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 390;
+    /* % rather than vw: vw counts the classic scrollbar, so 100vw - 24 put
+       the card 4px from the edge instead of 12 on any window with a
+       scrollbar. % resolves against the actual viewport box. */
+    width: min(430px, calc(100% - 32px));
+    display: none;
+    padding: var(--sp-4) var(--sp-4) var(--sp-3);
+    background: var(--surface-3);
+    border: 1px solid var(--hairline);
+    border-radius: 18px;
+    box-shadow:
+        0 40px 90px rgba(0, 0, 0, 0.55),
+        0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.ck-card.is-shown {
+    display: block;
+    animation: ck-pop 300ms var(--ease);
+}
+
+@keyframes ck-pop {
+    from { opacity: 0; transform: translate(-50%, calc(-50% + 14px)); }
+    to   { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+@keyframes ck-fade {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.ck-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: var(--sp-2);
+}
+
+.ck-badge {
+    flex-shrink: 0;
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 13px;
+    background: var(--accent-wash);
+    border: 1px solid var(--accent-line);
+    color: var(--accent);
+}
+
+.ck-badge svg {
+    width: 25px;
+    height: 25px;
+}
+
+.ck-head h2 {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin: 0;
+    color: var(--fg);
+}
+
+.ck-body {
+    margin: 0 0 var(--sp-3);
+    font-size: var(--fs-sm);
+    line-height: 1.7;
+    color: var(--fg-2);
+}
+
+.ck-current {
+    display: none;
+    margin-top: 8px;
+    font-size: var(--fs-xs);
+    color: var(--fg-3);
+}
+
+.ck-actions {
+    display: flex;
+    gap: var(--sp-1);
+    margin-bottom: var(--sp-2);
+}
+
+.ck-btn {
+    flex: 1;
+    font: inherit;
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    padding: 13px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition:
+        background var(--dur) var(--ease),
+        color var(--dur) var(--ease),
+        border-color var(--dur) var(--ease),
+        transform var(--dur) var(--ease);
+}
+
+.ck-btn:active {
+    transform: translateY(1px);
+}
+
+.ck-btn-accept {
+    background: var(--accent);
+    border: 1px solid var(--accent);
+    color: var(--fg-invert);
+}
+
+.ck-btn-accept:hover {
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
+}
+
+.ck-btn-reject {
+    background: transparent;
+    border: 1px solid var(--hairline);
+    color: var(--fg-2);
+}
+
+.ck-btn-reject:hover {
+    color: var(--fg);
+    border-color: var(--fg-3);
+    background: var(--accent-wash);
+}
+
+.ck-foot {
+    margin: 0;
+    padding-top: var(--sp-2);
+    border-top: 1px solid var(--hairline-2);
+    font-size: var(--fs-xs);
+    line-height: 1.6;
+    color: var(--fg-3);
+}
+
+.ck-foot a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+/* The settings dialog is opened from the card, so it has to paint over the
+   card, its scrim and everything else: overlay 380, card 390, this 410.
+   It is an ordinary .modal apart from that - same scrim, same focus trap,
+   same Escape and data-close handling in theme.js. */
+#cookieSettingsModal {
+    z-index: 410;
+}
+
+@media (max-width: 480px) {
+    .ck-card {
+        top: auto;
+        bottom: 16px;
+        transform: translateX(-50%);
+        width: calc(100% - 24px);
+        padding: var(--sp-3) var(--sp-3) var(--sp-2);
+    }
+
+    .ck-card.is-shown {
+        animation: none;
+    }
+
+    .ck-actions {
+        flex-direction: column;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ck-card.is-shown,
+    .ck-overlay.is-shown {
+        animation: none;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   33. PHONE LAYOUT  (max-width: 640px)
+
+   Everything on a phone runs down the centreline: headings, paragraphs, lists,
+   cards, the drawer and the footer all sit on the middle of the screen and
+   stack top to bottom.
+
+   The desktop rules that deliberately keep text left (.hero__copy, .faq-q,
+   button.dest, .cta__panel, the max-width blocks below) are overridden here
+   and only here - the phone query is the single place the two layouts are
+   allowed to disagree. Two things keep their own alignment on purpose:
+
+   - Inputs and textareas stay left, because a caret that jumps to the middle
+     of a search field reads as a rendering bug rather than as a choice.
+   - Table cells (th/td) declare their own alignment in their component rules,
+     so they never inherit this and a data column stays a data column.
+
+   Every shared rule below uses enough selector (main, or the named container)
+   to beat the component declaration without needing !important, and none of
+   it applies above 640px.
+   -------------------------------------------------------------------------- */
+@media (max-width: 640px) {
+
+    /* The centreline itself. main covers every page body; the drawer, the
+       dialogs and the cookie card live outside it, so they are named. */
+    main,
+    .footer,
+    .nav__panel,
+    .modal__box,
+    .ck-card {
+        text-align: center;
+    }
+
+    /* Typing stays left. */
+    main input,
+    main select,
+    main textarea,
+    .modal__box input,
+    .modal__box select,
+    .modal__box textarea {
+        text-align: start;
+    }
+
+    /* Prose text buttons centre with the sentence around them. */
+    main .linkbtn {
+        text-align: center;
+    }
+
+    /* Blocks that carry their own max-width hang off the centreline instead
+       of the left edge. The list includes the homepage hero's copy, which is
+       deliberately left-aligned on desktop and flips only here. */
+    main .page-hero h1,
+    main .page-hero p,
+    main .lead,
+    main .sec-head,
+    main .faq-a p,
+    main .req-hero .subtitle,
+    main .hero__copy,
+    main .hero__copy .eyebrow,
+    main .hero__copy .hero__title,
+    main .hero__copy .hero__sub {
+        margin-inline: auto;
+        text-align: center;
+    }
+
+    /* FAQ: the question centres under its numeral, and the answer loses the
+       indent that only made sense while the question was left-aligned. */
+    main .faq-q {
+        text-align: center;
+    }
+
+    main .faq-a > div {
+        padding-left: 0;
+    }
+
+    /* Rows that were packed left now centre their contents. The chevron in a
+       drawer row sits after the label rather than pinned to the far edge. */
+    .crumbs,
+    .btn-row,
+    .filterbar-chips,
+    .nav__panel-body a,
+    .nav__panel-foot a,
+    .review-card__head,
+    .review-card__foot,
+    .footer__contact li,
+    .footer__social,
+    .ck-head {
+        justify-content: center;
+    }
+
+    /* Reviews: heading above score, card content down the middle. */
+    .reviews__top {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .review-card__more {
+        align-self: center;
+    }
+
+    /* Icons sit above their text rather than beside it. */
+    .svc__icon {
+        margin-inline: auto;
+    }
+
+    /* Destination cards centre their content inside the frame (the card grid
+       itself goes two-up and small in the 519px query above). */
+    main .dest {
+        text-align: center;
+    }
+
+    .dest__country,
+    .dest__foot {
+        justify-content: center;
+    }
+
+    /* The closing panel already stacks at 860px; here it stacks centred. */
+    .cta__panel {
+        text-align: center;
+    }
+
+    .cta__actions {
+        justify-content: center;
+    }
+
+    /* Price cards: the badge rides the top centre, the feature rows read as
+       a centred list rather than a left rag. */
+    .price__tag {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .price li {
+        justify-content: center;
+    }
+
+    /* Footer: an organised structure rather than one long stack. The brand
+       sits full width, the two link groups pair up side by side in a neat
+       2-up row, Contact runs full width underneath, and the copyright line
+       closes it off - each block centred, in reading order, top to bottom. */
+    .footer__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 30px 18px;
+    }
+
+    /* Brand opens the structure and contact closes it, both full width;
+       the Apply and Company groups fill the row between them. */
+    .footer__brand,
+    .footer__grid > div:last-child {
+        grid-column: 1 / -1;
+    }
+
+    .footer__brand p {
+        margin-inline: auto;
+    }
+
+    .footer__bottom {
+        flex-direction: column;
+        align-items: center;
+    }
+}

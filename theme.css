@@ -570,6 +570,7 @@ img,
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
+    justify-content: center;
 }
 
 /* Inline text link with a sliding arrow - used all over the body copy. */

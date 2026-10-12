@@ -1172,7 +1172,7 @@ img,
     .nav__burger {
         width: 48px;
         height: 48px;
-        margin-right: 6px;
+        margin-left: auto;
     }
 }
 
